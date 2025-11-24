@@ -1,0 +1,33 @@
+# --- DEPENDENCIES ---
+**/node_modules
+/frontend/node_modules
+
+# --- BUILD OUTPUTS (Will be recreated on deployment) ---
+# Assuming Vite default output (dist) or CRA default (build)
+/frontend/dist
+/frontend/build
+/frontend/out
+/frontend/coverage
+
+# --- ENVIRONMENT VARIABLES (CRITICAL SECURITY) ---
+# These contain passwords and API keys
+.env*
+*.local
+/backend/.env_backend
+/frontend/.env.local
+
+# --- OPERATING SYSTEM/IDE FILES ---
+.DS_Store
+Thumbs.db
+.vscode/
+
+# --- PHP/SERVER SPECIFIC FILES ---
+# Folders used for user-uploaded content via the Admin Panel
+/backend/admin/uploads/
+
+# PHP backup files
+*.bak
+
+# --- LOGS ---
+*.log
+npm-debug.log*

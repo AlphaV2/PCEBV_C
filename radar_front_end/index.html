@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radar Sniper | Next-Gen Security Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              primary: '#2563eb', // Blue 600 (was Indigo 700)
+              secondary: '#3b82f6', // Blue 500
+              accent: '#06b6d4', // Cyan 500
+              dark: '#0f172a', // Slate 900
+              neon: '#00ff66', // Neon Green for Hologram
+            },
+            animation: {
+              'spin-slow': 'spin 3s linear infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'float-delayed': 'float 6s ease-in-out 3s infinite',
+              'pulse-glow': 'pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'radar-sweep': 'radar-sweep 4s linear infinite',
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+              'hover-drone': 'hoverDrone 4s ease-in-out infinite',
+              'ken-burns': 'kenBurns 20s ease-out infinite alternate',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              hoverDrone: {
+                 '0%, 100%': { transform: 'translate(-50%, 0) rotate(0deg)' },
+                 '50%': { transform: 'translate(-50%, -15px) rotate(2deg)' },
+              },
+              'pulse-glow': {
+                '0%, 100%': { opacity: 1, transform: 'scale(1)' },
+                '50%': { opacity: .5, transform: 'scale(1.05)' },
+              },
+              'radar-sweep': {
+                '0%': { transform: 'rotate(0deg)' },
+                '100%': { transform: 'rotate(360deg)' },
+              },
+              fadeInUp: {
+                '0%': { opacity: 0, transform: 'translateY(20px)' },
+                '100%': { opacity: 1, transform: 'translateY(0)' },
+              },
+              kenBurns: {
+                '0%': { transform: 'scale(1)' },
+                '100%': { transform: 'scale(1.15)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom scrollbar for clean UI */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f5f9;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      
+      html {
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        /* Account for sticky navbar height (~80-100px) */
+        scroll-padding-top: 100px; 
+      }
+
+      /* Accessibility: Respect user's motion preferences */
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto !important;
+        }
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+
+      /* 3D Hologram Specific Styles */
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+      .transform-style-3d {
+        transform-style: preserve-3d;
+      }
+      .rotate-x-60 {
+        transform: rotateX(60deg);
+      }
+      .hologram-grid {
+        background-image: radial-gradient(#00ff66 1px, transparent 1px);
+        background-size: 20px 20px;
+        opacity: 0.2;
+      }
+      .neon-shadow {
+        filter: drop-shadow(0 0 5px #00ff66);
+      }
+      .beam-gradient {
+        background: conic-gradient(from 0deg, transparent 0deg, rgba(0, 255, 102, 0.05) 60deg, rgba(0, 255, 102, 0.4) 360deg);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-50 text-slate-900 antialiased overflow-x-hidden">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
