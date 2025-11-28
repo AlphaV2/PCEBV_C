@@ -1,9 +1,8 @@
-
 import { LucideIcon } from 'lucide-react';
 
 export interface ServiceSection {
   heading: string;
-  body: string[]; // Array of paragraphs or list items
+  body: string[];
   type: 'paragraph' | 'list' | 'link';
 }
 
@@ -27,12 +26,12 @@ export interface Service {
 }
 
 export interface Product {
-  id: string;
+  id: string | number;
   name: string;
   tagline: string;
   specs: string[];
   image: string;
-  type: 'drone' | 'software';
+  type: 'drone' | 'software' | 'service';
   description: string;
 }
 
@@ -62,17 +61,17 @@ export interface ProjectDetails {
 }
 
 export interface Project {
-  id: string;
+  id: string | number;
   title: string;
   category: string;
   description: string;
   metrics: string[];
   image: string;
-  fullDetails: ProjectDetails;
+  fullDetails?: ProjectDetails;
 }
 
 export interface TeamMember {
-  id: string;
+  id: string | number;
   name: string;
   role: string;
   bio: string;

@@ -1,62 +1,88 @@
 import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import Products from './components/Products';
-import Projects from './components/Projects';
-import Testimonials from './components/Testimonials';
-import About from './components/About';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import ServiceModal from './components/ServiceModal';
+import Navbar from './src/components/Navbar';
+import Hero from './src/components/Hero';
+import Services from './src/components/Services';
+// import Products from './src/components/Products'; // 🚨 REMOVED TO FIX DUPLICATION 🚨
+import Projects from './src/components/Projects';
+import Testimonials from './src/components/Testimonials';
+import About from './src/components/About';
+import Contact from './src/components/Contact';
+import Footer from './src/components/Footer';
+import ServiceModal from './src/components/ServiceModal';
+import ProductModal from './src/components/ProjectModal'; 
 import { MessageCircle, Loader2 } from 'lucide-react';
-import { SERVICES } from './constants'; // Assumed to be imported correctly
+// 🚨 FIX APPLIED HERE: Added WHATSAPP_LINK to imports 🚨
+import { SERVICES, PRODUCTS, WHATSAPP_LINK } from './constants';
+import { Service, Product } from './types';
 
 const App: React.FC = () => {
-  const [openedServiceId, setOpenedServiceId] = useState<string | null>(null);
-  const selectedService = SERVICES.find(s => s.id === openedServiceId);
+    // --- Service Modal State ---
+    const [openedServiceId, setOpenedServiceId] = useState<string | null>(null);
+    const selectedService = SERVICES.find(s => s.id === openedServiceId);
 
-  const handleOpenService = (id: string) => {
-    setOpenedServiceId(id);
-  };
+    const handleOpenService = (id: string) => {
+        setOpenedServiceId(id);
+    };
 
-  const handleCloseService = () => {
-    setOpenedServiceId(null);
-  };
+    const handleCloseService = () => {
+        setOpenedServiceId(null);
+    };
 
-  return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-primary selection:text-white scroll-smooth">
-      <Navbar onOpenService={handleOpenService} />
-      
-      <main>
-        <Hero />
-        <Services onOpenService={handleOpenService} />
-        <Products />
-        <Projects />
-        <Testimonials />
-        <About />
-        <Contact />
-      </main>
+    // --- Product Modal State ---
+    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+    
+    const handleOpenProduct = (product: Product) => {
+        setSelectedProduct(product);
+    };
+    
+    const handleCloseProduct = () => {
+        setSelectedProduct(null);
+    };
 
-      <Footer />
 
-      {/* Service Details Modal */}
-      {selectedService && (
-        <ServiceModal service={selectedService} onClose={handleCloseService} />
-      )}
+    return (
+      <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-blue-600 selection:text-white scroll-smooth">
+        
+        {/* Navbar */}
+        <Navbar 
+          onOpenService={handleOpenService} 
+          onOpenProduct={handleOpenProduct}
+        />
+        
+        <main>
+          <Hero />
+          <Services onOpenService={handleOpenService} />
+          {/* <Products /> WAS HERE - REMOVED */}
+          <Projects /> 
+          <Testimonials />
+          <About />
+          <Contact />
+        </main>
 
-      {/* Floating WhatsApp Button */}
-      <a 
-        href="https://wa.me/?text=Hi,%20I'm%20interested%20in%20Radar%20Sniper%20solutions"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.3)] hover:scale-110 transition-all duration-300 group flex items-center gap-2 overflow-hidden max-w-[60px] hover:max-w-[200px]"
-      >
-        <MessageCircle size={28} fill="white" className="text-white shrink-0" />
-        <span className="whitespace-nowrap font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 pl-1">Quick Chat</span>
-      </a>
-    </div>
-  );
+        <Footer />
+
+        {/* Service Details Modal */}
+        {selectedService && (
+          <ServiceModal service={selectedService as Service} onClose={handleCloseService} />
+        )}
+        
+        {/* Product Details Modal */}
+        {selectedProduct && (
+          <ProductModal project={selectedProduct as any} onClose={handleCloseProduct} />
+        )}
+
+        {/* Floating WhatsApp Button */}
+        <a 
+          href={WHATSAPP_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-4 right-4 z-50 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg hover:scale-105 transition-all duration-300 group flex items-center gap-1.5 overflow-hidden w-12 h-12 hover:w-auto"
+        >
+          <MessageCircle size={24} fill="white" className="text-white shrink-0" />
+          <span className="whitespace-nowrap font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 pr-1">Quick Chat</span>
+        </a>
+      </div>
+    );
 };
 
 export default App;
