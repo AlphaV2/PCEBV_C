@@ -5,9 +5,20 @@ import { Service, Product, Testimonial, StatMetric, Project, TeamMember } from '
 // 🚨 GLOBAL CONSTANTS (WHATSAPP CENTRALIZATION) 🚨
 // ===============================================
 
-export const WHATSAPP_NUMBER = "+918340952114"; 
+export const WHATSAPP_NUMBER = "+919819158929"; 
 export const WHATSAPP_MESSAGE = "Hi, I'm interested in Radar Sniper solutions.";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+// ===============================================
+// 🚨 SOCIAL MEDIA LINKS (NEW CENTRALIZED DATA) 🚨
+// ===============================================
+
+export const SOCIAL_LINKS = {
+  linkedin: "https://www.linkedin.com/in/jaykumar-vishnu-choudhary-055b8a382/", // Update with actual company link
+  twitter: "https://twitter.com/",
+  instagram: "https://www.instagram.com/radarsnipers/",
+  facebook: "https://www.facebook.com/",
+};
 
 // ===============================================
 // NAVIGATION
