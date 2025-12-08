@@ -1,23 +1,109 @@
-
 import { Shield, Zap, Database, Eye, Radio, Server, Lock, Globe, Cpu, Wifi } from 'lucide-react';
 import { Service, Product, Testimonial, StatMetric, Project, TeamMember } from './types';
 
+// ===============================================
+// 🚨 GLOBAL CONSTANTS (WHATSAPP CENTRALIZATION) 🚨
+// ===============================================
+
+export const WHATSAPP_NUMBER = "+919819158929"; 
+export const WHATSAPP_MESSAGE = "Hi, I'm interested in Radar Sniper solutions.";
+export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+// ===============================================
+// 🚨 SOCIAL MEDIA LINKS (NEW CENTRALIZED DATA) 🚨
+// ===============================================
+
+export const SOCIAL_LINKS = {
+  linkedin: "https://www.linkedin.com/in/jaykumar-vishnu-choudhary-055b8a382/", 
+  twitter: "https://twitter.com/",
+  instagram: "https://www.instagram.com/radarsnipers/",
+  facebook: "https://www.facebook.com/",
+};
+
+// ===============================================
+// NAVIGATION
+// ===============================================
+
 export const NAV_LINKS = [
-  { name: 'Home', href: '#hero' },
+  { name: 'Home', href: '#hero', hasDropdown: false },
   { name: 'Services', href: '#services', hasDropdown: true, dropdownKey: 'services' },
   { name: 'Products', href: '#products', hasDropdown: true, dropdownKey: 'products' },
-  { name: 'Projects', href: '#projects' },
+  // 🚨 NEW GALLERY LINK - Note the dropdownKey
+  { name: 'Gallery', href: '#gallery', hasDropdown: false },
   { name: 'About', href: '#about', hasDropdown: true, dropdownKey: 'about' },
   { name: 'Contact', href: '#contact', hasDropdown: true, dropdownKey: 'contact' },
 ];
 
+// ===============================================
+// 🚨 NEW NESTED GALLERY STRUCTURE 🚨
+// ===============================================
+export const GALLERY_CONTENT = {
+  // Collections for the main grid cards (internal slideshows)
+  collections: [
+    {
+      id: 'col-11l',
+      title: 'Krishi Sakha 11L',
+      tagline: 'Compact & Efficient',
+      media: [
+        { type: 'image', src: '/products/krishi_11l.jpeg', alt: '11L Drone View 1' },
+        // Add more views of the 11L drone here
+        { type: 'image', src: '/gallery/krishi_11l_2.jpeg', alt: 'View 2' },
+      ]
+    },
+    {
+      id: 'col-16l',
+      title: 'Krishi Sakha 16L',
+      tagline: 'Precision Farming',
+      media: [
+        { type: 'image', src: '/products/krishi_16l.jpeg', alt: 'Autopilot Interface' }, // Use image_7.png here
+        { type: 'image', src: '/gallery/krishi_16l_2.jpeg', alt: 'Flight Path Planning' } // Use image_11.png here
+      ]
+    },
+    {
+      id: 'NPK_SENSOR',
+      title: 'SMART AGRICULTURE SOIL MONITORING SYSTEM',
+      tagline: 'Built to Last',
+      media: [
+        { type: 'image', src: '/gallery/npk_1.jpeg', alt: 'Animated_sensor' }, // Use image_6.png
+        { type: 'image', src: '/gallery/npk_2.jpeg', alt: 'Animated_sensor' }, // Use image_6.png  
+          { type: 'image', src: '/gallery/npk_sensor_live.jpeg', alt: 'Key Features Icons' }, // Use image_6.png
+        { type: 'image', src: '/gallery/npk_dashboard.jpeg', alt: 'Internal Components' } // Use image_13.png
+      ]
+    }
+  ],
+  // Flat list for the sidebar column
+  exhibitions: [
+    { 
+      id: 101, 
+      src: '/gallery/ex1.jpeg', 
+      title: 'Tech Expo ',
+      // location: 'New Delhi' 
+    },
+    { 
+      id: 102, 
+      src: '/gallery/ex2.jpeg', 
+      title: 'Tech Expo',
+      // location: 'Pune' 
+    },
+    
+    // Add more if needed for scrolling
+    { 
+      id: 103, 
+      src: '/gallery/field_demo.jpeg', 
+      title: 'Live Field Demo',
+      // location: 'Nagpur' 
+    }
+  ]
+};
+
+
+// ... (Keep ABOUT_SECTION_CONTENT, CONTACT_SECTION_DETAILS, SERVICES, PRODUCTS, PROJECTS, TESTIMONIALS, TEAM, STATS as they are in your file)
+// Make sure to include the PRODUCTS array you provided in the previous message.
 export const ABOUT_SECTION_CONTENT = [
-  "Our mission emphasises working for a smarter and safer world, we firmly believe in trusting partners and solving our customers' and stakeholders' most critical challenges.",
-  "We strive to be a good example of corporate citizenship and undertake social responsibility.",
-  "Radar Sniper TM is a Startup Working Positively on enhanced/next generation Security solutions and innovations in the space of Cyber Security, Internet of things and AI (Artificial intelligence) powered Drones development.",
-  "Radar Sniper TM supports Information Security Consultancy Services, for various NBFC and Banks, in terms of Compliance and Audit/Implementation as per the SEBI and RBI guidelines, in a budgeted and customized manner.",
-  "Radar Sniper TM is founded by a highly experienced professional with immense and wide expertise in security domain. The founder himself is a broad visionary and has been spearheading the entire development activities pertaining with Radar Sniper TM.",
-  "The founder is responsible for Global Security Strategy, development and management of the company's technology including Enterprise Security Architecture, Security development and technology operations."
+    "Our mission emphasizes corporate citizenship and solving our customers' and stakeholders' most critical challenges by fostering trust and innovation.",
+    "Radar Sniper™ is a security-focused startup pioneering enhanced, next-generation solutions and innovations across Cyber Security, Internet of Things (IoT), and AI-powered Drones development.",
+    "We support financial institutions (NBFCs, Banks) with specialized Information Security Consultancy Services, providing budgeted and customized solutions for Compliance, Auditing, and Implementation as per SEBI and RBI guidelines.",
+    "The founder is responsible for Global Security Strategy, development and management of the company's technology including Enterprise Security Architecture, Security development and technology operations.",
 ];
 
 export const CONTACT_SECTION_DETAILS = [
@@ -47,33 +133,60 @@ export const CONTACT_SECTION_DETAILS = [
 
 export const SERVICES: Service[] = [
   {
-    id: 'drone-snipers',
-    title: 'AI-Powered Drone Defence',
-    shortTitle: 'Drone Defence',
-    description: 'Advanced aerial surveillance and counter-drone neutralization systems designed for critical infrastructure defense.',
-    icon: Radio,
-    features: ['Signal Jamming', 'Kinetic Interception', 'AI Recognition'],
+    
+    id: 'pollination-drones', // Updated ID
+    title: 'AI-Powered Pollination & Sensing', // Updated Title
+    shortTitle: 'Pollination Drones', // Updated Short Title
+    description: 'Autonomous AIML swarm drones designed to tackle cross-pollination and environmental sensing issues for Indian floriculture and agriculture.',
+    icon: Radio, // You can change this import to 'Flower' or 'Wind' if available in Lucide
+    features: ['VOC Sensing (MICS6814)', 'Swarm Intelligence', 'Precision Pollination'],
     details: {
-      intro: 'Radar Sniper TM is preparing the world for highly sophisticated drone technology with Artificial Intelligence. We design systems using renewable energy for extended flight times.',
+      intro: 'We aim to fix the labor-intensive problem of hand-done cross-pollination by using self-flying AIML drones and Swarm drones. Our drones leverage nature-inspired robotics to boost agricultural output efficiently.',
+      
       technicalSpecs: [
-        "Reaction Time: < 0.5 seconds",
-        "Detection Range: 15km+",
-        "Neutralization: Soft & Kinetic",
-        "AI Architecture: Neural Edge",
-        "Autonomy: Level 4"
+        "Sensor: MICS6814 (VOC)",
+        "Tech: Swarm Intelligence",
+        "Target: Cross-Pollination",
+        "Pattern Recog: Flower Scent",
+        "Coverage: Scalable Swarm"
       ],
-      flowDiagram: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800&h=400",
+      
+      flowDiagram: "/products/krishi_11l.jpeg", // 📸 You might want to update this image URL to a diagram of your pollination process later
+      
       sections: [
         {
-          heading: 'Defense & AI Integration',
+          heading: 'How It Works',
           type: 'paragraph',
           body: [
-            'Mostly, our technology is prepared and used for Defence Purposes. The "Mother Drone" has the increased capacity to carry "Child Drones", each of which is AI-enabled for autonomous decision making.',
-            'The drone has been calculated for optimized power consumption, ensuring flying time exceeds standard market capabilities. We are continuously innovating in aerial endurance and payload management.'
+            'Our drones are equipped with advanced VOC (Volatile Organic Compound) sensors like MICS6814 to spot flower scent patterns. This specific technology helps them identify exactly which flowers are ready for pollination.',
+            'By using "team-work" plans (Swarm Intelligence), many drones work together to cover big farm areas without doing the same job twice. This brings number-based smarts to pollination for the first time.'
+          ]
+        },
+        {
+          heading: 'Key Benefits',
+          type: 'list',
+          body: [
+            'Eliminates the high cost and scarcity of manual labor for pollination.',
+            'Increases crop yield through focused, effective pollination.',
+            'Scalable solution that works well for both small and large Indian flower and fruit farms.',
+            'Provides environmental sensing data alongside pollination services.'
+          ]
+        },
+        {
+          heading: 'Target Segments',
+          type: 'list',
+          body: [
+            'Commercial Farmers & Greenhouses',
+            'Polyhouses & Growers',
+            'Orchards and Plantation Farms',
+            'Farmer Producer Organizations (FPOs)',
+            'Agri-Tech Service Providers',
+            'Agricultural Universities & R&D Bodies',
+            'Export-Oriented Farms'
           ]
         }
       ],
-      downloadText: 'Download Technical Presentation',
+      downloadText: 'Download Research Paper',
       downloadLink: '#'
     }
   },
@@ -225,152 +338,157 @@ export const SERVICES: Service[] = [
 
 export const PRODUCTS: Product[] = [
   {
-    id: 'phantom-x1',
-    name: 'Phantom X1 Interceptor',
-    tagline: 'Autonomous Counter-UAV System',
-    specs: ['Range: 5km', 'Speed: 120km/h', 'AI Target Locking'],
-    image: 'https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&q=80&w=800&h=600',
+    id: 'krishi-sakha-11l',
+    name: 'Krishi Sakha 11L',
+    tagline: 'Precision Agriculture Rotorcraft',
     type: 'drone',
-    description: 'The Phantom X1 is our flagship interceptor drone, capable of autonomously detecting and neutralizing unauthorized UAVs in restricted airspace.'
+    image: '/products/krishi_11l.jpeg', 
+    specs: [
+      'Tank Capacity: 11 Litres', 
+      'Endurance: 18 Minutes', 
+      'Range: 2 Km', 
+      'Spray Width: 4 Mtrs',
+      'Overall Weight: 18 Kgs',
+      'Flow Rate: 1.25 Litres/min',
+      'Camera: Night Vision Capable',
+      'Class: Small Rotorcraft (RPAS)'
+    ],
+    description: 'The Krishi Sakha 11L is a specialized small-class rotorcraft (RPAS) designed for maximum efficiency in Indian farming conditions. Featuring a carbon-fiber frame for high strength and low weight, it operates with Visual Line of Sight (VLOS). It includes a high-density polymer tank and is capable of spraying up to 60 acres per day.'
   },
   {
-    id: 'aegis-shield',
-    name: 'Aegis IoT Shield',
-    tagline: 'Network Defense Node',
-    specs: ['Zero-Trust Arch', 'Real-time Analytics', 'Edge Computing'],
-    image: 'https://images.unsplash.com/photo-1558494949-ef526b004297?auto=format&fit=crop&q=80&w=800&h=600',
-    type: 'software',
-    description: 'A hardware-agnostic security layer that sits between your IoT devices and the cloud, filtering malicious traffic instantly.'
-  },
-  {
-    id: 'sky-sentry',
-    name: 'Sky Sentry Pro',
-    tagline: 'Long-Endurance Surveillance',
-    specs: ['Flight Time: 4hrs', 'Thermal Imaging', 'Encrypted Comms'],
-    image: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&q=80&w=800&h=600',
+    id: 'krishi-sakha-16l',
+    name: 'Krishi Sakha 16L',
+    tagline: 'High-Capacity Smart Drone',
     type: 'drone',
-    description: 'Designed for perimeter monitoring, the Sky Sentry Pro offers extended flight times and military-grade thermal optics for night operations.'
+    image: '/products/krishi_16l.jpeg', 
+    specs: [
+      'Tank Capacity: 16 Litres', 
+      'Flight Time: 25 Mins', 
+      'Spray Time: 5 to 7 min/acre',
+      'GPS: Dual GPS System',
+      'Connectivity: Wi-Fi Enabled',
+      'Battery: 2 Units Included',
+      'Range: 2 Km'
+    ],
+    description: 'Built for larger operations, the 16L base model offers extended flight time and greater holding capacity. With integrated Wi-Fi, you get better connectivity and access to real-time farm information. It is designed to fulfill all heavy-duty spraying needs with a robust build quality.'
   },
   {
-    id: 'cyber-wall',
-    name: 'CyberWall SOC',
-    tagline: 'AI-Powered Threat Detection',
-    specs: ['Predictive AI', 'Auto-Remediation', '24/7 Uptime'],
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800&h=600',
-    type: 'software',
-    description: 'Our proprietary SOC platform aggregates data from thousands of endpoints to predict attacks before they happen.'
-  }
+    id: 'smart-soil-monitor',
+    name: 'Smart Soil NPK Monitor',
+    tagline: 'Real-Time Soil Health & Yield Assurance',
+    type: 'hardware', 
+    image: '/products/npk_sensor.jpeg', // 📸 Ensure you have this image
+    specs: [
+      'Detects: NPK, Moisture, Temp',
+      'Response: Pre-damage Alert',
+      'Lifespan: 20-30 Years Soil Safety',
+      'Connectivity: Cloud Dashboard',
+      'Coverage: 1 Unit / Acre' // 🚨 UPDATE THIS with real coverage area
+    ],
+    description: 'Transform farming from gambling into guaranteed engineering. Unlike standard sensors that report damage after it happens, our system detects nutrient imbalances at the root stage before yield collapse. It prevents irreversible soil poisoning, ensures export-grade crop quality, and acts as insurance against total season financial loss.'
+  },
+  // {
+  //   id: 'krishi-components',
+  //   name: 'Advanced Drone Components',
+  //   tagline: 'Engineered for Performance',
+  //   type: 'hardware', 
+  //   image: '/products/krishi_features.jpg', 
+  //   specs: [
+  //     'Controller: JIYI K++ V2 (Indian Made)', 
+  //     'Battery: 44000mAh Li-Po', 
+  //     'Motor: Hobbywing X6 Plus', 
+  //     'Radar: Collision Avoidance',
+  //     'Tank: Solid Seed Spreader Compatible'
+  //   ],
+  //   description: 'Our drones are built with top-tier components: A fully Indian-made flight control system for stability, Thermal Foggers for crop protection, and a smart Lithium Polymer battery system. Features include Obstacle Avoidance radars, Terrain Following, and Autonomous Flight path planning.'
+  // },
+  
 ];
 
 export const PROJECTS: Project[] = [
-  {
-    id: 'smart-city',
-    title: 'Smart City Grid Defense',
-    category: 'IoT Security',
-    description: 'Secured the IoT infrastructure for a major metropolitan smart grid, protecting over 50,000 connected nodes.',
-    metrics: ['50k+ Nodes Secured', '0 Breaches', '99.99% Uptime'],
-    image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=800&h=600',
-    fullDetails: {
-      client: 'Metro Grid Authority',
-      location: 'Singapore',
-      duration: '18 Months',
-      challenge: 'The client faced persistent DDoS attacks on their smart metering infrastructure, causing blackouts and data discrepancies. Traditional firewalls were unable to handle the sheer volume of IoT traffic.',
-      solution: [
-        'Implemented Aegis IoT Shield nodes at key distribution centers.',
-        'Deployed a custom AI model to differentiate between normal usage spikes and malicious traffic.',
-        'Established a dedicated SOC channel for real-time grid monitoring.'
-      ],
-      impact: [
-        'Zero successful breaches in the 12 months following deployment.',
-        'Reduced false-positive alerts by 94%.',
-        'Achieved ISO 27001 certification for the entire grid network.'
-      ]
-    }
-  },
-  {
-    id: 'airport-defense',
-    title: 'Intl. Airport Perimeter',
-    category: 'Drone Defense',
-    description: 'Deployed a multi-layered drone interception system for a high-traffic international airport.',
-    metrics: ['10km Radius', 'Auto-Neutralization', '24/7 Monitoring'],
-    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=800&h=600',
-    fullDetails: {
-      client: 'Global Aviation Corp',
-      location: 'Dubai, UAE',
-      duration: '8 Months',
-      challenge: 'Unauthorized recreational drones were entering flight paths, causing expensive delays and safety hazards. Manual spotting was ineffective at night.',
-      solution: [
-        'Installed Sky Sentry Pro units for 24/7 thermal perimeter monitoring.',
-        'Integrated Phantom X1 Interceptors for autonomous neutralization of hostile UAVs.',
-        'Created a centralized command dashboard for air traffic controllers.'
-      ],
-      impact: [
-        'Eliminated flight delays caused by drone activity.',
-        'Successfully intercepted 14 unauthorized drones in the first quarter.',
-        'Enhanced passenger safety and confidence ratings.'
-      ]
-    }
-  },
-  {
-    id: 'bank-iso',
-    title: 'Global Bank Compliance',
-    category: 'ISO 27001',
-    description: 'Guided a multinational banking institution through complete ISO 27001 certification and SOC 2 implementation.',
-    metrics: ['100% Compliance', '6 Month Timeline', 'Global Standard'],
-    image: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=800&h=600',
-    fullDetails: {
-      client: 'NeoBank Financial',
-      location: 'London, UK',
-      duration: '6 Months',
-      challenge: 'The bank needed to expand into new markets but lacked the required ISO 27001 and SOC 2 certifications. Their existing legacy systems made audit trails difficult.',
-      solution: [
-        'Conducted a gap analysis of existing IT infrastructure.',
-        'Implemented automated compliance logging tools.',
-        'Trained staff on new security protocols and social engineering awareness.'
-      ],
-      impact: [
-        'Achieved ISO 27001 certification on the first audit attempt.',
-        'Opened markets in 3 new regulatory jurisdictions.',
-        'Reduced insurance premiums by 25% due to improved risk posture.'
-      ]
-    }
-  }
+  // {
+  //   id: 'smart-city',
+  //   title: 'Smart City Grid Defense',
+  //   category: 'IoT Security',
+  //   description: 'Secured the IoT infrastructure for a major metropolitan smart grid, protecting over 50,000 connected nodes.',
+  //   metrics: ['50k+ Nodes Secured', '0 Breaches', '99.99% Uptime'],
+  //   image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=800&h=600',
+  //   fullDetails: {
+  //     client: 'Metro Grid Authority',
+  //     location: 'Singapore',
+  //     duration: '18 Months',
+  //     challenge: 'The client faced persistent DDoS attacks on their smart metering infrastructure, causing blackouts and data discrepancies. Traditional firewalls were unable to handle the sheer volume of IoT traffic.',
+  //     solution: [
+  //       'Implemented Aegis IoT Shield nodes at key distribution centers.',
+  //       'Deployed a custom AI model to differentiate between normal usage spikes and malicious traffic.',
+  //       'Established a dedicated SOC channel for real-time grid monitoring.'
+  //     ],
+  //     impact: [
+  //       'Zero successful breaches in the 12 months following deployment.',
+  //       'Reduced false-positive alerts by 94%.',
+  //       'Achieved ISO 27001 certification for the entire grid network.'
+  //     ]
+  //   }
+  // },
+  // {
+  //   id: 'airport-defense',
+  //   title: 'Intl. Airport Perimeter',
+  //   category: 'Drone Defense',
+  //   description: 'Deployed a multi-layered drone interception system for a high-traffic international airport.',
+  //   metrics: ['10km Radius', 'Auto-Neutralization', '24/7 Monitoring'],
+  //   image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=800&h=600',
+  //   fullDetails: {
+  //     client: 'Global Aviation Corp',
+  //     location: 'Dubai, UAE',
+  //     duration: '8 Months',
+  //     challenge: 'Unauthorized recreational drones were entering flight paths, causing expensive delays and safety hazards. Manual spotting was ineffective at night.',
+  //     solution: [
+  //       'Installed Sky Sentry Pro units for 24/7 thermal perimeter monitoring.',
+  //       'Integrated Phantom X1 Interceptors for autonomous neutralization of hostile UAVs.',
+  //       'Created a centralized command dashboard for air traffic controllers.'
+  //     ],
+  //     impact: [
+  //       'Eliminated flight delays caused by drone activity.',
+  //       'Successfully intercepted 14 unauthorized drones in the first quarter.',
+  //       'Enhanced passenger safety and confidence ratings.'
+  //     ]
+  //   }
+  // },
+  // {
+  //   id: 'bank-iso',
+  //   title: 'Global Bank Compliance',
+  //   category: 'ISO 27001',
+  //   description: 'Guided a multinational banking institution through complete ISO 27001 certification and SOC 2 implementation.',
+  //   metrics: ['100% Compliance', '6 Month Timeline', 'Global Standard'],
+  //   image: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&q=80&w=800&h=600',
+  //   fullDetails: {
+  //     client: 'NeoBank Financial',
+  //     location: 'London, UK',
+  //     duration: '6 Months',
+  //     challenge: 'The bank needed to expand into new markets but lacked the required ISO 27001 and SOC 2 certifications. Their existing legacy systems made audit trails difficult.',
+  //     solution: [
+  //       'Conducted a gap analysis of existing IT infrastructure.',
+  //       'Implemented automated compliance logging tools.',
+  //       'Trained staff on new security protocols and social engineering awareness.'
+  //     ],
+  //     impact: [
+  //       'Achieved ISO 27001 certification on the first audit attempt.',
+  //       'Opened markets in 3 new regulatory jurisdictions.',
+  //       'Reduced insurance premiums by 25% due to improved risk posture.'
+  //     ]
+  //   }
+  // }
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    id: 't1',
-    name: 'Rajesh Gupta',
-    role: 'CTO',
-    company: 'FinTech Secure Ltd',
-    content: 'Radar Sniper transformed our SOC capabilities. Their ISO 27001 guidance was instrumental in our recent audit success.',
-    avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-  },
-  {
-    id: 't2',
-    name: 'Sarah Vanderberg',
-    role: 'Head of Security',
-    company: 'EuroPort Logistics',
-    content: 'The drone surveillance systems provided by Radar Sniper gave us complete visibility over our 50-acre facility. Absolutely cutting-edge.',
-    avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-  },
-  {
-    id: 't3',
-    name: 'Michael Chen',
-    role: 'Director of Ops',
-    company: 'SmartGrid Solutions',
-    content: 'We needed a partner who understood both hardware and software security. Radar Sniper\'s IoT team delivered beyond expectations.',
-    avatar: 'https://randomuser.me/api/portraits/men/67.jpg',
-  }
-];
+export const TESTIMONIALS: Testimonial[] = []; 
 
 export const TEAM: TeamMember[] = [
   {
     id: 'founder',
-    name: 'Arjun Mehta',
-    role: 'Founder & CEO',
-    bio: 'With over 15 years in cybersecurity and aerospace engineering, Arjun leads Radar Sniper with a mission to create a smarter, safer world through autonomous defense systems.',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400&h=400'
+    name: 'Jaykumar Vishnu Choudhary',
+    role: 'Founder & Chief Security Strategist',
+    bio: 'Vision: A leading Cyber Forensics Specialist and Technocrat with 19+ years of experience spearheading global security programs. Expert in designing Enterprise Security Architectures, pioneering new cryptography algorithms, and ensuring regulatory compliance (ISO 27001, PCI DSS, SOX).',
+    image: '/team/founder_profile.jpg',
   }
 ];
 
