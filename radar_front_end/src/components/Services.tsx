@@ -1,10 +1,11 @@
-
 import React from 'react';
 import { SERVICES } from '../../constants';
 import { ChevronRight } from 'lucide-react';
+import { Service } from '../../types';
 
 interface ServicesProps {
-  onOpenService: (id: string) => void;
+  // 🚨 CHANGED: Now expects a full Service object, not just a string ID
+  onOpenService: (service: Service) => void;
 }
 
 const Services: React.FC<ServicesProps> = ({ onOpenService }) => {
@@ -27,14 +28,14 @@ const Services: React.FC<ServicesProps> = ({ onOpenService }) => {
           </p>
         </div>
 
-        {/* Grid Updated: 4 columns on LG screens, compact spacing */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {SERVICES.map((service) => {
             const Icon = service.icon;
             return (
               <div 
                 key={service.id} 
-                onClick={() => onOpenService(service.id)}
+                // 🚨 FIX: Passing the full 'service' object here
+                onClick={() => onOpenService(service)}
                 className="group p-4 bg-slate-50 rounded-2xl border border-slate-100 hover:border-blue-200 hover:bg-white hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col h-full"
               >
                 <div className="flex items-start justify-between mb-3">
@@ -42,7 +43,7 @@ const Services: React.FC<ServicesProps> = ({ onOpenService }) => {
                     <Icon size={20} />
                   </div>
                   <span className="text-slate-300 group-hover:text-primary transition-colors">
-                     <ChevronRight size={18} />
+                      <ChevronRight size={18} />
                   </span>
                 </div>
                 

@@ -1,146 +1,93 @@
 import React from 'react';
-import { Project } from '../../types';
-import { X, MapPin, Calendar, CheckCircle, MessageCircle, ArrowRight } from 'lucide-react';
+import { Product } from '../../types';
+import { X, MessageCircle, Zap, Shield, CheckCircle, Cpu, FileText } from 'lucide-react';
+import { WHATSAPP_NUMBER } from '../../constants'; 
 
-interface ProjectModalProps {
-  project: Project;
-  onClose: () => void;
+interface ProductModalProps {
+  product: Product | null;
+  onClose: () => void;
 }
 
-const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    e.currentTarget.src = 'https://via.placeholder.com/1200x600?text=Image+Unavailable';
-  };
+const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
+  if (!product) return null;
 
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in" onClick={onClose}>
-      {/* MODIFIED: Reduced max-w-3xl for compact feel */}
-      <div className="bg-slate-900 w-full max-w-2xl max-h-[90vh] rounded-xl shadow-2xl overflow-hidden flex flex-col relative animate-scale-up border border-slate-700" onClick={e => e.stopPropagation()}>
-        
-        <button 
-          onClick={onClose}
-          className="absolute top-3 right-3 p-1.5 bg-black/40 hover:bg-black/60 text-white rounded-full transition-colors z-50 backdrop-blur-sm border border-white/10" // Reduced padding
-          aria-label="Close Modal"
-        >
-          <X size={16} /> {/* Reduced icon size */}
-        </button>
+  // Dynamic WhatsApp Link
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi, I am interested in getting a quote for the ${product.name}.`)}`;
 
-        {/* Hero Section - ⬇️ Reduced height ⬇️ */}
-        <div className="relative h-32 sm:h-36 shrink-0 overflow-hidden">
-          <img 
-            src={project.image} 
-            alt={project.title} 
-            className="w-full h-full object-cover"
-            onError={handleImageError}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
-          
-          <div className="absolute bottom-0 left-0 w-full p-4"> {/* Reduced padding */}
-            <div className="flex items-center gap-2 mb-1">
-              <span className="px-1.5 py-0.5 bg-green-500/20 text-green-300 border border-green-500/30 rounded text-[9px] font-bold uppercase tracking-wider backdrop-blur-md"> {/* Reduced padding and font size */}
-                {project.category}
-              </span>
-            </div>
-            {/* ⬇️ Reduced Title Size ⬇️ */}
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-2">{project.title}</h2>
-            
-            <div className="flex flex-wrap items-center gap-3 text-slate-400 text-xs"> {/* Reduced gap */}
-              {project.fullDetails?.location && (
-                <div className="flex items-center gap-1">
-                  <MapPin size={12} className="text-blue-500" /> {/* Reduced icon size */}
-                  {project.fullDetails.location}
-                </div>
-              )}
-              {project.fullDetails?.duration && (
-                <div className="flex items-center gap-1">
-                  <Calendar size={12} className="text-blue-500" /> {/* Reduced icon size */}
-                  {project.fullDetails.duration}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = 'https://placehold.co/800x600?text=Image+Unavailable';
+  };
 
-        {/* Content Scroll Area - ⬇️ Reduced Padding and Gap ⬇️ */}
-        <div className="flex-1 overflow-y-auto p-5 bg-slate-800 custom-scrollbar">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            {/* Left Column: Challenges & Solutions */}
-            <div className="space-y-5"> {/* Reduced space */}
-              {project.fullDetails?.challenge && (
-                <div className="bg-slate-800/50 p-4 rounded-lg border border-slate-700"> {/* Reduced padding and rounded corners */}
-                  <h3 className="text-sm font-bold text-white mb-2 flex items-center gap-2"> {/* Reduced font size and margin */}
-                    <span className="w-0.5 h-3 bg-red-500 rounded-full"></span> {/* Reduced marker size */}
-                    The Challenge
-                  </h3>
-                  <p className="text-slate-300 text-xs leading-snug"> {/* Reduced font size and leading */}
-                    {project.fullDetails.challenge}
-                  </p>
-                </div>
-              )}
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in" onClick={onClose}>
+      <div className="bg-white w-full max-w-xl max-h-[85vh] rounded-xl shadow-2xl overflow-hidden flex flex-col relative animate-scale-up" onClick={e => e.stopPropagation()}>
+        
+        {/* Header Section */}
+        <div className="relative h-48 shrink-0 bg-slate-900">
+          <img 
+            src={product.image} 
+            alt={product.name} 
+            className="w-full h-full object-cover opacity-90" 
+            onError={handleImageError} 
+          />
+          <button onClick={onClose} className="absolute top-3 right-3 p-1.5 bg-black/40 hover:bg-black/60 text-white rounded-full transition-colors z-50 backdrop-blur-sm border border-white/10">
+            <X size={18} />
+          </button>
+          
+          {/* Overlay Text */}
+          <div className="absolute bottom-0 left-0 w-full p-5 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent">
+             <div className="flex items-center gap-2 mb-1 text-blue-400 text-[10px] font-bold uppercase tracking-wider">
+                {product.type === 'drone' ? <Zap size={12} /> : <Shield size={12} />}
+                {product.type === 'drone' ? 'Aerial System' : 'Hardware'}
+             </div>
+             <h2 className="text-2xl font-bold text-white">{product.name}</h2>
+             <p className="text-slate-300 text-sm">{product.tagline}</p>
+          </div>
+        </div>
 
-              {project.fullDetails?.solution && (
-                <div>
-                  <h3 className="text-sm font-bold text-white mb-2 flex items-center gap-2"> {/* Reduced font size and margin */}
-                    <span className="w-0.5 h-3 bg-blue-500 rounded-full"></span> {/* Reduced marker size */}
-                    Solution
-                  </h3>
-                  <ul className="space-y-1.5"> {/* Reduced space */}
-                    {project.fullDetails.solution.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs"> {/* Reduced font size */}
-                        <div className="mt-1 w-1 h-1 rounded-full bg-blue-500 shrink-0"></div> {/* Reduced dot size */}
-                        <span className="text-slate-300">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
+        {/* Scrollable Content */}
+        <div className="p-6 overflow-y-auto flex-1 bg-slate-50 custom-scrollbar">
+          
+          {/* Description */}
+          <div className="mb-6 bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+            <h4 className="text-xs font-bold text-slate-900 mb-2 uppercase tracking-wide flex items-center gap-2">
+                <FileText size={14} className="text-blue-600"/> Overview
+            </h4>
+            <p className="text-slate-600 text-xs leading-relaxed">
+              {product.description}
+            </p>
+          </div>
 
-            {/* Right Column: Impact & Metrics */}
-            <div className="space-y-5"> {/* Reduced space */}
-               {/* Client Info - ⬇️ Reduced Padding and Font Size ⬇️ */}
-               {project.fullDetails?.client && (
-                <div className="p-3 rounded-lg bg-gradient-to-br from-blue-900/40 to-slate-900 border border-blue-500/30">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">Client</p>
-                  <p className="text-base text-white font-bold">{project.fullDetails.client}</p>
-                </div>
-              )}
+          {/* Specs Grid */}
+          {product.specs && product.specs.length > 0 && (
+            <div className="mb-6">
+                <h4 className="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wide flex items-center gap-2">
+                    <Cpu size={14} className="text-blue-600"/> Technical Specifications
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {product.specs.map((spec, i) => {
+                        // Split string "Tank: 11 Litres" into ["Tank", "11 Litres"]
+                        const [label, value] = spec.includes(':') ? spec.split(':') : [spec, ''];
+                        return (
+                            <div key={i} className="flex justify-between items-center bg-white p-2 rounded border border-slate-200 text-xs">
+                                <span className="font-medium text-slate-600">{label}</span>
+                                {value && <span className="font-mono text-blue-700 font-bold">{value}</span>}
+                                {!value && <CheckCircle size={12} className="text-green-500"/>}
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+          )}
 
-              {project.fullDetails?.impact && (
-                <div>
-                  <h3 className="text-sm font-bold text-white mb-2 flex items-center gap-2"> {/* Reduced font size and margin */}
-                    <span className="w-0.5 h-3 bg-green-500 rounded-full"></span> {/* Reduced marker size */}
-                    Impact
-                  </h3>
-                  <ul className="space-y-1.5"> {/* Reduced space */}
-                    {project.fullDetails.impact.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-1.5 text-xs"> {/* Reduced gap and font size */}
-                        <CheckCircle size={14} className="text-green-500 mt-0.5 shrink-0" /> {/* Reduced icon size */}
-                        <span className="text-slate-300">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* ⬇️ Reduced CTA Padding and Icon Size ⬇️ */}
-              <a 
-                href={`WHATSAPP_LINK, I'd like to discuss the ${encodeURIComponent(project.title)} case study.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-2.5 bg-green-600 hover:bg-green-500 text-white rounded-lg font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-green-900/20 group text-sm"
-              >
-                <MessageCircle size={16} />
-                Discuss Case Study
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+          {/* CTA Button */}
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="w-full py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-green-900/10 text-sm">
+            <MessageCircle size={16} /> Request Pricing & Demo
+          </a>
+        </div>
+      </div>
+    </div>
+  );
 };
 
-export default ProjectModal
+export default ProductModal;

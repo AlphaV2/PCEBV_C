@@ -7,7 +7,6 @@ const Hero: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Updated with high-quality drone images (first) and smooth videos
   const backgroundMedia = [
     {
       type: 'image',
@@ -16,16 +15,19 @@ const Hero: React.FC = () => {
     },
     {
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?q=80&w=1920&auto=format&fit=crop',
+      src: '/background/plant.jpeg',
       alt: 'High Tech Drone Hovering'
     },
-    
+    {
+      type: 'image',
+      src: '/background/krishidrone.jpeg',
+      alt: 'High Tech Drone Hovering'
+    },
     {
       type: 'video',
       src: 'https://videos.pexels.com/video-files/3129671/3129671-hd_1280_720_30fps.mp4', 
       alt: 'Security Surveillance Feed'
     },
-    
     {
       type: 'video',
       src: 'https://videos.pexels.com/video-files/5240562/5240562-uhd_2560_1440_25fps.mp4',
@@ -35,7 +37,6 @@ const Hero: React.FC = () => {
 
   useEffect(() => {
     setIsLoaded(true);
-    // 6 second interval for relaxed pacing
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % backgroundMedia.length);
     }, 6000);
@@ -51,53 +52,62 @@ const Hero: React.FC = () => {
   return (
     <section 
       id="hero" 
-      className="relative w-screen max-w-none min-h-[100vh] flex flex-col justify-center pt-32 pb-12 overflow-hidden bg-slate-50" 
+      // 🚨 FIX 1: Changed main background to slate-900 to prevent white flashes at edges
+      className="relative w-screen max-w-none min-h-[100vh] flex flex-col justify-center pt-32 pb-12 overflow-hidden bg-slate-900" 
     >
       {/* Background Media - Enhanced Visibility */}
-      <div className="absolute inset-0 z-0 bg-slate-100 w-screen max-w-none">
-        {isLoaded && backgroundMedia.map((media, index) => (
-          <div
-            key={index}
-            // Long, smooth cross-dissolve (2500ms)
-            className={`absolute inset-0 w-full h-full transition-opacity duration-[2500ms] ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
-          >
-            {media.type === 'video' ? (
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                // Increased opacity (85%) and reduced brightness slightly for text contrast, but much clearer than before
-                className="w-full h-full object-cover opacity-85 scale-105"
-                onError={handleMediaError}
-              >
-                <source src={media.src} type="video/mp4" />
-              </video>
-            ) : (
-              <img
-                src={media.src}
-                alt={media.alt}
-                // Subtle zoom effect (scale-110) for smoother movement
-                className={`w-full h-full object-cover opacity-85 transition-transform duration-[8000ms] ease-linear ${index === currentImageIndex ? 'scale-110' : 'scale-100'}`}
-                onError={handleMediaError}
-              />
-            )}
-          </div>
-        ))}
+      {/* 🚨 FIX 2: Changed container background to black. If transparency happens, it fades to black (cinematic) not white (glitchy) */}
+      <div className="absolute inset-0 z-0 bg-black w-screen max-w-none">
+        {isLoaded && backgroundMedia.map((media, index) => {
+          const isActive = index === currentImageIndex;
+          return (
+            <div
+              key={index}
+              // 🚨 FIX 3: Added z-index logic. Active slide is on TOP (z-10).
+              // Added 'ease-in-out' and a slightly faster transition than the interval to ensure full opacity overlap.
+              className={`absolute inset-0 w-full h-full transition-opacity duration-[2000ms] ease-in-out ${
+                isActive ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+            >
+              {media.type === 'video' ? (
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  // 🚨 FIX 4: Ensured opacity is high (90%) but distinct from background
+                  className="w-full h-full object-cover opacity-90 scale-105"
+                  onError={handleMediaError}
+                >
+                  <source src={media.src} type="video/mp4" />
+                </video>
+              ) : (
+                <img
+                  src={media.src}
+                  alt={media.alt}
+                  className={`w-full h-full object-cover opacity-90 transition-transform duration-[8000ms] ease-linear ${
+                    isActive ? 'scale-110' : 'scale-100'
+                  }`}
+                  onError={handleMediaError}
+                />
+              )}
+            </div>
+          );
+        })}
 
-        {/* Cinematic Overlays - Lighter to show background */}
-        {/* Main gradient for text readability on the left, but transparent on right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-50/90 via-slate-50/50 to-transparent pointer-events-none"></div>
+        {/* Cinematic Overlays - Adjusted for darker base */}
+        {/* Main gradient: Darker start for text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-50/90 via-slate-50/60 to-transparent pointer-events-none z-20"></div>
         
-        {/* Bottom fade */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-50/90 via-transparent to-transparent pointer-events-none"></div>
+        {/* Bottom fade: seamless blend into next section */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-50/90 via-transparent to-transparent pointer-events-none z-20"></div>
         
-        {/* Subtle noise texture, reduced opacity */}
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply pointer-events-none"></div>
+        {/* Texture */}
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-multiply pointer-events-none z-20"></div>
       </div>
 
       {/* Content Wrapper */}
-      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 z-10 relative">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 z-30 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left Content */}
