@@ -38,61 +38,131 @@ export const NAV_LINKS = [
 // 🚨 NEW NESTED GALLERY STRUCTURE 🚨
 // ===============================================
 export const GALLERY_CONTENT = {
-  // Collections for the main grid cards (internal slideshows)
-  collections: [
+  // 🟢 COLUMN 1: VERTICAL BANNERS (Tall Images)
+  // Recommended Size: 600w x 1200h pixels (Aspect Ratio 1:2)
+  verticalBanners: [
     {
-      id: 'col-11l',
+      id: 'v1',
+      src: '/gallery/vertical1.jpeg', // Your main vertical banner
+      title: 'Complete Drone Solutions',
+      tagline: 'End-to-End Service'
+    },
+    {
+      id: 'v2',
+      src: '/gallery/vertical2.jpeg', // Placeholder: Replace with a TALL image
+      title: 'Meet The Future Of Pollination',
+      tagline: 'AI Powered'
+    },
+    {
+      id: 'v3',
+      src: '/gallery/npk_data.jpeg', // Placeholder: Replace with a TALL image
+      title: 'Smart Agriculture Soil Monitoring System report ',
+      tagline: 'Data Driven'
+    },
+    // {
+    //   id: 'v4',
+    //   src: '/gallery/vertical4.jpeg', // Placeholder: Replace with a TALL image
+    //   title: '',
+    //   tagline: 'Data Driven'
+    // }
+  ],
+
+  // 🟡 COLUMN 2 (TOP): DRONE FLEET (Landscape Images)
+  // Recommended Size: 800w x 600h pixels (Aspect Ratio 4:3)
+  droneFleet: [
+    {
+      id: 'fleet1',
+      src: '/products/krishi_11l.jpeg',
       title: 'Krishi Sakha 11L',
-      tagline: 'Compact & Efficient',
-      media: [
-        { type: 'image', src: '/products/krishi_11l.jpeg', alt: '11L Drone View 1' },
-        // Add more views of the 11L drone here
-        { type: 'image', src: '/gallery/krishi_11l_2.jpeg', alt: 'View 2' },
-      ]
+      tagline: 'Compact'
     },
     {
-      id: 'col-16l',
-      title: 'Krishi Sakha 16L',
-      tagline: 'Precision Farming',
-      media: [
-        { type: 'image', src: '/products/krishi_16l.jpeg', alt: 'Autopilot Interface' }, // Use image_7.png here
-        { type: 'image', src: '/gallery/krishi_16l_2.jpeg', alt: 'Flight Path Planning' } // Use image_11.png here
-      ]
+      id: 'fleet2',
+      src: '/gallery/krishi_demo.jpeg',
+      title: 'Live Demo',
+      tagline: 'Testing'
     },
     {
-      id: 'NPK_SENSOR',
-      title: 'SMART AGRICULTURE SOIL MONITORING SYSTEM',
-      tagline: 'Built to Last',
-      media: [
-        { type: 'image', src: '/gallery/npk_1.jpeg', alt: 'Animated_sensor' }, // Use image_6.png
-        { type: 'image', src: '/gallery/npk_2.jpeg', alt: 'Animated_sensor' }, // Use image_6.png  
-          { type: 'image', src: '/gallery/npk_sensor_live.jpeg', alt: 'Key Features Icons' }, // Use image_6.png
-        { type: 'image', src: '/gallery/npk_dashboard.jpeg', alt: 'Internal Components' } // Use image_13.png
-      ]
+      id: 'fleet3',
+      src: '/products/krishi_16l.jpeg',
+      title: 'Krishi Sakha ',
+      tagline: 'Heavy Duty'
+    },
+    {
+      id: 'fleet4',
+      src: '/gallery/fleet4.jpeg',
+      title: 'Future Of Pollination',
+      tagline: 'AI Powered Pollination'
+    },
+    {
+      id: 'fleet5',
+      src: '/gallery/field_demo.jpeg',
+      title: 'Fleet Deployment',
+      tagline: 'Action'
     }
   ],
-  // Flat list for the sidebar column
+
+  // 🟡 COLUMN 2 (BOTTOM): SPECIAL OFFERS (Square/Portrait Images)
+  // Recommended Size: 800w x 800h pixels (Aspect Ratio 1:1)
+  specialOffers: [
+    {
+      id: 'offer1',
+      src: '/gallery/offer.jpeg', // Your main offer
+      title: 'Limited Time Offer',
+      tagline: 'Save ₹100'
+    },
+    // {
+    //   id: 'offer2',
+    //   src: '/products/npk_senso.jpeg', // Placeholder
+    //   title: 'Soil Testing Kit',
+    //   tagline: 'Free Demo'
+    // }
+  ],
+
+  // 🔵 COLUMN 3 (TOP): INNOVATION / LAB (Landscape Images)
+  // Recommended Size: 800w x 600h pixels (Aspect Ratio 4:3)
+  innovations: [
+    {
+      id: 'inno1',
+      src: '/gallery/npk_1.jpeg',
+      title: 'Soil Monitoring System',
+      tagline: 'NPK Sensor'
+    },
+    {
+      id: 'inno2',
+      src: '/gallery/soil_sensor.jpeg',
+      title: 'Assembyling Soil Sensor',
+      tagline: 'Soil Sensor'
+    },
+    {
+      id: 'inno3',
+      src: '/gallery/npk_2.jpeg',
+      title: 'NPK Sensor Benefits',
+      tagline: ''
+    }
+  ],
+
+  // 🔵 COLUMN 3 (BOTTOM): EXHIBITIONS (Landscape Images)
+  // Recommended Size: 800w x 600h pixels (Aspect Ratio 4:3)
   exhibitions: [
     { 
-      id: 101, 
+      id: 'ex1', 
       src: '/gallery/ex1.jpeg', 
       title: 'Tech Expo ',
-      // location: 'New Delhi' 
+      location: 'Hyderbad' 
     },
     { 
-      id: 102, 
+      id: 'ex2', 
       src: '/gallery/ex2.jpeg', 
       title: 'Tech Expo',
-      // location: 'Pune' 
+      location: 'Hyderabad' 
     },
-    
-    // Add more if needed for scrolling
-    { 
-      id: 103, 
-      src: '/gallery/field_demo.jpeg', 
-      title: 'Live Field Demo',
-      // location: 'Nagpur' 
-    }
+    // { 
+    //   id: 'ex3', 
+    //   src: '/gallery/field_demo.jpeg', 
+    //   title: 'Live Field Demo',
+    //   // location: 'Nagpur' 
+    // }
   ]
 };
 
@@ -356,52 +426,52 @@ export const PRODUCTS: Product[] = [
     description: 'The Krishi Sakha 11L is a specialized small-class rotorcraft (RPAS) designed for maximum efficiency in Indian farming conditions. Featuring a carbon-fiber frame for high strength and low weight, it operates with Visual Line of Sight (VLOS). It includes a high-density polymer tank and is capable of spraying up to 60 acres per day.'
   },
   {
-    id: 'krishi-sakha-16l',
-    name: 'Krishi Sakha 16L',
-    tagline: 'High-Capacity Smart Drone',
+    id: 'land-mapping-drone',
+    name: 'Terra Mapper Survey Drone',
+    tagline: 'High-Precision Aerial Surveying',
     type: 'drone',
-    image: '/products/krishi_16l.jpeg', 
+    image: '/products/survey_drone.jpeg', // 📸 Make sure to add this image
     specs: [
-      'Tank Capacity: 16 Litres', 
-      'Flight Time: 25 Mins', 
-      'Spray Time: 5 to 7 min/acre',
-      'GPS: Dual GPS System',
-      'Connectivity: Wi-Fi Enabled',
-      'Battery: 2 Units Included',
-      'Range: 2 Km'
+      'Positioning: RTK/PPK GPS Module',
+      'Camera: 20MP High-Res Photogrammetry',
+      'Flight Time: 35 Minutes',
+      'Mapping Accuracy: Centimeter-Level',
+      'Coverage: 100+ Acres/Flight',
+      'Software: 3D Terrain Modeling'
     ],
-    description: 'Built for larger operations, the 16L base model offers extended flight time and greater holding capacity. With integrated Wi-Fi, you get better connectivity and access to real-time farm information. It is designed to fulfill all heavy-duty spraying needs with a robust build quality.'
+    description: 'Engineered for professional surveyors and land developers. This drone utilizes Real-Time Kinematic (RTK) positioning to deliver centimeter-accurate 3D maps and topographic surveys. Ideal for urban planning, construction site monitoring, and agricultural land leveling analysis.'
+  },
+  {
+    id: 'pollination-drone',
+    name: 'Cross-Pollinator Drones',
+    tagline: 'AI Swarm Pollination System',
+    type: 'drone',
+    image: '/products/pollination.jpeg', // 📸 Make sure to add this image
+    specs: [
+      'Sensors: VOC (MICS6814) Scent Detection',
+      'Tech: AI Swarm Intelligence',
+      'Target: Floriculture & Orchards',
+      'Flight Mode: Autonomous Pattern',
+      'Feature: Soft Air-Burst Pollination',
+      'Efficiency: 30x Faster than Manual'
+    ],
+    description: 'A nature-inspired robotic solution solving the global pollinator crisis. Equipped with Volatile Organic Compound (VOC) sensors, these drones autonomously identify flowers ready for pollination via scent patterns. Using swarm intelligence, they ensure 100% crop coverage without duplication, vital for high-yield fruit and flower farming.'
   },
   {
     id: 'smart-soil-monitor',
     name: 'Smart Soil NPK Monitor',
     tagline: 'Real-Time Soil Health & Yield Assurance',
     type: 'hardware', 
-    image: '/products/npk_sensor.jpeg', // 📸 Ensure you have this image
+    image: '/products/npk.jpeg', 
     specs: [
       'Detects: NPK, Moisture, Temp',
       'Response: Pre-damage Alert',
       'Lifespan: 20-30 Years Soil Safety',
       'Connectivity: Cloud Dashboard',
-      'Coverage: 1 Unit / Acre' // 🚨 UPDATE THIS with real coverage area
+      'Coverage: 1 Unit / Acre'
     ],
     description: 'Transform farming from gambling into guaranteed engineering. Unlike standard sensors that report damage after it happens, our system detects nutrient imbalances at the root stage before yield collapse. It prevents irreversible soil poisoning, ensures export-grade crop quality, and acts as insurance against total season financial loss.'
   },
-  // {
-  //   id: 'krishi-components',
-  //   name: 'Advanced Drone Components',
-  //   tagline: 'Engineered for Performance',
-  //   type: 'hardware', 
-  //   image: '/products/krishi_features.jpg', 
-  //   specs: [
-  //     'Controller: JIYI K++ V2 (Indian Made)', 
-  //     'Battery: 44000mAh Li-Po', 
-  //     'Motor: Hobbywing X6 Plus', 
-  //     'Radar: Collision Avoidance',
-  //     'Tank: Solid Seed Spreader Compatible'
-  //   ],
-  //   description: 'Our drones are built with top-tier components: A fully Indian-made flight control system for stability, Thermal Foggers for crop protection, and a smart Lithium Polymer battery system. Features include Obstacle Avoidance radars, Terrain Following, and Autonomous Flight path planning.'
-  // },
   
 ];
 
@@ -486,8 +556,8 @@ export const TEAM: TeamMember[] = [
   {
     id: 'founder',
     name: 'Jaykumar Vishnu Choudhary',
-    role: 'Founder & Chief Security Strategist',
-    bio: 'Vision: A leading Cyber Forensics Specialist and Technocrat with 19+ years of experience spearheading global security programs. Expert in designing Enterprise Security Architectures, pioneering new cryptography algorithms, and ensuring regulatory compliance (ISO 27001, PCI DSS, SOX).',
+    role: 'Founder ',
+    bio: 'Vision: A visionary Technocrat revolutionizing the skies with AI-driven Drones for Agriculture, Land Mapping, and Cross-Pollination. With 19+ years of experience in Global Security Strategy, Jaykumar integrates military-grade Cybersecurity into autonomous aerial systems, ensuring that our drone solutions are not only efficient but secure by design.',
     image: '/team/founder_profile.jpg',
   }
 ];

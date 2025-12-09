@@ -17,9 +17,9 @@ interface Founder {
 const STATIC_FOUNDER: Founder = { 
     id: 1, 
     name: "Jaykumar Vishnu Choudhary", 
-    role: "Founder & Cyber Forensics Specialist", 
+    role: "Founder ", 
     image_url: "/founderprofile/founder_image.jpeg", 
-    bio: "A leading Cyber Forensics Specialist and Technocrat with 19+ years of experience spearheading global security programs. Expert in designing Enterprise Security Architectures, pioneering new cryptography algorithms, and ensuring regulatory compliance (ISO 27001, PCI DSS, SOX).", 
+    bio: ' A visionary Technocrat revolutionizing the skies with AI-driven Drones for Agriculture, Land Mapping, and Cross-Pollination. With 19+ years of experience in Global Security Strategy, Jaykumar integrates military-grade Cybersecurity into autonomous aerial systems, ensuring that our drone solutions are not only efficient but secure by design.', 
     // 🚨 Ensure you replace this placeholder with the actual link 🚨
     linkedin_url: "https://www.linkedin.com/in/jaykumarchoudhary/?originalSubdomain=in", 
 };
