@@ -74,31 +74,36 @@ export const GALLERY_CONTENT = {
       id: 'fleet1',
       src: '/products/krishi_11l.jpeg',
       title: 'Krishi Sakha 11L',
-      tagline: 'Compact'
+      tagline: 'Compact',
+      description:' '
     },
     {
       id: 'fleet2',
-      src: '/gallery/krishi_demo.jpeg',
-      title: 'Live Demo',
-      tagline: 'Testing'
+      src: '/products/survey_drone.jpeg',
+      title: 'Survey Drone',
+      tagline: 'Demonstration',
+      description:' '
     },
     {
       id: 'fleet3',
       src: '/products/krishi_16l.jpeg',
       title: 'Krishi Sakha ',
-      tagline: 'Heavy Duty'
+      tagline: 'Heavy Duty',
+      description:' '
     },
     {
       id: 'fleet4',
       src: '/gallery/fleet4.jpeg',
       title: 'Future Of Pollination',
-      tagline: 'AI Powered Pollination'
+      tagline: 'AI Powered Pollination',
+      description:''
     },
     {
       id: 'fleet5',
       src: '/gallery/field_demo.jpeg',
       title: 'Fleet Deployment',
-      tagline: 'Action'
+      tagline: 'Action',
+      description:''
     }
   ],
 
@@ -109,7 +114,8 @@ export const GALLERY_CONTENT = {
       id: 'offer1',
       src: '/gallery/offer.jpeg', // Your main offer
       title: 'Limited Time Offer',
-      tagline: 'Save ₹100'
+      tagline: 'Save ₹100',
+      description:'Get ₹100 OFF on your first purchase of Krishi Sakha 11L drone. Elevate your farming with precision and efficiency. Hurry, offer valid while stocks last!'
     },
     // {
     //   id: 'offer2',
@@ -126,44 +132,62 @@ export const GALLERY_CONTENT = {
       id: 'inno1',
       src: '/gallery/npk_1.jpeg',
       title: 'Soil Monitoring System',
-      tagline: 'NPK Sensor'
+      tagline: 'NPK Sensor',
+      description:' '
     },
     {
       id: 'inno2',
       src: '/gallery/soil_sensor.jpeg',
-      title: 'Assembyling Soil Sensor',
-      tagline: 'Soil Sensor'
+      title: 'Assembling Soil Sensor',
+      tagline: 'Soil Sensor',
+      description:' '
     },
     {
       id: 'inno3',
       src: '/gallery/npk_2.jpeg',
-      title: 'NPK Sensor Benefits',
-      tagline: ''
+      title: 'Soil Sensor Benefits',
+      tagline: '',
+      description:' '
     }
   ],
 
   // 🔵 COLUMN 3 (BOTTOM): EXHIBITIONS (Landscape Images)
   // Recommended Size: 800w x 600h pixels (Aspect Ratio 4:3)
   exhibitions: [
-    { 
-      id: 'ex1', 
-      src: '/gallery/ex1.jpeg', 
-      title: 'Tech Expo ',
-      location: 'Hyderbad' 
-    },
-    { 
-      id: 'ex2', 
-      src: '/gallery/ex2.jpeg', 
-      title: 'Tech Expo',
-      location: 'Hyderabad' 
-    },
+   { 
+   id: 'ex1', 
+   src: '/gallery/ex1.jpeg', 
+   title: 'KISAN Hyderabad 2025',
+   description:'A 3-day agricultural exhibition KISAAN 2025 began at the HITEX exhibition center in Hyderabad on Friday, February 7.',
+   location: 'Hyderabad' 
+ },
+ { 
+   id: 'ex2', 
+   src: '/gallery/ex2.jpeg', 
+   title: 'KISAN Hyderabad 2025',
+   description:'The exhibition was inaugurated by Telangana Agriculture Minister Thummala Nageswara Rao, who highlighted the event as a catalyst for sustainable agricultural growth.',
+   location: 'Hyderabad' 
+ }
     // { 
     //   id: 'ex3', 
     //   src: '/gallery/field_demo.jpeg', 
     //   title: 'Live Field Demo',
     //   // location: 'Nagpur' 
     // }
+  ],
+
+  // 🟣 NEW SECTION: PAMPHLET (Single full image)
+  // Ideally, crop your big pamphlet image into two halves: Left (Pollination) and Right (Soil)
+ pamphlet: [
+    {
+      id: 'pamphlet-full',
+      src: '/gallery/pamphlet.jpeg', // Make sure this single image exists in your folder
+      title: 'AI-Powered Drone Pollination & Soil Monitoring',
+      tagline: 'FULL SPEC SHEET',
+      description: 'Complete technical specifications for our AI pollination drones and IoT soil monitoring systems.'
+    }
   ]
+
 };
 
 
@@ -458,20 +482,20 @@ export const PRODUCTS: Product[] = [
     description: 'A nature-inspired robotic solution solving the global pollinator crisis. Equipped with Volatile Organic Compound (VOC) sensors, these drones autonomously identify flowers ready for pollination via scent patterns. Using swarm intelligence, they ensure 100% crop coverage without duplication, vital for high-yield fruit and flower farming.'
   },
   {
-    id: 'smart-soil-monitor',
-    name: 'Smart Soil NPK Monitor',
-    tagline: 'Real-Time Soil Health & Yield Assurance',
-    type: 'hardware', 
-    image: '/products/npk.jpeg', 
-    specs: [
-      'Detects: NPK, Moisture, Temp',
-      'Response: Pre-damage Alert',
-      'Lifespan: 20-30 Years Soil Safety',
-      'Connectivity: Cloud Dashboard',
-      'Coverage: 1 Unit / Acre'
-    ],
-    description: 'Transform farming from gambling into guaranteed engineering. Unlike standard sensors that report damage after it happens, our system detects nutrient imbalances at the root stage before yield collapse. It prevents irreversible soil poisoning, ensures export-grade crop quality, and acts as insurance against total season financial loss.'
-  },
+  id: 'smart-soil-monitor',
+  name: 'Smart Soil Monitoring System',
+  tagline: 'Real-Time Soil Health & Yield Assurance',
+  type: 'hardware', 
+  image: '/products/npk.jpeg', 
+  specs: [
+    'Sensors:AQI, Rain & Storm Alert',
+    'AI Features: Fertilizer Recs & Disease Risk',
+    'Forecast: Rain Probability & Yield Pred',
+    'Power: Long-Life Battery',
+    'Live Data: Auto-Refresh Cloud Dashboard'
+  ],
+  description: 'Transform farming from gambling into guaranteed engineering. This all-in-one station goes beyond basic sensing—monitoring Soil NPK, environmental AQI, and real-time storm risks with a blinking alert system. Integrated with a Crop Selector and Fertilizer AI, it predicts disease risks and provides actionable prescriptions before damage occurs, ensuring export-grade quality and protecting against total season financial loss.'
+},
   
 ];
 

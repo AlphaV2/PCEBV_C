@@ -13,11 +13,11 @@ const Hero: React.FC = () => {
       src: 'https://images.unsplash.com/photo-1506947411487-a56738267384?q=80&w=1920&auto=format&fit=crop',
       alt: 'Drone Landscape View'
     },
-    {
-      type: 'image',
-      src: '/background/plant.jpeg',
-      alt: 'High Tech Drone Hovering'
-    },
+    // {
+    //   type: 'image',
+    //   src: '/background/plant.jpeg',
+    //   alt: 'High Tech Drone Hovering'
+    // },
     {
       type: 'image',
       src: '/background/krishidrone.jpeg',
