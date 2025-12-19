@@ -29,7 +29,7 @@ export const NAV_LINKS = [
   { name: 'Services', href: '#services', hasDropdown: true, dropdownKey: 'services' },
   { name: 'Products', href: '#products', hasDropdown: true, dropdownKey: 'products' },
   // 🚨 NEW GALLERY LINK - Note the dropdownKey
-  { name: 'Gallery', href: '#gallery', hasDropdown: false },
+  { name: 'Gallery', href: '#gallery', hasDropdown: true,  dropdownKey: 'gallery' },
   { name: 'About', href: '#about', hasDropdown: true, dropdownKey: 'about' },
   { name: 'Contact', href: '#contact', hasDropdown: true, dropdownKey: 'contact' },
 ];
@@ -51,20 +51,23 @@ export const GALLERY_CONTENT = {
       id: 'v2',
       src: '/gallery/vertical2.jpeg', // Placeholder: Replace with a TALL image
       title: 'Meet The Future Of Pollination',
-      tagline: 'AI Powered'
+      tagline: 'AI Powered',
+      decription:' '
     },
     {
       id: 'v3',
-      src: '/gallery/npk_data.jpeg', // Placeholder: Replace with a TALL image
-      title: 'Smart Agriculture Soil Monitoring System report ',
-      tagline: 'Data Driven'
+      src: '/gallery/vertical4.jpeg', // Placeholder: Replace with a TALL image
+      title: 'Smart Agriculture Soil Monitoring System ',
+      tagline: 'Data Driven',
+      description: 'Autonomous, solar-powered IoT assembly with LoRa long-range wireless data. Measures real-time Nitrogen, Phosphorus, and Potassium (NPK) levels deep in the root zone to prevent crop failure.'
     },
-    // {
-    //   id: 'v4',
-    //   src: '/gallery/vertical4.jpeg', // Placeholder: Replace with a TALL image
-    //   title: '',
-    //   tagline: 'Data Driven'
-    // }
+    {
+      id: 'v4',
+      src: '/gallery/npk_data.jpeg', // Placeholder: Replace with a TALL image
+      title: 'Smart Agriculture Soil Monitoring System report',
+      tagline: 'Data Driven',
+      decription:' '
+    }
   ],
 
   // 🟡 COLUMN 2 (TOP): DRONE FLEET (Landscape Images)
@@ -75,35 +78,35 @@ export const GALLERY_CONTENT = {
       src: '/products/krishi_11l.jpeg',
       title: 'Krishi Sakha 11L',
       tagline: 'Compact',
-      description:' '
+      description: 'Agile 11-liter spraying drone designed for precision pesticide application on small-to-medium farms.'
     },
     {
       id: 'fleet2',
       src: '/products/survey_drone.jpeg',
       title: 'Survey Drone',
       tagline: 'Demonstration',
-      description:' '
+      description: 'High-endurance aerial unit for real-time crop health monitoring and topographical field mapping.'
     },
-    {
-      id: 'fleet3',
-      src: '/products/krishi_16l.jpeg',
-      title: 'Krishi Sakha ',
-      tagline: 'Heavy Duty',
-      description:' '
-    },
+    // {
+    //   id: 'fleet3',
+    //   src: '/products/soil_sensor.jpeg',
+    //   title: 'Krishi Sakha ',
+    //   tagline: 'Heavy Duty',
+    //   description: ' '
+    // },
     {
       id: 'fleet4',
       src: '/gallery/fleet4.jpeg',
       title: 'Future Of Pollination',
-      tagline: 'AI Powered Pollination',
-      description:''
+      tagline: 'AI Powered',
+      description: 'Next-gen autonomous micro-drones mimicking natural pollinators to boost crop yields.'
     },
     {
       id: 'fleet5',
       src: '/gallery/field_demo.jpeg',
       title: 'Fleet Deployment',
       tagline: 'Action',
-      description:''
+      description: 'Coordinated drone operations demonstrating rapid deployment for large-scale coverage.'
     }
   ],
 
@@ -125,29 +128,27 @@ export const GALLERY_CONTENT = {
     // }
   ],
 
-  // 🔵 COLUMN 3 (TOP): INNOVATION / LAB (Landscape Images)
-  // Recommended Size: 800w x 600h pixels (Aspect Ratio 4:3)
   innovations: [
     {
       id: 'inno1',
       src: '/gallery/npk_1.jpeg',
       title: 'Soil Monitoring System',
-      tagline: 'NPK Sensor',
-      description:' '
+      tagline: 'Autonomous Unit',
+      description: 'Solar-powered assembly with LoRa antenna for long-range, wireless transmission of soil health data.'
     },
     {
       id: 'inno2',
-      src: '/gallery/soil_sensor.jpeg',
-      title: 'Assembling Soil Sensor',
-      tagline: 'Soil Sensor',
-      description:' '
+      src: '/products/soil_sensor.jpeg',
+      title: 'Deep Root Probe',
+      tagline: 'Precision Hardware',
+      description: 'Rugged probe designed for deep root-zone insertion to accurately measure Nitrogen, Phosphorus, and Potassium levels.'
     },
     {
       id: 'inno3',
       src: '/gallery/npk_2.jpeg',
-      title: 'Soil Sensor Benefits',
-      tagline: '',
-      description:' '
+      title: 'Data-Driven Benefits',
+      tagline: 'Smart Analytics',
+      description: 'Real-time nutrient insights that optimize fertilizer usage, reduce waste, and prevent crop deficiency.'
     }
   ],
 
@@ -200,28 +201,54 @@ export const ABOUT_SECTION_CONTENT = [
     "The founder is responsible for Global Security Strategy, development and management of the company's technology including Enterprise Security Architecture, Security development and technology operations.",
 ];
 
-export const CONTACT_SECTION_DETAILS = [
+export const CONTACT_OFFICES = [
   {
-    title: "Registered Office",
+    title: "Registered Office (India)",
     lines: [
-      "Radar Sniper TM",
-      "22, Mezzanine Floor, Mona Shopping Centre,",
-      "Near Navrang Cinema, JP Road,",
-      "Andheri West, Mumbai - 400 058.",
-      "INDIA.",
-      "Tel No.: +91 90041 12868",
-      "Email ID: info@radarsniper.com"
+      "Radar Snipers (OPC) Private Ltd",
+      "E 304, Dsk Vidyanagari Phase 2,",
+      "Pashan Sus Road, Baner, Survey no 47",
+      "PIN: 411045, PUNE, MAHARASHTRA, INDIA.",
+      `Mobile No.: ${WHATSAPP_NUMBER}`,
+      "Email: info@radarsniper.com"
     ]
   },
   {
     title: "Netherland Branch Office",
     lines: [
       "Ereprijsweg 14",
-      "2565 AJ",
-      "Den Haag",
+      "2565 AV Den Haag",
       "The Netherlands",
       "Tel No.: 0031-611596812"
     ]
+  }
+];
+
+// 2. NEW: Digital Communication Channels
+export const CONTACT_EMAILS = [
+  {
+    role: "General Enquiries",
+    email: "info@radarsniper.com",
+    desc: "Quotes & Product Specs",
+    icon: "mail",
+    color: "text-blue-500",
+    bg: "bg-blue-50"
+  },
+  {
+    role: "HR & Careers",
+    email: "hr@radarsniper.com",
+    desc: "Job Applications",
+    icon: "briefcase",
+    color: "text-purple-500",
+    bg: "bg-purple-50"
+  },
+  {
+    role: "Director",
+    email: "Jaykc@radarsniper.com",
+    desc: "Strategic Partnerships",
+    icon: "shield",
+    color: "text-yellow-600",
+    bg: "bg-yellow-50"
   }
 ];
 
