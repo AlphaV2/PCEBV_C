@@ -3,8 +3,8 @@ import { GALLERY_CONTENT } from '../../constants';
 import { MapPin, Layers, X, ChevronLeft, ChevronRight, Zap, MessageCircle, ArrowRight, ArrowLeft } from 'lucide-react';
 
 // --- CONFIGURATION ---
-const SLIDE_DURATION_PAMPHLET = 4000; // 4 Seconds for Pamphlet
-const SLIDE_DURATION_GRID = 8000;    // 8 Seconds for Grid (needs more time to explore)
+const SLIDE_DURATION_PAMPHLET = 4000; 
+const SLIDE_DURATION_GRID = 8000;
 
 // --- HELPER: Preload Image ---
 const preloadImage = (src: string) => {
@@ -12,7 +12,58 @@ const preloadImage = (src: string) => {
     img.src = src;
 };
 
-// --- COMPONENT: Carousel Card (Reused & Optimized) ---
+// ============================================================================
+// 📱 COMPONENT: Mobile Swipe Card (Optimized)
+// ============================================================================
+const MobileSwipeCard: React.FC<{ item: any; onClick: () => void; priority?: boolean }> = memo(({ item, onClick, priority = false }) => {
+  const isPamphlet = item.id?.toString().includes('pamphlet') || item.tagline === 'Brochure';
+
+  return (
+    <div 
+      onClick={onClick}
+      className="relative min-w-[85vw] aspect-[4/5] snap-center rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl shrink-0 first:ml-4 last:mr-4 active:scale-[0.98] transition-transform duration-200"
+    >
+      {/* Background Loader */}
+      <div className="absolute inset-0 bg-slate-800 animate-pulse z-0" />
+
+      {/* Optimized Image */}
+      <img 
+        src={item.src} 
+        alt={item.title} 
+        // ⚡ OPTIMIZATION: High priority for the first card, lazy for the rest
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
+        decoding="async"
+        className={`absolute inset-0 w-full h-full transition-all duration-500 z-10
+          ${isPamphlet ? 'object-contain p-2' : 'object-cover'} 
+        `}
+        // ⚡ OPTIMIZATION: Helps browser calculate layout before image loads
+        sizes="(max-width: 768px) 85vw, 30vw"
+        onError={(e) => (e.currentTarget.src = 'https://placehold.co/600x800?text=No+Image')}
+      />
+      
+      {/* Gradient & Content */}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 z-20 pointer-events-none"></div>
+      
+      <div className="absolute bottom-0 left-0 w-full p-5 z-30">
+        {item.tagline && (
+          <div className="inline-flex items-center gap-1.5 px-2 py-1 mb-2 text-[10px] font-bold tracking-widest text-blue-300 uppercase bg-blue-950/80 backdrop-blur-md rounded border border-blue-500/30">
+            <Layers size={10} /> {item.tagline}
+          </div>
+        )}
+        <h3 className="text-xl font-bold text-white leading-tight mb-1 drop-shadow-md">{item.title}</h3>
+        {item.description && (
+          <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed opacity-90">{item.description}</p>
+        )}
+      </div>
+    </div>
+  );
+});
+MobileSwipeCard.displayName = "MobileSwipeCard";
+
+// ============================================================================
+// 💻 COMPONENT: Desktop Carousel Card (Optimized)
+// ============================================================================
 const CarouselCard = memo(({ 
     items, 
     intervalTime = 3000, 
@@ -20,7 +71,7 @@ const CarouselCard = memo(({
     showOfferBadge = false,
     className = "",
     objectFit = "cover",
-    autoPlay = true // New prop to control internal autoplay
+    autoPlay = true 
 }: { 
     items: any[], 
     intervalTime?: number, 
@@ -36,6 +87,7 @@ const CarouselCard = memo(({
 
     useEffect(() => {
         setIsImageLoaded(false);
+        // Preload next image logic kept
         if (items.length > 1) {
             const nextIndex = (currentIndex + 1) % items.length;
             preloadImage(items[nextIndex].src);
@@ -65,13 +117,17 @@ const CarouselCard = memo(({
             <img
                 src={currentItem.src}
                 alt={currentItem.title}
-                loading="lazy"
+                // ⚡ OPTIMIZATION: First image is eager/high priority. Others lazy.
+                loading={currentIndex === 0 ? "eager" : "lazy"}
+                fetchPriority={currentIndex === 0 ? "high" : "auto"}
+                decoding="async"
                 onLoad={() => setIsImageLoaded(true)}
                 className={`absolute inset-0 w-full h-full transition-all duration-700 ease-out z-10
                     ${objectFit === 'contain' ? 'object-contain bg-slate-950 p-1 md:p-4' : 'object-cover'}
                     ${isImageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105 blur-sm'}
                     ${objectFit === 'cover' ? 'group-hover:scale-105' : ''}
                 `}
+                sizes="(max-width: 768px) 100vw, 33vw"
                 onError={(e) => (e.currentTarget.src = 'https://placehold.co/600x400?text=No+Image')}
             />
             {objectFit === 'cover' && (
@@ -85,7 +141,6 @@ const CarouselCard = memo(({
                     </div>
                  )}
                  <h3 className="text-sm md:text-base font-bold text-white leading-tight drop-shadow-lg line-clamp-2">{currentItem.title}</h3>
-                 {/* 👇 FIXED: Only show description if it actually exists in the data */}
                  {currentItem.description && (
                     <p className="text-[10px] md:text-xs text-slate-300 mt-1 line-clamp-2 leading-relaxed opacity-80">
                         {currentItem.description}
@@ -112,9 +167,11 @@ const CarouselCard = memo(({
 CarouselCard.displayName = "CarouselCard";
 
 
-// --- MAIN COMPONENT ---
+// ============================================================================
+// 🚀 MAIN COMPONENT: Gallery
+// ============================================================================
 const Gallery: React.FC = () => {
-    // 0 = Pamphlet (First), 1 = Grid (Second)
+    // Desktop State
     const [activeSectionSlide, setActiveSectionSlide] = useState(0); 
     const [isSectionHovered, setIsSectionHovered] = useState(false);
     const [lightboxState, setLightboxState] = useState<{ items: any[], index: number } | null>(null);
@@ -130,14 +187,22 @@ const Gallery: React.FC = () => {
         { id: 'def', src: '/gallery/pamphlet.jpeg', title: 'Full Specifications', tagline: 'Brochure' }
     ];
 
-    // --- SMART SECTION TIMER ---
+    // 📱 MOBILE DATA MERGE
+    const mobileGalleryItems = [
+        ...pamphletContent,
+        ...specialOffers,
+        ...droneFleet,
+        ...verticalBanners,
+        ...innovations,
+        ...exhibitions
+    ];
+
+    // --- DESKTOP TIMER ---
     useEffect(() => {
-        // Don't switch if hovering (user is reading) or if Lightbox is open
+        if (window.innerWidth < 768) return; 
         if (isSectionHovered || lightboxState) return;
 
-        // Dynamic Duration based on current slide
         const duration = activeSectionSlide === 0 ? SLIDE_DURATION_PAMPHLET : SLIDE_DURATION_GRID;
-
         const timer = setTimeout(() => {
             setActiveSectionSlide(prev => (prev === 0 ? 1 : 0));
         }, duration);
@@ -145,8 +210,7 @@ const Gallery: React.FC = () => {
         return () => clearTimeout(timer);
     }, [activeSectionSlide, isSectionHovered, lightboxState]);
 
-
-    // --- Handlers ---
+    // Handlers
     const openLightbox = useCallback((items: any[], index: number) => {
         setLightboxState({ items, index });
     }, []);
@@ -166,13 +230,12 @@ const Gallery: React.FC = () => {
     }, []);
 
     const handleWhatsAppClick = (item: any) => {
-        const phoneNumber = "+919819158929"; // REPLACE with actual number
+        const phoneNumber = "+919819158929"; 
         const message = `Hi, I am interested in "${item.title}".`;
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
     };
 
-    // Manual Navigation for the Main Section
     const nextSection = (e: React.MouseEvent) => {
         e.stopPropagation();
         setActiveSectionSlide(prev => (prev === 0 ? 1 : 0));
@@ -186,86 +249,96 @@ const Gallery: React.FC = () => {
     return (
         <section 
             id="gallery" 
-            className="py-12 md:py-16 bg-slate-950 text-white scroll-mt-20 overflow-hidden border-t border-slate-900"
-            onMouseEnter={() => setIsSectionHovered(true)} // Pause on hover
-            onMouseLeave={() => setIsSectionHovered(false)} // Resume on leave
+            className="py-10 md:py-16 bg-slate-950 text-white scroll-mt-20 overflow-hidden border-t border-slate-900"
+            onMouseEnter={() => setIsSectionHovered(true)}
+            onMouseLeave={() => setIsSectionHovered(false)}
         >
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto px-0 md:px-6 lg:px-8">
                 
                 {/* --- HEADER --- */}
-                <div className="mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-800/50 pb-4">
+                <div className="px-4 md:px-0 mb-4 md:mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-800/50 pb-4">
                     <div>
                         <div className="inline-flex items-center gap-2 px-3 py-1 mb-2 text-[10px] font-bold tracking-widest text-blue-400 uppercase bg-blue-950/30 rounded-full border border-blue-900/50">
                             <span className={`w-1.5 h-1.5 rounded-full ${activeSectionSlide === 0 ? 'bg-green-500' : 'bg-blue-500'} animate-pulse`}></span>
                             {activeSectionSlide === 0 ? "Featured Spotlight" : "Operational Grid"}
                         </div>
                         <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-                            Technology Showcase
+                            Drone Fleet & Operations Gallery
                         </h2>
                     </div>
                     
                     {/* Navigation Dots */}
-                    <div className="flex gap-2">
+                    <div className="hidden md:flex gap-2">
                         <button 
                             onClick={() => setActiveSectionSlide(0)} 
                             className={`h-1.5 rounded-full transition-all duration-500 ${activeSectionSlide === 0 ? 'w-8 bg-blue-500' : 'w-2 bg-slate-700 hover:bg-slate-600'}`}
-                            aria-label="Show Pamphlet"
                         />
                         <button 
                             onClick={() => setActiveSectionSlide(1)} 
                             className={`h-1.5 rounded-full transition-all duration-500 ${activeSectionSlide === 1 ? 'w-8 bg-blue-500' : 'w-2 bg-slate-700 hover:bg-slate-600'}`}
-                            aria-label="Show Grid"
                         />
                     </div>
                 </div>
 
-                {/* --- MAIN SLIDER CONTAINER --- */}
-                <div className="relative group/main">
+                {/* ========================================= */}
+                {/* 📱 MOBILE LAYOUT (Horizontal Swipe List)  */}
+                {/* ========================================= */}
+                <div className="flex md:hidden overflow-x-auto snap-x snap-mandatory gap-4 pb-8 no-scrollbar px-4 pt-2">
+                    {mobileGalleryItems.map((item, index) => (
+                        <MobileSwipeCard 
+                            key={item.id || index} 
+                            item={item} 
+                            // ⚡ OPTIMIZATION: Only the first card gets high priority
+                            priority={index === 0}
+                            onClick={() => openLightbox(mobileGalleryItems, index)}
+                        />
+                    ))}
+                </div>
+
+                {/* ========================================= */}
+                {/* 💻 DESKTOP LAYOUT (The Original Bento)    */}
+                {/* ========================================= */}
+                <div className="hidden md:block relative group/main min-h-[600px]">
                     
-                    {/* LEFT ARROW (Manual Control) */}
                     <button 
                         onClick={prevSection}
-                        className="absolute -left-2 md:-left-6 top-1/2 -translate-y-1/2 z-30 p-2 bg-black/50 hover:bg-blue-600 text-white rounded-full border border-white/10 backdrop-blur-sm transition-all opacity-0 group-hover/main:opacity-100 md:opacity-0 md:group-hover/main:opacity-100 touch-action-manipulation hidden sm:block"
+                        aria-label="Previous Image"
+                        className="absolute -left-6 top-1/2 -translate-y-1/2 z-30 p-2 bg-black/50 hover:bg-blue-600 text-white rounded-full border border-white/10 opacity-0 group-hover/main:opacity-100 transition-all"
                     >
                         <ArrowLeft size={20} />
                     </button>
 
-                    {/* CONTENT AREA */}
-                    <div className="relative min-h-[500px] lg:h-[600px] transition-all duration-500 ease-in-out">
+                    <div className="relative min-h-[600px] transition-all duration-500 ease-in-out">
                         
-                        {/* === SLIDE 1: PAMPHLET (First) === */}
+                        {/* === SLIDE 1: PAMPHLET === */}
                         <div className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${activeSectionSlide === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
-                             <div className="w-full h-[500px] lg:h-[600px]">
+                             <div className="w-full h-[600px]">
                                 <CarouselCard 
                                     items={pamphletContent} 
                                     onOpenLightbox={() => openLightbox(pamphletContent, 0)} 
                                     className="h-full w-full border-blue-500/30 bg-slate-900"
-                                    objectFit="contain" // Keeps text readable on mobile
+                                    objectFit="contain" 
                                 />
-                                {/* Mobile Hint */}
-                                <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur px-3 py-1 rounded-full text-[10px] text-slate-300 pointer-events-none md:hidden">
-                                    Tap to zoom
-                                </div>
                             </div>
                         </div>
 
-                        {/* === SLIDE 2: GRID GALLERY (Second) === */}
+                        {/* === SLIDE 2: GRID GALLERY === */}
                         <div className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${activeSectionSlide === 1 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-full overflow-y-auto lg:overflow-visible pb-1">
+                            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 h-full">
                                 
                                 {/* Col 1 */}
-                                <div className="h-[300px] md:h-full w-full">
+                                <div className="h-full w-full">
                                     <CarouselCard 
                                         items={verticalBanners} 
                                         intervalTime={3000} 
                                         onOpenLightbox={(idx) => openLightbox(verticalBanners, idx)}
                                         className="h-full"
-                                        autoPlay={activeSectionSlide === 1} // Only autoplay internal images when this section is active
+                                        autoPlay={activeSectionSlide === 1} 
                                     />
                                 </div>
 
                                 {/* Col 2 */}
-                                <div className="flex flex-col gap-4 h-[400px] md:h-full">
+                                <div className="flex flex-col gap-4 h-full">
                                     <div className="flex-1 relative">
                                         <CarouselCard 
                                             items={specialOffers} 
@@ -288,16 +361,7 @@ const Gallery: React.FC = () => {
                                 </div>
 
                                 {/* Col 3 */}
-                                <div className="flex flex-col gap-4 h-[400px] md:h-full md:col-span-2 lg:col-span-1">
-                                    <div className="flex-1 relative">
-                                        <CarouselCard 
-                                            items={exhibitions} 
-                                            intervalTime={3000} 
-                                            onOpenLightbox={(idx) => openLightbox(exhibitions, idx)}
-                                            className="h-full"
-                                            autoPlay={activeSectionSlide === 1}
-                                        />
-                                    </div>
+                                <div className="flex flex-col gap-4 h-full">
                                     <div className="flex-1 relative">
                                         <CarouselCard 
                                             items={innovations} 
@@ -307,15 +371,15 @@ const Gallery: React.FC = () => {
                                             autoPlay={activeSectionSlide === 1}
                                         />
                                     </div>
-                                    {/* <div className="flex-1 relative">
+                                    <div className="flex-1 relative">
                                         <CarouselCard 
                                             items={exhibitions} 
-                                            intervalTime={5000} 
+                                            intervalTime={3000} 
                                             onOpenLightbox={(idx) => openLightbox(exhibitions, idx)}
                                             className="h-full"
                                             autoPlay={activeSectionSlide === 1}
                                         />
-                                    </div> */}
+                                    </div>
                                 </div>
 
                             </div>
@@ -323,10 +387,9 @@ const Gallery: React.FC = () => {
 
                     </div>
 
-                    {/* RIGHT ARROW (Manual Control) */}
                     <button 
                         onClick={nextSection}
-                        className="absolute -right-2 md:-right-6 top-1/2 -translate-y-1/2 z-30 p-2 bg-black/50 hover:bg-blue-600 text-white rounded-full border border-white/10 backdrop-blur-sm transition-all opacity-0 group-hover/main:opacity-100 md:opacity-0 md:group-hover/main:opacity-100 touch-action-manipulation hidden sm:block"
+                        className="absolute -right-6 top-1/2 -translate-y-1/2 z-30 p-2 bg-black/50 hover:bg-blue-600 text-white rounded-full border border-white/10 opacity-0 group-hover/main:opacity-100 transition-all"
                     >
                         <ArrowRight size={20} />
                     </button>

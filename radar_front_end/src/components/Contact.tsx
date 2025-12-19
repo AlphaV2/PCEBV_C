@@ -1,179 +1,205 @@
 import React, { useState } from "react";
-import { MapPin, Loader2, CheckCircle2 } from "lucide-react";
-// Ensure this path matches your folder structure. 
-import { CONTACT_SECTION_DETAILS } from "../../constants"; 
-
-// Get API URL from .env file
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+import { 
+  MapPin, CheckCircle2, MessageCircle, 
+  Mail, Briefcase, ShieldAlert, Copy 
+} from "lucide-react";
+// Ensure these are exported from your constants file
+import { CONTACT_OFFICES, CONTACT_EMAILS, WHATSAPP_NUMBER } from "../../constants"; 
 
 const Contact: React.FC = () => {
-  const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [formState, setFormState] = useState<"idle" | "success">("idle");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formElement = e.currentTarget;
-    const formData = new FormData(formElement);
-
-    // 1. Client-side Validation
-    if (!formData.get("name") || !formData.get("email") || !formData.get("message")) {
-      setErrorMessage("Please fill in all required fields.");
-      return;
-    }
-
-    setFormState("submitting");
-    setErrorMessage("");
-
-    try {
-      // DEBUG: Log where we are sending data
-      console.log(`Submitting form to: ${API_BASE_URL}/submit-contact.php`);
-
-      const response = await fetch(`${API_BASE_URL}/submit-contact.php`, {
-        method: "POST",
-        body: formData, 
-        // NOTE: Do NOT set Content-Type header manually when using FormData.
-      });
-
-      // Check if the server actually replied with a valid HTTP status
-      if (!response.ok) {
-        throw new Error(`HTTP Error! Status: ${response.status} - ${response.statusText}`);
-      }
-
-      // Try to parse the JSON
-      const result = await response.json();
-      console.log("Server Response:", result);
-
-      if (result.status === true) {
-        setFormState("success");
-        formElement.reset(); // Clear the form
-      } else {
-        setFormState("error");
-        setErrorMessage(result.message || "Server returned an error.");
-      }
-
-    } catch (err: any) {
-      console.error("Submission Error:", err);
-      setFormState("error");
-      
-      // User-friendly error messages
-      if (err.message.includes("Failed to fetch")) {
-        setErrorMessage("Cannot connect to server. Is XAMPP running? Is the URL in .env correct?");
-      } else {
-        setErrorMessage(err.message || "An unexpected error occurred.");
-      }
+  // --- Helper: Get Strategic Icons ---
+  const getIcon = (iconName: string) => {
+    switch (iconName) {
+      case 'briefcase': return <Briefcase size={18} />;
+      case 'shield': return <ShieldAlert size={18} />;
+      default: return <Mail size={18} />;
     }
   };
 
+  const handleCopy = (e: React.MouseEvent, email: string) => {
+    e.preventDefault(); 
+    navigator.clipboard.writeText(email);
+    // Optional: Add a small toast notification here if you have one
+    alert(`Copied: ${email}`);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const inquiryType = formData.get("inquiryType") as string; // Get dropdown value
+    const message = formData.get("message") as string;
+
+    if (!name || !email || !message || !inquiryType) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    const whatsappMessage = 
+`*New Website Inquiry* 🚀
+👤 *Name:* ${name}
+📧 *Email:* ${email}
+📌 *Topic:* ${inquiryType}
+📝 *Message:* ${message}`;
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER.replace('+', '')}?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(url, '_blank');
+    setFormState("success");
+    e.currentTarget.reset();
+  };
+
   return (
-    <section id="contact" className="py-10 md:py-12 bg-white relative scroll-mt-28"> {/* Reduced vertical padding */}
+    <section id="contact" className="py-16 bg-white relative scroll-mt-20 border-t border-slate-100">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8"> {/* Reduced grid gap */}
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           
-          {/* Left: Contact Info */}
+          {/* --- LEFT COLUMN: STRATEGIC COMMUNICATION CHANNELS --- */}
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3"> {/* Reduced font size and bottom margin */}
-              Ready to secure your infrastructure?
-            </h2>
-            <p className="text-sm text-slate-500 mb-8"> {/* Reduced font size and bottom margin */}
-              Reach out for a consultation regarding Drone Security, IoT Protection, or ISO Compliance.
-            </p>
-            <div className="space-y-6"> {/* Reduced space between items */}
-              {(CONTACT_SECTION_DETAILS as any[]).map((office, idx) => (
-                <div key={idx} className="flex items-start gap-4">
-                  <div className="p-2.5 bg-blue-50 text-primary rounded-lg"> {/* Reduced padding and rounded corners */}
-                    <MapPin size={18} className="text-blue-600" /> {/* Reduced icon size */}
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 mb-0.5 text-sm">{office.title}</h3> {/* Reduced bottom margin */}
-                    {office.lines.map((line: string, i: number) => (
-                      <p key={i} className="text-slate-500 text-[11px] leading-snug">{line}</p> 
+            <div className="mb-10">
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+                  Start the Conversation.
+                </h2>
+                <p className="text-slate-500 text-lg leading-relaxed">
+                  Select the right channel below for faster resolution, or use the quick form.
+                </p>
+            </div>
+
+            {/* 🚨 STRATEGIC EMAIL GRID 🚨 */}
+            <div className="mb-10">
+                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100 pb-3 mb-5 flex items-center gap-2">
+                   <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
+                  Departments
+                </h3>
+                
+                <div className="flex flex-col gap-3">
+                    {/* Render Email Cards */}
+                    {(CONTACT_EMAILS as any[]).map((contact, idx) => (
+                        <div 
+                           key={idx} 
+                           className={`group relative flex items-center gap-4 p-4 rounded-xl border transition-all duration-300
+                             ${contact.role.includes('Director') 
+                                ? 'bg-amber-50/50 border-amber-100 hover:border-amber-300 hover:shadow-md' // Director Style
+                                : 'bg-white border-slate-100 hover:border-blue-200 hover:shadow-md' // Standard Style
+                             }
+                           `}
+                        >
+                            {/* Icon Box */}
+                            <div className={`shrink-0 p-3 rounded-lg flex items-center justify-center
+                                ${contact.role.includes('Director') ? 'bg-amber-100 text-amber-700' : 
+                                  contact.role.includes('HR') ? 'bg-purple-50 text-purple-600' : 'bg-blue-50 text-blue-600'}
+                            `}>
+                                {getIcon(contact.icon)}
+                            </div>
+
+                            {/* Text Info */}
+                            <div className="flex-1 min-w-0">
+                                <p className={`text-[10px] font-bold uppercase tracking-wider mb-0.5
+                                   ${contact.role.includes('Director') ? 'text-amber-600' : 'text-slate-400'}
+                                `}>
+                                    {contact.role}
+                                </p>
+                                <a href={`mailto:${contact.email}`} className="block text-base font-bold text-slate-900 truncate hover:underline decoration-slate-300 underline-offset-4">
+                                    {contact.email}
+                                </a>
+                                <p className="text-xs text-slate-500 mt-0.5">{contact.desc}</p>
+                            </div>
+
+                            {/* Action Button */}
+                            <button 
+                                onClick={(e) => handleCopy(e, contact.email)}
+                                className="p-2 text-slate-300 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
+                                title="Copy Email Address"
+                            >
+                                <Copy size={16} />
+                            </button>
+                        </div>
                     ))}
-                  </div>
                 </div>
-              ))}
+            </div>
+
+            {/* PHYSICAL OFFICES (Secondary Priority) */}
+            <div className="pt-8 border-t border-slate-100">
+              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">
+                Global Headquarters
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {(CONTACT_OFFICES as any[]).map((office, idx) => (
+                    <div key={idx} className="flex gap-3">
+                        <MapPin size={18} className="text-slate-400 shrink-0 mt-0.5" />
+                        <div>
+                            <h4 className="font-bold text-slate-900 text-sm mb-1">{office.title}</h4>
+                            {office.lines.map((line: string, i: number) => (
+                                <p key={i} className="text-xs text-slate-500 leading-relaxed">{line}</p>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Right: Contact Form */}
-          <div className="bg-white p-5 md:p-6 rounded-2xl border border-slate-100 shadow-xl"> {/* Reduced padding and rounded corners */}
+          {/* --- RIGHT COLUMN: FORM (Unchanged Logic) --- */}
+          <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200 h-fit">
             {formState === "success" ? (
-              <div className="text-center py-10 animate-fade-in"> {/* Reduced vertical padding */}
-                <div className="w-14 h-14 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4 mx-auto"> {/* Reduced size */}
-                  <CheckCircle2 size={30} /> {/* Reduced icon size */}
+              <div className="text-center py-12">
+                <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4 mx-auto">
+                  <CheckCircle2 size={32} />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900">Message Sent!</h3> {/* Reduced font size */}
-                <p className="text-slate-500 text-sm mt-2">We’ve received your inquiry and will be in touch shortly.</p>
-                <button 
-                  onClick={() => setFormState("idle")} 
-                  className="mt-5 text-blue-600 text-sm font-bold hover:underline"
-                >
-                  Send another message
-                </button>
+                <h3 className="text-xl font-bold text-slate-900">Opened in WhatsApp!</h3>
+                <button onClick={() => setFormState("idle")} className="mt-4 text-blue-600 text-sm font-bold hover:underline">Send another</button>
               </div>
             ) : (
               <form className="space-y-4" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3"> {/* Reduced gap */}
-                  <div>
-                    <label htmlFor="name" className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1 block">Your Name *</label> {/* Reduced font size */}
-                    <input id="name" name="name" required type="text" placeholder="John Doe"
-                      className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-sm" /> {/* Reduced padding and rounded corners */}
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1 block">Phone Number</label> {/* Reduced font size */}
-                    <input id="phone" name="phone" type="tel" placeholder="+1 (555) 555-5555"
-                      className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-sm" /> {/* Reduced padding and rounded corners */}
-                  </div>
-                </div>
-
+                <h3 className="font-bold text-slate-900 mb-4">Quick Enquiry</h3>
                 <div>
-                  <label htmlFor="email" className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1 block">Work Email *</label> {/* Reduced font size */}
-                  <input id="email" name="email" required type="email" placeholder="john@example.com"
-                    className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-sm" /> {/* Reduced padding and rounded corners */}
+                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">Your Name</label>
+                  <input name="name" required type="text" className="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500 transition-colors" placeholder="John Doe" />
                 </div>
-
                 <div>
-                    <label htmlFor="enquiry" className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1 block">Topic *</label> {/* Reduced font size */}
-                    <select
-                    id="enquiry"
-                    name="enquiry"
-                    required
-                    className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-sm text-slate-700" 
+                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">Email Address</label>
+                  <input name="email" required type="email" className="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500 transition-colors" placeholder="john@company.com" />
+                </div>
+                
+                {/* 🚨 NEW: DROPDOWN MENU FOR INQUIRY TYPE 🚨 */}
+                <div>
+                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">I'm interested in...</label>
+                  <div className="relative">
+                    <select 
+                        name="inquiryType" 
+                        required 
+                        className="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500 transition-colors appearance-none cursor-pointer"
+                        defaultValue=""
                     >
-                    {/* 🚨 Fix Applied: JSX comment removed from the className line */}
-                    <option value="">Select a product or service</option>
-                    <option value="Drone Defense">Drone Defense</option>
-                    <option value="IoT Security">IoT Security</option>
-                    <option value="ISO Compliance">ISO Compliance</option>
-                    <option value="SOC Operations">SOC Operations</option>
-                    <option value="Other">Other</option>
+                        <option value="" disabled hidden>Select a topic</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Product Support">Product Support</option>
+                        <option value="Sales & Quotes">Sales & Quotes</option>
+                        <option value="Partnership">Partnership Opportunities</option>
+                        <option value="Careers">Careers</option>
                     </select>
+                    {/* Custom Dropdown Arrow */}
+                    <div className="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-slate-500">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                  </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1 block">Message *</label> {/* Reduced font size */}
-                  <textarea id="message" name="message" required placeholder="How can we help you?"
-                    className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg h-24 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none text-sm"></textarea> {/* Reduced padding, height, and rounded corners */}
+                  <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">Message</label>
+                  <textarea name="message" required className="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500 transition-colors h-28 resize-none" placeholder="How can we help?"></textarea>
                 </div>
-
-                {/* Error Message Display */}
-                {errorMessage && (
-                    <div className="p-2 bg-red-50 text-red-600 text-xs rounded-lg border border-red-100 flex items-center gap-2"> {/* Reduced padding and font size */}
-                        <span>⚠️</span> {errorMessage}
-                    </div>
-                )}
-
-                {formState === "submitting" ? (
-                  <button disabled className="w-full py-2.5 bg-blue-600/70 text-white rounded-lg flex items-center justify-center cursor-not-allowed font-bold text-sm"> {/* Reduced padding and rounded corners */}
-                    <Loader2 className="animate-spin mr-2" size={18} /> Sending...
-                  </button>
-                ) : (
-                  <button type="submit" className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold transition-colors shadow-lg shadow-blue-200 text-sm"> {/* Reduced padding and rounded corners */}
-                    Send Message
-                  </button>
-                )}
+                <button type="submit" className="w-full py-3 bg-slate-900 hover:bg-blue-600 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg">
+                    <MessageCircle size={18} /> Chat via WhatsApp
+                </button>
               </form>
             )}
           </div>
+
         </div>
       </div>
     </section>
