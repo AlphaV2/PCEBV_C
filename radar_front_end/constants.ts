@@ -5,7 +5,7 @@ import { Service, Product, Testimonial, StatMetric, Project, TeamMember } from '
 // 🚨 GLOBAL CONSTANTS (WHATSAPP CENTRALIZATION) 🚨
 // ===============================================
 
-export const WHATSAPP_NUMBER = "+919819158929"; 
+export const WHATSAPP_NUMBER = "+917400468929"; 
 export const WHATSAPP_MESSAGE = "Hi, I'm interested in Radar Sniper solutions.";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
