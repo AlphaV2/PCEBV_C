@@ -132,13 +132,13 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
                     </a>
                 </div>
                 
-                {service.details?.downloadText && (
+                {/* {service.details?.downloadText && (
                     <div className="flex justify-center text-[10px] text-slate-500">
                         <a href={service.details.downloadLink || "#"} className="flex items-center gap-1 hover:text-blue-600 transition-colors" onClick={e => e.preventDefault()}>
                             <Download size={10} /> {service.details.downloadText}
                         </a>
                     </div>
-                )}
+                )} */}
             </div>
             
           </div>

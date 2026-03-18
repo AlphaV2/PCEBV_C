@@ -230,7 +230,7 @@ const Gallery: React.FC = () => {
     }, []);
 
     const handleWhatsAppClick = (item: any) => {
-        const phoneNumber = "+919819158929"; 
+        const phoneNumber = "+917400468929"; 
         const message = `Hi, I am interested in "${item.title}".`;
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');

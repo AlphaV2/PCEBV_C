@@ -5,7 +5,7 @@ import { Service, Product, Testimonial, StatMetric, Project, TeamMember } from '
 // 🚨 GLOBAL CONSTANTS (WHATSAPP CENTRALIZATION) 🚨
 // ===============================================
 
-export const WHATSAPP_NUMBER = "+919819158929"; 
+export const WHATSAPP_NUMBER = "+917400468929"; 
 export const WHATSAPP_MESSAGE = "Hi, I'm interested in Radar Sniper solutions.";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
@@ -43,20 +43,20 @@ export const GALLERY_CONTENT = {
   verticalBanners: [
     {
       id: 'v1',
-      src: '/gallery/vertical1.jpeg', // Your main vertical banner
+      src: '/gallery/vertical1.webp', // Your main vertical banner
       title: 'Complete Drone Solutions',
       tagline: 'End-to-End Service'
     },
     {
       id: 'v2',
-      src: '/gallery/vertical2.jpeg', // Placeholder: Replace with a TALL image
+      src: '/gallery/vertical2.webp', // Placeholder: Replace with a TALL image
       title: 'Meet The Future Of Pollination',
       tagline: 'AI Powered',
       decription:' '
     },
     {
       id: 'v3',
-      src: '/gallery/vertical4.jpeg', // Placeholder: Replace with a TALL image
+      src: '/gallery/vertical4.webp', // Placeholder: Replace with a TALL image
       title: 'Smart Agriculture Soil Monitoring System ',
       tagline: 'Data Driven',
       description: 'Autonomous, solar-powered IoT assembly with LoRa long-range wireless data. Measures real-time Nitrogen, Phosphorus, and Potassium (NPK) levels deep in the root zone to prevent crop failure.'
@@ -115,7 +115,7 @@ export const GALLERY_CONTENT = {
   specialOffers: [
     {
       id: 'offer1',
-      src: '/gallery/offer.jpeg', // Your main offer
+      src: '/gallery/offer.webp', // Your main offer
       title: 'Limited Time Offer',
       tagline: 'Save ₹100',
       description:'Get ₹100 OFF on your first purchase of Krishi Sakha 11L drone. Elevate your farming with precision and efficiency. Hurry, offer valid while stocks last!'
