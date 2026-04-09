@@ -1,0 +1,490 @@
+{
+	"whatsapp": {
+		"message": "Hallo, ik ben geinteresseerd in Radar Sniper-oplossingen."
+	},
+	"nav": {
+		"home": "Home",
+		"services": "Diensten",
+		"products": "Producten",
+		"gallery": "Galerij",
+		"about": "Over ons",
+		"contact": "Contact opnemen",
+		"departments": "Afdelingen",
+		"globalOffices": "Wereldwijde vestigingen"
+	},
+	"about": {
+		"badge": "Onze missie",
+		"headingLine1": "Wij werken aan een",
+		"headingLine2": "Slimmere & Veiligere",
+		"headingLine3": "Wereld.",
+		"values": {
+			"precision": "Precisie",
+			"compliance": "Compliance",
+			"globalScale": "Wereldwijde schaal"
+		},
+		"leadershipVision": "Visie van het leiderschap",
+		"visionLabel": "Visie",
+		"expertiseLabel": "Expertise",
+		"expertise": "SIEM-architectuur, VAPT, LA ISO 27001-implementatie, Business Continuity Management en Enterprise Security Architecture.",
+		"connectCta": "Neem contact op met het leiderschap",
+		"p1": "Onze missie benadrukt maatschappelijk verantwoord ondernemen en het oplossen van de belangrijkste uitdagingen van klanten en stakeholders door vertrouwen en innovatie te bevorderen.",
+		"p2": "Radar Sniper is een op beveiliging gerichte startup die nieuwe generatie oplossingen ontwikkelt op het gebied van Cyber Security, Internet of Things (IoT) en AI-gestuurde drones.",
+		"p3": "Wij ondersteunen financiele instellingen (NBFC's en banken) met gespecialiseerde informatiebeveiligingsconsultancy, met betaalbare en maatwerkoplossingen voor compliance, auditing en implementatie volgens SEBI- en RBI-richtlijnen.",
+		"p4": "De oprichter is verantwoordelijk voor de wereldwijde securitystrategie en voor de ontwikkeling en het beheer van de technologie van het bedrijf, inclusief enterprise security architecture, securityontwikkeling en technologie-operaties."
+	},
+	"contact": {
+		"heading": "Start het gesprek.",
+		"subheading": "Kies hieronder het juiste kanaal voor snellere afhandeling, of gebruik het korte formulier.",
+		"copied": "Gekopieerd",
+		"copyEmail": "E-mailadres kopieren",
+		"office1": {
+			"title": "Geregistreerd kantoor (India)"
+		},
+		"office2": {
+			"title": "Vestiging Nederland"
+		},
+		"emails": {
+			"mail": {
+				"role": "Algemene vragen",
+				"desc": "Offertes & productspecificaties"
+			},
+			"briefcase": {
+				"role": "HR & Carriere",
+				"desc": "Sollicitaties"
+			},
+			"shield": {
+				"role": "Directeur",
+				"desc": "Strategische partnerschappen"
+			}
+		},
+		"form": {
+			"title": "Snelle aanvraag",
+			"fillAll": "Vul alle verplichte velden in.",
+			"successTitle": "Geopend in WhatsApp!",
+			"sendAnother": "Nog een bericht sturen",
+			"submitButton": "Start WhatsApp-chat",
+			"whatsappTitle": "Nieuwe website-aanvraag",
+			"nameLabel": "Naam",
+			"namePlaceholder": "Jan Jansen",
+			"emailLabel": "E-mail",
+			"emailPlaceholder": "jan@bedrijf.com",
+			"interestedIn": "Ik ben geinteresseerd in...",
+			"topicLabel": "Onderwerp",
+			"selectTopic": "Selecteer een onderwerp",
+			"messageLabel": "Bericht",
+			"messagePlaceholder": "Hoe kunnen we helpen?",
+			"topics": {
+				"general": "Algemene vraag",
+				"support": "Productondersteuning",
+				"sales": "Sales & offertes",
+				"partnership": "Partnermogelijkheden",
+				"careers": "Carriere"
+			}
+		}
+	},
+	"services": {
+		"pollination-drones": {
+			"title": "AI-gestuurde bestuiving en sensing",
+			"shortTitle": "Bestuivingsdrones",
+			"desc": "Autonome AIML-zwermdrones ontworpen om kruisbestuiving en omgevingssensing in de Indiase sierteelt en landbouw aan te pakken.",
+			"intro": "Wij lossen het arbeidsintensieve probleem van handmatige kruisbestuiving op met autonoom vliegende AIML- en zwermdrones. Onze drones gebruiken natuurgeinspireerde robotica om de landbouwopbrengst efficient te verhogen.",
+			"downloadText": "Download onderzoeksrapport",
+			"features": [
+				"VOC-sensing (MICS6814)",
+				"Zwermintelligentie",
+				"Precisiebestuiving"
+			],
+			"sections": [
+				{
+					"heading": "Hoe het werkt",
+					"body": [
+						"Onze drones zijn uitgerust met geavanceerde VOC-sensoren (Volatile Organic Compound) zoals MICS6814 om geurpatronen van bloemen te herkennen. Zo bepalen ze welke bloemen klaar zijn voor bestuiving.",
+						"Met teamwork-plannen (zwermintelligentie) werken meerdere drones samen om grote landbouwgebieden te dekken zonder dubbel werk. Zo brengen we datagedreven intelligentie naar bestuiving."
+					]
+				},
+				{
+					"heading": "Belangrijkste voordelen",
+					"body": [
+						"Vermindert hoge kosten en schaarste van handmatige bestuiving.",
+						"Verhoogt opbrengst door gerichte en effectieve bestuiving.",
+						"Schaalbare oplossing voor zowel kleine als grote bloem- en fruitbedrijven.",
+						"Levert naast bestuiving ook omgevingsdata."
+					]
+				},
+				{
+					"heading": "Doelgroepen",
+					"body": [
+						"Commerciele boeren en kassen",
+						"Polyhouses en telers",
+						"Boomgaarden en plantages",
+						"Farmer Producer Organizations (FPOs)",
+						"Agri-tech dienstverleners",
+						"Landbouwuniversiteiten en R&D-instituten",
+						"Exportgerichte landbouwbedrijven"
+					]
+				}
+			]
+		},
+		"iot-security": {
+			"title": "IoT-beveiliging",
+			"shortTitle": "IoT-beveiliging",
+			"desc": "Uitgebreide bescherming voor verbonden apparaten, met borging van data-integriteit in uw hele netwerkecosysteem.",
+			"intro": "Internet of Things (IoT) verbindt slimme machines, maar introduceert ook risico's. Radar Sniper is gespecialiseerd in het beveiligen van sensoren en processen binnen IoT-omgevingen.",
+			"downloadText": "Download IoT-beveiligingschecklist",
+			"features": [
+				"Firmware-analyse",
+				"Netwerksegmentatie",
+				"Zero Trust"
+			],
+			"sections": [
+				{
+					"heading": "Context in de sector",
+					"body": [
+						"IoT groeit snel. Waar internet mensen verbindt, verbindt IoT machines. De snelle toename van automatisering in slimme steden, ziekenhuizen en woningen heeft echter geleid tot kritieke beveiligingskwetsbaarheden.",
+						"Publieke waarschuwingssystemen, logistieke trackers en noodcommunicatie vertrouwen op dit netwerk. Beveiliging is geen optie maar noodzaak."
+					]
+				},
+				{
+					"heading": "Belangrijkste aanvalsscenario's",
+					"body": [
+						"Man-in-the-Middle (MitM): afluisteren van communicatie tussen apparaten.",
+						"Denial-of-Service (DoS): verstoring van kritieke IoT-diensten.",
+						"Rogue endpoints: ongeautoriseerde apparaten in het netwerk.",
+						"Gecompromitteerde endpoints: kwetsbare software maakt inbraak mogelijk.",
+						"Datalekken: onvoldoende beveiligde data leidt tot financiele en reputatieschade."
+					]
+				},
+				{
+					"heading": "Aanpak van IoT-beveiliging",
+					"body": [
+						"Bepaal de scope voor kwetsbaarheidsanalyse en penetratietesten.",
+						"Volg standaardkwetsbaarheden (ontbrekende patches) en diepere risico's (gebrek aan encryptie).",
+						"Ontwikkel en handhaaf bedrijfsbeleid voor Bluetooth en pairing.",
+						"Investeer in zichtbaarheid om onveilige apparaten direct te detecteren."
+					]
+				},
+				{
+					"heading": "Waarom Radar Sniper?",
+					"body": [
+						"Onze IoT-beveiligingstesten omvatten sensoren, DAST (Dynamic Application Security Scanning) en SAST (Static Application Security Testing). We gebruiken actuele methodieken zoals OWASP in combinatie met strikte verificatie.",
+						"Wij waarborgen vertrouwelijkheid en integriteit van data, zowel tijdens transport als in opslag."
+					]
+				}
+			]
+		},
+		"iso-27001": {
+			"title": "ISO 27001-compliance",
+			"shortTitle": "ISO 27001",
+			"desc": "Implementatie en consultancy van Information Security Management Systems (ISMS) volgens internationale normen.",
+			"intro": "Wij helpen organisaties bij het behalen van ISO 27001-certificering, zodat uw Information Security Management System (ISMS) voldoet aan wereldwijde standaarden.",
+			"features": [
+				"Auditvoorbereiding",
+				"Risicobeoordeling",
+				"Beleidskader"
+			],
+			"sections": [
+				{
+					"heading": "Fase I: Analyse",
+					"body": [
+						"Wij beoordelen de volwassenheid van uw informatiebeveiliging en de afwijking ten opzichte van best practices. Onze review van security controls omvat technologie, processen en medewerkers."
+					]
+				},
+				{
+					"heading": "Fase II: Voorbereiding",
+					"body": [
+						"Wij ondersteunen bij de interpretatie van normeisen en de opbouw van uw ISO 27001-documentatiesysteem. We helpen met ontbrekende documentatie, beleid en risicomethodiek.",
+						"We helpen risico's te beperken tot een acceptabel niveau en bereiden de Statement of Applicability voor op de audit."
+					]
+				},
+				{
+					"heading": "Fase III: Auditbegeleiding",
+					"body": [
+						"Wij begeleiden het certificeringstraject voor ISO 27001, zodat u extern kunt aantonen dat uw organisatie voldoet aan internationale normen."
+					]
+				},
+				{
+					"heading": "Onze voordelen",
+					"body": [
+						"Implementatie verhoogt security-bewustzijn bij medewerkers.",
+						"Behaal ISO-certificeringen op tijd en binnen budget.",
+						"Best-in-class systeem- en netwerkbeveiligingstesten inbegrepen."
+					]
+				}
+			]
+		},
+		"soc": {
+			"title": "SOC-operaties",
+			"shortTitle": "SOC",
+			"desc": "24/7 monitoring door een Security Operating Centre om cyberincidenten in realtime te detecteren, analyseren en op te lossen.",
+			"intro": "Ons Security Operations Center (SOC) biedt continue bewaking van uw digitale infrastructuur, zodat dreigingen worden ontdekt voordat ze tot inbreuken leiden.",
+			"features": [
+				"Threat hunting",
+				"Incident response",
+				"SIEM-beheer"
+			],
+			"sections": [
+				{
+					"heading": "Realtime monitoring",
+					"body": [
+						"Wij gebruiken geavanceerde SIEM-tools (Security Information and Event Management) om logs van al uw endpoints te bundelen en verdachte patronen te analyseren met gedragsanalyse."
+					]
+				},
+				{
+					"heading": "Incident response",
+					"body": [
+						"24/7/365 monitoring.",
+						"Snelle triage en containment van dreigingen.",
+						"Forensische analyse na incidenten.",
+						"Regelmatige threat-hunting oefeningen."
+					]
+				}
+			]
+		}
+	},
+	"products": {
+		"badge": "Tactische hardware",
+		"heading": "Geavanceerde dronesystemen",
+		"subheading": "Krachtige luchtoplossingen voor landbouw en surveillance.",
+		"typeUAV": "UAV",
+		"typeHDW": "HW",
+		"viewFullSpecs": "Bekijk alle specificaties",
+		"krishi-sakha-11l": {
+			"name": "Krishi Sakha 11L",
+			"tagline": "Precisie-landbouw rotorcraft",
+			"desc": "De Krishi Sakha 11L is een gespecialiseerde rotorcraft (RPAS) voor maximale efficientie in landbouwomstandigheden. Met een carbonfiber frame voor hoge sterkte en laag gewicht werkt hij binnen VLOS (Visual Line of Sight). De drone heeft een tank van hoogwaardig polymeer en kan tot 60 acres per dag besproeien.",
+			"specs": [
+				"Tankcapaciteit: 11 liter",
+				"Vluchtduur: 18 minuten",
+				"Bereik: 2 km",
+				"Spuitbreedte: 4 meter",
+				"Totaal gewicht: 18 kg",
+				"Debiet: 1,25 liter/min",
+				"Camera: nachtzicht mogelijk",
+				"Klasse: kleine rotorcraft (RPAS)"
+			]
+		},
+		"land-mapping-drone": {
+			"name": "Terra Mapper Survey Drone",
+			"tagline": "Hoogprecieze luchtkartering",
+			"desc": "Ontworpen voor professionele landmeters en ontwikkelaars. Deze drone gebruikt RTK-positionering (Real-Time Kinematic) voor centimeternauwkeurige 3D-kaarten en topografische surveys. Ideaal voor stadsplanning, bouwplaatsmonitoring en analyse van landbouwgronden.",
+			"specs": [
+				"Positionering: RTK/PPK GPS-module",
+				"Camera: 20MP high-res fotogrammetrie",
+				"Vluchtduur: 35 minuten",
+				"Nauwkeurigheid mapping: centimeterniveau",
+				"Dekking: 100+ acres per vlucht",
+				"Software: 3D-terreinmodellering"
+			]
+		},
+		"pollination-drone": {
+			"name": "Cross-Pollinator Drones",
+			"tagline": "AI-zwermsysteem voor bestuiving",
+			"desc": "Een natuurgeinspireerde robotoplossing voor de wereldwijde bestuivingscrisis. Met VOC-sensoren (Volatile Organic Compound) herkennen deze drones autonoom bloemen die klaar zijn voor bestuiving via geurpatronen. Dankzij zwermintelligentie bereiken ze volledige dekking zonder overlap.",
+			"specs": [
+				"Sensoren: VOC (MICS6814) geurdetectie",
+				"Technologie: AI-zwermintelligentie",
+				"Doel: sierteelt en boomgaarden",
+				"Vluchtmodus: autonoom patroon",
+				"Functie: zachte luchtstootbestuiving",
+				"Efficientie: 30x sneller dan handmatig"
+			]
+		},
+		"smart-soil-monitor": {
+			"name": "Smart Soil Monitoring System",
+			"tagline": "Realtime bodemgezondheid en opbrengstzekerheid",
+			"desc": "Maak landbouw voorspelbaar met engineering in plaats van gokken. Dit alles-in-een station gaat verder dan basis-sensing met monitoring van bodem-NPK, AQI en stormrisico's in realtime. Met Crop Selector en Fertilizer AI voorspelt het systeem ziekterisico's en geeft het direct toepasbare adviezen.",
+			"specs": [
+				"Sensoren: AQI, regen- en stormwaarschuwing",
+				"AI-functies: meststofadvies en ziekterisico",
+				"Voorspelling: kans op regen en opbrengstvoorspelling",
+				"Voeding: batterij met lange levensduur",
+				"Live data: auto-refresh cloud-dashboard"
+			]
+		}
+	},
+	"gallery": {
+		"title": "Galerij van dronevloot en operaties",
+		"sectionFeaturedSpotlight": "Uitgelicht",
+		"sectionOperationalGrid": "Operationeel overzicht",
+		"lightboxDefaultDescription": "Operationeel beeld vastgelegd tijdens recente veldinzet.",
+		"inquireOnWhatsapp": "Informeer via WhatsApp",
+		"imageCounter": "Afbeelding",
+		"imageCounterOf": "van",
+		"offerBadge": "AANBIEDING",
+		"fallback": {
+			"fullSpecifications": "Volledige specificaties",
+			"brochure": "Brochure"
+		},
+		"verticalBanners": {
+			"v1": {
+				"title": "Complete drone-oplossingen",
+				"tagline": "End-to-end service"
+			},
+			"v2": {
+				"title": "Ontdek de toekomst van bestuiving",
+				"tagline": "AI-gestuurd"
+			},
+			"v3": {
+				"title": "Slim bodemmonitoringsysteem voor landbouw",
+				"tagline": "Datagedreven",
+				"description": "Autonome IoT-opstelling op zonne-energie met LoRa-communicatie over lange afstand. Meet realtime stikstof-, fosfor- en kaliumwaarden (NPK) diep in de wortelzone om gewasuitval te voorkomen."
+			},
+			"v4": {
+				"title": "Rapport slim bodemmonitoringsysteem",
+				"tagline": "Datagedreven"
+			}
+		},
+		"droneFleet": {
+			"fleet1": {
+				"title": "Krishi Sakha 11L",
+				"tagline": "Compact",
+				"description": "Wendbare 11-liter sproeidrone voor nauwkeurige pesticidetoepassing op kleine en middelgrote boerderijen."
+			},
+			"fleet2": {
+				"title": "Survey Drone",
+				"tagline": "Demonstratie",
+				"description": "Drone met hoge vluchtduur voor realtime monitoring van gewasgezondheid en topografische mapping."
+			},
+			"fleet4": {
+				"title": "Toekomst van bestuiving",
+				"tagline": "AI-gestuurd",
+				"description": "Autonome microdrones van de volgende generatie die natuurlijke bestuivers nabootsen om opbrengsten te verhogen."
+			},
+			"fleet5": {
+				"title": "Vlootuitrol",
+				"tagline": "In actie",
+				"description": "Gecoordineerde drone-operaties met snelle uitrol voor grootschalige dekking."
+			}
+		},
+		"specialOffers": {
+			"offer1": {
+				"title": "Tijdelijke aanbieding",
+				"tagline": "Bespaar 100 INR",
+				"description": "Krijg 100 INR korting op je eerste aankoop van de Krishi Sakha 11L. Breng je landbouw naar een hoger niveau met precisie en efficientie. Op is op."
+			}
+		},
+		"innovations": {
+			"inno1": {
+				"title": "Bodemmonitoringsysteem",
+				"tagline": "Autonome unit",
+				"description": "Op zonne-energie met LoRa-antenne voor draadloze langeafstandsdata over bodemgezondheid."
+			},
+			"inno2": {
+				"title": "Diepwortelprobe",
+				"tagline": "Precisie-hardware",
+				"description": "Robuuste probe voor diepe plaatsing in de wortelzone om stikstof-, fosfor- en kaliumwaarden nauwkeurig te meten."
+			},
+			"inno3": {
+				"title": "Datagedreven voordelen",
+				"tagline": "Slimme analytics",
+				"description": "Realtime nutriënteninzichten voor geoptimaliseerd meststofgebruik, minder verspilling en preventie van tekorten."
+			}
+		},
+		"exhibitions": {
+			"ex1": {
+				"title": "KISAN Hyderabad 2025",
+				"description": "De driedaagse landbouwbeurs KISAAN 2025 startte op vrijdag 7 februari in het HITEX Exhibition Center in Hyderabad."
+			},
+			"ex2": {
+				"title": "KISAN Hyderabad 2025",
+				"description": "De beurs werd geopend door Telangana-minister van Landbouw Thummala Nageswara Rao, die het evenement noemde als katalysator voor duurzame landbouwgroei."
+			}
+		},
+		"pamphlet": {
+			"pamphlet-full": {
+				"title": "AI-gestuurde dronebestuiving en bodemmonitoring",
+				"tagline": "VOLLEDIGE SPECIFICATIES",
+				"description": "Volledige technische specificaties van onze AI-bestuivingsdrones en IoT-bodemmonitoringssystemen."
+			}
+		}
+	},
+	"hero": {
+		"badge": "AI-gestuurde verdedigingssystemen",
+		"titleLine1": "Verander het luchtruim in een",
+		"titleHighlight": "Intelligent schild.",
+		"subtitle": "RadarSnipers (OPC) Private Ltd presenteert AI-gestuurde drones en cybersecurity voor een slimmere toekomst.",
+		"subtitleStrong": "Slimme drones. Sterke beveiliging. Een veiligere morgen.",
+		"ctaProducts": "Bekijk producten",
+		"ctaWhatsapp": "WhatsApp-chat",
+		"recognizedBy": "Erkend door",
+		"msmeStatus": "Geregistreerd",
+		"startupIndiaStatus": "Erkend",
+		"incubationPrefix": "Ontworpen en",
+		"incubationEmphasis": "geproduceerd",
+		"incubationSuffix": "in gecertificeerde incubatiefaciliteiten:",
+		"incubationInstitute": "Auto Cluster Development & Research Institute, Pune"
+	},
+	"servicesSection": {
+		"badge": "Kernexpertise",
+		"heading": "Oplossingen ontworpen voor impact",
+		"subheading": "Een combinatie van design en engineering voor veilige infrastructuur.",
+		"details": "Details"
+	},
+	"navbar": {
+		"exploreSolutions": "Bekijk oplossingen",
+		"featuredInventory": "Uitgelichte producten",
+		"fullInventory": "Volledige catalogus",
+		"productDemos": "Productdemo's",
+		"watchVideos": "Bekijk video's",
+		"exhibitions": "Beurzen",
+		"eventPhotos": "Evenementfoto's",
+		"missionVision": "Missie en visie",
+		"readOurStory": "Lees ons verhaal",
+		"contactUs": "Contact opnemen",
+		"quickChat": "Snelle chat",
+		"bookConsultation": "Plan consultatie",
+		"whatsapp": "WhatsApp",
+		"contact": "Contact opnemen"
+	},
+	"projects": {
+		"loadingDeployments": "Implementaties laden...",
+		"badge": "Trackrecord",
+		"heading": "Uitgerold in de praktijk",
+		"subheading": "Praktijkimplementaties van onze beveiligingsarchitectuur in slimme steden, luchthavens en defensiesectoren.",
+		"metric": "Metriek"
+	},
+	"footer": {
+		"description": "Wij bouwen aan de toekomst van luchtbeveiliging en IoT-weerbaarheid. Met AI-gedreven verdedigingssystemen helpen we organisaties veilig te opereren in een verbonden wereld.",
+		"solutions": "Oplossingen",
+		"company": "Bedrijf",
+		"support": "Ondersteuning",
+		"rights": "Alle rechten voorbehouden.",
+		"privacy": "Privacybeleid",
+		"terms": "Servicevoorwaarden",
+		"cookies": "Cookie-instellingen"
+	},
+	"serviceModal": {
+		"whatsappInterest": "Hallo, ik wil graag meer weten over {{service}}",
+		"solutionOverview": "Oplossingsoverzicht",
+		"technicalSpecs": "Technische specificaties",
+		"feature": "Kenmerk",
+		"processFlow": "Procesverloop",
+		"requestQuote": "Vraag offerte aan",
+		"whatsapp": "WhatsApp"
+	},
+	"productModal": {
+		"whatsappInterest": "Hallo, ik ben geinteresseerd in {{product}}",
+		"aerialSystem": "Luchtsysteem",
+		"hardware": "Hardware",
+		"overview": "Overzicht",
+		"technicalSpecifications": "Technische specificaties",
+		"requestPricingDemo": "Vraag prijs en demo aan"
+	},
+	"stats": {
+		"responseTime": {
+			"label": "Gem. reactietijd"
+		},
+		"threats": {
+			"label": "Geneutraliseerde dreigingen"
+		},
+		"uptime": {
+			"label": "Uptimegarantie"
+		}
+	},
+	"team": {
+		"founder": {
+			"role": "Oprichter",
+			"bio": "Een visionaire technocraat die met AI-gestuurde drones de luchtvaart voor landbouw, landmeting en kruisbestuiving vernieuwt. Met meer dan 19 jaar ervaring in wereldwijde securitystrategie integreert Jaykumar cybersecurity van militaire kwaliteit in autonome luchtsystemen, zodat onze oplossingen efficient en veilig zijn by design."
+		}
+	}
+}

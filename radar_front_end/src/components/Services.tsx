@@ -1,7 +1,8 @@
 import React from 'react';
-import { SERVICES } from '../../constants';
+import { useTranslation } from 'react-i18next';
 import { ChevronRight } from 'lucide-react';
 import { Service } from '../../types';
+import { useTranslatedServices } from '../hooks/useTranslatedData';
 
 interface ServicesProps {
   // 🚨 CHANGED: Now expects a full Service object, not just a string ID
@@ -9,6 +10,9 @@ interface ServicesProps {
 }
 
 const Services: React.FC<ServicesProps> = ({ onOpenService }) => {
+  const services = useTranslatedServices();
+  const { t } = useTranslation();
+
   return (
     <section id="services" className="py-12 md:py-16 bg-white relative overflow-hidden scroll-mt-28">
        {/* Decorative background elements */}
@@ -18,18 +22,18 @@ const Services: React.FC<ServicesProps> = ({ onOpenService }) => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-block px-3 py-1 mb-3 text-xs font-bold tracking-widest text-primary uppercase bg-blue-50 rounded-md border border-blue-100">
-            Core Expertise
+            {t('servicesSection.badge', 'Core Expertise')}
           </div>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
-            Solutions Designed for Impact
+            {t('servicesSection.heading', 'Solutions Designed for Impact')}
           </h2>
           <p className="text-slate-500 text-sm">
-            Combining aesthetics with engineering to deliver secure infrastructure.
+            {t('servicesSection.subheading', 'Combining aesthetics with engineering to deliver secure infrastructure.')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {SERVICES.map((service) => {
+          {services.map((service) => {
             const Icon = service.icon;
             return (
               <div 
@@ -62,7 +66,7 @@ const Services: React.FC<ServicesProps> = ({ onOpenService }) => {
                 </ul>
 
                 <div className="text-[10px] font-bold text-primary opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-1">
-                  Details <ChevronRight size={10} />
+                  {t('servicesSection.details', 'Details')} <ChevronRight size={10} />
                 </div>
               </div>
             );

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArrowUpRight, ZoomIn, Loader2, Database, Shield, Zap } from 'lucide-react';
 import { Project } from '../../types'; 
 // Fallback data
@@ -6,6 +7,7 @@ import { PROJECTS as STATIC_PROJECTS } from '../../constants';
 import ProjectModal from './ProjectModal';
 
 const Projects: React.FC = () => {
+    const { t } = useTranslation();
     // 🚨 FIX 1: Initialize projects with an empty array 🚨
     const [projects, setProjects] = useState<Project[]>([]);
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -56,7 +58,7 @@ const Projects: React.FC = () => {
         return (
             <section id="projects" className="py-20 bg-slate-50 text-center">
                  <Loader2 className="animate-spin inline-block text-blue-600" size={32} />
-                 <p className="text-slate-500 font-medium mt-2">Loading Deployments...</p>
+                  <p className="text-slate-500 font-medium mt-2">{t('projects.loadingDeployments', 'Loading Deployments...')}</p>
             </section>
         );
     }
@@ -74,13 +76,13 @@ const Projects: React.FC = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 gap-3">
                     <div className="max-w-2xl">
                         <div className="inline-flex items-center gap-1.5 px-2 py-0.5 mb-2 text-[10px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-full border border-blue-100">
-                           <Database size={10} /> Track Record
+                           <Database size={10} /> {t('projects.badge', 'Track Record')}
                         </div>
                         <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2 leading-snug">
-                            Deployed in the Field
+                            {t('projects.heading', 'Deployed in the Field')}
                         </h2>
                         <p className="text-slate-600 text-sm">
-                            Real-world implementations of our security architecture across Smart Cities, Airports, and Defense sectors.
+                            {t('projects.subheading', 'Real-world implementations of our security architecture across Smart Cities, Airports, and Defense sectors.')}
                         </p>
                     </div>
                 </div>
@@ -132,7 +134,7 @@ const Projects: React.FC = () => {
                                     <div className="grid grid-cols-2 gap-1">
                                         {project.metrics?.slice(0,2).map((metric: string, idx: number) => (
                                             <div key={idx} className="bg-slate-50 px-1 py-1 rounded-md border border-slate-100 text-center">
-                                                <div className="text-[8px] uppercase font-bold text-slate-400 mb-0.5 tracking-wider">Metric</div>
+                                                <div className="text-[8px] uppercase font-bold text-slate-400 mb-0.5 tracking-wider">{t('projects.metric', 'Metric')}</div>
                                                 <div className="text-[9px] font-bold text-slate-800 truncate" title={metric}>
                                                     {metric}
                                                 </div>

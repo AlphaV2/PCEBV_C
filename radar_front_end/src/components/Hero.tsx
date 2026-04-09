@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, MessageCircle, ShieldCheck } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import HologramRadar from './HologramRadar';
 import { WHATSAPP_LINK } from '../../constants';
 
@@ -33,6 +34,7 @@ const BACKGROUND_MEDIA = [
 const Hero: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setIsLoaded(true);
@@ -121,21 +123,21 @@ const Hero: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
               </span>
-              AI-Powered Defense Systems
+                {t('hero.badge', 'AI-Powered Defense Systems')}
             </div>
 
             {/* Headline */}
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-[1.1] mb-4 lg:mb-6 drop-shadow-sm text-balance"> 
-              Turn Airspace Into An <br className="hidden lg:block" />
+              {t('hero.titleLine1', 'Turn Airspace Into An')} <br className="hidden lg:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-cyan-600">
-                Intelligent Shield.
+                {t('hero.titleHighlight', 'Intelligent Shield.')}
               </span>
             </h1>
             
             {/* Subtext */}
             <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed font-medium text-pretty">
-              RadarSnipers (OPC) Private Ltd presents AI-Powered Drones & Cybersecurity for a smarter future.
-              <span className="block mt-2 text-slate-900 font-bold">Smart Drones. Strong Security. Safer Tomorrow.</span>
+              {t('hero.subtitle', 'RadarSnipers (OPC) Private Ltd presents AI-Powered Drones & Cybersecurity for a smarter future.')}
+              <span className="block mt-2 text-slate-900 font-bold">{t('hero.subtitleStrong', 'Smart Drones. Strong Security. Safer Tomorrow.')}</span>
             </p>
             
             {/* Buttons Row */}
@@ -145,7 +147,7 @@ const Hero: React.FC = () => {
                 className="group relative flex-1 px-6 py-3.5 bg-slate-900 hover:bg-blue-600 text-white rounded-xl font-bold text-sm transition-all shadow-xl hover:shadow-blue-500/25 flex items-center justify-center gap-2 overflow-hidden"
               >
                 <span className="relative flex items-center gap-2">
-                  Explore Products <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  {t('hero.ctaProducts', 'Explore Products')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </a>
               <a
@@ -154,7 +156,7 @@ const Hero: React.FC = () => {
                 rel="noopener noreferrer"
                 className="flex-1 px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md hover:border-slate-300"
               >
-                <MessageCircle size={18} className="text-green-600" /> WhatsApp Chat
+                <MessageCircle size={18} className="text-green-600" /> {t('hero.ctaWhatsapp', 'WhatsApp Chat')}
               </a>
             </div>
 
@@ -164,7 +166,7 @@ const Hero: React.FC = () => {
                {/* 1. Recognition Logos */}
                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-6">
                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                     Recognized By
+                     {t('hero.recognizedBy', 'Recognized By')}
                    </p>
                    <div className="flex flex-wrap justify-center items-center gap-5 grayscale hover:grayscale-0 transition-all duration-500 cursor-default">
                         {/* MSME */}
@@ -177,7 +179,7 @@ const Hero: React.FC = () => {
                             />
                             <div className="text-left block">
                                 <span className="block text-[10px] font-black text-slate-800 leading-none">UDHYAM</span>
-                                <span className="block text-[8px] font-bold text-slate-500">Registered</span>
+                              <span className="block text-[8px] font-bold text-slate-500">{t('hero.msmeStatus', 'Registered')}</span>
                             </div>
                         </div>
                         {/* Divider */}
@@ -192,7 +194,7 @@ const Hero: React.FC = () => {
                             />
                             <div className="text-left block">
                                 <span className="block text-[10px] font-black text-slate-800 leading-none">STARTUP INDIA</span>
-                                <span className="block text-[8px] font-bold text-slate-500">Recognized</span>
+                              <span className="block text-[8px] font-bold text-slate-500">{t('hero.startupIndiaStatus', 'Recognized')}</span>
                             </div>
                         </div>
                    </div>
@@ -205,10 +207,10 @@ const Hero: React.FC = () => {
                   </div>
                   <div className="text-center sm:text-left">
                     <p className="text-xs text-slate-500 font-medium">
-                      Designed & <span className="font-bold text-slate-900">manufactured</span> in certified incubation facilities:
+                      {t('hero.incubationPrefix', 'Designed &')} <span className="font-bold text-slate-900">{t('hero.incubationEmphasis', 'manufactured')}</span> {t('hero.incubationSuffix', 'in certified incubation facilities:')}
                     </p>
                     <p className="text-xs sm:text-sm font-bold text-blue-900 mt-0.5 leading-snug">
-                      Auto Cluster Development & Research Institute, Pune
+                      {t('hero.incubationInstitute', 'Auto Cluster Development & Research Institute, Pune')}
                     </p>
                   </div>
                </div>

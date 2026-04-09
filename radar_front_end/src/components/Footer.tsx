@@ -1,9 +1,15 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Linkedin, Twitter, Instagram, Activity, Facebook } from 'lucide-react';
 // 🚨 CENTRALIZATION: Import data from constants 🚨
-import { SERVICES, NAV_LINKS, SOCIAL_LINKS } from '../../constants'; 
+import { SOCIAL_LINKS } from '../../constants';
+import { useTranslatedNavLinks, useTranslatedServices } from '../hooks/useTranslatedData';
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
+  const services = useTranslatedServices();
+  const navLinks = useTranslatedNavLinks();
+
   return (
     <footer className="bg-slate-900 text-slate-400 py-10 border-t border-slate-800 text-xs">
       <div className="container mx-auto px-4 md:px-8">
@@ -38,7 +44,7 @@ const Footer: React.FC = () => {
 
             {/* 📱 MOBILE FIX: mx-auto to center the paragraph on mobile */}
             <p className="leading-relaxed max-w-sm mb-6 text-slate-400 mx-auto md:mx-0">
-              Pioneering the future of aerial security and IoT resilience. We empower enterprises to operate safely in an interconnected world through AI-driven defense systems.
+              {t('footer.description', 'Pioneering the future of aerial security and IoT resilience. We empower enterprises to operate safely in an interconnected world through AI-driven defense systems.')}
             </p>
             
             {/* Social Icons */}
@@ -69,9 +75,9 @@ const Footer: React.FC = () => {
 
           {/* --- Column 3: Solutions --- */}
           <div>
-            <h4 className="text-white font-bold text-sm mb-4 uppercase tracking-wider text-blue-500">Solutions</h4>
+            <h4 className="text-white font-bold text-sm mb-4 uppercase tracking-wider text-blue-500">{t('footer.solutions', 'Solutions')}</h4>
             <ul className="space-y-3">
-              {SERVICES.slice(0, 5).map((service) => (
+              {services.slice(0, 5).map((service) => (
                 <li key={service.id}>
                   <a 
                     href="#services" 
@@ -86,9 +92,9 @@ const Footer: React.FC = () => {
 
           {/* --- Column 4: Company --- */}
           <div>
-            <h4 className="text-white font-bold text-sm mb-4 uppercase tracking-wider text-blue-500">Company</h4>
+            <h4 className="text-white font-bold text-sm mb-4 uppercase tracking-wider text-blue-500">{t('footer.company', 'Company')}</h4>
             <ul className="space-y-3">
-              {NAV_LINKS.map((link) => (
+              {navLinks.map((link) => (
                 <li key={link.name}>
                   <a 
                     href={link.href} 
@@ -100,7 +106,7 @@ const Footer: React.FC = () => {
               ))}
               <li>
                 <a href="#contact" className="hover:text-blue-400 transition-colors duration-200 block py-1">
-                    Support
+                    {t('footer.support', 'Support')}
                 </a>
               </li>
             </ul>
@@ -110,11 +116,11 @@ const Footer: React.FC = () => {
 
         {/* --- Copyright Bar --- */}
         <div className="border-t border-slate-800 pt-6 flex flex-col md:flex-row justify-between items-center text-[10px] font-medium text-slate-500 gap-4">
-          <p className="text-center md:text-left">&copy; {new Date().getFullYear()} Radar Snipers (OPC) Pvt Ltd. All rights reserved.</p>
+          <p className="text-center md:text-left">&copy; {new Date().getFullYear()} Radar Snipers (OPC) Pvt Ltd. {t('footer.rights', 'All rights reserved.')}</p>
           <div className="flex flex-wrap justify-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Cookie Settings</a>
+            <a href="#" className="hover:text-white transition-colors">{t('footer.privacy', 'Privacy Policy')}</a>
+            <a href="#" className="hover:text-white transition-colors">{t('footer.terms', 'Terms of Service')}</a>
+            <a href="#" className="hover:text-white transition-colors">{t('footer.cookies', 'Cookie Settings')}</a>
           </div>
         </div>
       </div>

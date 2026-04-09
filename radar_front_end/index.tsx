@@ -3,6 +3,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import ErrorBoundary from './src/components/ErrorBoundary';
+import './src/i18n/index';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

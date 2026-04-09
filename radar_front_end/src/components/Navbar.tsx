@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Menu, X, ChevronRight, ChevronDown,
   MessageCircle, Box, Shield,
@@ -8,9 +9,16 @@ import {
 
 // Imported constants
 import {
-  NAV_LINKS, SERVICES, PRODUCTS, ABOUT_SECTION_CONTENT, CONTACT_OFFICES, CONTACT_EMAILS,
   WHATSAPP_LINK
 } from '../../constants';
+import {
+  useTranslatedAbout,
+  useTranslatedContactEmails,
+  useTranslatedContactOffices,
+  useTranslatedNavLinks,
+  useTranslatedProducts,
+  useTranslatedServices,
+} from '../hooks/useTranslatedData';
 
 import { Product, Service } from '../../types';
 
@@ -23,11 +31,49 @@ interface NavbarProps {
   onOpenProduct: (product: Product) => void;
   // 🚨 FIX 1: Made optional (?) to prevent crashes if App.tsx doesn't pass it
   onOpenGallery?: (tab: 'demos' | 'exhibitions') => void;
+  onToggleLanguage?: () => void;
+  onChangeLanguage?: (language: 'en' | 'nl') => void;
+  currentLanguage?: string;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGallery }) => {
+const Navbar: React.FC<NavbarProps> = ({
+  onOpenService,
+  onOpenProduct,
+  onOpenGallery,
+  onToggleLanguage,
+  onChangeLanguage,
+  currentLanguage,
+}) => {
+  const { i18n, t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navLinks = useTranslatedNavLinks();
+  const services = useTranslatedServices();
+  const products = useTranslatedProducts();
+  const aboutParagraphs = useTranslatedAbout();
+  const contactOffices = useTranslatedContactOffices();
+  const contactEmails = useTranslatedContactEmails();
+  const activeLanguage = (currentLanguage || i18n.resolvedLanguage || i18n.language || 'en')
+    .toLowerCase()
+    .startsWith('nl')
+    ? 'nl'
+    : 'en';
+
+  const handleLanguageChange = (language: 'en' | 'nl') => {
+    if (onChangeLanguage) {
+      onChangeLanguage(language);
+      return;
+    }
+
+    if (onToggleLanguage) {
+      if (language !== activeLanguage) {
+        onToggleLanguage();
+      }
+      return;
+    }
+
+    i18n.changeLanguage(language);
+  };
 
   // Handle Scroll Effect for Transparent to White transition
   useEffect(() => {
@@ -116,7 +162,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
 
         {/* --- DESKTOP NAVIGATION --- */}
         <nav className="hidden lg:flex items-center gap-8">
-          {(NAV_LINKS as any[]).map((link: any) => (
+          {(navLinks as any[]).map((link: any) => (
             <div key={link.name} className="relative group">
               <a 
                 href={link.href}
@@ -141,7 +187,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
                   {/* Services Mega Menu */}
                   {link.dropdownKey === 'services' && (
                     <div className="flex flex-col divide-y divide-slate-100">
-                      {(SERVICES as any[]).map((service: any) => {
+                      {(services as any[]).map((service: any) => {
                         const Icon = service.icon;
                         return (
                           <button key={service.id} onClick={() => onOpenService(service)} className="flex items-center gap-3 px-4 py-3 text-left hover:bg-slate-50 group/item transition-all duration-200 first:rounded-t-xl last:rounded-b-xl relative overflow-hidden">
@@ -149,7 +195,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
                             <div className="p-2 bg-white text-slate-600 rounded-lg border border-slate-200 group-hover/item:bg-blue-50 group-hover/item:text-blue-600 group-hover/item:border-blue-100 transition-all shadow-sm shrink-0"><Icon size={16} /></div>
                             <div>
                                <span className="block text-xs font-bold text-slate-900 group-hover/item:text-blue-600 transition-colors mb-0.5">{service.shortTitle}</span>
-                               <span className="block text-[10px] text-slate-500 font-medium uppercase tracking-wider group-hover/item:text-slate-700 flex items-center gap-1">Explore Solutions <ChevronRight size={10} className="opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" /></span>
+                               <span className="block text-[10px] text-slate-500 font-medium uppercase tracking-wider group-hover/item:text-slate-700 flex items-center gap-1">{t('navbar.exploreSolutions', 'Explore Solutions')} <ChevronRight size={10} className="opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" /></span>
                             </div>
                           </button>
                         );
@@ -160,9 +206,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
                   {/* Products Mega Menu */}
                   {link.dropdownKey === 'products' && (
                       <div className="p-4">
-                          <h4 className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-3 pl-1 border-b border-slate-100 pb-2">Featured Inventory</h4>
+                          <h4 className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-3 pl-1 border-b border-slate-100 pb-2">{t('navbar.featuredInventory', 'Featured Inventory')}</h4>
                           <div className="flex flex-col gap-2 mb-4">
-                            {(PRODUCTS as any[]).slice(0, 3).map((product: any) => (
+                            {(products as any[]).slice(0, 3).map((product: any) => (
                                <div key={product.id} onClick={() => handleProductSelect(product)} className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer group/prod border border-transparent hover:border-slate-100">
                                  <img src={product.image || 'https://placehold.co/40x40'} alt={product.name} className="w-10 h-10 rounded-md object-cover shadow-sm border border-slate-200" onError={(e) => (e.currentTarget.src = 'https://placehold.co/40x40')} />
                                  <div>
@@ -172,7 +218,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
                                </div>
                             ))}
                           </div>
-                          <a href="#products" onClick={(e) => handleScrollToSection(e, '#products')} className="w-full py-2 bg-slate-50 hover:bg-blue-600 hover:text-white text-slate-800 border border-slate-200 hover:border-blue-600 rounded-lg text-xs font-bold uppercase tracking-wide flex items-center justify-center gap-2 transition-all duration-300"><Box size={14} /> Full Inventory</a>
+                            <a href="#products" onClick={(e) => handleScrollToSection(e, '#products')} className="w-full py-2 bg-slate-50 hover:bg-blue-600 hover:text-white text-slate-800 border border-slate-200 hover:border-blue-600 rounded-lg text-xs font-bold uppercase tracking-wide flex items-center justify-center gap-2 transition-all duration-300"><Box size={14} /> {t('navbar.fullInventory', 'Full Inventory')}</a>
                       </div>
                   )}
 
@@ -181,11 +227,11 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
                     <div className="p-2">
                         <button onClick={() => handleGallerySelect('demos')} className="flex items-center gap-3 p-3 text-left hover:bg-slate-50 rounded-lg w-full group/item transition-colors">
                            <div className="p-2 bg-white border border-slate-200 rounded text-blue-600 group-hover/item:bg-blue-50"><PlayCircle size={16} /></div>
-                           <div><span className="block text-xs font-bold text-slate-900 group-hover/item:text-blue-600">Product Demos</span><span className="block text-[10px] text-slate-500">Watch Videos</span></div>
+                          <div><span className="block text-xs font-bold text-slate-900 group-hover/item:text-blue-600">{t('navbar.productDemos', 'Product Demos')}</span><span className="block text-[10px] text-slate-500">{t('navbar.watchVideos', 'Watch Videos')}</span></div>
                         </button>
                         <button onClick={() => handleGallerySelect('exhibitions')} className="flex items-center gap-3 p-3 text-left hover:bg-slate-50 rounded-lg w-full group/item transition-colors">
                            <div className="p-2 bg-white border border-slate-200 rounded text-purple-600 group-hover/item:bg-purple-50"><Camera size={16} /></div>
-                           <div><span className="block text-xs font-bold text-slate-900 group-hover/item:text-purple-600">Exhibitions</span><span className="block text-[10px] text-slate-500">Event Photos</span></div>
+                          <div><span className="block text-xs font-bold text-slate-900 group-hover/item:text-purple-600">{t('navbar.exhibitions', 'Exhibitions')}</span><span className="block text-[10px] text-slate-500">{t('navbar.eventPhotos', 'Event Photos')}</span></div>
                         </button>
                     </div>
                   )}
@@ -193,17 +239,17 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
                   {/* About Mega Menu */}
                   {link.dropdownKey === 'about' && (
                     <div className="p-5">
-                        <h4 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3 border-b border-slate-100 pb-2">Mission & Vision</h4>
+                        <h4 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3 border-b border-slate-100 pb-2">{t('navbar.missionVision', 'Mission & Vision')}</h4>
                         <div className="space-y-3">
-                          {(ABOUT_SECTION_CONTENT as any[]).slice(0, 3).map((para: string, idx: number) => (
+                            {(aboutParagraphs as any[]).slice(0, 3).map((para: string, idx: number) => (
                                <p key={idx} className="text-[10px] text-slate-800 leading-relaxed font-medium">{para}</p>
                            ))}
                            <div className="pt-2 border-t border-slate-100 flex items-center gap-2">
                              <Shield size={12} className="text-blue-600" />
-                             <p className="text-[10px] font-bold text-slate-900 italic">"{(ABOUT_SECTION_CONTENT as any[])[3]}"</p>
+                              <p className="text-[10px] font-bold text-slate-900 italic">"{(aboutParagraphs as any[])[3]}"</p>
                            </div>
                         </div>
-                        <a href="#about" onClick={(e) => handleScrollToSection(e, '#about')} className="mt-4 w-full py-2 bg-slate-50 hover:bg-blue-600 hover:text-white text-slate-800 border border-slate-200 hover:border-blue-600 rounded-lg text-xs font-bold uppercase tracking-wide flex items-center justify-center gap-2 transition-all duration-300"><Activity size={14} /> Read Our Story</a>
+                        <a href="#about" onClick={(e) => handleScrollToSection(e, '#about')} className="mt-4 w-full py-2 bg-slate-50 hover:bg-blue-600 hover:text-white text-slate-800 border border-slate-200 hover:border-blue-600 rounded-lg text-xs font-bold uppercase tracking-wide flex items-center justify-center gap-2 transition-all duration-300"><Activity size={14} /> {t('navbar.readOurStory', 'Read Our Story')}</a>
                     </div>
                   )}
 
@@ -211,9 +257,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
                   {link.dropdownKey === 'contact' && (
                     <div className="flex h-full">
                       <div className="w-1/2 p-5 bg-slate-50 border-r border-slate-100">
-                        <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3 pl-1 border-b border-slate-200 pb-2">Global Offices</h4>
+                        <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3 pl-1 border-b border-slate-200 pb-2">{t('nav.globalOffices', 'Global Headquarters')}</h4>
                         <div className="flex flex-col gap-6">
-                           {(CONTACT_OFFICES as any[]).slice(0,2).map((office: any, i: number) => (
+                          {(contactOffices as any[]).slice(0,2).map((office: any, i: number) => (
                                <div key={i}>
                                  <h5 className="font-bold text-slate-900 text-xs mb-1.5 flex items-center gap-1.5">
                                     {office.title.includes('Netherland') ? <NetherlandsFlag /> : <IndiaFlag />}
@@ -230,12 +276,12 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
                       </div>
 
                       <div className="w-1/2 p-5 bg-white">
-                        <h4 className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-3 pl-1 border-b border-slate-100 pb-2">Departments</h4>
+                        <h4 className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-3 pl-1 border-b border-slate-100 pb-2">{t('nav.departments', 'Departments')}</h4>
                         <div className="flex flex-col gap-3">
-                           {(CONTACT_EMAILS as any[]).map((email: any, i: number) => {
+                          {(contactEmails as any[]).map((email: any, i: number) => {
                              let subject = "New Enquiry";
-                             if (email.role.includes("HR")) subject = "Job Application";
-                             if (email.role.includes("Director")) subject = "Partnership Proposal";
+                             if (email.icon === 'briefcase') subject = "Job Application";
+                             if (email.icon === 'shield') subject = "Partnership Proposal";
                              
                              const Icon = email.icon === 'briefcase' ? Briefcase : email.icon === 'shield' ? ShieldAlert : Mail;
 
@@ -257,7 +303,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
                            })}
                         </div>
                         <a href="#contact" onClick={(e) => handleScrollToSection(e, '#contact')} className="mt-4 w-full py-2 bg-slate-900 hover:bg-blue-600 text-white font-bold rounded-lg text-[10px] uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
-                          Contact Us <ChevronRight size={12} />
+                          {t('navbar.contactUs', 'Contact Us')} <ChevronRight size={12} />
                         </a>
                       </div>
                     </div>
@@ -271,13 +317,40 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
 
         {/* --- DESKTOP ACTIONS --- */}
         <div className="hidden lg:flex items-center gap-6">
+          <div className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white p-1 shadow-sm">
+            <button
+              type="button"
+              onClick={() => handleLanguageChange('en')}
+              className={`px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wide transition-colors ${
+                activeLanguage === 'en'
+                  ? 'bg-blue-600 text-white'
+                  : 'text-slate-600 hover:bg-slate-100'
+              }`}
+              aria-label="Switch language to English"
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              onClick={() => handleLanguageChange('nl')}
+              className={`px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wide transition-colors ${
+                activeLanguage === 'nl'
+                  ? 'bg-blue-600 text-white'
+                  : 'text-slate-600 hover:bg-slate-100'
+              }`}
+              aria-label="Switch language to Dutch"
+            >
+              NL
+            </button>
+          </div>
+
           <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-slate-600 hover:text-blue-600 flex items-center gap-2 transition-all hover:scale-105">
             <MessageCircle size={16} className="text-slate-500 hover:text-blue-600" />
-            <span className="hidden xl:inline">Quick Chat</span>
+            <span className="hidden xl:inline">{t('navbar.quickChat', 'Quick Chat')}</span>
           </a>
           
           <a href="#contact" onClick={(e) => handleScrollToSection(e, '#contact')} className="group relative px-6 py-2.5 rounded-lg font-bold text-sm bg-slate-900 text-white transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 hover:bg-blue-600">
-            <span className="relative flex items-center gap-2">Book Consultation <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" /></span>
+            <span className="relative flex items-center gap-2">{t('navbar.bookConsultation', 'Book Consultation')} <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" /></span>
           </a>
         </div>
 
@@ -292,7 +365,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
         <div className="lg:hidden fixed inset-0 bg-white z-40 pt-24 px-4 flex flex-col animate-fade-in overflow-y-auto h-screen pb-safe">
           
           <div className="flex-1 space-y-2 pb-8">
-            {(NAV_LINKS as any[]).map((link: any) => (
+            {(navLinks as any[]).map((link: any) => (
               <div key={link.name} className="border-b border-slate-100 last:border-0">
                 {link.hasDropdown && link.dropdownKey !== 'about' && link.dropdownKey !== 'contact' ? (
                   <details className="group overflow-hidden">
@@ -301,13 +374,13 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
                       <ChevronDown size={18} className="text-slate-400 transition-transform duration-300 group-open:rotate-180" />
                     </summary>
                     <div className="pb-4 pl-2 space-y-2 animate-in slide-in-from-top-2 duration-200">
-                      {link.dropdownKey === 'services' && (SERVICES as any[]).map((s: any) => (
+                      {link.dropdownKey === 'services' && (services as any[]).map((s: any) => (
                         <button key={s.id} onClick={() => { onOpenService(s); setIsMobileMenuOpen(false); }} className="flex items-center gap-3 w-full p-2.5 rounded-lg hover:bg-slate-50 transition-all text-left">
                           <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100"><s.icon size={14} /></div>
                           <span className="text-sm font-semibold text-slate-700">{s.shortTitle}</span>
                         </button>
                       ))}
-                      {link.dropdownKey === 'products' && (PRODUCTS as any[]).map((p: any) => (
+                      {link.dropdownKey === 'products' && (products as any[]).map((p: any) => (
                         <button key={p.id} onClick={() => { handleProductSelect(p); setIsMobileMenuOpen(false); }} className="flex items-center gap-3 w-full p-2.5 rounded-lg hover:bg-slate-50 transition-all text-left">
                            <img src={p.image || 'https://placehold.co/40x40'} className="w-8 h-8 rounded bg-slate-200 object-cover" alt="" onError={(e) => (e.currentTarget.src = 'https://placehold.co/40x40')} />
                            <span className="text-sm font-semibold text-slate-700">{p.name}</span>
@@ -317,11 +390,11 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
                         <>
                            <button onClick={() => { handleGallerySelect('demos'); setIsMobileMenuOpen(false); }} className="flex items-center gap-3 w-full p-2.5 rounded-lg hover:bg-slate-50 transition-all text-left">
                                <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100"><PlayCircle size={14} /></div>
-                               <span className="text-sm font-semibold text-slate-700">Product Demos</span>
+                                 <span className="text-sm font-semibold text-slate-700">{t('navbar.productDemos', 'Product Demos')}</span>
                            </button>
                            <button onClick={() => { handleGallerySelect('exhibitions'); setIsMobileMenuOpen(false); }} className="flex items-center gap-3 w-full p-2.5 rounded-lg hover:bg-slate-50 transition-all text-left">
                                <div className="w-8 h-8 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 border border-purple-100"><Camera size={14} /></div>
-                               <span className="text-sm font-semibold text-slate-700">Exhibitions</span>
+                                 <span className="text-sm font-semibold text-slate-700">{t('navbar.exhibitions', 'Exhibitions')}</span>
                            </button>
                         </>
                       )}
@@ -338,14 +411,41 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenService, onOpenProduct, onOpenGal
           </div>
 
           <div className="mt-auto border-t border-slate-100 pt-4 pb-8 bg-white">
+            <div className="mb-3 inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white p-1 shadow-sm">
+              <button
+                type="button"
+                onClick={() => handleLanguageChange('en')}
+                className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wide transition-colors ${
+                  activeLanguage === 'en'
+                    ? 'bg-blue-600 text-white'
+                    : 'text-slate-600 hover:bg-slate-100'
+                }`}
+                aria-label="Switch language to English"
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                onClick={() => handleLanguageChange('nl')}
+                className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wide transition-colors ${
+                  activeLanguage === 'nl'
+                    ? 'bg-blue-600 text-white'
+                    : 'text-slate-600 hover:bg-slate-100'
+                }`}
+                aria-label="Switch language to Dutch"
+              >
+                NL
+              </button>
+            </div>
+
             <div className="grid grid-cols-2 gap-3">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center p-3 bg-green-50 text-green-700 rounded-xl font-bold text-xs gap-1 active:scale-95 transition-transform border border-green-100">
                 <MessageCircle size={20} />
-                <span>WhatsApp</span>
+                <span>{t('navbar.whatsapp', 'WhatsApp')}</span>
               </a>
               <a href="#contact" onClick={(e) => { handleScrollToSection(e, '#contact'); setIsMobileMenuOpen(false); }} className="flex flex-col items-center justify-center p-3 bg-slate-900 text-white rounded-xl font-bold text-xs gap-1 active:scale-95 transition-transform shadow-lg shadow-slate-200">
                 <Phone size={20} />
-                <span>Contact</span>
+                <span>{t('navbar.contact', 'Contact')}</span>
               </a>
             </div>
           </div>

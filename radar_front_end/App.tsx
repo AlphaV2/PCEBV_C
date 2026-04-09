@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { MessageCircle, Loader2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 // --- COMPONENTS ---
 import Navbar from './src/components/Navbar';
@@ -14,7 +15,7 @@ import Contact from './src/components/Contact';
 import Footer from './src/components/Footer';
 
 // --- DATA & TYPES ---
-import { WHATSAPP_LINK } from './constants';
+import { WHATSAPP_NUMBER } from './constants';
 import { Service, Product } from './types';
 
 // --- LAZY LOAD MODALS ---
@@ -26,6 +27,10 @@ const App: React.FC = () => {
   // --- STATE ---
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const { i18n, t } = useTranslation();
+
+  const whatsappMessage = t('whatsapp.message', "Hi, I'm interested in Radar Sniper solutions.");
+  const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
   // --- VISITOR TRACKING ---
   useEffect(() => {
@@ -48,6 +53,10 @@ const App: React.FC = () => {
   // --- HANDLERS ---
   const handleOpenService = (service: Service) => setSelectedService(service);
   const handleOpenProduct = (product: Product) => setSelectedProduct(product);
+
+  const handleChangeLanguage = (language: 'en' | 'nl') => {
+    i18n.changeLanguage(language);
+  };
   
   const handleCloseAll = () => {
     setSelectedService(null);
@@ -61,6 +70,8 @@ const App: React.FC = () => {
       <Navbar 
         onOpenService={handleOpenService} 
         onOpenProduct={handleOpenProduct}
+        onChangeLanguage={handleChangeLanguage}
+        currentLanguage={i18n.resolvedLanguage || i18n.language}
       />
       
       <main>

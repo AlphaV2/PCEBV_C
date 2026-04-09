@@ -1,0 +1,490 @@
+{
+	"whatsapp": {
+		"message": "Hi, I'm interested in Radar Sniper solutions."
+	},
+	"nav": {
+		"home": "Home",
+		"services": "Services",
+		"products": "Products",
+		"gallery": "Gallery",
+		"about": "About",
+		"contact": "Contact",
+		"departments": "Departments",
+		"globalOffices": "Global Headquarters"
+	},
+	"about": {
+		"badge": "Our Mission",
+		"headingLine1": "Working for a",
+		"headingLine2": "Smarter & Safer",
+		"headingLine3": "World.",
+		"values": {
+			"precision": "Precision",
+			"compliance": "Compliance",
+			"globalScale": "Global Scale"
+		},
+		"leadershipVision": "Leadership Vision",
+		"visionLabel": "Vision",
+		"expertiseLabel": "Expertise Highlights",
+		"expertise": "SIEM Architecture, VAPT, LA ISO 27001 Implementation, Business Continuity Management, and Enterprise Security Architecture.",
+		"connectCta": "Connect with Leadership",
+		"p1": "Our mission emphasizes corporate citizenship and solving our customers' and stakeholders' most critical challenges by fostering trust and innovation.",
+		"p2": "Radar Sniper is a security-focused startup pioneering enhanced, next-generation solutions and innovations across Cyber Security, Internet of Things (IoT), and AI-powered Drones development.",
+		"p3": "We support financial institutions (NBFCs, Banks) with specialized Information Security Consultancy Services, providing budgeted and customized solutions for Compliance, Auditing, and Implementation as per SEBI and RBI guidelines.",
+		"p4": "The founder is responsible for Global Security Strategy, development and management of the company's technology including Enterprise Security Architecture, Security development and technology operations."
+	},
+	"contact": {
+		"heading": "Start the Conversation.",
+		"subheading": "Select the right channel below for faster resolution, or use the quick form.",
+		"copied": "Copied",
+		"copyEmail": "Copy Email Address",
+		"office1": {
+			"title": "Registered Office (India)"
+		},
+		"office2": {
+			"title": "Netherland Branch Office"
+		},
+		"emails": {
+			"mail": {
+				"role": "General Enquiries",
+				"desc": "Quotes & Product Specs"
+			},
+			"briefcase": {
+				"role": "HR & Careers",
+				"desc": "Job Applications"
+			},
+			"shield": {
+				"role": "Director",
+				"desc": "Strategic Partnerships"
+			}
+		},
+		"form": {
+			"title": "Quick Enquiry",
+			"fillAll": "Please fill in all required fields.",
+			"successTitle": "Opened in WhatsApp!",
+			"sendAnother": "Send another",
+			"submitButton": "Chat via WhatsApp",
+			"whatsappTitle": "New Website Inquiry",
+			"nameLabel": "Name",
+			"namePlaceholder": "John Doe",
+			"emailLabel": "Email",
+			"emailPlaceholder": "john@company.com",
+			"interestedIn": "I'm interested in...",
+			"topicLabel": "Topic",
+			"selectTopic": "Select a topic",
+			"messageLabel": "Message",
+			"messagePlaceholder": "How can we help?",
+			"topics": {
+				"general": "General Inquiry",
+				"support": "Product Support",
+				"sales": "Sales & Quotes",
+				"partnership": "Partnership Opportunities",
+				"careers": "Careers"
+			}
+		}
+	},
+	"services": {
+		"pollination-drones": {
+			"title": "AI-Powered Pollination & Sensing",
+			"shortTitle": "Pollination Drones",
+			"desc": "Autonomous AIML swarm drones designed to tackle cross-pollination and environmental sensing issues for Indian floriculture and agriculture.",
+			"intro": "We aim to fix the labor-intensive problem of hand-done cross-pollination by using self-flying AIML drones and Swarm drones. Our drones leverage nature-inspired robotics to boost agricultural output efficiently.",
+			"downloadText": "Download Research Paper",
+			"features": [
+				"VOC Sensing (MICS6814)",
+				"Swarm Intelligence",
+				"Precision Pollination"
+			],
+			"sections": [
+				{
+					"heading": "How It Works",
+					"body": [
+						"Our drones are equipped with advanced VOC (Volatile Organic Compound) sensors like MICS6814 to spot flower scent patterns. This specific technology helps them identify exactly which flowers are ready for pollination.",
+						"By using team-work plans (Swarm Intelligence), many drones work together to cover big farm areas without doing the same job twice. This brings number-based smarts to pollination for the first time."
+					]
+				},
+				{
+					"heading": "Key Benefits",
+					"body": [
+						"Eliminates the high cost and scarcity of manual labor for pollination.",
+						"Increases crop yield through focused, effective pollination.",
+						"Scalable solution that works well for both small and large Indian flower and fruit farms.",
+						"Provides environmental sensing data alongside pollination services."
+					]
+				},
+				{
+					"heading": "Target Segments",
+					"body": [
+						"Commercial Farmers & Greenhouses",
+						"Polyhouses & Growers",
+						"Orchards and Plantation Farms",
+						"Farmer Producer Organizations (FPOs)",
+						"Agri-Tech Service Providers",
+						"Agricultural Universities & R&D Bodies",
+						"Export-Oriented Farms"
+					]
+				}
+			]
+		},
+		"iot-security": {
+			"title": "IoT Security",
+			"shortTitle": "IoT Security",
+			"desc": "Comprehensive protection for connected devices, ensuring data integrity across your entire network ecosystem.",
+			"intro": "The Internet of Things (IoT) connects smart machines, but this connectivity introduces risks. Radar Sniper specializes in securing sensors and operations that support the world of IoT.",
+			"downloadText": "Download IoT Security Checklist",
+			"features": [
+				"Firmware Analysis",
+				"Network Segmentation",
+				"Zero Trust"
+			],
+			"sections": [
+				{
+					"heading": "Industry Context",
+					"body": [
+						"IoT is a quickly growing segment. While the internet connects people, IoT connects smart machines. However, the fast expansion of industry-led automation in Smart Cities, Smart Hospitals, and Smart Homes has led to critical security vulnerabilities.",
+						"Public warning systems, logistics trackers, and emergency communications rely on this mesh. Securing it is not optional; it is vital for safety."
+					]
+				},
+				{
+					"heading": "Main Attack Scenarios",
+					"body": [
+						"Man-in-the-Middle Attack (MitM): Eavesdropping on communication between devices.",
+						"Denial-of-Service (DoS): Disrupting critical IoT services.",
+						"Rogue Endpoints: Unauthorized devices injected into the network causing unwanted behavior.",
+						"Compromised Endpoints: Vulnerable software allowing system invasion.",
+						"Data Leakage: Unprotected data leading to financial and reputational damage."
+					]
+				},
+				{
+					"heading": "Handling IoT Security",
+					"body": [
+						"Determine vulnerability and penetration testing scope.",
+						"Keep an eye on standard vulnerabilities (missing patches) and deep ones (lack of encryption).",
+						"Create and enforce company policies on Bluetooth and pairing.",
+						"Invest in visibility solutions to detect insecure devices immediately."
+					]
+				},
+				{
+					"heading": "Why Radar Sniper?",
+					"body": [
+						"Our IoT Security testing services cover Sensors, DAST (Dynamic Application Security Scanning), and SAST (Static Application Security Testing). We utilize the latest methodologies like OWASP combined with rigorous verification.",
+						"We ensure confidentiality and integrity of data in transit and at rest."
+					]
+				}
+			]
+		},
+		"iso-27001": {
+			"title": "ISO 27001 Compliance",
+			"shortTitle": "ISO 27001",
+			"desc": "Information Security Management Systems (ISMS) implementation and consultancy for global standards.",
+			"intro": "We assist organizations in achieving ISO 27001 certification, ensuring your Information Security Management System (ISMS) meets global standards.",
+			"features": [
+				"Audit Preparation",
+				"Risk Assessment",
+				"Policy Framework"
+			],
+			"sections": [
+				{
+					"heading": "Phase I: Assessment",
+					"body": [
+						"We assess the maturity of your organization's information security and the divergence from best practice. Our security control review covers controls concerning technology, processes, and employees."
+					]
+				},
+				{
+					"heading": "Phase II: Preparation",
+					"body": [
+						"We assist with interpreting standard requirements and developing your ISO 27001 documentation system. We prepare missing documentation, author information security policies, and support risk analysis methodology.",
+						"We help minimize risks to an acceptable level and prepare the Statement of Applicability for the audit."
+					]
+				},
+				{
+					"heading": "Phase III: Audit Facilitation",
+					"body": [
+						"We facilitate the process of achieving ISO 27001 certification, enabling you to prove to external parties that your organization complies with international standards."
+					]
+				},
+				{
+					"heading": "Our Advantages",
+					"body": [
+						"Implementation increases security awareness among employees.",
+						"Achieve ISO certifications on-time and within budget.",
+						"Best-in-class System/Network security testing included."
+					]
+				}
+			]
+		},
+		"soc": {
+			"title": "SOC Operations",
+			"shortTitle": "SOC",
+			"desc": "24/7 Security Operating Centre monitoring to detect, analyze, and respond to cybersecurity incidents in real-time.",
+			"intro": "Our Security Operations Center (SOC) provides round-the-clock surveillance of your digital infrastructure, ensuring threats are detected before they become breaches.",
+			"features": [
+				"Threat Hunting",
+				"Incident Response",
+				"SIEM Management"
+			],
+			"sections": [
+				{
+					"heading": "Real-Time Monitoring",
+					"body": [
+						"We utilize advanced SIEM (Security Information and Event Management) tools to aggregate logs from all your endpoints, analyzing them for suspicious patterns using behavioral analytics."
+					]
+				},
+				{
+					"heading": "Incident Response",
+					"body": [
+						"24/7/365 Eyes on Glass monitoring.",
+						"Rapid Triage and Containment of threats.",
+						"Forensic Analysis post-incident.",
+						"Regular Threat Hunting exercises."
+					]
+				}
+			]
+		}
+	},
+	"products": {
+		"badge": "Tactical Hardware",
+		"heading": "Advanced Drone Systems",
+		"subheading": "High-performance aerial solutions for agriculture and surveillance.",
+		"typeUAV": "UAV",
+		"typeHDW": "HDW",
+		"viewFullSpecs": "View Full Specs",
+		"krishi-sakha-11l": {
+			"name": "Krishi Sakha 11L",
+			"tagline": "Precision Agriculture Rotorcraft",
+			"desc": "The Krishi Sakha 11L is a specialized small-class rotorcraft (RPAS) designed for maximum efficiency in Indian farming conditions. Featuring a carbon-fiber frame for high strength and low weight, it operates with Visual Line of Sight (VLOS). It includes a high-density polymer tank and is capable of spraying up to 60 acres per day.",
+			"specs": [
+				"Tank Capacity: 11 Litres",
+				"Endurance: 18 Minutes",
+				"Range: 2 Km",
+				"Spray Width: 4 Mtrs",
+				"Overall Weight: 18 Kgs",
+				"Flow Rate: 1.25 Litres/min",
+				"Camera: Night Vision Capable",
+				"Class: Small Rotorcraft (RPAS)"
+			]
+		},
+		"land-mapping-drone": {
+			"name": "Terra Mapper Survey Drone",
+			"tagline": "High-Precision Aerial Surveying",
+			"desc": "Engineered for professional surveyors and land developers. This drone utilizes Real-Time Kinematic (RTK) positioning to deliver centimeter-accurate 3D maps and topographic surveys. Ideal for urban planning, construction site monitoring, and agricultural land leveling analysis.",
+			"specs": [
+				"Positioning: RTK/PPK GPS Module",
+				"Camera: 20MP High-Res Photogrammetry",
+				"Flight Time: 35 Minutes",
+				"Mapping Accuracy: Centimeter-Level",
+				"Coverage: 100+ Acres/Flight",
+				"Software: 3D Terrain Modeling"
+			]
+		},
+		"pollination-drone": {
+			"name": "Cross-Pollinator Drones",
+			"tagline": "AI Swarm Pollination System",
+			"desc": "A nature-inspired robotic solution solving the global pollinator crisis. Equipped with Volatile Organic Compound (VOC) sensors, these drones autonomously identify flowers ready for pollination via scent patterns. Using swarm intelligence, they ensure 100% crop coverage without duplication, vital for high-yield fruit and flower farming.",
+			"specs": [
+				"Sensors: VOC (MICS6814) Scent Detection",
+				"Tech: AI Swarm Intelligence",
+				"Target: Floriculture & Orchards",
+				"Flight Mode: Autonomous Pattern",
+				"Feature: Soft Air-Burst Pollination",
+				"Efficiency: 30x Faster than Manual"
+			]
+		},
+		"smart-soil-monitor": {
+			"name": "Smart Soil Monitoring System",
+			"tagline": "Real-Time Soil Health & Yield Assurance",
+			"desc": "Transform farming from gambling into guaranteed engineering. This all-in-one station goes beyond basic sensing by monitoring Soil NPK, environmental AQI, and real-time storm risks with a blinking alert system. Integrated with a Crop Selector and Fertilizer AI, it predicts disease risks and provides actionable prescriptions before damage occurs, ensuring export-grade quality and protecting against total season financial loss.",
+			"specs": [
+				"Sensors: AQI, Rain & Storm Alert",
+				"AI Features: Fertilizer Recs & Disease Risk",
+				"Forecast: Rain Probability & Yield Pred",
+				"Power: Long-Life Battery",
+				"Live Data: Auto-Refresh Cloud Dashboard"
+			]
+		}
+	},
+	"gallery": {
+		"title": "Drone Fleet & Operations Gallery",
+		"sectionFeaturedSpotlight": "Featured Spotlight",
+		"sectionOperationalGrid": "Operational Grid",
+		"lightboxDefaultDescription": "Operational view captured during recent field deployment.",
+		"inquireOnWhatsapp": "Inquire on WhatsApp",
+		"imageCounter": "Image",
+		"imageCounterOf": "of",
+		"offerBadge": "OFFER",
+		"fallback": {
+			"fullSpecifications": "Full Specifications",
+			"brochure": "Brochure"
+		},
+		"verticalBanners": {
+			"v1": {
+				"title": "Complete Drone Solutions",
+				"tagline": "End-to-End Service"
+			},
+			"v2": {
+				"title": "Meet The Future Of Pollination",
+				"tagline": "AI Powered"
+			},
+			"v3": {
+				"title": "Smart Agriculture Soil Monitoring System",
+				"tagline": "Data Driven",
+				"description": "Autonomous, solar-powered IoT assembly with LoRa long-range wireless data. Measures real-time Nitrogen, Phosphorus, and Potassium (NPK) levels deep in the root zone to prevent crop failure."
+			},
+			"v4": {
+				"title": "Smart Agriculture Soil Monitoring System report",
+				"tagline": "Data Driven"
+			}
+		},
+		"droneFleet": {
+			"fleet1": {
+				"title": "Krishi Sakha 11L",
+				"tagline": "Compact",
+				"description": "Agile 11-liter spraying drone designed for precision pesticide application on small-to-medium farms."
+			},
+			"fleet2": {
+				"title": "Survey Drone",
+				"tagline": "Demonstration",
+				"description": "High-endurance aerial unit for real-time crop health monitoring and topographical field mapping."
+			},
+			"fleet4": {
+				"title": "Future Of Pollination",
+				"tagline": "AI Powered",
+				"description": "Next-gen autonomous micro-drones mimicking natural pollinators to boost crop yields."
+			},
+			"fleet5": {
+				"title": "Fleet Deployment",
+				"tagline": "Action",
+				"description": "Coordinated drone operations demonstrating rapid deployment for large-scale coverage."
+			}
+		},
+		"specialOffers": {
+			"offer1": {
+				"title": "Limited Time Offer",
+				"tagline": "Save 100 INR",
+				"description": "Get 100 INR OFF on your first purchase of Krishi Sakha 11L drone. Elevate your farming with precision and efficiency. Hurry, offer valid while stocks last!"
+			}
+		},
+		"innovations": {
+			"inno1": {
+				"title": "Soil Monitoring System",
+				"tagline": "Autonomous Unit",
+				"description": "Solar-powered assembly with LoRa antenna for long-range, wireless transmission of soil health data."
+			},
+			"inno2": {
+				"title": "Deep Root Probe",
+				"tagline": "Precision Hardware",
+				"description": "Rugged probe designed for deep root-zone insertion to accurately measure Nitrogen, Phosphorus, and Potassium levels."
+			},
+			"inno3": {
+				"title": "Data-Driven Benefits",
+				"tagline": "Smart Analytics",
+				"description": "Real-time nutrient insights that optimize fertilizer usage, reduce waste, and prevent crop deficiency."
+			}
+		},
+		"exhibitions": {
+			"ex1": {
+				"title": "KISAN Hyderabad 2025",
+				"description": "A 3-day agricultural exhibition KISAAN 2025 began at the HITEX exhibition center in Hyderabad on Friday, February 7."
+			},
+			"ex2": {
+				"title": "KISAN Hyderabad 2025",
+				"description": "The exhibition was inaugurated by Telangana Agriculture Minister Thummala Nageswara Rao, who highlighted the event as a catalyst for sustainable agricultural growth."
+			}
+		},
+		"pamphlet": {
+			"pamphlet-full": {
+				"title": "AI-Powered Drone Pollination & Soil Monitoring",
+				"tagline": "FULL SPEC SHEET",
+				"description": "Complete technical specifications for our AI pollination drones and IoT soil monitoring systems."
+			}
+		}
+	},
+	"hero": {
+		"badge": "AI-Powered Defense Systems",
+		"titleLine1": "Turn Airspace Into An",
+		"titleHighlight": "Intelligent Shield.",
+		"subtitle": "RadarSnipers (OPC) Private Ltd presents AI-Powered Drones & Cybersecurity for a smarter future.",
+		"subtitleStrong": "Smart Drones. Strong Security. Safer Tomorrow.",
+		"ctaProducts": "Explore Products",
+		"ctaWhatsapp": "WhatsApp Chat",
+		"recognizedBy": "Recognized By",
+		"msmeStatus": "Registered",
+		"startupIndiaStatus": "Recognized",
+		"incubationPrefix": "Designed &",
+		"incubationEmphasis": "manufactured",
+		"incubationSuffix": "in certified incubation facilities:",
+		"incubationInstitute": "Auto Cluster Development & Research Institute, Pune"
+	},
+	"servicesSection": {
+		"badge": "Core Expertise",
+		"heading": "Solutions Designed for Impact",
+		"subheading": "Combining aesthetics with engineering to deliver secure infrastructure.",
+		"details": "Details"
+	},
+	"navbar": {
+		"exploreSolutions": "Explore Solutions",
+		"featuredInventory": "Featured Inventory",
+		"fullInventory": "Full Inventory",
+		"productDemos": "Product Demos",
+		"watchVideos": "Watch Videos",
+		"exhibitions": "Exhibitions",
+		"eventPhotos": "Event Photos",
+		"missionVision": "Mission & Vision",
+		"readOurStory": "Read Our Story",
+		"contactUs": "Contact Us",
+		"quickChat": "Quick Chat",
+		"bookConsultation": "Book Consultation",
+		"whatsapp": "WhatsApp",
+		"contact": "Contact"
+	},
+	"projects": {
+		"loadingDeployments": "Loading Deployments...",
+		"badge": "Track Record",
+		"heading": "Deployed in the Field",
+		"subheading": "Real-world implementations of our security architecture across Smart Cities, Airports, and Defense sectors.",
+		"metric": "Metric"
+	},
+	"footer": {
+		"description": "Pioneering the future of aerial security and IoT resilience. We empower enterprises to operate safely in an interconnected world through AI-driven defense systems.",
+		"solutions": "Solutions",
+		"company": "Company",
+		"support": "Support",
+		"rights": "All rights reserved.",
+		"privacy": "Privacy Policy",
+		"terms": "Terms of Service",
+		"cookies": "Cookie Settings"
+	},
+	"serviceModal": {
+		"whatsappInterest": "Hi, I'm interested in learning more about {{service}}",
+		"solutionOverview": "Solution Overview",
+		"technicalSpecs": "Technical Specs",
+		"feature": "Feature",
+		"processFlow": "Process Flow",
+		"requestQuote": "Request Quote",
+		"whatsapp": "WhatsApp"
+	},
+	"productModal": {
+		"whatsappInterest": "Hi, I'm interested in {{product}}",
+		"aerialSystem": "Aerial System",
+		"hardware": "Hardware",
+		"overview": "Overview",
+		"technicalSpecifications": "Technical Specifications",
+		"requestPricingDemo": "Request Pricing & Demo"
+	},
+	"stats": {
+		"responseTime": {
+			"label": "Avg. Response Time"
+		},
+		"threats": {
+			"label": "Threats Neutralized"
+		},
+		"uptime": {
+			"label": "Uptime Guarantee"
+		}
+	},
+	"team": {
+		"founder": {
+			"role": "Founder",
+			"bio": "A visionary technocrat revolutionizing the skies with AI-driven drones for agriculture, land mapping, and cross-pollination. With 19+ years of experience in global security strategy, Jaykumar integrates military-grade cybersecurity into autonomous aerial systems, ensuring that our drone solutions are efficient and secure by design."
+		}
+	}
+}

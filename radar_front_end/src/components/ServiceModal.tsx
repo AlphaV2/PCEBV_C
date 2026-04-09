@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Service } from '../../types';
 import { X, Download, CheckCircle, MessageCircle, ArrowRight, Cpu, Activity } from 'lucide-react';
 import { WHATSAPP_NUMBER } from '../../constants';
@@ -9,10 +10,11 @@ interface ServiceModalProps {
 }
 
 const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
+  const { t } = useTranslation();
   if (!service) return null;
 
   // Generate WhatsApp link based on the specific service title
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER.replace('+','')}?text=${encodeURIComponent(`Hi, I'm interested in learning more about ${service.title}`)}`;
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER.replace('+','')}?text=${encodeURIComponent(t('serviceModal.whatsappInterest', "Hi, I'm interested in learning more about {{service}}", { service: service.title }))}`;
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement;
@@ -38,7 +40,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
             </div>
             <div>
               <h2 className="text-lg font-bold leading-tight">{service.title}</h2>
-              <p className="text-xs text-slate-400">Solution Overview</p>
+              <p className="text-xs text-slate-400">{t('serviceModal.solutionOverview', 'Solution Overview')}</p>
             </div>
           </div>
           <p className="text-xs text-slate-300 leading-snug">
@@ -55,13 +57,13 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
               <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
                 <h3 className="text-xs font-bold text-slate-900 mb-2 flex items-center gap-2 uppercase tracking-wider">
                   <Cpu size={14} className="text-blue-600" />
-                  Technical Specs
+                  {t('serviceModal.technicalSpecs', 'Technical Specs')}
                 </h3>
                 <div className="grid grid-cols-2 gap-x-3 gap-y-1">
                   {service.details.technicalSpecs.map((spec, i) => (
                       <div key={i} className="flex items-center justify-between text-[10px] py-0.5 border-b border-slate-100 last:border-0">
                         {/* Splitting spec string if it contains a colon, e.g. "Range: 5km" */}
-                        <span className="font-medium text-slate-600">{spec.includes(':') ? spec.split(':')[0] : 'Feature'}</span>
+                        <span className="font-medium text-slate-600">{spec.includes(':') ? spec.split(':')[0] : t('serviceModal.feature', 'Feature')}</span>
                         <span className="font-mono text-blue-600">{spec.includes(':') ? spec.split(':')[1] : spec}</span>
                       </div>
                   ))}
@@ -74,7 +76,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
               <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
                 <h3 className="text-xs font-bold text-slate-900 mb-2 flex items-center gap-2 uppercase tracking-wider">
                   <Activity size={14} className="text-blue-600" />
-                  Process Flow
+                  {t('serviceModal.processFlow', 'Process Flow')}
                 </h3>
                 <div className="rounded-md overflow-hidden border border-slate-100 relative h-32 w-full">
                   <img 
@@ -120,7 +122,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
                         onClick={onClose}
                         className="flex items-center justify-center gap-2 w-full py-2.5 bg-blue-600 hover:bg-blue-800 text-white rounded-lg font-bold text-xs transition-all shadow-lg shadow-blue-200"
                     >
-                        Request Quote <ArrowRight size={14} />
+                      {t('serviceModal.requestQuote', 'Request Quote')} <ArrowRight size={14} />
                     </a>
                     <a 
                         href={whatsappUrl}
@@ -128,7 +130,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 w-full py-2.5 bg-green-500 hover:bg-green-600 text-white rounded-lg font-bold text-xs transition-all shadow-lg shadow-green-100"
                     >
-                        <MessageCircle size={14} /> WhatsApp
+                      <MessageCircle size={14} /> {t('serviceModal.whatsapp', 'WhatsApp')}
                     </a>
                 </div>
                 
