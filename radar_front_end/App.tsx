@@ -13,6 +13,7 @@ import Testimonials from './src/components/Testimonials';
 import About from './src/components/About';
 import Contact from './src/components/Contact';
 import Footer from './src/components/Footer';
+import RevealSection from './src/components/RevealSection';
 
 // --- DATA & TYPES ---
 import { WHATSAPP_NUMBER } from './constants';
@@ -76,19 +77,35 @@ const App: React.FC = () => {
       
       <main>
         <Hero />
-        <Services onOpenService={handleOpenService} />
-        <Products onOpenProduct={handleOpenProduct} />
+        <RevealSection delayMs={20}>
+          <Services onOpenService={handleOpenService} />
+        </RevealSection>
+        <RevealSection delayMs={40}>
+          <Products onOpenProduct={handleOpenProduct} />
+        </RevealSection>
         
         {/* 🚨 Gallery Section (Displayed On-Page) 🚨 */}
-        <Gallery />
+        <RevealSection delayMs={50}>
+          <Gallery />
+        </RevealSection>
 
-        <Projects /> 
-        <Testimonials />
-        <About />
-        <Contact />
+        <RevealSection delayMs={30}>
+          <Projects />
+        </RevealSection>
+        <RevealSection delayMs={30}>
+          <Testimonials />
+        </RevealSection>
+        <RevealSection delayMs={40}>
+          <About />
+        </RevealSection>
+        <RevealSection delayMs={50}>
+          <Contact />
+        </RevealSection>
       </main>
 
-      <Footer />
+      <RevealSection delayMs={20}>
+        <Footer />
+      </RevealSection>
 
       {/* --- MODALS (Suspense Wrapper) --- */}
       <Suspense fallback={<div className="fixed inset-0 z-[101] flex items-center justify-center bg-black/20"><Loader2 className="animate-spin text-white"/></div>}>

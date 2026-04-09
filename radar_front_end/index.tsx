@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import ErrorBoundary from './src/components/ErrorBoundary';
 import './src/i18n/index';
+import './src/styles/motion.css';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Menu, X, ChevronRight, ChevronDown,
@@ -47,6 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({
   const { i18n, t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuOpenTimestampRef = useRef(0);
   const navLinks = useTranslatedNavLinks();
   const services = useTranslatedServices();
   const products = useTranslatedProducts();
@@ -85,6 +86,64 @@ const Navbar: React.FC<NavbarProps> = ({
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen || typeof window === 'undefined' || typeof document === 'undefined') {
+      return;
+    }
+
+    const body = document.body;
+    const scrollY = window.scrollY;
+    const previousStyles = {
+      overflow: body.style.overflow,
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+    };
+
+    // More reliable lock than overflow only, especially on mobile browsers.
+    body.style.overflow = 'hidden';
+    body.style.position = 'fixed';
+    body.style.top = `-${scrollY}px`;
+    body.style.left = '0';
+    body.style.right = '0';
+    body.style.width = '100%';
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    const handleHashChange = () => setIsMobileMenuOpen(false);
+
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('resize', handleResize);
+
+      body.style.overflow = previousStyles.overflow;
+      body.style.position = previousStyles.position;
+      body.style.top = previousStyles.top;
+      body.style.left = previousStyles.left;
+      body.style.right = previousStyles.right;
+      body.style.width = previousStyles.width;
+
+      window.scrollTo(0, scrollY);
+    };
+  }, [isMobileMenuOpen]);
 
   // Smooth Scroll Handler
   const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -135,7 +194,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-500 border-b ${
+      className={`fixed top-0 w-full z-[80] transition-all duration-500 border-b ${
         isScrolled
           ? 'bg-white/95 backdrop-blur-md border-slate-200 py-3 shadow-md'
           : 'bg-transparent border-transparent py-5'
@@ -354,22 +413,68 @@ const Navbar: React.FC<NavbarProps> = ({
           </a>
         </div>
 
-        {/* --- MOBILE TOGGLE --- */}
-        <button className="lg:hidden p-2 text-slate-900 transition-colors relative z-50 hover:bg-slate-100 rounded-lg" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X size={28} className="text-slate-900" /> : <Menu size={28} />}
-        </button>
+        {/* --- MOBILE ACTIONS --- */}
+        <div className="lg:hidden relative z-50 flex items-center gap-2">
+          <div className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white/95 p-1 shadow-sm backdrop-blur-sm">
+            <button
+              type="button"
+              onClick={() => handleLanguageChange('en')}
+              className={`px-2 py-1 rounded-full text-[10px] font-bold tracking-wide transition-colors ${
+                activeLanguage === 'en'
+                  ? 'bg-blue-600 text-white'
+                  : 'text-slate-600 hover:bg-slate-100'
+              }`}
+              aria-label="Switch language to English"
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              onClick={() => handleLanguageChange('nl')}
+              className={`px-2 py-1 rounded-full text-[10px] font-bold tracking-wide transition-colors ${
+                activeLanguage === 'nl'
+                  ? 'bg-blue-600 text-white'
+                  : 'text-slate-600 hover:bg-slate-100'
+              }`}
+              aria-label="Switch language to Dutch"
+            >
+              NL
+            </button>
+          </div>
+
+          <button
+            className="p-2 text-slate-900 transition-colors hover:bg-slate-100 rounded-lg"
+            onClick={(e) => {
+              e.stopPropagation();
+              const nextOpen = !isMobileMenuOpen;
+              if (nextOpen) {
+                menuOpenTimestampRef.current = Date.now();
+              }
+              setIsMobileMenuOpen(nextOpen);
+            }}
+          >
+            {isMobileMenuOpen ? <X size={26} className="text-slate-900" /> : <Menu size={26} />}
+          </button>
+        </div>
       </div>
 
       {/* --- MOBILE MENU --- */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 bg-white z-40 pt-24 px-4 flex flex-col animate-fade-in overflow-y-auto h-screen pb-safe">
-          
-          <div className="flex-1 space-y-2 pb-8">
+        <div
+          className="lg:hidden fixed inset-0 z-[95] bg-slate-900/20 backdrop-blur-[1px]"
+          onClick={(e) => {
+            if (e.target !== e.currentTarget) return;
+            if (Date.now() - menuOpenTimestampRef.current < 120) return;
+            setIsMobileMenuOpen(false);
+          }}
+        >
+          <div className="mobile-menu-panel absolute left-3 right-3 bottom-3 top-[72px] sm:top-[84px] bg-white/95 border border-slate-200 rounded-2xl shadow-2xl backdrop-blur-sm flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="flex-1 space-y-2 px-4 pt-4 pb-6 overflow-y-auto overscroll-contain scroll-smooth">
             {(navLinks as any[]).map((link: any) => (
               <div key={link.name} className="border-b border-slate-100 last:border-0">
                 {link.hasDropdown && link.dropdownKey !== 'about' && link.dropdownKey !== 'contact' ? (
                   <details className="group overflow-hidden">
-                    <summary className="flex items-center justify-between py-4 cursor-pointer list-none text-lg font-bold text-slate-900 select-none">
+                    <summary className="flex items-center justify-between py-3.5 cursor-pointer list-none text-base sm:text-lg font-bold text-slate-900 select-none">
                       <div className="flex items-center gap-2">{link.name}</div>
                       <ChevronDown size={18} className="text-slate-400 transition-transform duration-300 group-open:rotate-180" />
                     </summary>
@@ -404,49 +509,23 @@ const Navbar: React.FC<NavbarProps> = ({
                     </div>
                   </details>
                 ) : (
-                  <a href={link.href} onClick={(e) => { handleScrollToSection(e, link.href); setIsMobileMenuOpen(false); }} className="flex items-center justify-between py-4 text-lg font-bold text-slate-900">{link.name}</a>
+                  <a href={link.href} onClick={(e) => { handleScrollToSection(e, link.href); setIsMobileMenuOpen(false); }} className="flex items-center justify-between py-3.5 text-base sm:text-lg font-bold text-slate-900">{link.name}</a>
                 )}
               </div>
             ))}
-          </div>
-
-          <div className="mt-auto border-t border-slate-100 pt-4 pb-8 bg-white">
-            <div className="mb-3 inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white p-1 shadow-sm">
-              <button
-                type="button"
-                onClick={() => handleLanguageChange('en')}
-                className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wide transition-colors ${
-                  activeLanguage === 'en'
-                    ? 'bg-blue-600 text-white'
-                    : 'text-slate-600 hover:bg-slate-100'
-                }`}
-                aria-label="Switch language to English"
-              >
-                EN
-              </button>
-              <button
-                type="button"
-                onClick={() => handleLanguageChange('nl')}
-                className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wide transition-colors ${
-                  activeLanguage === 'nl'
-                    ? 'bg-blue-600 text-white'
-                    : 'text-slate-600 hover:bg-slate-100'
-                }`}
-                aria-label="Switch language to Dutch"
-              >
-                NL
-              </button>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center p-3 bg-green-50 text-green-700 rounded-xl font-bold text-xs gap-1 active:scale-95 transition-transform border border-green-100">
-                <MessageCircle size={20} />
-                <span>{t('navbar.whatsapp', 'WhatsApp')}</span>
-              </a>
-              <a href="#contact" onClick={(e) => { handleScrollToSection(e, '#contact'); setIsMobileMenuOpen(false); }} className="flex flex-col items-center justify-center p-3 bg-slate-900 text-white rounded-xl font-bold text-xs gap-1 active:scale-95 transition-transform shadow-lg shadow-slate-200">
-                <Phone size={20} />
-                <span>{t('navbar.contact', 'Contact')}</span>
-              </a>
+            <div className="mt-auto border-t border-slate-100 p-4 bg-white/95">
+              <div className="grid grid-cols-2 gap-3">
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center p-3 bg-green-50 text-green-700 rounded-xl font-bold text-xs gap-1 active:scale-95 transition-transform border border-green-100">
+                  <MessageCircle size={20} />
+                  <span>{t('navbar.whatsapp', 'WhatsApp')}</span>
+                </a>
+                <a href="#contact" onClick={(e) => { handleScrollToSection(e, '#contact'); setIsMobileMenuOpen(false); }} className="flex flex-col items-center justify-center p-3 bg-slate-900 text-white rounded-xl font-bold text-xs gap-1 active:scale-95 transition-transform shadow-lg shadow-slate-200">
+                  <Phone size={20} />
+                  <span>{t('navbar.contact', 'Contact')}</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
