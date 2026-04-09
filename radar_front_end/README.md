@@ -1,20 +1,46 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Radar Snipers Frontend
 
-# Run and deploy your AI Studio app
+Radar Snipers is a Vite + React + TypeScript frontend for the company website. It includes English/Dutch localization, responsive mobile navigation, data-driven sections, modal-driven product/service details, and a PHP-backed API integration layer.
 
-This contains everything you need to run your app locally.
+For full developer documentation, see [docs/TECHNICAL_DOCUMENTATION.md](docs/TECHNICAL_DOCUMENTATION.md).
 
-View your app in AI Studio: https://ai.studio/apps/drive/1ASB3LyP0B4CbOAvTLmkvXo-AA0u3Jt6W
+## Quick Start
 
-## Run Locally
+### Prerequisites
+- Node.js 18+ recommended
+- A compatible backend API base URL for the PHP endpoints
 
-**Prerequisites:**  Node.js
+### Install
+```bash
+npm install
+```
 
+### Environment
+Create or update `.env.local` with the project API key and backend URL:
+```bash
+GEMINI_API_KEY=your-gemini-api-key
+VITE_API_BASE_URL=http://localhost/radarsnipers/backend/api
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Run
+```bash
+npm run dev
+```
+
+### Build
+```bash
+npm run build
+```
+
+### Preview
+```bash
+npm run preview
+```
+
+## Project Notes
+- Localization is handled through `src/i18n` with browser language detection and localStorage persistence.
+- Responsive behavior is tuned for desktop, tablet, iPhone, Samsung, and narrow mobile screens.
+- Key user-facing sections are driven by translated constants and API-backed content.
+
+## Documentation
+- [Technical Documentation](docs/TECHNICAL_DOCUMENTATION.md)
