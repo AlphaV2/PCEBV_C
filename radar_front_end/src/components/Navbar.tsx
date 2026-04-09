@@ -200,7 +200,7 @@ const Navbar: React.FC<NavbarProps> = ({
           : 'bg-transparent border-transparent py-5'
       }`}
     >
-      <div className="container mx-auto px-4 md:px-8 flex items-center justify-between relative">
+      <div className="container mx-auto px-3 sm:px-4 md:px-8 flex items-center justify-between relative gap-2">
         
         {/* --- LOGO SECTION --- */}
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
@@ -415,11 +415,11 @@ const Navbar: React.FC<NavbarProps> = ({
 
         {/* --- MOBILE ACTIONS --- */}
         <div className="lg:hidden relative z-50 flex items-center gap-2">
-          <div className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white/95 p-1 shadow-sm backdrop-blur-sm">
+          <div className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white/95 p-1 shadow-sm backdrop-blur-sm max-w-[52vw] sm:max-w-none">
             <button
               type="button"
               onClick={() => handleLanguageChange('en')}
-              className={`px-2 py-1 rounded-full text-[10px] font-bold tracking-wide transition-colors ${
+              className={`px-1.5 sm:px-2 py-1 rounded-full text-[9px] sm:text-[10px] font-bold tracking-wide transition-colors ${
                 activeLanguage === 'en'
                   ? 'bg-blue-600 text-white'
                   : 'text-slate-600 hover:bg-slate-100'
@@ -431,7 +431,7 @@ const Navbar: React.FC<NavbarProps> = ({
             <button
               type="button"
               onClick={() => handleLanguageChange('nl')}
-              className={`px-2 py-1 rounded-full text-[10px] font-bold tracking-wide transition-colors ${
+              className={`px-1.5 sm:px-2 py-1 rounded-full text-[9px] sm:text-[10px] font-bold tracking-wide transition-colors ${
                 activeLanguage === 'nl'
                   ? 'bg-blue-600 text-white'
                   : 'text-slate-600 hover:bg-slate-100'
@@ -468,7 +468,7 @@ const Navbar: React.FC<NavbarProps> = ({
             setIsMobileMenuOpen(false);
           }}
         >
-          <div className="mobile-menu-panel absolute left-3 right-3 bottom-3 top-[72px] sm:top-[84px] bg-white/95 border border-slate-200 rounded-2xl shadow-2xl backdrop-blur-sm flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()}>
+          <div className="mobile-menu-panel absolute left-2 sm:left-3 right-2 sm:right-3 bottom-[max(0.5rem,env(safe-area-inset-bottom))] top-[calc(64px+env(safe-area-inset-top))] sm:top-[calc(74px+env(safe-area-inset-top))] bg-white/95 border border-slate-200 rounded-2xl shadow-2xl backdrop-blur-sm flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()}>
             <div className="flex-1 space-y-2 px-4 pt-4 pb-6 overflow-y-auto overscroll-contain scroll-smooth">
             {(navLinks as any[]).map((link: any) => (
               <div key={link.name} className="border-b border-slate-100 last:border-0">

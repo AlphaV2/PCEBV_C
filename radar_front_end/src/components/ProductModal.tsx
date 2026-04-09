@@ -23,26 +23,26 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in" onClick={onClose}>
-      <div className="bg-slate-900 w-full max-w-2xl max-h-[90vh] rounded-xl shadow-2xl overflow-hidden flex flex-col relative animate-scale-up border border-slate-700" onClick={e => e.stopPropagation()}>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-md animate-fade-in" onClick={onClose}>
+      <div className="bg-slate-900 w-full max-w-2xl max-h-[92dvh] sm:max-h-[90vh] rounded-lg sm:rounded-xl shadow-2xl overflow-hidden flex flex-col relative animate-scale-up border border-slate-700" onClick={e => e.stopPropagation()}>
         
         <button onClick={onClose} className="absolute top-3 right-3 p-1.5 bg-black/40 hover:bg-black/60 text-white rounded-full transition-colors z-50 backdrop-blur-sm border border-white/10">
           <X size={18} />
         </button>
         
-        <div className="relative h-48 shrink-0 bg-black">
+        <div className="relative h-40 sm:h-48 shrink-0 bg-black">
           <img src={translatedProduct.image} alt={translatedProduct.name} className="w-full h-full object-cover opacity-90" onError={handleImageError} />
           <div className="absolute bottom-0 left-0 w-full p-5 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent">
              <div className="flex items-center gap-2 mb-1 text-blue-400 text-[10px] font-bold uppercase tracking-wider">
                 {translatedProduct.type === 'drone' ? <Zap size={12} /> : <Shield size={12} />}
                {translatedProduct.type === 'drone' ? t('productModal.aerialSystem', 'Aerial System') : t('productModal.hardware', 'Hardware')}
              </div>
-             <h2 className="text-2xl font-bold text-white">{translatedProduct.name}</h2>
-             <p className="text-slate-300 text-sm">{translatedProduct.tagline}</p>
+               <h2 className="text-xl sm:text-2xl font-bold text-white break-words">{translatedProduct.name}</h2>
+               <p className="text-xs sm:text-sm text-slate-300">{translatedProduct.tagline}</p>
           </div>
         </div>
 
-        <div className="p-6 overflow-y-auto flex-1 bg-slate-900 custom-scrollbar">
+             <div className="p-4 sm:p-6 overflow-y-auto flex-1 bg-slate-900 custom-scrollbar">
           
           <div className="mb-6">
             <h4 className="text-sm font-bold text-white mb-2 uppercase tracking-wide">{t('productModal.overview', 'Overview')}</h4>

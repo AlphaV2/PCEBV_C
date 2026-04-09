@@ -12,7 +12,7 @@ const MobileSwipeCard: React.FC<{ item: any; onClick: () => void; priority?: boo
   return (
     <div
       onClick={onClick}
-      className="relative min-w-[85vw] aspect-[4/5] snap-center rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl shrink-0 first:ml-4 last:mr-4 active:scale-[0.98] transition-transform duration-200"
+      className="relative min-w-[84vw] sm:min-w-[72vw] aspect-[4/5] snap-center rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl shrink-0 first:ml-4 last:mr-4 active:scale-[0.98] transition-transform duration-200"
     >
       <div className="absolute inset-0 bg-slate-800 animate-pulse z-0" />
       <img
@@ -28,13 +28,13 @@ const MobileSwipeCard: React.FC<{ item: any; onClick: () => void; priority?: boo
 
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 z-20 pointer-events-none" />
 
-      <div className="absolute bottom-0 left-0 w-full p-5 z-30">
+      <div className="absolute bottom-0 left-0 w-full p-4 sm:p-5 z-30">
         {item.tagline && (
           <div className="inline-flex items-center gap-1.5 px-2 py-1 mb-2 text-[10px] font-bold tracking-widest text-blue-300 uppercase bg-blue-950/80 backdrop-blur-md rounded border border-blue-500/30">
             <Layers size={10} /> {item.tagline}
           </div>
         )}
-        <h3 className="text-xl font-bold text-white leading-tight mb-1 drop-shadow-md">{item.title}</h3>
+        <h3 className="text-lg sm:text-xl font-bold text-white leading-tight mb-1 drop-shadow-md line-clamp-2">{item.title}</h3>
         {item.description && <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed opacity-90">{item.description}</p>}
       </div>
     </div>
@@ -203,14 +203,14 @@ const Gallery: React.FC = () => {
           ))}
         </div>
 
-        <div className="hidden md:block relative group/main min-h-[600px]">
-          <button onClick={prevSection} aria-label={t('gallery.previousImage', 'Previous Image')} className="absolute -left-6 top-1/2 -translate-y-1/2 z-30 p-2 bg-black/50 hover:bg-blue-600 text-white rounded-full border border-white/10 opacity-0 group-hover/main:opacity-100 transition-all">
+        <div className="hidden md:block relative group/main min-h-[520px] lg:min-h-[600px]">
+          <button onClick={prevSection} aria-label={t('gallery.previousImage', 'Previous Image')} className="absolute -left-3 lg:-left-6 top-1/2 -translate-y-1/2 z-30 p-2 bg-black/50 hover:bg-blue-600 text-white rounded-full border border-white/10 opacity-0 group-hover/main:opacity-100 transition-all">
             <ArrowLeft size={20} />
           </button>
 
-          <div className="relative min-h-[600px] transition-all duration-500 ease-in-out">
+          <div className="relative min-h-[520px] lg:min-h-[600px] transition-all duration-500 ease-in-out">
             <div className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${activeSectionSlide === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
-              <div className="w-full h-[600px]">
+              <div className="w-full h-[520px] lg:h-[600px]">
                 <CarouselCard items={pamphletContent} onOpenLightbox={() => openLightbox(pamphletContent, 0)} className="h-full w-full border-blue-500/30 bg-slate-900" objectFit="contain" />
               </div>
             </div>
@@ -240,7 +240,7 @@ const Gallery: React.FC = () => {
             </div>
           </div>
 
-          <button onClick={nextSection} className="absolute -right-6 top-1/2 -translate-y-1/2 z-30 p-2 bg-black/50 hover:bg-blue-600 text-white rounded-full border border-white/10 opacity-0 group-hover/main:opacity-100 transition-all">
+          <button onClick={nextSection} className="absolute -right-3 lg:-right-6 top-1/2 -translate-y-1/2 z-30 p-2 bg-black/50 hover:bg-blue-600 text-white rounded-full border border-white/10 opacity-0 group-hover/main:opacity-100 transition-all">
             <ArrowRight size={20} />
           </button>
         </div>

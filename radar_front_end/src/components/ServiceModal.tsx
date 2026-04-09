@@ -22,11 +22,11 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in" onClick={onClose}>
-      <div className="bg-white w-full max-w-xl max-h-[85vh] rounded-xl shadow-2xl overflow-hidden flex flex-col relative animate-scale-up" onClick={e => e.stopPropagation()}>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in" onClick={onClose}>
+      <div className="bg-white w-full max-w-xl max-h-[92dvh] sm:max-h-[85vh] rounded-lg sm:rounded-xl shadow-2xl overflow-hidden flex flex-col relative animate-scale-up" onClick={e => e.stopPropagation()}>
         
         {/* Header */}
-        <div className="bg-slate-900 p-4 text-white relative shrink-0">
+        <div className="bg-slate-900 p-3 sm:p-4 text-white relative shrink-0">
           <button 
             onClick={onClose}
             className="absolute top-3 right-3 p-1.5 bg-white/10 hover:bg-white/20 rounded-full transition-colors z-50"
@@ -39,17 +39,17 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
               {service.icon ? <service.icon size={20} /> : <Activity size={20} />}
             </div>
             <div>
-              <h2 className="text-lg font-bold leading-tight">{service.title}</h2>
+              <h2 className="text-base sm:text-lg font-bold leading-tight">{service.title}</h2>
               <p className="text-xs text-slate-400">{t('serviceModal.solutionOverview', 'Solution Overview')}</p>
             </div>
           </div>
-          <p className="text-xs text-slate-300 leading-snug">
+          <p className="text-[11px] sm:text-xs text-slate-300 leading-snug">
             {service.details?.intro}
           </p>
         </div>
 
         {/* Content Scroll Area */}
-        <div className="p-4 overflow-y-auto flex-1 bg-slate-50 custom-scrollbar">
+        <div className="p-3 sm:p-4 overflow-y-auto flex-1 bg-slate-50 custom-scrollbar">
           <div className="flex flex-col gap-4">
             
             {/* Technical Specs */}

@@ -25,11 +25,11 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in" onClick={onClose}>
-      <div className="bg-white w-full max-w-xl max-h-[85vh] rounded-xl shadow-2xl overflow-hidden flex flex-col relative animate-scale-up" onClick={e => e.stopPropagation()}>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-md animate-fade-in" onClick={onClose}>
+      <div className="bg-white w-full max-w-xl max-h-[92dvh] sm:max-h-[85vh] rounded-lg sm:rounded-xl shadow-2xl overflow-hidden flex flex-col relative animate-scale-up" onClick={e => e.stopPropagation()}>
         
         {/* Header Section */}
-        <div className="relative h-48 shrink-0 bg-slate-900">
+        <div className="relative h-40 sm:h-48 shrink-0 bg-slate-900">
           <img 
             src={translatedProduct.image} 
             alt={translatedProduct.name} 
@@ -46,13 +46,13 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
                 {translatedProduct.type === 'drone' ? <Zap size={12} /> : <Shield size={12} />}
                {translatedProduct.type === 'drone' ? t('productModal.aerialSystem', 'Aerial System') : t('productModal.hardware', 'Hardware')}
              </div>
-             <h2 className="text-2xl font-bold text-white">{translatedProduct.name}</h2>
-             <p className="text-slate-300 text-sm">{translatedProduct.tagline}</p>
+             <h2 className="text-xl sm:text-2xl font-bold text-white break-words">{translatedProduct.name}</h2>
+             <p className="text-xs sm:text-sm text-slate-300">{translatedProduct.tagline}</p>
           </div>
         </div>
 
         {/* Scrollable Content */}
-        <div className="p-6 overflow-y-auto flex-1 bg-slate-50 custom-scrollbar">
+        <div className="p-4 sm:p-6 overflow-y-auto flex-1 bg-slate-50 custom-scrollbar">
           
           {/* Description */}
           <div className="mb-6 bg-white p-4 rounded-lg border border-slate-200 shadow-sm">

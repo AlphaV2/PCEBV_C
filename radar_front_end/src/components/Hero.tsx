@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
       // 📱 LAYOUT OPTIMIZATION:
       // 'min-h-[85dvh]' on mobile: prevents content from being too tall/spread out.
       // 'md:min-h-[100dvh]' on desktop: keeps the immersive full-screen experience.
-      className="relative w-full min-h-[85dvh] md:min-h-[100dvh] flex flex-col justify-center pt-24 md:pt-32 pb-8 overflow-hidden bg-slate-50" 
+      className="relative w-full min-h-[82dvh] sm:min-h-[85dvh] md:min-h-[100dvh] flex flex-col justify-center pt-20 sm:pt-24 md:pt-32 pb-6 sm:pb-8 overflow-hidden bg-slate-50" 
     >
       
       {/* ========================================= */}
@@ -109,9 +109,9 @@ const Hero: React.FC = () => {
       {/* ========================================= */}
       {/* 2. CONTENT LAYER                          */}
       {/* ========================================= */}
-      <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 z-20 relative h-full flex flex-col justify-center">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20 relative h-full flex flex-col justify-center">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-12 items-center">
           
           {/* --- LEFT: Text Content --- */}
           {/* 📱 MOBILE ORDER: Text comes 2nd (Bottom) so Drone/Hologram is seen first */}
@@ -127,7 +127,7 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Headline */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-[1.1] mb-4 lg:mb-6 drop-shadow-sm text-balance"> 
+            <h1 className="text-[1.75rem] sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-[1.1] mb-4 lg:mb-6 drop-shadow-sm text-balance"> 
               {t('hero.titleLine1', 'Turn Airspace Into An')} <br className="hidden lg:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-cyan-600">
                 {t('hero.titleHighlight', 'Intelligent Shield.')}
@@ -135,13 +135,13 @@ const Hero: React.FC = () => {
             </h1>
             
             {/* Subtext */}
-            <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed font-medium text-pretty">
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-lg mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed font-medium text-pretty">
               {t('hero.subtitle', 'RadarSnipers (OPC) Private Ltd presents AI-Powered Drones & Cybersecurity for a smarter future.')}
               <span className="block mt-2 text-slate-900 font-bold">{t('hero.subtitleStrong', 'Smart Drones. Strong Security. Safer Tomorrow.')}</span>
             </p>
             
             {/* Buttons Row */}
-            <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md mx-auto lg:mx-0 mb-8">
+            <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md mx-auto lg:mx-0 mb-6 sm:mb-8">
               <a
                 href="#products"
                 className="group relative flex-1 px-6 py-3.5 bg-slate-900 hover:bg-blue-600 text-white rounded-xl font-bold text-sm transition-all shadow-xl hover:shadow-blue-500/25 flex items-center justify-center gap-2 overflow-hidden"
@@ -220,10 +220,10 @@ const Hero: React.FC = () => {
 
           {/* --- RIGHT: Visual / Hologram / Drone --- */}
           {/* 📱 MOBILE ORDER: Order 1 (Top) ensures the drone is the first thing users see */}
-          <div className="flex lg:col-span-5 justify-center lg:justify-end relative h-[250px] sm:h-[350px] lg:h-auto items-center order-1 lg:order-2">
+          <div className="flex lg:col-span-5 justify-center lg:justify-end relative h-[220px] min-[380px]:h-[250px] sm:h-[320px] md:h-[360px] lg:h-auto items-center order-1 lg:order-2">
             
             {/* Glow Effect */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] bg-blue-400/20 blur-[80px] rounded-full pointer-events-none mix-blend-multiply"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] md:w-[280px] md:h-[280px] bg-blue-400/20 blur-[60px] sm:blur-[80px] rounded-full pointer-events-none mix-blend-multiply"></div>
             
             {/* Hologram Component */}
             <div className="relative z-10 scale-90 sm:scale-100 lg:scale-110 transition-transform duration-700 ease-out cursor-pointer hover:scale-105">

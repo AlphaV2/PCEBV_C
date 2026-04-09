@@ -51,8 +51,8 @@ const About: React.FC = () => {
         <section id="about" className="py-10 md:py-12 bg-white text-slate-700 relative overflow-hidden scroll-mt-28">
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-50/70 to-transparent pointer-events-none"></div>
 
-            <div className="container mx-auto px-4 md:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 items-start">
 
                     {/* Left: Mission Text & Values */}
                     <div>
@@ -74,7 +74,7 @@ const About: React.FC = () => {
                         </div>
 
                         {/* Values Boxes */}
-                        <div className="mt-6 grid grid-cols-3 gap-3">
+                        <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
                             <div className="bg-white p-2 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                                 <Target className="text-blue-600 mb-1" size={14} />
                                 <h4 className="font-bold text-slate-900 text-[11px]">
@@ -97,23 +97,23 @@ const About: React.FC = () => {
                     </div>
 
                     {/* Right: Founder Profile Card */}
-                    <div className="lg:sticky top-20">
+                    <div className="lg:sticky top-24">
                         <div className="absolute inset-0 bg-blue-600/10 rounded-2xl transform rotate-3 scale-105 shadow-xl"></div>
-                        <div className="relative bg-white p-5 rounded-2xl border border-slate-200 shadow-2xl">
+                        <div className="relative bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-2xl">
                             <h3 className="text-lg font-bold mb-4 text-slate-900">
                                 {t('about.leadershipVision', 'Leadership Vision')}
                             </h3>
 
                             <div key={member.id}>
-                                <div className="flex items-center gap-4 mb-4 pb-4 border-b border-slate-100">
+                                <div className="flex items-center gap-3 sm:gap-4 mb-4 pb-4 border-b border-slate-100">
                                     <img
                                         src={member.image_url}
                                         alt={member.name}
-                                        className="w-20 h-20 rounded-full object-cover border-3 border-white shadow-md"
+                                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-3 border-white shadow-md"
                                         onError={handleImageError}
                                     />
                                     <div>
-                                        <h3 className="text-xl font-bold text-slate-900">{member.name}</h3>
+                                        <h3 className="text-base sm:text-xl font-bold text-slate-900 break-words">{member.name}</h3>
                                         <p className="text-blue-600 font-bold text-xs tracking-wide mt-0.5">
                                             {member.role}
                                         </p>

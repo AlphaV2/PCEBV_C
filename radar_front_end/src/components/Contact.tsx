@@ -63,16 +63,16 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-white relative scroll-mt-20 border-t border-slate-100">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+    <section id="contact" className="py-12 sm:py-16 bg-white relative scroll-mt-20 border-t border-slate-100">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20">
 
           <div>
             <div className="mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
                 {t('contact.heading', 'Start the Conversation.')}
               </h2>
-              <p className="text-slate-500 text-lg leading-relaxed">
+              <p className="text-slate-500 text-base sm:text-lg leading-relaxed">
                 {t('contact.subheading', 'Select the right channel below for faster resolution, or use the quick form.')}
               </p>
             </div>
@@ -120,7 +120,7 @@ const Contact: React.FC = () => {
 
                     <button
                       onClick={(e) => handleCopy(e, contact.email)}
-                      className="p-2 text-slate-300 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
+                      className="p-2 text-slate-300 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-colors shrink-0"
                       title={t('contact.copyEmail', 'Copy Email Address')}
                     >
                       <Copy size={16} />
@@ -150,7 +150,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-200 h-fit">
+          <div className="bg-slate-50 p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border border-slate-200 h-fit">
             {formState === "success" ? (
               <div className="text-center py-12">
                 <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4 mx-auto">
