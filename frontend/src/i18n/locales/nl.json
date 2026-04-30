@@ -1,0 +1,218 @@
+{
+  "whatsapp": {
+    "message": "Hallo, ik ben geinteresseerd in de engineering- en projectcontrolsdiensten van PCE BV."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Diensten",
+    "products": "Oplossingen",
+    "gallery": "Galerij",
+    "about": "Over ons",
+    "contact": "Contact",
+    "departments": "Afdelingen",
+    "globalOffices": "Wereldwijde vestigingen"
+  },
+  "about": {
+    "badge": "Wie wij zijn",
+    "headingLine1": "Engineering",
+    "headingLine2": "Excellentie",
+    "headingLine3": "Met Eenvoud.",
+    "values": {
+      "precision": "Precisie",
+      "compliance": "Compliance",
+      "globalScale": "Wereldwijde schaal"
+    },
+    "leadershipVision": "Leiderschapsprofiel",
+    "visionLabel": "Visie",
+    "expertiseLabel": "Expertise",
+    "expertise": "Projectcontrols, programmamanagement, contract- en financieel bestuur, risicoanalyse en multiculturele teamontwikkeling.",
+    "connectCta": "Verbind via LinkedIn",
+    "p1": "PCE BV is een betrouwbare leverancier van engineering-, inkoop- en bouwondersteunende diensten, gespecialiseerd in detail engineering, projectcontrols en documentatie.",
+    "p2": "PCE BV is op 30 april 2025 opgericht en geregistreerd bij de KVK door Kiran V. Kulkarni en Nishikant V. Choudhary.",
+    "p3": "Onze missie is engineering excellence op de meest eenvoudige en effectieve manier te leveren met naleving van internationale standaarden.",
+    "p4": "Met meer dan drie decennia EPC- en projectcontrolservaring ondersteunen wij klanten in chemie, petrochemie, energie en infrastructuur."
+  },
+  "contact": {
+    "heading": "Start het gesprek.",
+    "subheading": "Kies het juiste kanaal voor engineering- en projectcontrolsvragen.",
+    "copied": "Gekopieerd",
+    "copyEmail": "E-mailadres kopieren",
+    "office1": {
+      "title": "Geregistreerd kantoor (Nederland)"
+    },
+    "office2": {
+      "title": "Partner Engineering Office (India)"
+    },
+    "emails": {
+      "mail": {
+        "role": "Algemene vragen",
+        "desc": "Commerciele en serviceaanvragen"
+      },
+      "briefcase": {
+        "role": "Projectcoordinatie",
+        "desc": "Planning en controls"
+      },
+      "shield": {
+        "role": "Managing Director",
+        "desc": "Strategische partnerschappen"
+      }
+    },
+    "form": {
+      "title": "Snelle aanvraag",
+      "fillAll": "Vul alle verplichte velden in.",
+      "successTitle": "Geopend in WhatsApp!",
+      "sendAnother": "Nog een bericht sturen",
+      "submitButton": "Chat via WhatsApp",
+      "whatsappTitle": "Nieuwe website-aanvraag",
+      "nameLabel": "Naam",
+      "namePlaceholder": "Jan Jansen",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "jan@bedrijf.com",
+      "interestedIn": "Ik ben geinteresseerd in...",
+      "topicLabel": "Onderwerp",
+      "selectTopic": "Selecteer een onderwerp",
+      "messageLabel": "Bericht",
+      "messagePlaceholder": "Hoe kunnen we helpen?",
+      "topics": {
+        "general": "Algemene vraag",
+        "support": "Projectondersteuning",
+        "sales": "Diensten en offertes",
+        "partnership": "Partnermogelijkheden",
+        "careers": "Carriere"
+      }
+    }
+  },
+  "services": {
+    "pollination-drones": {
+      "title": "Project Controls Leadership",
+      "shortTitle": "Project Controls",
+      "desc": "Geintegreerd kosten-, planning-, risico- en changemanagement voor complexe projecten."
+    },
+    "iot-security": {
+      "title": "Detail Engineering Services",
+      "shortTitle": "Detail Engineering",
+      "desc": "Multi-disciplinaire engineeringondersteuning van FEED tot IFC-deliverables."
+    },
+    "iso-27001": {
+      "title": "Procurement and Construction Support",
+      "shortTitle": "Procurement and Construction",
+      "desc": "Leverancierscoordinatie, veldondersteuning en controls tijdens de bouwfase."
+    },
+    "soc": {
+      "title": "Project Documentation and Governance",
+      "shortTitle": "Documentation",
+      "desc": "Documentcontrole, rapportage en governance packs voor leveringszekerheid."
+    }
+  },
+  "products": {
+    "badge": "Servicepakketten",
+    "heading": "Engineering en Controls Oplossingen",
+    "subheading": "Geintegreerde aanbiedingen voor detail engineering, projectcontrols en EPC-ondersteuning.",
+    "typeUAV": "OPL",
+    "typeHDW": "OPL",
+    "viewFullSpecs": "Bekijk volledige specificaties"
+  },
+  "gallery": {
+    "title": "Projecten en Delivery Galerij",
+    "sectionFeaturedSpotlight": "Uitgelicht",
+    "sectionOperationalGrid": "Operationeel overzicht",
+    "lightboxDefaultDescription": "Operationeel beeld uit project- en engineeringuitvoering.",
+    "inquireOnWhatsapp": "Informeer via WhatsApp",
+    "imageCounter": "Afbeelding",
+    "imageCounterOf": "van",
+    "offerBadge": "HIGHLIGHT",
+    "fallback": {
+      "fullSpecifications": "Volledige specificaties",
+      "brochure": "Brochure"
+    }
+  },
+  "hero": {
+    "badge": "Engineering en Project Controls",
+    "titleLine1": "Complexe projecten leveren",
+    "titleHighlight": "Met precisie en vertrouwen.",
+    "subtitle": "Petroleum Consulting Engineers BV ondersteunt EPC-teams met detail engineering, controls en documentatie-excellentie.",
+    "subtitleStrong": "Eenvoudig. Effectief. Conform standaarden.",
+    "ctaProducts": "Bekijk oplossingen",
+    "ctaWhatsapp": "WhatsApp-chat",
+    "recognizedBy": "Geregistreerd en actief in",
+    "msmeStatus": "Nederland",
+    "startupIndiaStatus": "Partnerschap India",
+    "incubationPrefix": "Opgericht en",
+    "incubationEmphasis": "geregistreerd",
+    "incubationSuffix": "bij KVK op 30 april 2025",
+    "incubationInstitute": "PCE BV met partneruitvoering via PCE PL Mumbai"
+  },
+  "servicesSection": {
+    "badge": "Kernexpertise",
+    "heading": "Oplossingen voor projectlevering",
+    "subheading": "Geintegreerde engineering-, controls- en documentatiediensten voor procesindustrie.",
+    "details": "Details"
+  },
+  "navbar": {
+    "exploreSolutions": "Bekijk oplossingen",
+    "featuredInventory": "Uitgelichte oplossingen",
+    "fullInventory": "Alle oplossingen",
+    "productDemos": "Case snapshots",
+    "watchVideos": "Project highlights",
+    "exhibitions": "Events",
+    "eventPhotos": "Eventfoto's",
+    "missionVision": "Missie en visie",
+    "readOurStory": "Lees ons verhaal",
+    "contactUs": "Contact opnemen",
+    "quickChat": "Snelle chat",
+    "bookConsultation": "Consultatie boeken",
+    "whatsapp": "WhatsApp",
+    "contact": "Contact"
+  },
+  "projects": {
+    "loadingDeployments": "Projecten laden...",
+    "badge": "Track record",
+    "heading": "Eerdere en lopende projectervaring",
+    "subheading": "Geselecteerde referenties uit engineering-, estimation- en projectcontrolsopdrachten.",
+    "metric": "Metriek"
+  },
+  "footer": {
+    "description": "PCE BV levert engineering-, projectcontrols- en documentatiediensten voor chemie-, petrochemie-, energie- en infrastructuurprojecten.",
+    "solutions": "Oplossingen",
+    "company": "Bedrijf",
+    "support": "Ondersteuning",
+    "rights": "Alle rechten voorbehouden.",
+    "privacy": "Privacybeleid",
+    "terms": "Servicevoorwaarden",
+    "cookies": "Cookie-instellingen"
+  },
+  "serviceModal": {
+    "whatsappInterest": "Hallo, ik wil graag meer weten over {{service}}",
+    "solutionOverview": "Oplossingsoverzicht",
+    "technicalSpecs": "Technische specificaties",
+    "feature": "Kenmerk",
+    "processFlow": "Procesverloop",
+    "requestQuote": "Vraag offerte aan",
+    "whatsapp": "WhatsApp"
+  },
+  "productModal": {
+    "whatsappInterest": "Hallo, ik ben geinteresseerd in {{product}}",
+    "aerialSystem": "Oplossing",
+    "hardware": "Oplossing",
+    "overview": "Overzicht",
+    "technicalSpecifications": "Technische specificaties",
+    "requestPricingDemo": "Vraag prijs en overleg aan"
+  },
+  "stats": {
+    "responseTime": {
+      "label": "Industrie-ervaring"
+    },
+    "threats": {
+      "label": "Projectcontrols Leadership"
+    },
+    "uptime": {
+      "label": "Operationele footprint"
+    }
+  },
+  "team": {
+    "founder": {
+      "role": "Managing Director - EU Operations",
+      "bio": "Ervaren leider in projectcontrols en programmamanagement met 32+ jaar expertise in planning, risico, kosten en verandering voor grote industriële projecten."
+    }
+  }
+}

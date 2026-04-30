@@ -1,0 +1,38 @@
+.reveal-section {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition-property: opacity, transform;
+  transition-duration: 460ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.mobile-menu-panel {
+  animation: mobileMenuEnter 180ms ease-out;
+}
+
+@keyframes mobileMenuEnter {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -8px, 0) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-section,
+  .mobile-menu-panel {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
