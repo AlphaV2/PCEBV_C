@@ -1,0 +1,278 @@
+{
+  "whatsapp": {
+    "message": "Hi, I'm interested in PCE BV engineering and project controls services."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "products": "Solutions",
+    "gallery": "Gallery",
+    "about": "About",
+    "contact": "Contact",
+    "departments": "Departments",
+    "globalOffices": "Global Offices"
+  },
+  "about": {
+    "badge": "Who We Are",
+    "headingLine1": "Engineering",
+    "headingLine2": "Excellence",
+    "headingLine3": "With Simplicity.",
+    "values": {
+      "precision": "Precision",
+      "compliance": "Compliance",
+      "globalScale": "Global Scale"
+    },
+    "leadershipVision": "Leadership Profile",
+    "visionLabel": "Vision",
+    "expertiseLabel": "Expertise Highlights",
+    "expertise": "Project Controls Leadership, Program Management, Contract and Financial Governance, Risk Analysis, and Multicultural Team Development.",
+    "connectCta": "Connect on LinkedIn",
+    "p1": "PCE BV is a trusted provider of engineering, procurement, and construction support services, specialized in detail engineering, project controls, and documentation.",
+    "p2": "Founded and registered with KVK on 30 April 2025, PCE BV is co-founded by Kiran V. Kulkarni and Nishikant V. Choudhary.",
+    "p3": "Our mission is to deliver engineering excellence in the simplest and most effective way while ensuring compliance with international standards.",
+    "p4": "With over three decades of EPC and project controls expertise, we support chemicals, petrochemicals, energy, and infrastructure clients with disciplined delivery."
+  },
+  "contact": {
+    "heading": "Start the Conversation.",
+    "subheading": "Choose the right channel for engineering and project controls enquiries.",
+    "copied": "Copied",
+    "copyEmail": "Copy Email Address",
+    "office1": {
+      "title": "Registered Office (Netherlands)"
+    },
+    "office2": {
+      "title": "Partner Engineering Office (India)"
+    },
+    "emails": {
+      "mail": {
+        "role": "General Enquiries",
+        "desc": "Commercial and Service Requests"
+      },
+      "briefcase": {
+        "role": "Project Coordination",
+        "desc": "Planning and Controls"
+      },
+      "shield": {
+        "role": "Managing Director",
+        "desc": "Strategic Partnerships"
+      }
+    },
+    "form": {
+      "title": "Quick Enquiry",
+      "fillAll": "Please fill in all required fields.",
+      "successTitle": "Opened in WhatsApp!",
+      "sendAnother": "Send another",
+      "submitButton": "Chat via WhatsApp",
+      "whatsappTitle": "New Website Inquiry",
+      "nameLabel": "Name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Email",
+      "emailPlaceholder": "john@company.com",
+      "interestedIn": "I'm interested in...",
+      "topicLabel": "Topic",
+      "selectTopic": "Select a topic",
+      "messageLabel": "Message",
+      "messagePlaceholder": "How can we help?",
+      "topics": {
+        "general": "General Inquiry",
+        "support": "Project Support",
+        "sales": "Services and Quotes",
+        "partnership": "Partnership Opportunities",
+        "careers": "Careers"
+      }
+    }
+  },
+  "services": {
+    "project-controls": {
+      "title": "Project Controls Leadership",
+      "shortTitle": "Project Controls",
+      "desc": "Integrated cost, planning, risk, and change management for complex industrial projects."
+    },
+    "planning-scheduling": {
+      "title": "Planning & Scheduling",
+      "shortTitle": "Planning",
+      "desc": "Level 3/Level 4 detail schedules with resource planning and critical path management."
+    },
+    "cost-controls": {
+      "title": "Cost & Budget Controls",
+      "shortTitle": "Cost Controls",
+      "desc": "Total installed cost estimation, budget management, and variance analysis."
+    },
+    "risk-management": {
+      "title": "Risk & Opportunity Management",
+      "shortTitle": "Risk Management",
+      "desc": "Identification, assessment, and mitigation of project risks with opportunity capture."
+    },
+    "change-management": {
+      "title": "Change & Configuration Management",
+      "shortTitle": "Change Management",
+      "desc": "Disciplined change control processes and configuration baseline management."
+    },
+    "project-governance": {
+      "title": "Project Governance & Reporting",
+      "shortTitle": "Governance",
+      "desc": "Stakeholder reporting, steering committee support, and governance frameworks."
+    },
+    "detail-engineering": {
+      "title": "Detail Engineering Services",
+      "shortTitle": "Detail Engineering",
+      "desc": "Multi-discipline engineering from FEED through IFC with high-quality deliverables."
+    },
+    "process-engineering": {
+      "title": "Process Engineering",
+      "shortTitle": "Process Design",
+      "desc": "Process design, flowsheets, and PID development for chemical and energy projects."
+    },
+    "piping-engineering": {
+      "title": "Piping Engineering & Stress Analysis",
+      "shortTitle": "Piping Design",
+      "desc": "3D piping models, isometrics, and stress analysis for integrity and safety."
+    },
+    "mechanical-engineering": {
+      "title": "Mechanical Engineering",
+      "shortTitle": "Mechanical Design",
+      "desc": "Mechanical equipment design, sizing, and specification for rotating and static equipment."
+    },
+    "electrical-engineering": {
+      "title": "Electrical & Control Engineering",
+      "shortTitle": "Electrical Design",
+      "desc": "Electrical system design, load calculations, and instrumentation & control specifications."
+    },
+    "civil-structural": {
+      "title": "Civil & Structural Engineering",
+      "shortTitle": "Civil Design",
+      "desc": "Structural design, foundation analysis, and site civil works for industrial facilities."
+    },
+    "3d-plant-modeling": {
+      "title": "3D Plant Modeling & Visualization",
+      "shortTitle": "3D Modeling",
+      "desc": "Comprehensive 3D plant models for coordination, clash detection, and constructability review."
+    },
+    "procurement-construction": {
+      "title": "Procurement & Construction Support",
+      "shortTitle": "P&C Support",
+      "desc": "Vendor coordination, field engineering, and construction-stage support."
+    },
+    "documentation-governance": {
+      "title": "Documentation & Governance",
+      "shortTitle": "Documentation",
+      "desc": "Document control, technical reporting, and project governance documentation."
+    },
+    "commissioning-support": {
+      "title": "Commissioning & Start-Up Support",
+      "shortTitle": "Commissioning",
+      "desc": "Commissioning planning, readiness support, and start-up assistance."
+    }
+  },
+  "products": {
+    "badge": "Service Packages",
+    "heading": "Engineering and Controls Solutions",
+    "subheading": "Integrated offerings for detail engineering, project controls, and EPC support.",
+    "typeUAV": "SOL",
+    "typeHDW": "SOL",
+    "viewFullSpecs": "View Full Specs"
+  },
+  "gallery": {
+    "title": "Projects and Delivery Gallery",
+    "sectionFeaturedSpotlight": "Featured Spotlight",
+    "sectionOperationalGrid": "Operational Grid",
+    "lightboxDefaultDescription": "Operational view from project and engineering execution.",
+    "inquireOnWhatsapp": "Inquire on WhatsApp",
+    "imageCounter": "Image",
+    "imageCounterOf": "of",
+    "offerBadge": "HIGHLIGHT",
+    "fallback": {
+      "fullSpecifications": "Full Specifications",
+      "brochure": "Brochure"
+    }
+  },
+  "hero": {
+    "badge": "Engineering and Project Controls",
+    "titleLine1": "Delivering Complex Projects",
+    "titleHighlight": "With Precision and Confidence.",
+    "subtitle": "Petroleum Consulting Engineers BV supports EPC teams with detail engineering, controls, and documentation excellence.",
+    "subtitleStrong": "Simple. Effective. Standards-Compliant.",
+    "ctaProducts": "Explore Solutions",
+    "ctaWhatsapp": "WhatsApp Chat",
+    "recognizedBy": "Registered and Operated In",
+    "msmeStatus": "The Netherlands",
+    "startupIndiaStatus": "India Partnership",
+    "incubationPrefix": "Founded and",
+    "incubationEmphasis": "registered",
+    "incubationSuffix": "with KVK on 30 April 2025",
+    "incubationInstitute": "PCE BV with partner execution support from PCE PL Mumbai"
+  },
+  "servicesSection": {
+    "badge": "Core Expertise",
+    "heading": "Solutions Designed for Project Delivery",
+    "subheading": "Integrated engineering, controls, and documentation services for process industries.",
+    "details": "Details"
+  },
+  "navbar": {
+    "exploreSolutions": "Explore Solutions",
+    "featuredInventory": "Featured Solutions",
+    "fullInventory": "Full Solutions",
+    "productDemos": "Case Snapshots",
+    "watchVideos": "Project Highlights",
+    "exhibitions": "Events",
+    "eventPhotos": "Event Photos",
+    "missionVision": "Mission and Vision",
+    "readOurStory": "Read Our Story",
+    "contactUs": "Contact Us",
+    "quickChat": "Quick Chat",
+    "bookConsultation": "Book Consultation",
+    "whatsapp": "WhatsApp",
+    "contact": "Contact"
+  },
+  "projects": {
+    "loadingDeployments": "Loading Projects...",
+    "badge": "Track Record",
+    "heading": "Past and Ongoing Project Experience",
+    "subheading": "Selected references from engineering, estimation, and project controls engagements.",
+    "metric": "Metric"
+  },
+  "footer": {
+    "description": "PCE BV provides engineering, project controls, and documentation services for chemicals, petrochemicals, energy, and infrastructure projects.",
+    "solutions": "Solutions",
+    "company": "Company",
+    "support": "Support",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Settings"
+  },
+  "serviceModal": {
+    "whatsappInterest": "Hi, I'm interested in learning more about {{service}}",
+    "solutionOverview": "Solution Overview",
+    "technicalSpecs": "Technical Specs",
+    "feature": "Feature",
+    "processFlow": "Process Flow",
+    "requestQuote": "Request Quote",
+    "whatsapp": "WhatsApp"
+  },
+  "productModal": {
+    "whatsappInterest": "Hi, I'm interested in {{product}}",
+    "aerialSystem": "Solution",
+    "hardware": "Solution",
+    "overview": "Overview",
+    "technicalSpecifications": "Technical Specifications",
+    "requestPricingDemo": "Request Pricing and Discussion"
+  },
+  "stats": {
+    "responseTime": {
+      "label": "Industry Experience"
+    },
+    "threats": {
+      "label": "Project Controls Leadership"
+    },
+    "uptime": {
+      "label": "Operational Footprint"
+    }
+  },
+  "team": {
+    "founder": {
+      "role": "Managing Director - EU Operations",
+      "bio": "Accomplished project controls and program management leader with 32+ years of expertise in planning, risk, cost, and change management across major industrial projects."
+    }
+  }
+}
