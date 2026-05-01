@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               <img
-                src="/logo/company_logo.jpg"
+                src="/logo/company_logo.png"
                 alt="PCE BV"
                 className="h-8 w-auto rounded bg-white object-contain"
                 onError={(e) => {

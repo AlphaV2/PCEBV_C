@@ -397,7 +397,7 @@ const Navbar: React.FC<NavbarProps> = ({
 >
   <span className="flex items-center gap-2 truncate">
     {t('navbar.bookConsultation', 'Book Consultation')}
-    <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
+    <ChevronRight size={10} className="transition-transform group-hover:translate-x-1" />
   </span>
 </a>
         </div>
