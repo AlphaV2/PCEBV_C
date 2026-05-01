@@ -8,136 +8,57 @@ import ContactSection from '../components/ContactSection';
 
 const HomePage: React.FC = () => {
   return (
-    <main className="bg-white text-slate-900 overflow-hidden">
+    <main className="bg-white text-slate-900 overflow-x-hidden max-w-full">
 
-      {/* ================= HERO ================= */}
-      <section className="relative">
+      {/* HERO */}
+      <section>
         <Hero />
       </section>
 
-      {/* ================= TICKER ================= */}
+      {/* TICKER */}
       <section className="relative z-10">
         <TickerStrip />
       </section>
 
-      {/* ================= PILLARS ================= */}
-      <section className="bg-[#F6F9FC] py-20">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="mb-12 text-center max-w-2xl mx-auto">
-            <p className="text-xs uppercase tracking-[0.3em] text-[#0071E3]">
-              Core Services
-            </p>
-            <h2 className="text-3xl font-bold mt-3">
-              Pillars of Execution
-            </h2>
-            <p className="text-sm text-slate-600 mt-3">
-              Structured engineering, disciplined controls, and execution-ready delivery.
-            </p>
-          </div>
+      {/* SERVICES — STRONGER CONTRAST (ASH → SOFT GREY DEPTH) */}
+      <section className="relative py-20 bg-gradient-to-b from-[#F1F5F9] to-[#E2E8F0]">
+        
+        {/* smooth blend from above */}
+        <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-white to-transparent pointer-events-none" />
 
+        <div className="container mx-auto px-6 lg:px-12">
           <PillarsSection />
         </div>
+
       </section>
 
-      {/* ================= WHY US (COMPACT STRIP) ================= */}
-      <section className="bg-white py-14 border-y border-slate-200">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid md:grid-cols-3 gap-6 text-center">
+      {/* EXECUTION — DARK ANCHOR (THIS FIXES THE “ALL LIGHT” ISSUE) */}
+      <section className="relative py-24 bg-[#0F172A] text-white overflow-hidden">
 
-            <div className="space-y-2">
-              <p className="text-xs uppercase tracking-wide text-[#0071E3]">
-                Experience
-              </p>
-              <p className="text-lg font-semibold">
-                Global EPC Expertise
-              </p>
-            </div>
+        {/* subtle brand tint overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0071E3]/10 to-transparent pointer-events-none" />
 
-            <div className="space-y-2">
-              <p className="text-xs uppercase tracking-wide text-[#0071E3]">
-                Capability
-              </p>
-              <p className="text-lg font-semibold">
-                Multi-Discipline Delivery
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <p className="text-xs uppercase tracking-wide text-[#0071E3]">
-                Execution
-              </p>
-              <p className="text-lg font-semibold">
-                Engineering to IFC Ready
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ================= EXECUTION MODEL ================= */}
-      <section className="relative bg-white py-20">
-        
-        {/* subtle pattern layer */}
-        <div className="absolute inset-0 opacity-[0.04] 
-          bg-[radial-gradient(#0071E3_1px,transparent_1px)] 
-          [background-size:24px_24px]" 
-        />
+        {/* soft grid pattern */}
+        <div className="absolute inset-0 opacity-[0.05] 
+          bg-[radial-gradient(white_1px,transparent_1px)] 
+          [background-size:28px_28px]" />
 
         <div className="relative container mx-auto px-6 lg:px-12">
-
-          <div className="mb-12 text-center max-w-2xl mx-auto">
-            <p className="text-xs uppercase tracking-[0.3em] text-[#0071E3]">
-              How We Deliver
-            </p>
-            <h2 className="text-3xl font-bold mt-3">
-              Execution Model
-            </h2>
-            <p className="text-sm text-slate-600 mt-3">
-              Clear structure ensures scalable execution, disciplined governance, and delivery precision.
-            </p>
-          </div>
-
           <ExecutionModelSection />
         </div>
+
       </section>
 
-      {/* ================= PROJECTS ================= */}
-      <section className="bg-[#EEF4FF] py-20">
+      {/* PROJECTS — LIGHT BLUE CONTRAST */}
+      <section className="py-20 bg-gradient-to-b from-[#EEF4FF] to-[#E0ECFF]">
         <div className="container mx-auto px-6 lg:px-12">
-
-          <div className="mb-12 text-center max-w-2xl mx-auto">
-            <p className="text-xs uppercase tracking-[0.3em] text-[#0071E3]">
-              Selected Work
-            </p>
-            <h2 className="text-3xl font-bold mt-3">
-              Projects & Engagements
-            </h2>
-            <p className="text-sm text-slate-600 mt-3">
-              Proven execution across petrochemical, power, and industrial engineering projects.
-            </p>
-          </div>
-
           <ProjectsCarousel />
         </div>
       </section>
 
-      {/* ================= CONTACT ================= */}
-      <section className="bg-white py-20">
+      {/* CONTACT — CLEAN RESET */}
+      <section className="py-20 bg-white border-t border-slate-200">
         <div className="container mx-auto px-6 lg:px-12">
-
-          <div className="mb-12 text-center max-w-2xl mx-auto">
-            <p className="text-xs uppercase tracking-[0.3em] text-[#0071E3]">
-              Contact
-            </p>
-            <h2 className="text-3xl font-bold mt-3">
-              Start a Conversation
-            </h2>
-            <p className="text-sm text-slate-600 mt-3">
-              Share your requirement. The right team will respond.
-            </p>
-          </div>
-
           <ContactSection />
         </div>
       </section>
