@@ -388,11 +388,18 @@ const Navbar: React.FC<NavbarProps> = ({
             <span className="hidden xl:inline">{t('navbar.quickChat', 'Quick Chat')}</span>
           </a>
 
-          <a href="#contact" onClick={(e) => handleScrollToSection(e, '#contact')} className="group relative rounded-full bg-slate-900 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-all duration-300 hover:scale-105 hover:bg-blue-600 hover:shadow-lg">
-            <span className="relative flex items-center gap-2">
-              {t('navbar.bookConsultation', 'Book Consultation')} <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
-            </span>
-          </a>
+          <a
+  href="#contact"
+  onClick={(e) => handleScrollToSection(e, '#contact')}
+  className="group relative inline-flex max-w-full shrink items-center justify-center 
+  rounded-full bg-slate-900 px-4 sm:px-5 py-2.5 text-sm font-bold text-white 
+  shadow-md transition-all duration-300 hover:scale-105 hover:bg-blue-600 hover:shadow-lg"
+>
+  <span className="flex items-center gap-2 truncate">
+    {t('navbar.bookConsultation', 'Book Consultation')}
+    <ChevronRight size={14} className="transition-transform group-hover:translate-x-1" />
+  </span>
+</a>
         </div>
 
         <div className="relative z-50 flex items-center gap-2 lg:hidden">

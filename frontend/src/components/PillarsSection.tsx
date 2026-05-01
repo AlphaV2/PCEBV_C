@@ -94,16 +94,16 @@ export default function PillarsSection(): JSX.Element {
         }}
         aria-hidden
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0056A3] via-white to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0056A3] via-orange to-transparent" />
         <div className="relative h-full container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center">
           <div className="text-center text-black">
-            <p className="text-xs font-semibold uppercase tracking-widest text-black/80">Our Services</p>
+            <p className="text-ms font-semibold uppercase tracking-widest text-black/80">Our Services</p>
             <h2 className="mt-2 text-xl sm:text-2xl md:text-3xl font-bold">Pillars of PCE BV</h2>
             <div className="mt-3 flex flex-wrap gap-2 justify-center text-sm">
               {pillars.map((p) => (
                 <span
                   key={p.id}
-                  className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/90"
+                  className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-black/90"
                   style={{ border: '1px solid rgba(255,255,255,0.08)' }}
                 >
                   {p.title}
