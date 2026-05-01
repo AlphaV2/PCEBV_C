@@ -210,7 +210,7 @@ const Navbar: React.FC<NavbarProps> = ({
       <div className="container mx-auto flex items-center justify-between gap-3 px-3 relative sm:px-4 md:px-8">
         <div className="flex shrink-0 cursor-pointer items-center gap-3" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <img
-            src="/logo/company_logo.jpg"
+            src="/logo/company_logo.png"
             alt="PCE BV Logo"
             className={`w-auto rounded-md object-contain transition-all duration-300 ${isScrolled ? 'h-9 sm:h-11 lg:h-12' : 'h-12 sm:h-14 lg:h-16'}`}
             onError={(e) => {
