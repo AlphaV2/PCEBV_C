@@ -76,15 +76,15 @@ export const HOMEPAGE_CONFIG = {
     cta_secondary: 'Explore Services',
     background_images: [
       {
-        src: '/background/bg3.jpg',
+        src: '/background/bg3.webp',
         alt: 'Industrial refinery plant EPC project',
       },
       {
-        src: '/background/bg2.jpg',
+        src: '/background/bg2.webp',
         alt: 'Engineering team collaboration at worksite',
       },
       {
-        src: '/background/bg1.jpg',
+        src: '/background/bg1.webp',
         alt: 'Industrial plant detail and process equipment',
       },
     ],
