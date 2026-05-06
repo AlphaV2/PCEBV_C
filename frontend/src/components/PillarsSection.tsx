@@ -23,7 +23,7 @@ const pillars: Pillar[] = [
     description: 'Integrated cost, schedule, risk and change management to keep projects on track with disciplined governance.',
     highlights: ['L3/L4 schedule development', 'Cost & budget tracking', 'Risk & opportunity management', 'Stakeholder reporting'],
     color: 'blue',
-    image: '/pillar/pillar1.jpg',
+    image: '/pillar/pillar1.webp',
   },
   {
     id: 'detail-engineering',
@@ -32,7 +32,7 @@ const pillars: Pillar[] = [
     description: 'Process, piping, mechanical, electrical, instrumentation and civil design from FEED to IFC with QA processes.',
     highlights: ['3D plant modelling', 'Process design & PIDs', 'Equipment specifications', 'Construction packages'],
     color: 'orange',
-    image: '/pillar/pillar4.jpg',
+    image: '/pillar/pillar4.webp',
   },
   {
     id: 'execution-support',
@@ -41,7 +41,7 @@ const pillars: Pillar[] = [
     description: 'Procurement coordination, field engineering and construction-stage support to ensure smooth execution.',
     highlights: ['Vendor coordination', 'Site documentation', 'Field engineering support', 'Commissioning assistance'],
     color: 'blue',
-    image: '/pillar/pillar3.jpg',
+    image: '/pillar/pillar3.webp',
   },
 ];
 
@@ -75,7 +75,7 @@ export default function PillarsSection(): JSX.Element {
           {/* Background Image */}
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-luminosity"
-            style={{ backgroundImage: 'url("/pillar/pillar1.png")' }}
+            style={{ backgroundImage: 'url("/pillar/pillar1.webp")' }}
             aria-hidden="true"
           />
           {/* Dark Blue Cinematic Gradient Overlay */}
