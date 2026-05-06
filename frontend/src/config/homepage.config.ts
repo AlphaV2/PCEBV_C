@@ -10,7 +10,7 @@ export const HOMEPAGE_CONFIG = {
     primary_white: '#FFFFFF',
     background_light: '#F8FAFC',
     background_lighter: '#F1F5F9',
-    primary_blue: '#0071E3',
+    primary_blue: '#0071e3',
     primary_blue_dark: '#0056A3',
     accent_orange: '#FF6A2A',
     text_dark: '#1F2937',

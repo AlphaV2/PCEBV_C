@@ -6,28 +6,71 @@ const TickerStrip: React.FC = () => {
 
   return (
     <section className="bg-[#FF6A2A] py-3 overflow-hidden">
+      <div className="ticker-wrapper">
+        <div className="ticker-track">
+          {[...ticker.items, ...ticker.items].map((item, idx) => (
+            <span key={idx} className="ticker-item">
+              • {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
       <style>{`
-        @keyframes ticker-scroll {
-          0% { transform: translate3d(0, 0, 0); }
-          100% { transform: translate3d(-50%, 0, 0); }
+        .ticker-wrapper {
+          overflow: hidden;
+          width: 100%;
+          contain: layout style paint;
         }
-        .ticker-content {
-          animation: ticker-scroll ${ticker.animation_duration} linear infinite;
+
+        .ticker-track {
+          display: flex;
+          width: max-content;
+          animation: scroll 20s linear infinite;
+          will-change: transform;
+          transform: translateZ(0);
+          backface-visibility: hidden;
+          -webkit-font-smoothing: antialiased;
+          -webkit-transform: translate3d(0, 0, 0);
         }
+
+        .ticker-item {
+          white-space: nowrap;
+          padding-right: 2rem;
+          font-size: 0.875rem;
+          font-weight: 600;
+          color: #0f172a;
+          flex-shrink: 0;
+        }
+
+        @keyframes scroll {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+
+        /* Mobile: GPU acceleration + no jank */
+        @media (max-width: 768px) {
+          .ticker-track {
+            animation-duration: 28s;
+            animation-timing-function: linear;
+          }
+          .ticker-item {
+            padding-right: 1.5rem;
+          }
+        }
+
+        /* Accessibility */
         @media (prefers-reduced-motion: reduce) {
-          .ticker-content {
+          .ticker-track {
             animation: none;
+            will-change: auto;
           }
         }
       `}</style>
-
-      <div className="flex w-max ticker-content gap-6 px-6">
-        {[...ticker.items, ...ticker.items].map((item, idx) => (
-          <span key={idx} className="whitespace-nowrap text-sm font-semibold text-slate-900">
-            • {item}
-          </span>
-        ))}
-      </div>
     </section>
   );
 };

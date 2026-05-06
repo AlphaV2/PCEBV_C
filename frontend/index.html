@@ -77,10 +77,23 @@
       }
       
       html {
+        box-sizing: border-box;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         /* Account for sticky navbar height (~80-100px) */
         scroll-padding-top: 100px; 
+      }
+
+      *, *::before, *::after {
+        box-sizing: inherit;
+      }
+
+      img, video, svg, canvas {
+        max-width: 100%;
+        height: auto;
       }
 
       /* Accessibility: Respect user's motion preferences */

@@ -1,5 +1,7 @@
 # PCE BV Frontend Technical Documentation
 
+See also: [DEVELOPER_HANDBOOK.md](DEVELOPER_HANDBOOK.md) for the current version-specific maintenance rules, responsive standards, and refactor guidance.
+
 ## 1. Project Summary
 
 This project is the public-facing frontend for Petroleum Consulting Engineers BV (PCE BV). It is built with React 19, TypeScript, and Vite 6, and it consumes data from a PHP backend. The website supports English and Dutch localization, responsive layouts across desktop/tablet/mobile, and now uses separate pages for services, projects, about, and contact instead of putting every detail on the home page.

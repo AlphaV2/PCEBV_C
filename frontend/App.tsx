@@ -84,8 +84,6 @@ const App: React.FC = () => {
       }}
     >
       <Navbar 
-        onOpenService={handleOpenService} 
-        onOpenProduct={handleOpenProduct}
         onChangeLanguage={handleChangeLanguage}
         currentLanguage={i18n.resolvedLanguage || i18n.language}
       />
