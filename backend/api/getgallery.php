@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
         $item = [
             "id" => $row['id'],
             "title" => $row['title'],
-            "src" => "http://localhost/radarsnipers/backend/uploads/" . $row['media_url'], // UPDATE DOMAIN ON LIVE
+            "src" => "http://localhost/PCEBV/backend/uploads/" . $row['media_url'], // UPDATE DOMAIN ON LIVE
             "location" => $row['location'],
             "type" => $row['type']
         ];

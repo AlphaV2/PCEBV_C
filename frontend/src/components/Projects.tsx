@@ -15,7 +15,7 @@ const Projects: React.FC = () => {
 
   const resolveImageSrc = (img?: string) => {
     // If no image provided, we will render a background placeholder (see EXAMPLE_PROJECT_BG below)
-    if (!img) return '/background/bg1.jpg';
+    if (!img) return '/background/bg1.webp';
     if (/^https?:\/\//.test(img)) return img;
     if (img.startsWith('/')) return img;
     return `/projects/${img}`;
@@ -49,7 +49,7 @@ const Projects: React.FC = () => {
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     // fallback to a known existing background image in public/background/
-    e.currentTarget.src = '/background/bg1.jpg';
+    e.currentTarget.src = '/background/bg1.webp';
   };
 
   // Example background image paths (place your card backgrounds here):
@@ -118,7 +118,7 @@ const Projects: React.FC = () => {
                   ) : (
                     <div
                       aria-hidden
-                      style={{ backgroundImage: `url(/projects/${project.id || idx + 1}.jpg)` }}
+                      style={{ backgroundImage: `url(/projects/${project.id || idx + 1}.webp)` }}
                       className="w-full h-48 bg-cover bg-center group-hover:scale-110 transition-transform duration-700 ease-out"
                     />
                   )}
