@@ -936,7 +936,7 @@ export const TEAM: TeamMember[] = [
     credentials: 'CCE, MBA, PMP, BE Civil',
     bio: 'Accomplished project controls and program management leader with 32+ years of expertise in planning, risk, cost, and change management for major energy, chemicals, and infrastructure projects across Europe, the Middle East, and Asia.',
     expertise: ['Project Controls Leadership', 'Program Management', 'Risk & Cost Governance', 'Contract Management'],
-    image: '/founderprofile/nishikant.jpg',
+    image: '/founderprofile/founder_image.jpeg',
   },
   {
     id: 'founder-kiran',
@@ -947,7 +947,7 @@ export const TEAM: TeamMember[] = [
     credentials: 'BE Mechanical, Technical Expertise',
     bio: 'Strategic engineering leader with deep expertise in multi-discipline execution, process engineering, and project delivery. Leads PCE PL Mumbai operations and coordinates execution excellence across EPC programs.',
     expertise: ['Multi-Discipline Engineering', 'Project Execution', 'Process Design', 'Engineering Coordination'],
-    image: '/founderprofile/kiran.jpg',
+    image: '/founderprofile/founder_image2.jpeg',
   }
 ];
 
