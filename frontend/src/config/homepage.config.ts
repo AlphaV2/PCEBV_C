@@ -187,17 +187,17 @@ export const HOMEPAGE_CONFIG = {
     subtitle: 'Representative case studies showcasing our EPC delivery capability',
     items: [
       {
-        image: '/background/bg1.jpg',
+        image: '/background/bg1.webp',
         name: 'Integrated Processing Plant',
         location: 'Middle East',
       },
       {
-        image: '/background/bg2.jpg',
+        image: '/background/bg2.webp',
         name: 'Petrochemical Facility',
         location: 'Southeast Asia',
       },
       {
-        image: '/background/bg3.jpg',
+        image: '/background/bg3.webp',
         name: 'Offshore Platform Upgrade',
         location: 'North Sea',
       },
