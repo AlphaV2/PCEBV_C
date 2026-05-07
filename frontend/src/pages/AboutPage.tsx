@@ -52,7 +52,7 @@ function Hero() {
     <header
       // FIXED: Added mt-[88px] lg:mt-[104px] to push the section safely below the fixed global navbar.
       className="relative bg-slate-900 bg-cover bg-center min-h-[80vh] flex items-center overflow-hidden mt-[88px] lg:mt-[104px]"
-      style={{ backgroundImage: "url('/background/bg2.jpg')" }}
+      style={{ backgroundImage: "url('/background/bg2.webp')" }}
       aria-label="About PCE BV Hero Section"
     >
       {/* Background Gradient Overlay */}

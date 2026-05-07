@@ -5,6 +5,22 @@ import HOMEPAGE_CONFIG from '../config/homepage.config';
 const ProjectsCarousel: React.FC = () => {
   const { projects } = HOMEPAGE_CONFIG;
 
+  const resolveImageSrc = (src?: string, idx: number = 0) => {
+    const fallback = `/background/bg${(idx % 3) + 1}.webp`;
+    if (!src) return fallback;
+
+    const raw = String(src).trim();
+    if (!raw || raw.toLowerCase() === 'null' || raw.toLowerCase() === 'undefined') {
+      return fallback;
+    }
+
+    if (/^https?:\/\//i.test(raw) || raw.startsWith('/')) {
+      return raw;
+    }
+
+    return fallback;
+  };
+
   return (
     <section id="projects" className="relative overflow-hidden bg-white py-12 md:py-16 scroll-mt-28">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
@@ -26,9 +42,14 @@ const ProjectsCarousel: React.FC = () => {
               {/* Image Container - Compact Aspect */}
               <div className="relative aspect-video overflow-hidden bg-slate-200">
                 <img
-                  src={project.image}
+                  src={resolveImageSrc(project.image, idx)}
                   alt={project.name}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  onError={(e) => {
+                    e.currentTarget.src = `/background/bg${(idx % 3) + 1}.webp`;
+                  }}
                 />
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-950/20 to-transparent" />

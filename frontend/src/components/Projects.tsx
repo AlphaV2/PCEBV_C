@@ -13,12 +13,37 @@ const Projects: React.FC = () => {
 
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-  const resolveImageSrc = (img?: string) => {
-    // If no image provided, we will render a background placeholder (see EXAMPLE_PROJECT_BG below)
-    if (!img) return '/background/bg1.webp';
-    if (/^https?:\/\//.test(img)) return img;
-    if (img.startsWith('/')) return img;
-    return `/projects/${img}`;
+  const resolveImageSrc = (img?: string, idx: number = 0) => {
+    const bgFallback = `/background/bg${(idx % 3) + 1}.webp`;
+    if (!img) return bgFallback;
+
+    const raw = String(img).trim();
+    if (!raw || raw.toLowerCase() === 'null' || raw.toLowerCase() === 'undefined') {
+      return bgFallback;
+    }
+
+    // Fully-qualified URLs should be used directly.
+    if (/^https?:\/\//i.test(raw)) return raw;
+
+    // Public folder absolute paths (e.g. /background/bg1.webp) can be used directly.
+    if (raw.startsWith('/')) return raw;
+
+    const normalized = raw.replace(/^\.\/?/, '');
+
+    // Backend data often stores uploads as relative paths such as "uploads/x.jpg".
+    // Convert API base (/api) to site root and point to the backend asset URL.
+    if (normalized.startsWith('uploads/')) {
+      const backendRoot = (API_BASE_URL || '').replace(/\/api\/?$/i, '');
+      return backendRoot ? `${backendRoot}/${normalized}` : `/${normalized}`;
+    }
+
+    // If API sends public-like paths without a leading slash, normalize them.
+    if (/^(background|founderprofile|logo|pillar|gallery)\//i.test(normalized)) {
+      return `/${normalized}`;
+    }
+
+    // Last resort: treat image as a bare filename and map to local background fallback.
+    return bgFallback;
   };
 
   useEffect(() => {
@@ -47,17 +72,13 @@ const Projects: React.FC = () => {
     fetchProjects();
   }, [API_BASE_URL]);
 
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    // fallback to a known existing background image in public/background/
-    e.currentTarget.src = '/background/bg1.webp';
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, idx?: number) => {
+    // If the project image 404s, fallback to one of the known background images.
+    const choice = typeof idx === 'number' ? (idx % 3) + 1 : 1;
+    e.currentTarget.src = `/background/bg${choice}.webp`;
   };
 
-  // Example background image paths (place your card backgrounds here):
-  // - public/projects/project-1.jpg
-  // - public/projects/project-2.jpg
-  // - public/projects/project-3.jpg
-  // - public/projects/project-4.jpg
-  // In code below we will use `/projects/${project.id || index + 1}.jpg` if project.image is not provided.
+  // Project cards fallback to known existing files in public/background/bg1..3.webp.
 
   if (loading) {
     return (
@@ -109,16 +130,18 @@ const Projects: React.FC = () => {
                   {/* If a project image exists, render it; otherwise use a background image from public/projects/ */}
                   {project.image ? (
                     <img
-                      src={resolveImageSrc(project.image)}
+                      src={resolveImageSrc(project.image, idx)}
                       alt={project.title}
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out will-change-transform"
-                      onError={handleImageError}
+                      onError={(e) => handleImageError(e, idx)}
                     />
                   ) : (
                     <div
                       aria-hidden
-                      style={{ backgroundImage: `url(/projects/${project.id || idx + 1}.webp)` }}
+                      // If there is no project image, use one of the existing public/background/bg*.webp
+                      // files (bg1/bg2/bg3). This avoids referencing a non-existent /projects/ folder.
+                      style={{ backgroundImage: `url(/background/bg${(idx % 3) + 1}.webp)` }}
                       className="w-full h-48 bg-cover bg-center group-hover:scale-110 transition-transform duration-700 ease-out"
                     />
                   )}
