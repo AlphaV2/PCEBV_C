@@ -12,7 +12,7 @@ export const HOMEPAGE_CONFIG = {
     background_lighter: '#F1F5F9',
     primary_blue: '#0071e3',
     primary_blue_dark: '#0056A3',
-    accent_orange: '#FF6A2A',
+    accent_orange: '#C65300',
     text_dark: '#1F2937',
     text_gray: '#6B7280',
     text_light: '#9CA3AF',
@@ -69,23 +69,26 @@ export const HOMEPAGE_CONFIG = {
 
   // ==================== 1. HERO SECTION ====================
   hero: {
-    label: 'Engineering & Project Execution',
-    h1: 'Engineering & Project Execution for Complex EPC Projects',
-    h2: 'Netherlands-led precision. India-based execution. Delivering quality and reliability at scale.',
+    label: 'Corporate EPC Delivery',
+    h1: 'Precision delivery\nfor complex industrial projects',
+    h2: 'Netherlands-led governance. India-based engineering. Built for clarity, speed, and reliability.',
     cta_primary: 'Consult Us',
     cta_secondary: 'Explore Services',
     background_images: [
       {
         src: '/background/bg3.webp',
         alt: 'Industrial refinery plant EPC project',
+        focalPoint: 'center 40%'
       },
       {
         src: '/background/bg2.webp',
         alt: 'Engineering team collaboration at worksite',
+        focalPoint: 'center 50%'
       },
       {
         src: '/background/bg1.webp',
         alt: 'Industrial plant detail and process equipment',
+        focalPoint: 'center 30%'
       },
     ],
     min_height_mobile: '85dvh',
@@ -94,7 +97,7 @@ export const HOMEPAGE_CONFIG = {
 
   // ==================== 2. TICKER STRIP ====================
   ticker: {
-    background_color: '#FF6A2A',
+    background_color: '#C65300',
     text_color: '#1F2937',
     items: [
       'Project Controls',
@@ -133,7 +136,7 @@ export const HOMEPAGE_CONFIG = {
           'Progress tracking and reporting',
           'Change management and controls',
         ],
-        link: '/services#pollination-drones',
+        link: '/services#project-controls',
       },
       {
         title: 'Engineering Deliverables',
@@ -143,7 +146,7 @@ export const HOMEPAGE_CONFIG = {
           '3D plant modeling and visualization',
           'Construction documentation packages',
         ],
-        link: '/services#iot-security',
+        link: '/services#detail-engineering',
       },
       {
         title: 'DAI & Execution Support',
@@ -153,7 +156,7 @@ export const HOMEPAGE_CONFIG = {
           'Construction support and commissioning',
           'Field-linked execution assistance',
         ],
-        link: '/services#iso-27001',
+        link: '/services#procurement-construction',
       },
     ],
   },

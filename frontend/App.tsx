@@ -52,6 +52,12 @@ const App: React.FC = () => {
   const handleChangeLanguage = (language: 'en' | 'nl') => {
     i18n.changeLanguage(language);
   };
+
+  useEffect(() => {
+    const language = i18n.resolvedLanguage || i18n.language || 'en';
+    document.documentElement.lang = language;
+    document.title = t('app.title', 'PCE BV | Engineering and Project Controls');
+  }, [i18n.language, i18n.resolvedLanguage, t]);
   
   const handleCloseAll = () => {
     setSelectedService(null);

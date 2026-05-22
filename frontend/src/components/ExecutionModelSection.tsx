@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArrowRight, Globe, Building2, Zap } from 'lucide-react';
 import HOMEPAGE_CONFIG from '../config/homepage.config';
 
@@ -41,6 +42,7 @@ const stages: Stage[] = [
 ];
 
 const ExecutionModelSection: React.FC = () => {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [inView, setInView] = useState(false);
 
@@ -72,13 +74,13 @@ const ExecutionModelSection: React.FC = () => {
             className="inline-block px-3 py-1.5 mb-3 text-[10px] md:text-xs font-bold tracking-widest text-white uppercase rounded-full"
             style={{ backgroundColor: BRAND_BLUE }}
           >
-            How We Deliver
+            {t('executionModel.badge', 'How We Deliver')}
           </div>
           <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">
-            Execution Model
+            {t('executionModel.heading', 'Execution Model')}
           </h2>
           <p className="text-sm md:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
-            Clear organizational separation ensures responsive governance and scalable execution excellence.
+            {t('executionModel.description', 'Clear organizational separation ensures responsive governance and scalable execution excellence.')}
           </p>
         </div>
 
@@ -142,11 +144,11 @@ const ExecutionModelSection: React.FC = () => {
 
                     {isHighlight && (
                       <div className="mt-3 pt-3 border-t border-white/20">
-                        <p className="text-[10px] font-semibold text-blue-100 mb-2">Key Functions:</p>
+                        <p className="text-[10px] font-semibold text-blue-100 mb-2">{t('executionModel.keyFunctions', 'Key Functions:')}</p>
                         <ul className="space-y-1 text-[11px] text-blue-50">
-                          <li>✓ Single Point of Contact</li>
-                          <li>✓ Governance & Compliance</li>
-                          <li>✓ Stakeholder Reporting</li>
+                          <li>{t('executionModel.keyFunction1', '✓ Single Point of Contact')}</li>
+                          <li>{t('executionModel.keyFunction2', '✓ Governance & Compliance')}</li>
+                          <li>{t('executionModel.keyFunction3', '✓ Stakeholder Reporting')}</li>
                         </ul>
                       </div>
                     )}
@@ -221,11 +223,11 @@ const ExecutionModelSection: React.FC = () => {
 
                       {isHighlight && (
                         <div className="mt-3 pt-3 border-t border-white/20">
-                          <p className="text-[10px] font-semibold text-blue-100 mb-1.5">Key Functions:</p>
+                          <p className="text-[10px] font-semibold text-blue-100 mb-1.5">{t('executionModel.keyFunctions', 'Key Functions:')}</p>
                           <ul className="space-y-1 text-[11px] text-blue-50">
-                            <li>✓ Single Point of Contact</li>
-                            <li>✓ Governance & Compliance</li>
-                            <li>✓ Stakeholder Reporting</li>
+                            <li>{t('executionModel.keyFunction1', '✓ Single Point of Contact')}</li>
+                            <li>{t('executionModel.keyFunction2', '✓ Governance & Compliance')}</li>
+                            <li>{t('executionModel.keyFunction3', '✓ Stakeholder Reporting')}</li>
                           </ul>
                         </div>
                       )}
@@ -256,18 +258,18 @@ const ExecutionModelSection: React.FC = () => {
         {/* Bottom info cards */}
         <div className="mt-5 md:mt-6 max-w-6xl mx-auto grid gap-3 grid-cols-1 md:grid-cols-3">
           <div className="p-3 rounded-lg bg-white border border-slate-200 hover:border-blue-300 transition-colors text-xs">
-            <h4 className="font-semibold text-slate-900 mb-1">EU Governance</h4>
-            <p className="text-slate-600">Client interface and compliance.</p>
+            <h4 className="font-semibold text-slate-900 mb-1">{t('executionModel.card1Title', 'EU Governance')}</h4>
+            <p className="text-slate-600">{t('executionModel.card1Body', 'Client interface and compliance.')}</p>
           </div>
 
           <div className="p-3 rounded-lg bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 hover:border-blue-400 transition-colors text-xs">
-            <h4 className="font-semibold text-slate-900 mb-1">Integrated Delivery</h4>
-            <p className="text-slate-700">Seamless coordination.</p>
+            <h4 className="font-semibold text-slate-900 mb-1">{t('executionModel.card2Title', 'Integrated Delivery')}</h4>
+            <p className="text-slate-700">{t('executionModel.card2Body', 'Seamless coordination.')}</p>
           </div>
 
           <div className="p-3 rounded-lg bg-white border border-slate-200 hover:border-blue-300 transition-colors text-xs">
-            <h4 className="font-semibold text-slate-900 mb-1">India Execution</h4>
-            <p className="text-slate-600">Engineering & site support.</p>
+            <h4 className="font-semibold text-slate-900 mb-1">{t('executionModel.card3Title', 'India Execution')}</h4>
+            <p className="text-slate-600">{t('executionModel.card3Body', 'Engineering & site support.')}</p>
           </div>
         </div>
       </div>

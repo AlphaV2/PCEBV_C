@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Linkedin, Twitter, Instagram, Activity, Facebook, Mail, PhoneCall, MapPin } from 'lucide-react';
+import { Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { SOCIAL_LINKS } from '../../constants';
 import HOMEPAGE_CONFIG from '../config/homepage.config';
 import { useTranslatedNavLinks, useTranslatedServices } from '../hooks/useTranslatedData';
@@ -12,67 +12,67 @@ const Footer: React.FC = () => {
   const { footer } = HOMEPAGE_CONFIG;
 
   return (
-    <footer className="relative overflow-hidden bg-slate-950 text-slate-300">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#0071E3] to-transparent" />
-      <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-[#0071E3]/10 blur-3xl pointer-events-none" />
-      <div className="absolute right-0 bottom-0 h-64 w-64 rounded-full bg-[#FF6A2A]/10 blur-3xl pointer-events-none" />
-
-      <div className="container mx-auto px-4 md:px-8 py-12 sm:py-14 relative z-10">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4 text-center md:text-left">
-          <div className="md:col-span-2">
-            <div
-              className="mb-4 flex cursor-pointer items-center justify-center gap-3 group md:justify-start"
+    <footer className="bg-[#181A1F] text-zinc-300 border-t-[4px] border-[var(--accent,#F25C19)] font-sans">
+      <div className="container mx-auto px-6 lg:px-12 pt-16 pb-8">
+        
+        {/* COMPACT TOP GRID: 4 Columns on Desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-16">
+          
+          {/* COLUMN 1: Brand & Description */}
+          <div className="flex flex-col">
+            <div 
+              className="flex items-center gap-3 cursor-pointer group mb-6 w-max"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               <img
                 src="/logo/company_logo.png"
                 alt="PCE BV"
-                className="h-8 w-auto rounded bg-white object-contain"
+                className="h-9 w-auto rounded bg-white/10 p-1 object-contain transition-transform group-hover:scale-105"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
-                  e.currentTarget.parentElement?.querySelector('.fallback-icon')?.classList.remove('hidden');
                 }}
               />
-              <div className="fallback-icon hidden flex h-8 w-8 items-center justify-center rounded-lg bg-[#0071E3] text-white shadow-lg">
-                <Activity size={18} />
+              <div className="flex flex-col">
+                <span className="text-[8px] font-black uppercase tracking-[0.25em] text-zinc-500 leading-none mb-1">
+                  Engineering & Project Execution
+                </span>
+                <span className="text-xl font-extrabold text-white leading-none tracking-tight">
+                  PCE BV.
+                </span>
               </div>
-              <span className="text-base font-bold tracking-tight text-white transition-colors group-hover:text-[#5EA8FF]">PCE BV</span>
             </div>
 
-            <p className="mx-auto mb-6 max-w-md leading-relaxed text-slate-400 md:mx-0">
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6 max-w-xs">
               {t('footer.description', footer.company_line)}
             </p>
 
-            <div className="flex justify-center gap-4 md:justify-start">
-              {SOCIAL_LINKS.linkedin && (
-                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0077b5] hover:text-white">
-                  <Linkedin size={15} />
-                </a>
-              )}
-              {SOCIAL_LINKS.twitter && (
-                <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1DA1F2] hover:text-white">
-                  <Twitter size={15} />
-                </a>
-              )}
-              {SOCIAL_LINKS.instagram && (
-                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E1306C] hover:text-white">
-                  <Instagram size={15} />
-                </a>
-              )}
-              {SOCIAL_LINKS.facebook && (
-                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1877F2] hover:text-white">
-                  <Facebook size={15} />
-                </a>
-              )}
-            </div>
+            {/* LinkedIn Icon */}
+            {SOCIAL_LINKS.linkedin && (
+              <a 
+                href={SOCIAL_LINKS.linkedin} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 flex items-center justify-center rounded-lg bg-zinc-800/50 border border-zinc-700/50 text-zinc-400 hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white transition-all duration-300"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
+            )}
           </div>
 
+          {/* COLUMN 2: Solutions */}
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#5EA8FF]">{t('footer.solutions', 'Solutions')}</h4>
-            <ul className="space-y-3 text-sm">
+            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white mb-6">
+              {t('footer.solutions', 'Solutions')}
+            </h4>
+            <ul className="space-y-3">
               {services.slice(0, 5).map((service) => (
                 <li key={service.id}>
-                  <a href={`/services#${service.id}`} className="block py-1 transition-colors duration-200 hover:text-white">
+                  <a 
+                    href={`/services#${service.id}`} 
+                    className="group flex items-center text-sm font-medium text-zinc-400 hover:text-white transition-colors w-max"
+                  >
+                    <ArrowRight size={14} className="mr-2 opacity-0 -ml-4 transition-all duration-300 group-hover:opacity-100 group-hover:ml-0 group-hover:text-[var(--accent,#F25C19)]" />
                     {service.shortTitle || service.title}
                   </a>
                 </li>
@@ -80,47 +80,100 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
+          {/* COLUMN 3: Company */}
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#5EA8FF]">{t('footer.company', 'Company')}</h4>
-            <ul className="space-y-3 text-sm">
+            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white mb-6">
+              {t('footer.company', 'Company')}
+            </h4>
+            <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="block py-1 transition-colors duration-200 hover:text-white">
+                  <a 
+                    href={link.href} 
+                    className="group flex items-center text-sm font-medium text-zinc-400 hover:text-white transition-colors w-max"
+                  >
+                    <ArrowRight size={14} className="mr-2 opacity-0 -ml-4 transition-all duration-300 group-hover:opacity-100 group-hover:ml-0 group-hover:text-[var(--accent,#F25C19)]" />
                     {link.name}
                   </a>
                 </li>
               ))}
               <li>
-                <a href="#contact" className="block py-1 transition-colors duration-200 hover:text-white">
+                <a 
+                  href="#contact" 
+                  className="group flex items-center text-sm font-medium text-zinc-400 hover:text-white transition-colors w-max"
+                >
+                  <ArrowRight size={14} className="mr-2 opacity-0 -ml-4 transition-all duration-300 group-hover:opacity-100 group-hover:ml-0 group-hover:text-[var(--accent,#F25C19)]" />
                   {t('footer.support', 'Support')}
                 </a>
               </li>
             </ul>
           </div>
+
+          {/* COLUMN 4: Contact Information (Compressed from cards to inline list) */}
+          <div>
+            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white mb-6">
+              {t('footer.contact', 'Contact')}
+            </h4>
+            <ul className="space-y-4">
+              <li>
+                <a href={`mailto:${footer.contact_info.email}`} className="flex items-start gap-3 group">
+                  <div className="mt-0.5 p-1.5 rounded bg-zinc-800/50 border border-zinc-700/50 text-zinc-400 group-hover:text-[var(--accent,#F25C19)] group-hover:border-[var(--accent,#F25C19)] transition-colors">
+                    <Mail size={14} />
+                  </div>
+                  <span className="text-sm font-medium text-zinc-400 group-hover:text-white transition-colors">
+                    {footer.contact_info.email}
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href={`tel:${footer.contact_info.phone}`} className="flex items-start gap-3 group">
+                  <div className="mt-0.5 p-1.5 rounded bg-zinc-800/50 border border-zinc-700/50 text-zinc-400 group-hover:text-[var(--accent,#F25C19)] group-hover:border-[var(--accent,#F25C19)] transition-colors">
+                    <Phone size={14} />
+                  </div>
+                  <span className="text-sm font-medium text-zinc-400 group-hover:text-white transition-colors">
+                    {footer.contact_info.phone}
+                  </span>
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="mt-0.5 p-1.5 rounded bg-zinc-800/50 border border-zinc-700/50 text-zinc-400">
+                  <MapPin size={14} />
+                </div>
+                <span className="text-sm font-medium text-zinc-400">
+                  {footer.contact_info.address}
+                </span>
+              </li>
+            </ul>
+          </div>
+
         </div>
 
-        <div className="mt-10 grid gap-4 rounded-[1.75rem] border border-white/10 bg-white/5 p-5 backdrop-blur sm:grid-cols-3">
-          <div className="flex items-center justify-center gap-3 md:justify-start">
-            <Mail className="h-4 w-4 text-[#5EA8FF]" />
-            <span className="text-sm">{footer.contact_info.email}</span>
+        {/* BOTTOM BAR: Legal & Credits */}
+        <div className="pt-8 border-t border-zinc-800 flex flex-col lg:flex-row justify-between items-center gap-4 text-xs font-medium text-zinc-500">
+          
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
+            <span>&copy; {new Date().getFullYear()} Petroleum Consulting Engineers BV.</span>
+            <div className="hidden sm:block w-1 h-1 rounded-full bg-zinc-700"></div>
+            <span>{t('footer.rights', 'All rights reserved.')}</span>
           </div>
-          <div className="flex items-center justify-center gap-3">
-            <PhoneCall className="h-4 w-4 text-[#5EA8FF]" />
-            <span className="text-sm">{footer.contact_info.phone}</span>
+          
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-center">
+            <a href="#" className="hover:text-white transition-colors">{t('footer.privacy', 'Privacy Policy')}</a>
+            <a href="#" className="hover:text-white transition-colors">{t('footer.terms', 'Terms of Service')}</a>
           </div>
-          <div className="flex items-center justify-center gap-3 md:justify-end">
-            <MapPin className="h-4 w-4 text-[#5EA8FF]" />
-            <span className="text-sm">{footer.contact_info.address}</span>
-          </div>
-        </div>
 
-        <div className="mt-8 border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-medium text-slate-500">
-          <p className="text-center md:text-left">&copy; {new Date().getFullYear()} Petroleum Consulting Engineers BV. {t('footer.rights', 'All rights reserved.')}</p>
-          <div className="flex flex-wrap justify-center gap-6">
-            <a href="#" className="transition-colors hover:text-white">{t('footer.privacy', 'Privacy Policy')}</a>
-            <a href="#" className="transition-colors hover:text-white">{t('footer.terms', 'Terms of Service')}</a>
-            <a href="#" className="transition-colors hover:text-white">{t('footer.cookies', 'Cookie Settings')}</a>
+          <div className="flex items-center gap-1.5 mt-2 lg:mt-0">
+            <span>{t('footer.developedBy', 'Developed & Maintained by')}</span>
+            <a 
+              href="https://interxect.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white font-bold hover:text-[var(--accent,#F25C19)] transition-colors"
+            >
+              InterXect Labs
+            </a>
           </div>
+
         </div>
       </div>
     </footer>

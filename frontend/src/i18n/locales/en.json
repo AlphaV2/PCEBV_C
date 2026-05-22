@@ -7,6 +7,7 @@
     "services": "Services",
     "products": "Solutions",
     "gallery": "Gallery",
+    "projects": "Projects",
     "about": "About",
     "contact": "Contact",
     "departments": "Departments",
@@ -14,14 +15,36 @@
   },
   "about": {
     "badge": "Who We Are",
+    "heroHeading": "Engineering precision for industrial execution.",
+    "heroDescription": "Netherlands-led governance with India-based engineering execution support for industrial EPC projects.",
+    "heroCtaPrimary": "Meet Leadership",
+    "heroCtaSecondary": "Explore Company",
     "headingLine1": "Engineering",
     "headingLine2": "Excellence",
     "headingLine3": "With Simplicity.",
+    "overviewBadge": "Company Overview",
+    "overviewHeading": "Structured around execution and accountability.",
     "values": {
       "precision": "Precision",
       "compliance": "Compliance",
-      "globalScale": "Global Scale"
+      "globalScale": "Global Scale",
+      "simpleSolutions": "Simple Solutions",
+      "internationalStandards": "International Standards"
     },
+    "interfaceStatement": "An interface between governance, coordination, and execution.",
+    "timelineBadge": "Timeline",
+    "timelineHeading": "Built through experience.",
+    "timelineDescription": "From engineering legacy to structured global EPC delivery.",
+    "timeline": {
+      "foundation": "Industry Foundation",
+      "established": "PCE BV Established",
+      "global": "Global EPC Delivery"
+    },
+    "clientExposure": "Project Exposure",
+    "finalCtaBadge": "Let’s Build Together",
+    "finalCtaHeading": "Structured engineering execution.",
+    "finalCtaPrimary": "Contact Us",
+    "finalCtaSecondary": "View Services",
     "leadershipVision": "Leadership Profile",
     "visionLabel": "Vision",
     "expertiseLabel": "Expertise Highlights",
@@ -168,8 +191,6 @@
     "badge": "Service Packages",
     "heading": "Engineering and Controls Solutions",
     "subheading": "Integrated offerings for detail engineering, project controls, and EPC support.",
-    "typeUAV": "SOL",
-    "typeHDW": "SOL",
     "viewFullSpecs": "View Full Specs"
   },
   "gallery": {
@@ -192,6 +213,12 @@
     "titleHighlight": "With Precision and Confidence.",
     "subtitle": "Petroleum Consulting Engineers BV supports EPC teams with detail engineering, controls, and documentation excellence.",
     "subtitleStrong": "Simple. Effective. Standards-Compliant.",
+    "feature1": "Engineering",
+    "feature1Line2": "Excellence",
+    "feature2": "Disciplined",
+    "feature2Line2": "Execution",
+    "feature3": "Global",
+    "feature3Line2": "Perspective",
     "ctaProducts": "Explore Solutions",
     "ctaWhatsapp": "WhatsApp Chat",
     "recognizedBy": "Registered and Operated In",
@@ -206,7 +233,71 @@
     "badge": "Core Expertise",
     "heading": "Solutions Designed for Project Delivery",
     "subheading": "Integrated engineering, controls, and documentation services for process industries.",
-    "details": "Details"
+    "details": "Details",
+    "pillarsHeadingPrefix": "Pillars of",
+    "pillarsHeadingSuffix": "PCE BV",
+    "pillarsDescription": "Integrated capabilities and disciplined execution delivering control, clarity, and results across every phase.",
+    "explore": "Explore",
+    "projectManagementCta": "Project Management",
+    "engineeringDesignCta": "Engineering Design",
+    "heroPrefix": "Complete Engineering",
+    "searchPlaceholder": "Find a service...",
+    "projectManagement": "Project Management",
+    "engineeringDesign": "Engineering Design",
+    "modules": "Modules",
+    "noServicesFound": "No services found",
+    "noServicesMessage": "We could not find anything matching \"{{query}}\". Try adjusting your search criteria.",
+    "clearSearch": "Clear Search",
+    "categoryAll": "All",
+    "technicalSpecifications": "Technical Specifications",
+    "closeOverview": "Close Overview",
+    "contactViaWhatsApp": "Contact via WhatsApp",
+    "whatsappInterest": "Hi, I'm interested in the {{service}} services."
+  },
+  "founders": {
+    "badge": "Our Founders",
+    "heading": "Strategic leadership across EU and India operations",
+    "executionModel": "Execution Model",
+    "netherlands": "Netherlands",
+    "netherlandsBody": "Governance & Project Oversight",
+    "mumbai": "Mumbai",
+    "mumbaiBody": "Engineering Execution Support",
+    "delivery": "Delivery",
+    "deliveryBody": "Industrial EPC Project Coordination",
+    "footer": "Built for clarity, execution control, and accountable industrial delivery.",
+    "connect": "Connect",
+    "connectAria": "Connect with {{name}} on LinkedIn",
+    "mobile": {
+      "founded": "Founded",
+      "foundedValue": "30 Apr 2025",
+      "partner": "Partner",
+      "partnerValue": "PCE PL, Mumbai",
+      "lineage": "Lineage",
+      "lineageValue": "Since 1991"
+    }
+  },
+  "errorBoundary": {
+    "title": "System Malfunction",
+    "message": "Our sensors detected an unexpected error in the interface. The application has been paused to protect data integrity.",
+    "cta": "Reboot System"
+  },
+  "app": {
+    "title": "PCE BV | Engineering and Project Controls"
+  },
+  "executionModel": {
+    "badge": "How We Deliver",
+    "heading": "Execution Model",
+    "description": "Clear organizational separation ensures responsive governance and scalable execution excellence.",
+    "keyFunctions": "Key Functions:",
+    "keyFunction1": "Single Point of Contact",
+    "keyFunction2": "Governance & Compliance",
+    "keyFunction3": "Stakeholder Reporting",
+    "card1Title": "EU Governance",
+    "card1Body": "Client interface and compliance.",
+    "card2Title": "Integrated Delivery",
+    "card2Body": "Seamless coordination.",
+    "card3Title": "India Execution",
+    "card3Body": "Engineering & site support."
   },
   "navbar": {
     "exploreSolutions": "Explore Solutions",
@@ -239,7 +330,18 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "cookies": "Cookie Settings"
+    "cookies": "Cookie Settings",
+    "developedBy": "Developed & Maintained by"
+  },
+  "contactSection": {
+    "badge": "Get Started",
+    "heading": "Projects begin with clarity.",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "requestSent": "Request Sent",
+    "openingWhatsApp": "Opening WhatsApp Secure Line...",
+    "quickEnquiry": "Quick Enquiry",
+    "sendMessage": "Send a message."
   },
   "serviceModal": {
     "whatsappInterest": "Hi, I'm interested in learning more about {{service}}",
@@ -252,8 +354,7 @@
   },
   "productModal": {
     "whatsappInterest": "Hi, I'm interested in {{product}}",
-    "aerialSystem": "Solution",
-    "hardware": "Solution",
+    "solutionPackage": "Solution Package",
     "overview": "Overview",
     "technicalSpecifications": "Technical Specifications",
     "requestPricingDemo": "Request Pricing and Discussion"
@@ -273,6 +374,14 @@
     "founder": {
       "role": "Managing Director - EU Operations",
       "bio": "Accomplished project controls and program management leader with 32+ years of expertise in planning, risk, cost, and change management across major industrial projects."
+    },
+    "founder-nishikant": {
+      "role": "Managing Director - EU Operations",
+      "bio": "Experienced leader in project controls and program management with 32+ years of expertise in planning, risk, cost, and change management for major energy, chemicals, and infrastructure projects across Europe, the Middle East, and Asia."
+    },
+    "founder-kiran": {
+      "role": "Technical Director - Engineering Execution",
+      "bio": "Strategic engineering leader with deep expertise in multi-discipline execution, process engineering, and project delivery. Leads PCE PL Mumbai operations and coordinates execution excellence across EPC programs."
     }
   }
 }

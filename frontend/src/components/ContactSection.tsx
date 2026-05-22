@@ -49,9 +49,9 @@ const ContactSection: React.FC = () => {
             <div className="flex flex-col justify-between rounded-[2rem] bg-slate-950 p-6 lg:p-8 text-white shadow-2xl relative overflow-hidden border border-white/5">
               <div className="relative z-10">
                 <header className="mb-6">
-                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 mb-2">Get Started</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 mb-2">{t('contactSection.badge', 'Get Started')}</p>
                   <h2 className="text-2xl lg:text-3xl font-black leading-tight tracking-tighter">
-                    Projects begin <br /> with clarity.
+                    {t('contactSection.heading', 'Projects begin with clarity.')}
                   </h2>
                 </header>
 
@@ -74,7 +74,7 @@ const ContactSection: React.FC = () => {
                       <Mail size={14} className="text-blue-400" />
                     </div>
                     <div>
-                      <p className="text-[9px] font-bold uppercase tracking-widest text-white/30">Email</p>
+                      <p className="text-[9px] font-bold uppercase tracking-widest text-white/30">{t('contactSection.emailLabel', 'Email')}</p>
                       <p className="text-xs font-bold text-white/90">{footer.contact_info.email}</p>
                     </div>
                   </div>
@@ -83,7 +83,7 @@ const ContactSection: React.FC = () => {
                       <PhoneCall size={14} className="text-blue-400" />
                     </div>
                     <div>
-                      <p className="text-[9px] font-bold uppercase tracking-widest text-white/30">Phone</p>
+                      <p className="text-[9px] font-bold uppercase tracking-widest text-white/30">{t('contactSection.phoneLabel', 'Phone')}</p>
                       <p className="text-xs font-bold text-white/90">{footer.contact_info.phone}</p>
                     </div>
                   </div>
@@ -98,14 +98,14 @@ const ContactSection: React.FC = () => {
                   <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-50 text-green-600 mx-auto">
                     <CheckCircle size={32} />
                   </div>
-                  <h3 className="text-xl font-black text-slate-900">Request Sent</h3>
-                  <p className="mt-2 text-sm text-slate-500 font-medium italic">Opening WhatsApp Secure Line...</p>
+                  <h3 className="text-xl font-black text-slate-900">{t('contactSection.requestSent', 'Request Sent')}</h3>
+                  <p className="mt-2 text-sm text-slate-500 font-medium italic">{t('contactSection.openingWhatsApp', 'Opening WhatsApp Secure Line...')}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col h-full">
                   <div className="mb-6">
-                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-600 mb-1">Quick Enquiry</p>
-                    <h3 className="text-2xl font-black text-slate-900 tracking-tight">Send a message.</h3>
+                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-600 mb-1">{t('contactSection.quickEnquiry', 'Quick Enquiry')}</p>
+                    <h3 className="text-2xl font-black text-slate-900 tracking-tight">{t('contactSection.sendMessage', 'Send a message.')}</h3>
                   </div>
 
                   <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -150,10 +150,10 @@ const ContactSection: React.FC = () => {
 
                   <button
                     type="submit"
-                    className="group mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#FF6A2A] px-6 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-orange-200 transition-all hover:bg-[#e95f20] hover:shadow-xl active:scale-[0.98] will-change-transform"
+                    className="group mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-6 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-orange-200 transition-all hover:bg-[#e95f20] hover:shadow-xl active:scale-[0.98] will-change-transform"
                   >
                     <MessageCircle size={18} className="transition-transform group-hover:scale-110" />
-                    {contact.submit_button}
+                    {t('contactSection.submit', contact.submit_button)}
                   </button>
 
                   <div className="mt-4 text-center">
