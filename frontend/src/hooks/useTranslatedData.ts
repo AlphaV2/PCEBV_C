@@ -100,11 +100,11 @@ export const useTranslatedGallery = () => {
         ? t(`gallery.verticalBanners.${item.id}.description`, { defaultValue: item.description })
         : undefined,
     })),
-    droneFleet: GALLERY_CONTENT.droneFleet.map((item) => ({
+    engineeringFleet: GALLERY_CONTENT.engineeringFleet.map((item) => ({
       ...item,
-      title: t(`gallery.droneFleet.${item.id}.title`, { defaultValue: item.title }),
-      tagline: t(`gallery.droneFleet.${item.id}.tagline`, { defaultValue: item.tagline }),
-      description: t(`gallery.droneFleet.${item.id}.description`, { defaultValue: item.description ?? '' }),
+      title: t(`gallery.engineeringFleet.${item.id}.title`, { defaultValue: item.title }),
+      tagline: t(`gallery.engineeringFleet.${item.id}.tagline`, { defaultValue: item.tagline }),
+      description: t(`gallery.engineeringFleet.${item.id}.description`, { defaultValue: item.description ?? '' }),
     })),
     specialOffers: GALLERY_CONTENT.specialOffers.map((item) => ({
       ...item,
@@ -158,6 +158,6 @@ export const useTranslatedNavLinks = () => {
   const { t, i18n } = useTranslation();
   return useMemo(() => NAV_LINKS.map((link) => ({
     ...link,
-    name: t(`nav.${link.name.toLowerCase()}`, { defaultValue: link.name }),
+    name: t(`nav.${link.navKey ?? link.name.toLowerCase()}`, { defaultValue: link.name }),
   })), [t, i18n.resolvedLanguage]);
 };

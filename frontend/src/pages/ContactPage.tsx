@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { CheckCircle, Mail, PhoneCall, MapPin, MessageCircle } from 'lucide-react';
 import HOMEPAGE_CONFIG from '../config/homepage.config';
 import { useTranslatedContactEmails, useTranslatedContactOffices } from '../hooks/useTranslatedData';
 
 const ContactPage: React.FC = () => {
+  const { t } = useTranslation();
   const { contact, footer } = HOMEPAGE_CONFIG;
   const contactEmails = useTranslatedContactEmails();
   const contactOffices = useTranslatedContactOffices();
@@ -21,12 +23,12 @@ const ContactPage: React.FC = () => {
 
         {/* HEADER */}
         <div className="max-w-2xl mb-10">
-          <p className="text-xs uppercase tracking-[0.3em] text-[#0071E3]">Contact</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-[#0071E3]">{t('nav.contact', 'Contact')}</p>
           <h1 className="text-3xl font-bold mt-3 text-slate-900">
-            Get in touch
+            {t('contact.heading', 'Get in touch')}
           </h1>
           <p className="mt-3 text-sm text-slate-600">
-            Share your requirement. We’ll respond with the right team.
+            {t('contact.subheading', 'Share your requirement. We’ll respond with the right team.')}
           </p>
         </div>
 
@@ -37,7 +39,7 @@ const ContactPage: React.FC = () => {
           <div className="bg-gradient-to-br from-slate-100 to-slate-200 p-6 rounded-2xl border border-slate-200">
 
             <h3 className="text-lg font-semibold text-slate-900">
-              Direct Contact
+              {t('contact.directContact', 'Direct Contact')}
             </h3>
 
             <div className="mt-6 space-y-4">
@@ -46,7 +48,7 @@ const ContactPage: React.FC = () => {
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="p-4 bg-white/70 backdrop-blur-sm rounded-xl border border-slate-200">
                   <div className="flex items-center gap-2 text-xs uppercase text-slate-500">
-                    <Mail size={14} /> Email
+                    <Mail size={14} /> {t('contact.emailLabel', 'Email')}
                   </div>
                   <p className="mt-2 text-sm font-medium break-words">
                     {footer.contact_info.email}
@@ -55,7 +57,7 @@ const ContactPage: React.FC = () => {
 
                 <div className="p-4 bg-white/70 backdrop-blur-sm rounded-xl border border-slate-200">
                   <div className="flex items-center gap-2 text-xs uppercase text-slate-500">
-                    <PhoneCall size={14} /> Phone
+                    <PhoneCall size={14} /> {t('contact.phoneLabel', 'Phone')}
                   </div>
                   <p className="mt-2 text-sm font-medium break-words">
                     {footer.contact_info.phone}
@@ -86,24 +88,24 @@ const ContactPage: React.FC = () => {
           {/* RIGHT — FORM (PRIMARY) */}
           <div className="bg-[#0F2A44] text-white p-6 rounded-2xl shadow-[0_25px_80px_rgba(0,0,0,0.4)]">
 
-            <div className="mb-4 inline-block rounded-full bg-[#FF6A2A]/20 px-3 py-1 text-xs font-semibold text-[#FF6A2A]">
-              Fast Response • Structured Routing
+            <div className="mb-4 inline-block rounded-full bg-[#C65300]/20 px-3 py-1 text-xs font-semibold text-[#C65300]">
+              {t('contact.routingBadge', 'Fast Response • Structured Routing')}
             </div>
 
             {submitted ? (
               <div className="flex flex-col items-center justify-center text-center h-full min-h-[300px]">
                 <CheckCircle className="text-green-400 mb-3" size={32} />
-                <p className="font-semibold">Message sent successfully</p>
+                <p className="font-semibold">{t('contact.sentSuccessfully', 'Message sent successfully')}</p>
               </div>
             ) : (
               <form className="space-y-4" onSubmit={handleSubmit}>
 
                 <div>
                   <h3 className="text-lg font-semibold">
-                    Send Enquiry
+                    {t('contact.sendEnquiry', 'Send Enquiry')}
                   </h3>
                   <p className="text-sm text-white/70 mt-1">
-                    Tell us what you need.
+                    {t('contact.tellUsNeed', 'Tell us what you need.')}
                   </p>
                 </div>
 
@@ -114,7 +116,7 @@ const ContactPage: React.FC = () => {
                         <textarea
                           key={field.name}
                           placeholder={field.label}
-                          className="sm:col-span-2 w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:border-[#FF6A2A] outline-none"
+                          className="sm:col-span-2 w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:border-[#C65300] outline-none"
                         />
                       );
                     }
@@ -123,7 +125,7 @@ const ContactPage: React.FC = () => {
                       return (
                         <select
                           key={field.name}
-                          className="sm:col-span-2 w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white focus:border-[#FF6A2A]"
+                          className="sm:col-span-2 w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white focus:border-[#C65300]"
                         >
                           <option>{field.label}</option>
                           {field.options?.map((opt) => (
@@ -138,7 +140,7 @@ const ContactPage: React.FC = () => {
                         key={field.name}
                         type={field.type}
                         placeholder={field.label}
-                        className="w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:border-[#FF6A2A]"
+                        className="w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:border-[#C65300]"
                       />
                     );
                   })}
@@ -146,10 +148,10 @@ const ContactPage: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-[#FF6A2A] py-3 rounded-full flex items-center justify-center gap-2 
+                  className="w-full bg-[#C65300] py-3 rounded-full flex items-center justify-center gap-2 
                   shadow-[0_10px_30px_rgba(255,106,42,0.5)] hover:scale-[1.02] hover:bg-[#e65c1f] transition"
                 >
-                  <MessageCircle size={18} /> Submit
+                  <MessageCircle size={18} /> {t('contact.submit', 'Submit')}
                 </button>
 
               </form>

@@ -7,6 +7,7 @@
     "services": "Diensten",
     "products": "Oplossingen",
     "gallery": "Galerij",
+    "projects": "Projecten",
     "about": "Over ons",
     "contact": "Contact",
     "departments": "Afdelingen",
@@ -14,14 +15,36 @@
   },
   "about": {
     "badge": "Wie wij zijn",
+    "heroHeading": "Engineering precisie voor industriële uitvoering.",
+    "heroDescription": "Met Nederlandse governance en Indiaas engineering-uitvoeringssupport voor industriële EPC-projecten.",
+    "heroCtaPrimary": "Leer het leiderschap kennen",
+    "heroCtaSecondary": "Verken het bedrijf",
     "headingLine1": "Engineering",
     "headingLine2": "Excellentie",
     "headingLine3": "Met Eenvoud.",
+    "overviewBadge": "Bedrijfsoverzicht",
+    "overviewHeading": "Gestructureerd rond uitvoering en verantwoordelijkheid.",
     "values": {
       "precision": "Precisie",
       "compliance": "Compliance",
-      "globalScale": "Wereldwijde schaal"
+      "globalScale": "Wereldwijde schaal",
+      "simpleSolutions": "Eenvoudige oplossingen",
+      "internationalStandards": "Internationale standaarden"
     },
+    "interfaceStatement": "Een interface tussen governance, coördinatie en uitvoering.",
+    "timelineBadge": "Tijdlijn",
+    "timelineHeading": "Gebouwd op ervaring.",
+    "timelineDescription": "Van engineering-erfgoed naar gestructureerde wereldwijde EPC-uitvoering.",
+    "timeline": {
+      "foundation": "Industrieel fundament",
+      "established": "PCE BV opgericht",
+      "global": "Wereldwijde EPC-uitvoering"
+    },
+    "clientExposure": "Projectblootstelling",
+    "finalCtaBadge": "Samen bouwen",
+    "finalCtaHeading": "Gestructureerde engineering-uitvoering.",
+    "finalCtaPrimary": "Neem contact op",
+    "finalCtaSecondary": "Bekijk diensten",
     "leadershipVision": "Leiderschapsprofiel",
     "visionLabel": "Visie",
     "expertiseLabel": "Expertise",
@@ -83,22 +106,22 @@
     }
   },
   "services": {
-    "pollination-drones": {
+    "project-controls": {
       "title": "Project Controls Leadership",
       "shortTitle": "Project Controls",
       "desc": "Geintegreerd kosten-, planning-, risico- en changemanagement voor complexe projecten."
     },
-    "iot-security": {
+    "detail-engineering": {
       "title": "Detail Engineering Services",
       "shortTitle": "Detail Engineering",
       "desc": "Multi-disciplinaire engineeringondersteuning van FEED tot IFC-deliverables."
     },
-    "iso-27001": {
+    "procurement-construction": {
       "title": "Procurement and Construction Support",
       "shortTitle": "Procurement and Construction",
       "desc": "Leverancierscoordinatie, veldondersteuning en controls tijdens de bouwfase."
     },
-    "soc": {
+    "documentation-governance": {
       "title": "Project Documentation and Governance",
       "shortTitle": "Documentation",
       "desc": "Documentcontrole, rapportage en governance packs voor leveringszekerheid."
@@ -108,8 +131,6 @@
     "badge": "Servicepakketten",
     "heading": "Engineering en Controls Oplossingen",
     "subheading": "Geintegreerde aanbiedingen voor detail engineering, projectcontrols en EPC-ondersteuning.",
-    "typeUAV": "OPL",
-    "typeHDW": "OPL",
     "viewFullSpecs": "Bekijk volledige specificaties"
   },
   "gallery": {
@@ -132,6 +153,12 @@
     "titleHighlight": "Met precisie en vertrouwen.",
     "subtitle": "Petroleum Consulting Engineers BV ondersteunt EPC-teams met detail engineering, controls en documentatie-excellentie.",
     "subtitleStrong": "Eenvoudig. Effectief. Conform standaarden.",
+    "feature1": "Engineering",
+    "feature1Line2": "Excellentie",
+    "feature2": "Gedisciplineerde",
+    "feature2Line2": "Uitvoering",
+    "feature3": "Wereldwijd",
+    "feature3Line2": "Perspectief",
     "ctaProducts": "Bekijk oplossingen",
     "ctaWhatsapp": "WhatsApp-chat",
     "recognizedBy": "Geregistreerd en actief in",
@@ -146,7 +173,71 @@
     "badge": "Kernexpertise",
     "heading": "Oplossingen voor projectlevering",
     "subheading": "Geintegreerde engineering-, controls- en documentatiediensten voor procesindustrie.",
-    "details": "Details"
+    "details": "Details",
+    "pillarsHeadingPrefix": "Pijlers van",
+    "pillarsHeadingSuffix": "PCE BV",
+    "pillarsDescription": "Geïntegreerde capaciteiten en gedisciplineerde uitvoering die controle, duidelijkheid en resultaten leveren in elke fase.",
+    "explore": "Verkennen",
+    "projectManagementCta": "Projectmanagement",
+    "engineeringDesignCta": "Engineering ontwerp",
+    "heroPrefix": "Complete engineering",
+    "searchPlaceholder": "Zoek een dienst...",
+    "projectManagement": "Projectmanagement",
+    "engineeringDesign": "Engineering ontwerp",
+    "modules": "Modules",
+    "noServicesFound": "Geen diensten gevonden",
+    "noServicesMessage": "We konden niets vinden dat overeenkomt met \"{{query}}\". Pas je zoekcriteria aan.",
+    "clearSearch": "Zoekopdracht wissen",
+    "categoryAll": "Alles",
+    "technicalSpecifications": "Technische specificaties",
+    "closeOverview": "Overzicht sluiten",
+    "contactViaWhatsApp": "Contact via WhatsApp",
+    "whatsappInterest": "Hallo, ik ben geïnteresseerd in de dienst {{service}}."
+  },
+  "founders": {
+    "badge": "Onze oprichters",
+    "heading": "Strategisch leiderschap voor EU- en India-activiteiten",
+    "executionModel": "Uitvoeringsmodel",
+    "netherlands": "Nederland",
+    "netherlandsBody": "Governance & projecttoezicht",
+    "mumbai": "Mumbai",
+    "mumbaiBody": "Ondersteuning bij engineering-uitvoering",
+    "delivery": "Levering",
+    "deliveryBody": "Industriële EPC-projectcoördinatie",
+    "footer": "Gebouwd voor helderheid, uitvoeringscontrole en verantwoordelijke industriële levering.",
+    "connect": "Verbinden",
+    "connectAria": "Verbinden met {{name}} op LinkedIn",
+    "mobile": {
+      "founded": "Opgericht",
+      "foundedValue": "30 apr 2025",
+      "partner": "Partner",
+      "partnerValue": "PCE PL, Mumbai",
+      "lineage": "Herkomst",
+      "lineageValue": "Sinds 1991"
+    }
+  },
+  "errorBoundary": {
+    "title": "Systeemstoring",
+    "message": "Onze sensoren detecteerden een onverwachte fout in de interface. De applicatie is gepauzeerd om de gegevensintegriteit te beschermen.",
+    "cta": "Systeem opnieuw starten"
+  },
+  "app": {
+    "title": "PCE BV | Engineering en projectcontrols"
+  },
+  "executionModel": {
+    "badge": "Hoe wij leveren",
+    "heading": "Uitvoeringsmodel",
+    "description": "Heldere organisatorische scheiding zorgt voor responsieve governance en schaalbare uitvoeringsuitmuntendheid.",
+    "keyFunctions": "Kernfuncties:",
+    "keyFunction1": "Eén contactpunt",
+    "keyFunction2": "Governance & compliance",
+    "keyFunction3": "Stakeholderrapportage",
+    "card1Title": "EU Governance",
+    "card1Body": "Clientinterface en compliance.",
+    "card2Title": "Geïntegreerde levering",
+    "card2Body": "Naadloze coördinatie.",
+    "card3Title": "India-uitvoering",
+    "card3Body": "Engineering en locatie-ondersteuning."
   },
   "navbar": {
     "exploreSolutions": "Bekijk oplossingen",
@@ -179,7 +270,18 @@
     "rights": "Alle rechten voorbehouden.",
     "privacy": "Privacybeleid",
     "terms": "Servicevoorwaarden",
-    "cookies": "Cookie-instellingen"
+    "cookies": "Cookie-instellingen",
+    "developedBy": "Ontwikkeld en onderhouden door"
+  },
+  "contactSection": {
+    "badge": "Aan de slag",
+    "heading": "Projecten beginnen met duidelijkheid.",
+    "emailLabel": "E-mail",
+    "phoneLabel": "Telefoon",
+    "requestSent": "Aanvraag verzonden",
+    "openingWhatsApp": "WhatsApp-beveiligde lijn openen...",
+    "quickEnquiry": "Snelle aanvraag",
+    "sendMessage": "Stuur een bericht."
   },
   "serviceModal": {
     "whatsappInterest": "Hallo, ik wil graag meer weten over {{service}}",
@@ -192,8 +294,7 @@
   },
   "productModal": {
     "whatsappInterest": "Hallo, ik ben geinteresseerd in {{product}}",
-    "aerialSystem": "Oplossing",
-    "hardware": "Oplossing",
+    "solutionPackage": "Oplossingspakket",
     "overview": "Overzicht",
     "technicalSpecifications": "Technische specificaties",
     "requestPricingDemo": "Vraag prijs en overleg aan"
@@ -213,6 +314,14 @@
     "founder": {
       "role": "Managing Director - EU Operations",
       "bio": "Ervaren leider in projectcontrols en programmamanagement met 32+ jaar expertise in planning, risico, kosten en verandering voor grote industriële projecten."
+    },
+    "founder-nishikant": {
+      "role": "Managing Director - EU Operations",
+      "bio": "Ervaren leider in projectcontrols en programmamanagement met 32+ jaar expertise in planning, risico, kosten en wijzigingsbeheer voor grote energie-, chemie- en infrastructuurprojecten in Europa, het Midden-Oosten en Azië."
+    },
+    "founder-kiran": {
+      "role": "Technisch Directeur - Engineering Uitvoering",
+      "bio": "Strategische engineeringleider met diepgaande ervaring in multidisciplinaire uitvoering, procesengineering en projectlevering. Leidt de operatie van PCE PL Mumbai en coördineert uitmuntende EPC-uitvoering."
     }
   }
 }

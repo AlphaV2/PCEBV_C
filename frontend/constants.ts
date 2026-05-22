@@ -25,12 +25,12 @@ export const SOCIAL_LINKS = {
 // ===============================================
 
 export const NAV_LINKS = [
-  { name: 'Home', href: '/', hasDropdown: false },
-  { name: 'Services', href: '/services', hasDropdown: true, dropdownKey: 'services' },
-  { name: 'Products', href: '/services', hasDropdown: true, dropdownKey: 'products' },
-  { name: 'Projects', href: '/projects', hasDropdown: true, dropdownKey: 'projects' },
-  { name: 'About', href: '/about', hasDropdown: true, dropdownKey: 'about' },
-  { name: 'Contact', href: '/contact', hasDropdown: true, dropdownKey: 'contact' },
+  { name: 'Home', href: '/', hasDropdown: false, navKey: 'home' },
+  { name: 'Services', href: '/services', hasDropdown: true, dropdownKey: 'services', navKey: 'services' },
+  { name: 'Products', href: '/services', hasDropdown: true, dropdownKey: 'products', navKey: 'products' },
+  { name: 'Projects', href: '/projects', hasDropdown: true, dropdownKey: 'projects', navKey: 'projects' },
+  { name: 'About', href: '/about', hasDropdown: true, dropdownKey: 'about', navKey: 'about' },
+  { name: 'Contact', href: '/contact', hasDropdown: true, dropdownKey: 'contact', navKey: 'contact' },
 ];
 
 // ===============================================
@@ -69,40 +69,33 @@ export const GALLERY_CONTENT = {
     }
   ],
 
-  // 🟡 COLUMN 2 (TOP): DRONE FLEET (Landscape Images)
+  // 🟡 COLUMN 2 (TOP): COMPANY SOLUTIONS (Landscape Images)
   // Recommended Size: 800w x 600h pixels (Aspect Ratio 4:3)
-  droneFleet: [
+  engineeringFleet: [
     {
       id: 'fleet1',
-      src: '/products/krishi_11l.jpeg',
+      src: '/background/bg1.webp',
       title: 'Project Controls Package',
-      tagline: 'Integrated',
+      tagline: 'Integrated Governance',
       description: 'Cost, schedule, risk, and change controls delivered through one aligned execution framework.'
     },
     {
       id: 'fleet2',
-      src: '/products/survey_drone.jpeg',
+      src: '/background/bg2.webp',
       title: 'Detail Engineering Package',
       tagline: 'Multi-Discipline',
       description: 'Process, piping, mechanical, E&I, and civil/structural engineering support from FEED through IFC.'
     },
-    // {
-    //   id: 'fleet3',
-    //   src: '/products/soil_sensor.jpeg',
-    //   title: 'Krishi Sakha ',
-    //   tagline: 'Heavy Duty',
-    //   description: ' '
-    // },
     {
       id: 'fleet4',
-      src: '/gallery/fleet4.jpeg',
+      src: '/pillar/pillar2.webp',
       title: 'Construction Interface Support',
       tagline: 'Field Linked',
       description: 'Vendor coordination and site-facing engineering support to improve readiness and execution continuity.'
     },
     {
       id: 'fleet5',
-      src: '/gallery/field_demo.jpeg',
+      src: '/pillar/pillar3.webp',
       title: 'Program Delivery in Action',
       tagline: 'Execution',
       description: 'Cross-functional coordination model connecting client, PCE BV, and execution teams for reliable outcomes.'
@@ -114,7 +107,7 @@ export const GALLERY_CONTENT = {
   specialOffers: [
     {
       id: 'offer1',
-      src: '/gallery/offer.webp', // Your main offer
+      src: '/pillar/pillar1.webp',
       title: 'Execution Model Highlight',
       tagline: 'PCE BV + PCE PL',
       description:'European governance paired with Mumbai execution capability for responsive and scalable project delivery.'
@@ -130,21 +123,21 @@ export const GALLERY_CONTENT = {
   innovations: [
     {
       id: 'inno1',
-      src: '/gallery/npk_1.jpeg',
+      src: '/background/bg3.webp',
       title: 'Integrated Baseline Planning',
       tagline: 'Controls Foundation',
       description: 'Robust L3/L4 planning and reporting frameworks aligned with client governance and milestone objectives.'
     },
     {
       id: 'inno2',
-      src: '/products/soil_sensor.jpeg',
+      src: '/pillar/pillar4.webp',
       title: 'Vendor and Interface Management',
       tagline: 'Coordination Discipline',
       description: 'Structured management of technical queries, vendor inputs, and interdisciplinary interfaces.'
     },
     {
       id: 'inno3',
-      src: '/gallery/npk_2.jpeg',
+      src: '/background/bg2.webp',
       title: 'Risk-Informed Decision Support',
       tagline: 'Predictive Insights',
       description: 'Scenario-based risk and cost analysis supporting faster and better project decisions.'
@@ -156,14 +149,14 @@ export const GALLERY_CONTENT = {
   exhibitions: [
    { 
    id: 'ex1', 
-   src: '/gallery/ex1.jpeg', 
+   src: '/background/bg1.webp', 
    title: 'PCE Delivery Engagement',
    description:'Representative project delivery snapshot showing integrated controls and engineering coordination.',
    location: 'International Projects' 
  },
  { 
    id: 'ex2', 
-   src: '/gallery/ex2.jpeg', 
+   src: '/background/bg3.webp', 
    title: 'Engineering Execution Snapshot',
    description:'Illustrative execution scene from multidisciplinary engineering and construction support operations.',
    location: 'Client Sites' 
@@ -181,7 +174,7 @@ export const GALLERY_CONTENT = {
  pamphlet: [
     {
       id: 'pamphlet-full',
-      src: '/gallery/pamphlet.jpeg', // Make sure this single image exists in your folder
+      src: '/pillar/pillar1.webp',
       title: 'Engineering and Project Controls Capability',
       tagline: 'FULL PROFILE',
       description: 'Overview of PCE BV service capabilities, execution model, and delivery strengths.'
@@ -763,11 +756,11 @@ export const SERVICES: Service[] = [
 
 export const PRODUCTS: Product[] = [
   {
-    id: 'krishi-sakha-11l',
+    id: 'project-controls-package',
     name: 'Integrated Project Controls Package',
     tagline: 'Cost, Planning, Risk, and Change Controls',
     type: 'service',
-    image: '/products/krishi_11l.jpeg', 
+    image: '/background/bg1.webp', 
     specs: [
       'Integrated L3/L4 Schedule Setup',
       'EAC and Cash Flow Forecasting',
@@ -778,11 +771,11 @@ export const PRODUCTS: Product[] = [
     description: 'A complete controls framework for industrial projects that integrates planning, cost, risk, and change into one governance-ready delivery model.'
   },
   {
-    id: 'land-mapping-drone',
+    id: 'detail-engineering-package',
     name: 'Detail Engineering Delivery Package',
     tagline: 'Multi-Discipline Engineering Services',
     type: 'service',
-    image: '/products/survey_drone.jpeg', // 📸 Make sure to add this image
+    image: '/background/bg2.webp',
     specs: [
       'Process, Piping, Mechanical, and CSA',
       'Electrical and Instrumentation Design',
@@ -793,11 +786,11 @@ export const PRODUCTS: Product[] = [
     description: 'Discipline engineering support from FEED to IFC with strong interface control and document traceability across client and vendor ecosystems.'
   },
   {
-    id: 'pollination-drone',
+    id: 'construction-support-package',
     name: 'Procurement and Construction Support Package',
     tagline: 'Field-Ready Engineering and Coordination',
     type: 'service',
-    image: '/products/pollination.jpeg', // 📸 Make sure to add this image
+    image: '/pillar/pillar2.webp',
     specs: [
       'VDRL and SDRL Controls',
       'Vendor and Interface Coordination',
@@ -808,11 +801,11 @@ export const PRODUCTS: Product[] = [
     description: 'A coordinated support model for procurement and construction teams, improving site readiness, communication, and execution continuity.'
   },
   {
-  id: 'smart-soil-monitor',
+  id: 'documentation-governance-package',
   name: 'Documentation and Governance Package',
   tagline: 'Controlled Deliverables and Reporting',
   type: 'service', 
-  image: '/products/npk.jpeg', 
+  image: '/pillar/pillar4.webp', 
   specs: [
     'Document Control and Transmittals',
     'Quality Verification Records',
@@ -936,7 +929,7 @@ export const TEAM: TeamMember[] = [
     credentials: 'CCE, MBA, PMP, BE Civil',
     bio: 'Accomplished project controls and program management leader with 32+ years of expertise in planning, risk, cost, and change management for major energy, chemicals, and infrastructure projects across Europe, the Middle East, and Asia.',
     expertise: ['Project Controls Leadership', 'Program Management', 'Risk & Cost Governance', 'Contract Management'],
-    image: '/founderprofile/founder_image.jpeg',
+    image: '/founderprofile/founder_image.webp',
   },
   {
     id: 'founder-kiran',
@@ -947,7 +940,7 @@ export const TEAM: TeamMember[] = [
     credentials: 'BE Mechanical, Technical Expertise',
     bio: 'Strategic engineering leader with deep expertise in multi-discipline execution, process engineering, and project delivery. Leads PCE PL Mumbai operations and coordinates execution excellence across EPC programs.',
     expertise: ['Multi-Discipline Engineering', 'Project Execution', 'Process Design', 'Engineering Coordination'],
-    image: '/founderprofile/founder_image2.jpeg',
+    image: '/founderprofile/founder_image2.webp',
   }
 ];
 

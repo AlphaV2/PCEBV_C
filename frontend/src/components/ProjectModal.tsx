@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTranslatedProducts } from '../hooks/useTranslatedData';
 import { Product } from '../../types';
-import { X, MessageCircle, Zap, Shield, CheckCircle, Cpu, FileText } from 'lucide-react';
+import { X, MessageCircle, CheckCircle, Cpu, FileText, Briefcase } from 'lucide-react';
 import { WHATSAPP_NUMBER } from '../../constants'; 
 
 interface ProductModalProps {
@@ -43,8 +43,8 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
           {/* Overlay Text */}
           <div className="absolute bottom-0 left-0 w-full p-5 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent">
              <div className="flex items-center gap-2 mb-1 text-blue-400 text-[10px] font-bold uppercase tracking-wider">
-                {translatedProduct.type === 'drone' ? <Zap size={12} /> : <Shield size={12} />}
-               {translatedProduct.type === 'drone' ? t('productModal.aerialSystem', 'Aerial System') : t('productModal.hardware', 'Hardware')}
+                <Briefcase size={12} />
+               {t('productModal.solutionPackage', 'Solution Package')}
              </div>
              <h2 className="text-xl sm:text-2xl font-bold text-white break-words">{translatedProduct.name}</h2>
              <p className="text-xs sm:text-sm text-slate-300">{translatedProduct.tagline}</p>

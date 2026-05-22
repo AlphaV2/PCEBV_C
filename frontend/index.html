@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>PCE BV | Engineering and Project Controls</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Inter', 'sans-serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif'],
             },
             colors: {
               primary: '#2563eb', // Blue 600 (was Indigo 700)
@@ -25,9 +28,7 @@
               'float': 'float 6s ease-in-out infinite',
               'float-delayed': 'float 6s ease-in-out 3s infinite',
               'pulse-glow': 'pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'radar-sweep': 'radar-sweep 4s linear infinite',
               'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-              'hover-drone': 'hoverDrone 4s ease-in-out infinite',
               'ken-burns': 'kenBurns 20s ease-out infinite alternate',
             },
             keyframes: {
@@ -35,17 +36,9 @@
                 '0%, 100%': { transform: 'translateY(0)' },
                 '50%': { transform: 'translateY(-20px)' },
               },
-              hoverDrone: {
-                 '0%, 100%': { transform: 'translate(-50%, 0) rotate(0deg)' },
-                 '50%': { transform: 'translate(-50%, -15px) rotate(2deg)' },
-              },
               'pulse-glow': {
                 '0%, 100%': { opacity: 1, transform: 'scale(1)' },
                 '50%': { opacity: .5, transform: 'scale(1.05)' },
-              },
-              'radar-sweep': {
-                '0%': { transform: 'rotate(0deg)' },
-                '100%': { transform: 'rotate(360deg)' },
               },
               fadeInUp: {
                 '0%': { opacity: 0, transform: 'translateY(20px)' },
@@ -61,6 +54,17 @@
       }
     </script>
     <style>
+      :root{
+        --bg:#F5F7FA;
+        --primary:#071B34;
+        --accent:#C65300;
+        --muted:#5B6472;
+        --border:#D9E1EA;
+        --nav-bg:#EEF2F5;
+      }
+
+      .heading-font{ font-family: 'Oswald', Inter, system-ui, sans-serif; letter-spacing: -0.015em; }
+
       /* Custom scrollbar for clean UI */
       ::-webkit-scrollbar {
         width: 8px;
@@ -83,8 +87,15 @@
         text-size-adjust: 100%;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
+        font-size: 15.5px;
+        line-height: 1.5;
         /* Account for sticky navbar height (~80-100px) */
         scroll-padding-top: 100px; 
+      }
+
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        letter-spacing: -0.01em;
       }
 
       *, *::before, *::after {
