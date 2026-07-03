@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useTranslatedProducts } from '../hooks/useTranslatedData';
 import { Product } from '../../types';
 import { X, MessageCircle, CheckCircle, Briefcase } from 'lucide-react';
-import { WHATSAPP_NUMBER } from '../../constants';
+import { buildWhatsAppUrl } from '../config';
 
 interface ProductModalProps {
   product: Product;
@@ -14,9 +14,9 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
   const { t } = useTranslation();
   const translatedProducts = useTranslatedProducts();
   const translatedProduct = translatedProducts.find((item) => item.id === product.id) || product;
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  const whatsappUrl = buildWhatsAppUrl(
     t('productModal.whatsappInterest', "Hi, I'm interested in {{product}}", { product: translatedProduct.name })
-  )}`;
+  );
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     e.currentTarget.src = 'https://placehold.co/800x600?text=Image+Unavailable';

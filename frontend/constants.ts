@@ -1,36 +1,43 @@
 import { Shield, Zap, Database, Eye, Radio, Server, Lock, Globe, Cpu, Wifi, Briefcase, BarChart3, Users, FileText, Wrench, Layers, Gauge, CheckCircle, TrendingUp, Code } from 'lucide-react';
 import { Service, Product, Testimonial, StatMetric, Project, TeamMember } from './types';
+import { COMPANY, PRIMARY_NAVIGATION, buildWhatsAppUrl } from './src/config';
 
 // ===============================================
 // 🚨 GLOBAL CONSTANTS (WHATSAPP CENTRALIZATION) 🚨
 // ===============================================
 
-export const WHATSAPP_NUMBER = "+31611596812";
-export const WHATSAPP_MESSAGE = "Hi, I'm interested in PCE BV engineering and project controls services.";
-export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+export const WHATSAPP_NUMBER = COMPANY.phone;
+export const WHATSAPP_MESSAGE = COMPANY.whatsappMessage;
+export const WHATSAPP_LINK = buildWhatsAppUrl(WHATSAPP_MESSAGE);
 
 // ===============================================
 // 🚨 SOCIAL MEDIA LINKS (NEW CENTRALIZED DATA) 🚨
 // ===============================================
 
 export const SOCIAL_LINKS = {
-  linkedin: "https://www.linkedin.com/in/nishikantchoudharypmp/",
-  twitter: "https://twitter.com/",
-  instagram: "https://www.instagram.com/",
-  facebook: "https://www.facebook.com/",
+  ...COMPANY.socialLinks,
 };
 
 // ===============================================
-// NAVIGATION
+      title: 'Field Interface Support';
 // ===============================================
-
+      description: 'Vendor coordination and site-facing engineering support to improve readiness and execution continuity.'
 export const NAV_LINKS = [
-  { name: 'Home', href: '/', hasDropdown: false, navKey: 'home' },
-  { name: 'Services', href: '/services', hasDropdown: true, dropdownKey: 'services', navKey: 'services' },
-  { name: 'Products', href: '/services', hasDropdown: true, dropdownKey: 'products', navKey: 'products' },
-  { name: 'Projects', href: '/projects', hasDropdown: true, dropdownKey: 'projects', navKey: 'projects' },
-  { name: 'About', href: '/about', hasDropdown: true, dropdownKey: 'about', navKey: 'about' },
-  { name: 'Contact', href: '/contact', hasDropdown: true, dropdownKey: 'contact', navKey: 'contact' },
+  ...PRIMARY_NAVIGATION.slice(0, 2).map((link) => ({
+    name: link.label,
+    href: link.href,
+    hasDropdown: link.hasDropdown,
+    dropdownKey: link.dropdownKey,
+    navKey: link.navKey,
+  })),
+  { name: 'Products', href: COMPANY.routes.services, hasDropdown: true, dropdownKey: 'products', navKey: 'products' },
+  ...PRIMARY_NAVIGATION.slice(2).map((link) => ({
+    name: link.label,
+    href: link.href,
+    hasDropdown: link.hasDropdown,
+    dropdownKey: link.dropdownKey,
+    navKey: link.navKey,
+  })),
 ];
 
 // ===============================================
@@ -187,7 +194,7 @@ export const GALLERY_CONTENT = {
 // ... (Keep ABOUT_SECTION_CONTENT, CONTACT_SECTION_DETAILS, SERVICES, PRODUCTS, PROJECTS, TESTIMONIALS, TEAM, STATS as they are in your file)
 // Make sure to include the PRODUCTS array you provided in the previous message.
 export const ABOUT_SECTION_CONTENT = [
-  "PCE BV is a trusted provider of engineering, procurement, and construction support services, specialized in detail engineering, project controls, and documentation.",
+  "PCE BV is a trusted provider of engineering, procurement, and execution support services, specialized in detail engineering, project controls, and documentation.",
   "Founded and registered with KVK on 30 April 2025, PCE BV is co-founded by Kiran V. Kulkarni and Nishikant V. Choudhary, with strategic execution support from partner company PCE PL Mumbai.",
   "Our mission is to deliver engineering excellence in the simplest and most effective way while ensuring compliance with international standards.",
   "With over three decades of combined EPC and project controls expertise, we support chemicals, petrochemicals, energy, and infrastructure clients with disciplined, high-quality delivery.",
@@ -202,7 +209,7 @@ export const CONTACT_OFFICES = [
       "2565 AV The Hague",
       "KVK No. 97146412",
       `Mobile No.: ${WHATSAPP_NUMBER}`,
-      "Email: nishikantvc@gmail.com"
+      "Email: nishikant.choudhary@pcenc.com"
     ]
   },
   {
@@ -211,7 +218,7 @@ export const CONTACT_OFFICES = [
       "PCE PL - Petroleum Consulting Engineers Private Limited",
       "Mumbai, India",
       "Execution and Engineering Delivery Center",
-      "Disciplines: Process, Piping, Mechanical, Electrical, Instrumentation, Civil"
+      "Disciplines: Process, Piping, Mechanical, Electrical, Instrumentation"
     ]
   }
 ];

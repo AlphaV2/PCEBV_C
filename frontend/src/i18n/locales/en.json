@@ -1,6 +1,8 @@
 {
   "whatsapp": {
-    "message": "Hi, I'm interested in PCE BV engineering and project controls services."
+    "message": "Hi, I'm interested in PCE BV engineering and project controls services.",
+    "quickEnquiry": "Hello, I'm interested in your engineering services. I'd like to discuss a project.",
+    "quickEnquiryShort": "Quick Enquiry"
   },
   "nav": {
     "home": "Home",
@@ -50,7 +52,7 @@
     "expertiseLabel": "Expertise Highlights",
     "expertise": "Project Controls Leadership, Program Management, Contract and Financial Governance, Risk Analysis, and Multicultural Team Development.",
     "connectCta": "Connect on LinkedIn",
-    "p1": "PCE BV is a trusted provider of engineering, procurement, and construction support services, specialized in detail engineering, project controls, and documentation.",
+    "p1": "PCE BV is a trusted provider of engineering, procurement, and execution support services, specialized in detail engineering, project controls, and documentation.",
     "p2": "Founded and registered with KVK on 30 April 2025, PCE BV is co-founded by Kiran V. Kulkarni and Nishikant V. Choudhary.",
     "p3": "Our mission is to deliver engineering excellence in the simplest and most effective way while ensuring compliance with international standards.",
     "p4": "With over three decades of EPC and project controls expertise, we support chemicals, petrochemicals, energy, and infrastructure clients with disciplined delivery."
@@ -207,28 +209,7 @@
       "brochure": "Brochure"
     }
   },
-  "hero": {
-    "badge": "Engineering and Project Controls",
-    "titleLine1": "Delivering Complex Projects",
-    "titleHighlight": "With Precision and Confidence.",
-    "subtitle": "Petroleum Consulting Engineers BV supports EPC teams with detail engineering, controls, and documentation excellence.",
-    "subtitleStrong": "Simple. Effective. Standards-Compliant.",
-    "feature1": "Engineering",
-    "feature1Line2": "Excellence",
-    "feature2": "Disciplined",
-    "feature2Line2": "Execution",
-    "feature3": "Global",
-    "feature3Line2": "Perspective",
-    "ctaProducts": "Explore Solutions",
-    "ctaWhatsapp": "WhatsApp Chat",
-    "recognizedBy": "Registered and Operated In",
-    "msmeStatus": "The Netherlands",
-    "startupIndiaStatus": "India Partnership",
-    "incubationPrefix": "Founded and",
-    "incubationEmphasis": "registered",
-    "incubationSuffix": "with KVK on 30 April 2025",
-    "incubationInstitute": "PCE BV with partner execution support from PCE PL Mumbai"
-  },
+
   "servicesSection": {
     "badge": "Core Expertise",
     "heading": "Solutions Designed for Project Delivery",
@@ -252,7 +233,37 @@
     "technicalSpecifications": "Technical Specifications",
     "closeOverview": "Close Overview",
     "contactViaWhatsApp": "Contact via WhatsApp",
-    "whatsappInterest": "Hi, I'm interested in the {{service}} services."
+    "whatsappInterest": "Hi, I'm interested in the {{service}} services.",
+    "requestConsultation": "Request Consultation",
+    "pillars": {
+      "projectControls": {
+        "title": "Project Controls",
+        "subtitle": "Planning, Scheduling & Cost Control",
+        "description": "Planning, scheduling, cost control, risk management, and progress tracking for disciplined delivery.",
+        "h1": "Planning",
+        "h2": "Scheduling",
+        "h3": "Cost Control",
+        "h4": "Risk Management"
+      },
+      "engineeringDeliverables": {
+        "title": "Engineering Deliverables",
+        "subtitle": "Process to 3D Modelling",
+        "description": "Process, piping, mechanical, electrical, instrumentation, and 3D modelling deliverables across the project lifecycle.",
+        "h1": "Process",
+        "h2": "Piping",
+        "h3": "Mechanical",
+        "h4": "3D Modelling"
+      },
+      "dai": {
+        "title": "DAI & Execution Support",
+        "subtitle": "Design Interface & Field Support",
+        "description": "Design interface management, vendor coordination, engineering documentation, and field support to keep delivery moving.",
+        "h1": "Interface Mgmt.",
+        "h2": "Vendor Coordination",
+        "h3": "Documentation",
+        "h4": "Field Support"
+      }
+    }
   },
   "founders": {
     "badge": "Our Founders",
@@ -299,6 +310,22 @@
     "card3Title": "India Execution",
     "card3Body": "Engineering & site support."
   },
+  "hero": {
+    "badge": "Engineering and Project Controls",
+    "titleLine1": "Engineering & Project Controls",
+    "titleHighlight": "For Industrial EPC Projects",
+    "subtitle": "Petroleum Consulting Engineers BV supports EPC teams with detail engineering, controls, and documentation excellence.",
+    "cta_primary": "Contact Us",
+    "cta_secondary": "Request Consultation",
+    "strip": {
+      "controls": "Project Controls",
+      "deliverables": "Engineering Deliverables",
+      "execution": "DAI & Execution Support"
+    },
+    "statExperience": "34+ Years of Industry Experience",
+    "statEngineers": "300+ Engineering Professionals",
+    "statDelivery": "Global EPC Delivery"
+  },
   "navbar": {
     "exploreSolutions": "Explore Solutions",
     "featuredInventory": "Featured Solutions",
@@ -318,9 +345,98 @@
   "projects": {
     "loadingDeployments": "Loading Projects...",
     "badge": "Track Record",
-    "heading": "Past and Ongoing Project Experience",
+    "heading": "Our Project Experience",
     "subheading": "Selected references from engineering, estimation, and project controls engagements.",
-    "metric": "Metric"
+    "statusOngoing": "Ongoing",
+    "statusEpc": "EPC Experience",
+    "overview": "Overview",
+    "scope": "Engineering Scope",
+    "deliverables": "Key Deliverables",
+    "back": "Back to Projects",
+    "tapToExpand": "Tap to expand details",
+    "detailsBadge": "Project Profiles",
+    "selectPrompt": "Select an engineering profile to evaluate full execution scope and key deliverables.",
+    "featured": "Featured",
+    "contactCta": "Request Consultation",
+    "viewProjects": "View Projects",
+    "servicesCta": "Services",
+    "stats": {
+      "activeReferences": "Active References",
+      "globalDelivery": "Global Delivery",
+      "coreFocus": "Core Focus"
+    },
+    "items": {
+      "project1": {
+        "name": "Petrochemical Plant Design",
+        "status": "Ongoing",
+        "description": "Comprehensive detail engineering and multi-discipline coordination support for large-scale industrial fluid processing complexes.",
+        "scope": "Execution of comprehensive multi-disciplinary detail design frameworks, process workflow optimization, and high-density line configuration analysis.",
+        "deliverables": "Full-lifecycle intelligent 3D Plant Models, As-Built site updates, P&ID optimization layers, and cross-functional clash detection reviews."
+      },
+      "project2": {
+        "name": "Multi-Discipline 3D Engineering",
+        "status": "Ongoing",
+        "description": "Continuous provisions of advanced structural and process execution design models optimizing infrastructure modifications across active industrial environments.",
+        "scope": "Stress calculation, dynamic loading updates, piping material takeoff configurations, and integration interfaces for vendor equipment modules.",
+        "deliverables": "Coordinated 3D structural models, complete isometric documentation matrices, detailed equipment layout schemes, and precise estimation manifests."
+      },
+      "project3": {
+        "name": "MEG Facility EPC Support",
+        "status": "EPC Experience",
+        "description": "Integrated project execution coordination, delivery governance validation, and multi-discipline design engineering assistance for major processing facilities.",
+        "scope": "On-site engineering interface checkouts, technical verification of incoming licensor designs, detailed drawings review, and constructability tracking.",
+        "deliverables": "Construction coordination records, certified detailed execution drawings, field installation checklists, and completed operational commissioning support logs."
+      },
+      "project4": {
+        "name": "Power Plant Detail Engineering",
+        "status": "Completed Reference",
+        "description": "Comprehensive detail design engineering services and complete multi-disciplinary structural modeling for an international thermal power plant.",
+        "scope": "Full-scale structural detailing, multidisciplinary schematic generation, system layout designs, and coordination of vendor interface models.",
+        "deliverables": "Intelligent multi-discipline 3D plant models up to As-Built status, optimized piping layout drawings, and technical specification sheets."
+      },
+      "project5": {
+        "name": "Industrial BOG Motor Systems Engineering",
+        "status": "Completed Reference",
+        "description": "Specialized engineering and multi-discipline execution support for the integration and deployment of Boil-Off Gas (BOG) motor assemblies.",
+        "scope": "Technical evaluation, interface compatibility mapping, system load balancing configurations, and functional specification matching.",
+        "deliverables": "Certified integration layout blueprints, precise supply documentation indices, and operational safety verification metrics."
+      },
+      "project6": {
+        "name": "Petrochemical Complex Linear Alkyl Benzene Prebid Estimation",
+        "status": "Completed Reference",
+        "description": "High-accuracy prebid estimation and engineering support framework optimizing early-phase tender submissions for heavy industrial plants.",
+        "scope": "Material takeoff analysis, structural layout feasibility assessments, design parameter evaluations, and engineering resource estimation.",
+        "deliverables": "Comprehensive technical bid submission packages, optimized engineering cost baselines, and early-stage layout frameworks."
+      },
+      "project7": {
+        "name": "Industrial Processing Facility Enquiry Engineering",
+        "status": "Completed Reference",
+        "description": "Strategic engineering validation, specification alignment, and enquiry analysis support for core equipment and material processing systems.",
+        "scope": "Technical requisition evaluations, vendor design reviews, specification compliance monitoring, and procurement package optimization.",
+        "deliverables": "Validated technical enquiry reports, cross-discipline compliance matrices, and optimized procurement requisition packages."
+      },
+      "project8": {
+        "name": "Continuous 3D Plant Engineering Provisions",
+        "status": "Ongoing Capability",
+        "description": "Multi-year programmatic provision of advanced 3D engineering, structural modifications, and detail piping system configurations for global engineering teams.",
+        "scope": "Continuous stress analysis variations, ongoing clash detection reviews, mechanical layout adaptations, and operational design interface tracking.",
+        "deliverables": "Live 3D asset model data baselines, updated structural isometric configurations, and coordinated multidisciplinary engineering work packages."
+      },
+      "project9": {
+        "name": "FEED Phase Piping MTO Estimation",
+        "status": "Completed Reference",
+        "description": "Dedicated Front-End Engineering Design (FEED) phase estimation, handling extensive piping Material Take-Off (MTO) generation and resource optimization.",
+        "scope": "On-site billing verification frameworks, bulk quantity calculations from preliminary flowsheets, and multi-discipline baseline alignments.",
+        "deliverables": "Certified high-accuracy piping material takeoff matrices, preliminary weight estimation structures, and resource-to-hours billing logs."
+      },
+      "project10": {
+        "name": "Heavy Industrial Processing Equipment Engineering & Fabrication Support",
+        "status": "Completed Reference",
+        "description": "Long-term engineering execution, mechanical modeling, and fabrication coordination frameworks optimizing major asset deployments for process industries.",
+        "scope": "Mechanical asset integrity verifications, detail drafting for raw fabrication packages, vendor alignment, and constructability constraint tracking.",
+        "deliverables": "Certified manufacturing-ready fabrication datasets, verified mechanical equipment specifications, and quality review checklists."
+      }
+    }
   },
   "footer": {
     "description": "PCE BV provides engineering, project controls, and documentation services for chemicals, petrochemicals, energy, and infrastructure projects.",
@@ -336,12 +452,20 @@
   "contactSection": {
     "badge": "Get Started",
     "heading": "Projects begin with clarity.",
+    "subheading": "Use the contact form for a direct technical enquiry or reach us through the contact details below.",
     "emailLabel": "Email",
     "phoneLabel": "Phone",
+    "businessHours": "Business Hours",
+    "businessHoursValue": "Mon-Fri, 08:30-17:30 CET",
+    "responseTime": "Response Time",
+    "responseTimeValue": "< 24 hrs",
+    "primaryContact": "Primary Contact",
+    "primaryContactValue": "Managing Director",
     "requestSent": "Request Sent",
     "openingWhatsApp": "Opening WhatsApp Secure Line...",
     "quickEnquiry": "Quick Enquiry",
-    "sendMessage": "Send a message."
+    "sendMessage": "Send a message.",
+    "formNote": "All fields are handled securely and only used for response purposes."
   },
   "serviceModal": {
     "whatsappInterest": "Hi, I'm interested in learning more about {{service}}",

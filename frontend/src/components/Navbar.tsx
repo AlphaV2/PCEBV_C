@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Menu, X, ChevronDown, Globe, ArrowUpRight, Settings, PenTool, HardHat } from 'lucide-react';
+import { FOOTER, ROUTES } from '../config';
 import { useTranslatedNavLinks, useTranslatedServices } from '../hooks/useTranslatedData';
 
 /**
@@ -10,7 +11,7 @@ const MAIN_NAV_ITEMS = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services', hasDropdown: true },
   { name: 'Projects', href: '/projects' },
-  { name: 'About', href: '/about' },
+  { name: 'About Us', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ];
 
@@ -177,19 +178,19 @@ const Navbar: React.FC<NavbarProps> = ({
         ref={headerRef} 
         className={`fixed top-0 left-0 right-0 z-[1000] w-full transition-all duration-300 ${
           isScrolled 
-            ? 'bg-[#181A1F] shadow-xl border-b border-white/5' 
-            : 'bg-[#181A1F]/95 backdrop-blur-md border-b border-transparent'
+            ? 'bg-[rgba(10,10,10,0.85)] shadow-xl border-b border-white/10 backdrop-blur-[14px]' 
+            : 'bg-[rgba(10,10,10,0.78)] backdrop-blur-[14px] border-b border-white/10'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-20">
-          <div className="flex items-center justify-between h-16 md:h-20">
+          <div className="flex items-center justify-between h-16 md:h-[4.75rem]">
 
             {/* LOGO & TEXT SECTION */}
             <a href="/" onClick={handleLogoClick} className="flex items-center gap-2 sm:gap-3 cursor-pointer group min-w-0" aria-label="Go to homepage">
               <img src="/logo/company_logo.png" alt="Company Logo" className="h-7 sm:h-8 md:h-10 object-contain bg-white/10 p-1 rounded shrink-0 transition-transform group-hover:scale-105" />
               <div className="flex flex-col justify-center min-w-0">
-                <span className="text-[6.5px] min-[375px]:text-[7.5px] sm:text-[8px] md:text-[9px] font-bold uppercase tracking-[0.1em] sm:tracking-[0.2em] text-zinc-400 leading-none mb-0.5 sm:mb-1 truncate">
-                  Engineering & Project Execution
+                <span className="text-[6.5px] min-[375px]:text-[7.5px] sm:text-[8px] md:text-[9px] font-bold uppercase tracking-[0.18em] text-zinc-400 leading-none mb-0.5 truncate">
+                  Engineering & Project Controls
                 </span>
                 <span className="text-sm min-[375px]:text-base sm:text-lg md:text-xl font-extrabold text-white leading-none tracking-tight truncate">
                   PCE BV.
@@ -198,7 +199,7 @@ const Navbar: React.FC<NavbarProps> = ({
             </a>
 
             {/* DESKTOP NAVIGATION */}
-            <nav className="hidden lg:flex items-center gap-8 h-full">
+            <nav className="hidden lg:flex items-center gap-7 h-full">
               {mainNavItems.map((link) => (
                 <div key={link.name} className={`relative flex items-center h-full ${link.hasDropdown ? 'group' : ''}`}>
                   <a 
@@ -278,32 +279,13 @@ const Navbar: React.FC<NavbarProps> = ({
               >
                 <Menu size={26} className="w-6 h-6 sm:w-7 sm:h-7" />
               </button>
+              
             </div>
 
           </div>
 
           {/* MOBILE QUICK NAV (reduces dependence on burger menu) */}
-          <div className="lg:hidden pb-2">
-            <nav className="flex items-center gap-2 overflow-x-auto" style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' }} aria-label="Quick navigation">
-              {mainNavItems.map((link) => {
-                const active = isActiveRoute(link.href);
-                return (
-                  <a
-                    key={`quick-${link.href}`}
-                    href={link.href}
-                    onClick={(e) => handleNavigate(e, link.href)}
-                    className={`shrink-0 rounded-full px-4 py-2 text-xs font-extrabold uppercase tracking-wide transition-colors ${
-                      active
-                        ? 'bg-[#2563EB] text-white'
-                        : 'bg-white/10 text-zinc-200 hover:bg-white/20 hover:text-white'
-                    }`}
-                  >
-                    {link.name}
-                  </a>
-                );
-              })}
-            </nav>
-          </div>
+          <div className="lg:hidden pb-1" />
         </div>
       </header>
 
@@ -332,7 +314,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
           {/* Drawer Links */}
           <nav id="mobile-navigation" className="flex-1 overflow-y-auto px-4 py-2 flex flex-col gap-2">
-            {mainNavItems.filter((link) => link.href !== '/contact').map((link) => {
+            {mainNavItems.map((link) => {
               const active = isActiveRoute(link.href);
 
               return (
@@ -342,7 +324,7 @@ const Navbar: React.FC<NavbarProps> = ({
                       active && !link.hasDropdown ? 'bg-blue-50 text-[#2563EB]' : 'text-gray-800 hover:bg-gray-50'
                     }`}
                   >
-                    <a 
+                      <a 
                       href={link.href} 
                       onClick={(e) => {
                         if (link.hasDropdown) {
@@ -357,7 +339,7 @@ const Navbar: React.FC<NavbarProps> = ({
                       {link.name}
                     </a>
                     
-                    {link.hasDropdown ? (
+                      {link.hasDropdown ? (
                       <button onClick={() => setMobileServicesOpen(!mobileServicesOpen)} className="p-1 text-gray-400">
                         <ChevronDown size={24} className={`transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180 text-gray-900' : ''}`} />
                       </button>
@@ -390,12 +372,24 @@ const Navbar: React.FC<NavbarProps> = ({
 
           {/* Drawer Footer (Removed redundant language switcher) */}
           <div className="p-6 bg-white border-t border-gray-100 flex flex-col justify-end">
+            <div className="mb-5 grid grid-cols-2 gap-2 text-xs font-black uppercase tracking-[0.2em] text-gray-500">
+              <button onClick={() => handleLanguageChange('en')} className={`rounded-lg border px-3 py-3 ${activeLanguage === 'en' ? 'border-[#2563EB] bg-blue-50 text-[#2563EB]' : 'border-gray-200 bg-white text-gray-600'}`}>EN</button>
+              <button onClick={() => handleLanguageChange('nl')} className={`rounded-lg border px-3 py-3 ${activeLanguage === 'nl' ? 'border-[#2563EB] bg-blue-50 text-[#2563EB]' : 'border-gray-200 bg-white text-gray-600'}`}>NL</button>
+            </div>
+            <div className="mb-5 border-t border-gray-100 pt-4">
+              <div className="mb-2 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Policies</div>
+              <div className="flex flex-wrap gap-3 text-sm font-semibold text-gray-700">
+                <a href={ROUTES.privacy} className="hover:text-[#2563EB]">Privacy</a>
+                <a href={ROUTES.cookiePolicy} className="hover:text-[#2563EB]">Cookies</a>
+                <a href={ROUTES.terms} className="hover:text-[#2563EB]">Terms</a>
+              </div>
+            </div>
             <a 
               href="/contact"
               onClick={(e) => handleNavigate(e, '/contact')} 
               className="w-full py-4 flex items-center justify-center gap-2 bg-[var(--accent,#F25C19)] text-white font-extrabold uppercase tracking-widest rounded-xl shadow-[0_8px_20px_-8px_rgba(242,92,25,0.6)] hover:brightness-105 active:scale-[0.98] transition-all"
             >
-              {t('navbar.contactUs', 'Contact Us')} <ArrowUpRight size={18} />
+              {t('navbar.contactUs', 'Consult Us')} <ArrowUpRight size={18} />
             </a>
           </div>
 
