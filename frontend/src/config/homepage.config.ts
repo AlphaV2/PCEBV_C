@@ -70,29 +70,35 @@ export const HOMEPAGE_CONFIG = {
   // ==================== 1. HERO SECTION ====================
   hero: {
     label: 'Corporate EPC Delivery',
-    h1: 'Precision delivery\nfor complex industrial projects',
-    h2: 'Netherlands-led governance. India-based engineering. Built for clarity, speed, and reliability.',
+    h1: 'Engineering & Project Controls for\n Industrial EPC Projects',
+    h2: 'Netherlands-led governance. India-based engineering. Built for clarity and precision.',
     cta_primary: 'Consult Us',
     cta_secondary: 'Explore Services',
     background_images: [
       {
         src: '/background/bg3.webp',
         alt: 'Industrial refinery plant EPC project',
-        focalPoint: 'center 40%'
+        mobilePosition: '66% center',
+        tabletPosition: '60% center',
+        desktopPosition: 'center 45%'
       },
       {
         src: '/background/bg2.webp',
         alt: 'Engineering team collaboration at worksite',
-        focalPoint: 'center 50%'
+        mobilePosition: '68% center',
+        tabletPosition: '64% center',
+        desktopPosition: 'center 50%'
       },
       {
         src: '/background/bg1.webp',
         alt: 'Industrial plant detail and process equipment',
-        focalPoint: 'center 30%'
+        mobilePosition: '63% center',
+        tabletPosition: '58% center',
+        desktopPosition: 'center 30%'
       },
     ],
-    min_height_mobile: '85dvh',
-    min_height_desktop: '100dvh',
+    min_height_mobile: '78dvh',
+    min_height_desktop: '85vh',
   },
 
   // ==================== 2. TICKER STRIP ====================
@@ -105,7 +111,7 @@ export const HOMEPAGE_CONFIG = {
       'DAI & Execution Support',
       'Global EPC Expertise',
       'Process & Piping',
-      'Construction & Commissioning',
+      'Field Coordination',
     ],
     animation_duration: '32s',
   },
@@ -114,7 +120,7 @@ export const HOMEPAGE_CONFIG = {
   about: {
     title: 'Trusted Partner in Engineering Excellence',
     description:
-      'With decades of experience delivering complex EPC projects globally, PCEBV combines Netherlands-led client management with India-based engineering excellence to create reliable, scalable solutions for the oil, gas, and chemical industries.',
+      'With decades of experience delivering complex EPC projects globally, PCEBV combines Netherlands-led client management with India-based engineering excellence to create reliable, scalable solutions for industrial programs.',
     metrics: [
       { number: '35+', label: 'Years Experience' },
       { number: '100+', label: 'Projects Delivered' },
@@ -144,7 +150,7 @@ export const HOMEPAGE_CONFIG = {
           'Process and piping design',
           'Mechanical and electrical engineering',
           '3D plant modeling and visualization',
-          'Construction documentation packages',
+          'Execution documentation packages',
         ],
         link: '/services#detail-engineering',
       },
@@ -153,7 +159,7 @@ export const HOMEPAGE_CONFIG = {
         bullets: [
           'Design-Aid-Interface coordination',
           'Vendor management and liaison',
-          'Construction support and commissioning',
+          'Field support and readiness coordination',
           'Field-linked execution assistance',
         ],
         link: '/services#procurement-construction',
@@ -185,27 +191,36 @@ export const HOMEPAGE_CONFIG = {
   },
 
   // ==================== 6. PROJECTS CAROUSEL ====================
-  projects: {
-    title: 'Featured Projects',
-    subtitle: 'Representative case studies showcasing our EPC delivery capability',
-    items: [
-      {
-        image: '/background/bg1.webp',
-        name: 'Integrated Processing Plant',
-        location: 'Middle East',
-      },
-      {
-        image: '/background/bg2.webp',
-        name: 'Petrochemical Facility',
-        location: 'Southeast Asia',
-      },
-      {
-        image: '/background/bg3.webp',
-        name: 'Offshore Platform Upgrade',
-        location: 'North Sea',
-      },
-    ],
-  },
+  // ==================== 6. PROJECTS CAROUSEL ====================
+projects: {
+  title: 'Featured Engineering Projects',
+  subtitle:
+    'Representative engineering engagements showcasing our expertise in detail engineering, 3D modelling, and EPC execution support.',
+
+  items: [
+    {
+      image: '/background/bg1.webp',
+      name: 'Petrochemical Plant Design',
+      location: 'Ongoing Project',
+      description:
+        'Comprehensive detail engineering for a large-scale petrochemical facility, including multidisciplinary engineering deliverables, intelligent 3D modelling, construction documentation, and engineering support throughout the project lifecycle.',
+    },
+    {
+      image: '/background/bg2.webp',
+      name: 'Multi-Discipline 3D Engineering',
+      location: 'Ongoing Project',
+      description:
+        'Continuous engineering support through advanced 3D plant modelling, engineering coordination, digital design development, and multidisciplinary collaboration for industrial infrastructure projects.',
+    },
+    {
+      image: '/background/bg3.webp',
+      name: 'MEG Facility EPC Support',
+      location: 'EPC Experience',
+      description:
+        'Integrated engineering support covering design development, engineering documentation, construction coordination, and execution assistance through successful project commissioning.',
+    },
+  ],
+},
 
   // ==================== 7. CONTACT SECTION ====================
   contact: {
@@ -218,9 +233,10 @@ export const HOMEPAGE_CONFIG = {
     ],
     form_fields: [
       { label: 'Full Name', name: 'name', type: 'text', required: true },
-      { label: 'Email', name: 'email', type: 'email', required: true },
-      { label: 'Phone', name: 'phone', type: 'tel', required: true },
       { label: 'Company', name: 'company', type: 'text', required: true },
+      { label: 'Business Email', name: 'email', type: 'email', required: true },
+      { label: 'Phone', name: 'phone', type: 'tel', required: true },
+      { label: 'Country', name: 'country', type: 'select', options: ['Netherlands', 'Belgium', 'Germany', 'France', 'United Kingdom', 'Other'], required: true },
       {
         label: 'Service Interest',
         name: 'service',
@@ -247,7 +263,7 @@ export const HOMEPAGE_CONFIG = {
       { label: 'Terms & Conditions', href: '/terms' },
     ],
     contact_info: {
-      email: 'info@pcebv.com',
+      email: 'nishikant.choudhary@pcenc.com',
       phone: '+31 (0) 6 11 59 68 12',
       address: 'Netherlands',
     },

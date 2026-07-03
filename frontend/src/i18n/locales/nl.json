@@ -1,6 +1,8 @@
 {
   "whatsapp": {
-    "message": "Hallo, ik ben geinteresseerd in de engineering- en projectcontrolsdiensten van PCE BV."
+    "message": "Hallo, ik ben geinteresseerd in de engineering- en projectcontrolsdiensten van PCE BV.",
+    "quickEnquiry": "Hallo, ik ben geïnteresseerd in jullie engineeringdiensten. Ik wil graag een project bespreken.",
+    "quickEnquiryShort": "Snelle aanvraag"
   },
   "nav": {
     "home": "Home",
@@ -50,7 +52,7 @@
     "expertiseLabel": "Expertise",
     "expertise": "Projectcontrols, programmamanagement, contract- en financieel bestuur, risicoanalyse en multiculturele teamontwikkeling.",
     "connectCta": "Verbind via LinkedIn",
-    "p1": "PCE BV is een betrouwbare leverancier van engineering-, inkoop- en bouwondersteunende diensten, gespecialiseerd in detail engineering, projectcontrols en documentatie.",
+    "p1": "PCE BV is een betrouwbare leverancier van engineering-, inkoop- en uitvoeringsondersteunende diensten, gespecialiseerd in detail engineering, projectcontrols en documentatie.",
     "p2": "PCE BV is op 30 april 2025 opgericht en geregistreerd bij de KVK door Kiran V. Kulkarni en Nishikant V. Choudhary.",
     "p3": "Onze missie is engineering excellence op de meest eenvoudige en effectieve manier te leveren met naleving van internationale standaarden.",
     "p4": "Met meer dan drie decennia EPC- en projectcontrolservaring ondersteunen wij klanten in chemie, petrochemie, energie en infrastructuur."
@@ -85,6 +87,13 @@
       "fillAll": "Vul alle verplichte velden in.",
       "successTitle": "Geopend in WhatsApp!",
       "sendAnother": "Nog een bericht sturen",
+      "cta_primary": "Neem contact op",
+      "cta_secondary": "Vraag consultatie aan",
+      "strip": {
+        "controls": "Project Controls",
+        "deliverables": "Engineering Deliverables",
+        "execution": "DAI & Uitvoeringsondersteuning"
+      },
       "submitButton": "Chat via WhatsApp",
       "whatsappTitle": "Nieuwe website-aanvraag",
       "nameLabel": "Naam",
@@ -167,7 +176,10 @@
     "incubationPrefix": "Opgericht en",
     "incubationEmphasis": "geregistreerd",
     "incubationSuffix": "bij KVK op 30 april 2025",
-    "incubationInstitute": "PCE BV met partneruitvoering via PCE PL Mumbai"
+    "incubationInstitute": "PCE BV met partneruitvoering via PCE PL Mumbai",
+    "statExperience": "34+ Jaar branche-ervaring",
+    "statEngineers": "300+ Engineering professionals",
+    "statDelivery": "Wereldwijde EPC-levering"
   },
   "servicesSection": {
     "badge": "Kernexpertise",
@@ -192,7 +204,37 @@
     "technicalSpecifications": "Technische specificaties",
     "closeOverview": "Overzicht sluiten",
     "contactViaWhatsApp": "Contact via WhatsApp",
-    "whatsappInterest": "Hallo, ik ben geïnteresseerd in de dienst {{service}}."
+    "whatsappInterest": "Hallo, ik ben geïnteresseerd in de dienst {{service}}.",
+    "requestConsultation": "Vraag consultatie aan",
+    "pillars": {
+      "projectControls": {
+        "title": "Project Controls",
+        "subtitle": "Planning, Scheduling en Cost Control",
+        "description": "Planning, scheduling, cost control, risk management en voortgangsbewaking voor gedisciplineerde levering.",
+        "h1": "Planning",
+        "h2": "Scheduling",
+        "h3": "Cost Control",
+        "h4": "Risk Management"
+      },
+      "engineeringDeliverables": {
+        "title": "Engineering Deliverables",
+        "subtitle": "Proces tot 3D Modellering",
+        "description": "Proces-, piping-, mechanische-, elektrische-, instrumentatie- en 3D-modelleringsdeliverables gedurende de projectcyclus.",
+        "h1": "Proces",
+        "h2": "Piping",
+        "h3": "Mechanisch",
+        "h4": "3D Modellering"
+      },
+      "dai": {
+        "title": "DAI & Uitvoeringsondersteuning",
+        "subtitle": "Design Interface & Veldondersteuning",
+        "description": "Design interface management, vendorcoördinatie, engineeringdocumentatie en veldondersteuning om levering in beweging te houden.",
+        "h1": "Interface Mgmt.",
+        "h2": "Vendorcoördinatie",
+        "h3": "Documentatie",
+        "h4": "Veldondersteuning"
+      }
+    }
   },
   "founders": {
     "badge": "Onze oprichters",
@@ -260,7 +302,96 @@
     "badge": "Track record",
     "heading": "Eerdere en lopende projectervaring",
     "subheading": "Geselecteerde referenties uit engineering-, estimation- en projectcontrolsopdrachten.",
-    "metric": "Metriek"
+    "statusOngoing": "Lopend",
+    "statusEpc": "EPC Ervaring",
+    "overview": "Overzicht",
+    "scope": "Technical Scope",
+    "deliverables": "Belangrijkste Deliverables",
+    "back": "Terug naar Projecten",
+    "tapToExpand": "Tik om uit te klappen",
+    "detailsBadge": "Projectprofielen",
+    "selectPrompt": "Selecteer een engineeringprofiel om de volledige uitvoeringsscope en deliverables te bekijken.",
+    "featured": "Uitgelicht",
+    "contactCta": "Vraag Consultatie Aan",
+    "viewProjects": "Bekijk Projecten",
+    "servicesCta": "Diensten",
+    "stats": {
+      "activeReferences": "Actieve Referenties",
+      "globalDelivery": "Wereldwijde Levering",
+      "coreFocus": "Kernfocus"
+    },
+    "items": {
+      "project1": {
+        "name": "Petrochemical Plant Design",
+        "status": "Lopend",
+        "description": "Uitgebreide detail engineering en multidisciplinaire coördinatieondersteuning voor grootschalige industriële vloeistofverwerkingscomplexen.",
+        "scope": "Uitvoering van uitgebreide multidisciplinaire detailontwerpkaders, procesworkflowoptimalisatie en analyse van hogedrukleidingsconfiguraties.",
+        "deliverables": "Intelligente 3D-plantmodellen voor de volledige levenscyclus, As-Built locatie-updates, P&ID-optimalisatielagen en cross-functional clash-detectiebeoordelingen."
+      },
+      "project2": {
+        "name": "Multi-Discipline 3D Engineering",
+        "status": "Lopend",
+        "description": "Continue levering van geavanceerde structurele en procesuitvoeringsontwerpmodellen die infrastructuurwijzigingen in actieve industriële omgevingen optimaliseren.",
+        "scope": "Spanningsberekening, dynamische belastingsupdates, configuraties voor materiaalafname van leidingen en integratie-interfaces voor modules van leveranciersapparatuur.",
+        "deliverables": "Gecoördineerde 3D structurele modellen, volledige isometrische documentatiematrices, gedetailleerde lay-outschema's van apparatuur en nauwkeurige schattingsmanifesten."
+      },
+      "project3": {
+        "name": "MEG Facility EPC Support",
+        "status": "EPC Ervaring",
+        "description": "Geïntegreerde coördinatie van projectuitvoering, validatie van opleveringsbeheer en multidisciplinaire ondersteuning bij ontwerpengineering voor grote verwerkingsfaciliteiten.",
+        "scope": "On-site engineering interface checkouts, technische verifikatie van inkomende licentiegeverontwerpen, beoordeling van gedetailleerde tekeningen en constructiebewaking.",
+        "deliverables": "Coördinatierapporten van de bouw, gecertificeerde gedetailleerde uitvoeringstekeningen, controlelijsten voor veldinstallatie en ingevulde ondersteuningslogboeken voor operationele inbedrijfstelling."
+      },
+      "project4": {
+        "name": "Power Plant Detail Engineering",
+        "status": "Afgeronde Referentie",
+        "description": "Uitgebreide detailontwerpcengineering en volledige multidisciplinaire structurele modellering voor een internationale thermische elektriciteitscentrale.",
+        "scope": "Volledige structurele detaillering, multidisciplinaire schematische generatie, systeemlay-outontwerpen en coördinatie van leveranciersinterfacemodellen.",
+        "deliverables": "Intelligente multidisciplinaire 3D-plantmodellen tot As-Built status, geoptimaliseerde lay-outtekeningen voor leidingen en technische specificatiebladen."
+      },
+      "project5": {
+        "name": "Industrial BOG Motor Systems Engineering",
+        "status": "Afgeronde Referentie",
+        "description": "Gespecialiseerde engineering- en multidisciplinaire uitvoeringsondersteuning voor de integratie en implementatie van Boil-Off Gas (BOG) motorassemblages.",
+        "scope": "Technische evaluatie, interface-compatibiliteitsmapping, configuraties voor systeembelastingsbalancering en matching van functionele specificaties.",
+        "deliverables": "Gecertificeerde integratielay-outblauwdrukken, nauwkeurige indexen voor documentatie van levering en operationele veiligheidsverificatiemetrieken."
+      },
+      "project6": {
+        "name": "Petrochemical Complex Linear Alkyl Benzene Prebid Estimation",
+        "status": "Afgeronde Referentie",
+        "description": "Zeer nauwkeurige prebid-schatting en ondersteuningskader voor engineering, optimalisatie van inschrijvingen in een vroege fase voor zware industriële installaties.",
+        "scope": "Materiaalaaname-analyse, haalbaarheidsbeoordelingen van de structurele lay-out, evaluaties van ontwerpparameters en schatting van engineeringbronnen.",
+        "deliverables": "Uitgebreide technische biedingspakketten, geoptimaliseerde engineering-kostenbaselines en lay-outkaders in een vroeg stadium."
+      },
+      "project7": {
+        "name": "Industrial Processing Facility Enquiry Engineering",
+        "status": "Afgeronde Referentie",
+        "description": "Strategische engineeringvalidatie, specificatie-afstemming en analyseondersteuning voor kernapparatuur en materiaalverwerkingssystemen.",
+        "scope": "Evaluaties van technische aanvragen, leveranciersontwerpbeoordelingen, monitoring van specificatie-naleving en optimalisatie van inkooppakketten.",
+        "deliverables": "Gevalideerde technische aanvraagrapporten, multidisciplinaire nalevingsmatrices en geoptimaliseerde inkoopaanvraagpakketten."
+      },
+      "project8": {
+        "name": "Continuous 3D Plant Engineering Provisions",
+        "status": "Lopende Capaciteit",
+        "description": "Meerjarige programmamatige levering van geavanceerde 3D-engineering, structurele wijzigingen en detailconfiguraties van leidingsystemen voor wereldwijde engineeringteams.",
+        "scope": "Continue variaties in spanningsanalyse, lopende clash-detectiebeoordelingen, mechanische lay-outaanpassingen en tracking van operationele ontwerpreinterfaces.",
+        "deliverables": "Live 3D asset model data baselines, bijgewerkte structurele isometrische configuraties en gecoördineerde multidisciplinaire engineering-werkpakketten."
+      },
+      "project9": {
+        "name": "FEED Phase Piping MTO Estimation",
+        "status": "Afgeronde Referentie",
+        "description": "Toegewijde schatting van de Front-End Engineering Design (FEED)-fase, met uitgebreide generatie van materiaalafname van leidingen (MTO) en bronnenoptimalisatie.",
+        "scope": "On-site facturatieverificatiekaders, bulkhoeveelheidsberekeningen op basis van voorlopige stroomschema's en multidisciplinaire baseline-afstemmingen.",
+        "deliverables": "Gecertificeerde zeer nauwkeurige materiaalafnamematrices voor leidingen, voorlopige gewichtschattingsstructuren en facturatielogboeken van uren per bron."
+      },
+      "project10": {
+        "name": "Heavy Industrial Processing Equipment Engineering & Fabrication Support",
+        "status": "Afgeronde Referentie",
+        "description": "Langdurige engineering-uitvoering, mechanische modellering en fabricagecoördinatiekaders die de implementatie van belangrijke activa voor procesindustrieën optimaliseren.",
+        "scope": "Mechanische integriteitsverificaties van activa, detailtekeningen voor ruwe fabricagepakketten, leveranciersafstemming en tracking van constructiebeperkingen.",
+        "deliverables": "Gecertificeerde fabricage-ready productiedatasets, geverifieerde mechanische apparatuurspecificaties en kwaliteitscontrolelijsten."
+      }
+    }
   },
   "footer": {
     "description": "PCE BV levert engineering-, projectcontrols- en documentatiediensten voor chemie-, petrochemie-, energie- en infrastructuurprojecten.",
@@ -276,12 +407,20 @@
   "contactSection": {
     "badge": "Aan de slag",
     "heading": "Projecten beginnen met duidelijkheid.",
+    "subheading": "Gebruik het contactformulier voor een directe technische aanvraag of neem contact op via de gegevens hieronder.",
     "emailLabel": "E-mail",
     "phoneLabel": "Telefoon",
+    "businessHours": "Openingstijden",
+    "businessHoursValue": "Ma-Vr, 08:30-17:30 CET",
+    "responseTime": "Reactietijd",
+    "responseTimeValue": "< 24 uur",
+    "primaryContact": "Primair contact",
+    "primaryContactValue": "Managing Director",
     "requestSent": "Aanvraag verzonden",
     "openingWhatsApp": "WhatsApp-beveiligde lijn openen...",
     "quickEnquiry": "Snelle aanvraag",
-    "sendMessage": "Stuur een bericht."
+    "sendMessage": "Stuur een bericht.",
+    "formNote": "Alle velden worden veilig verwerkt en alleen gebruikt voor reactie doeleinden."
   },
   "serviceModal": {
     "whatsappInterest": "Hallo, ik wil graag meer weten over {{service}}",

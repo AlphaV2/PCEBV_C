@@ -9,45 +9,17 @@ import { useTranslatedAbout } from '../hooks/useTranslatedData';
  * Compact, authoritative About page
  * - Hero preserved
  * - Overview + triangular interface visual
- * - Short timeline
  * - Founders section kept
- * - Thin client-exposure ticker near CTA
  * - Smaller CTA height
  * - Mobile-friendly and low-redundancy
  */
-
-const TIMELINE = [
-  {
-    year: '1991',
-    titleKey: 'about.timeline.foundation',
-  },
-  {
-    year: '2025',
-    titleKey: 'about.timeline.established',
-  },
-  {
-    year: 'Today',
-    titleKey: 'about.timeline.global',
-  },
-];
-
-const CLIENT_EXPOSURE = [
-  'Reliance',
-  'Jurong',
-  'Toyo',
-  'IHI',
-  'ONGC',
-  'GSPC',
-];
 
 export default function AboutPage(): React.ReactNode {
   return (
     <main className="bg-[#F6F8FB] text-[#071B34] antialiased overflow-hidden min-h-screen">
       <Hero />
       <OverviewSection />
-      <TimelineSection />
       <FoundersSection />
-      <ClientTicker />
       <FinalCTA />
     </main>
   );
@@ -61,7 +33,7 @@ function Hero() {
   const { t } = useTranslation();
   return (
     <header
-      className="relative bg-[#071B34] bg-cover bg-center min-h-[80vh] lg:min-h-[84vh] flex items-center overflow-hidden mt-[80px] lg:mt-[96px]"
+      className="relative bg-[#071B34] bg-cover bg-center min-h-[45vh] md:min-h-[50vh] lg:min-h-[58vh] flex items-center overflow-hidden mt-[80px] lg:mt-[96px]"
       style={{ backgroundImage: "url('/background/bg2.webp')" }}
       aria-label="About PCE BV"
     >
@@ -76,7 +48,7 @@ function Hero() {
         }}
       />
 
-      <div className="relative z-10 container mx-auto px-6 lg:px-12 py-16">
+      <div className="relative z-10 container mx-auto px-6 lg:px-12 py-10 lg:py-12">
         <div className="max-w-3xl text-white">
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-7 h-[2px] bg-[#F25C19]" />
@@ -85,8 +57,8 @@ function Hero() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-[4.3rem] leading-[0.95] tracking-[-0.05em] font-black max-w-[11ch]">
-            {t('about.heroHeading', 'Engineering precision for industrial execution.')}
+          <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] leading-[0.98] tracking-[-0.05em] font-black max-w-[12ch]">
+            {t('about.heroHeading', 'Engineering excellence for complex industrial projects.')}
           </h1>
 
           <p className="mt-7 max-w-2xl text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
@@ -142,6 +114,19 @@ function OverviewSection() {
             <div className="mt-7 space-y-5 text-[#5B6472] leading-relaxed max-w-2xl">
               {aboutCopy.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              {[
+                { label: t('about.experienceLabel', 'Years Industry Experience'), value: '34+' },
+                { label: t('about.netherlandsLabel', 'Netherlands-led Governance'), value: 'EU' },
+                { label: t('about.partnerLabel', 'Partnered with PCE PL Mumbai'), value: 'PCE PL' },
+              ].map((item) => (
+                <div key={item.label} className="rounded-2xl border border-slate-200 bg-[#F8FAFC] px-4 py-4 shadow-sm">
+                  <div className="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">{item.label}</div>
+                  <div className="mt-1 text-2xl font-black text-[#071B34]">{item.value}</div>
+                </div>
               ))}
             </div>
 
@@ -256,112 +241,6 @@ function TriangleLevel({
         ) : null}
       </div>
     </div>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                TIMELINE                                    */
-/* -------------------------------------------------------------------------- */
-
-function TimelineSection() {
-  const { t } = useTranslation();
-  return (
-    <section className="relative py-14 lg:py-16 bg-[#F6F8FB] overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
-          <div>
-            <span className="text-[10px] uppercase tracking-[0.24em] font-black text-[#F25C19]">
-              {t('about.timelineBadge', 'Timeline')}
-            </span>
-
-            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-[3rem] leading-none tracking-[-0.04em] font-black text-[#071B34]">
-              {t('about.timelineHeading', 'Built through experience.')}
-            </h2>
-          </div>
-
-          <p className="max-w-md text-[#5B6472] leading-relaxed">
-            {t('about.timelineDescription', 'From engineering legacy to structured global EPC delivery.')}
-          </p>
-        </div>
-
-        <div className="relative">
-          <div className="absolute top-[22px] left-0 right-0 h-px bg-[#DCE4EC]" />
-
-          <div className="overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <div className="flex lg:grid lg:grid-cols-3 gap-5 min-w-max lg:min-w-0">
-              {TIMELINE.map((item, idx) => (
-                <article key={item.year} className="w-[280px] lg:w-auto">
-                  <div className="relative z-10 w-11 h-11 rounded-full border-2 border-[#071B34] bg-white flex items-center justify-center text-sm font-black text-[#071B34]">
-                    {idx + 1}
-                  </div>
-
-                  <div className="mt-7 rounded-[24px] border border-[#E6ECF2] bg-white p-7 transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_18px_40px_-24px_rgba(7,27,52,0.12)]">
-                    <span className="text-[10px] uppercase tracking-[0.22em] font-black text-[#F25C19]">
-                      {item.year}
-                    </span>
-
-                    <h3 className="mt-3 text-xl font-black leading-snug text-[#071B34]">
-                      {t(item.titleKey, item.titleKey)}
-                    </h3>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/*                           CLIENT EXPOSURE TICKER                           */
-/* -------------------------------------------------------------------------- */
-
-function ClientTicker() {
-  const repeated = [...CLIENT_EXPOSURE, ...CLIENT_EXPOSURE];
-  const { t } = useTranslation();
-
-  return (
-    <section className="py-7 bg-[#F8FAFC] border-y border-[#E7EDF3]">
-      <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
-        <div className="rounded-2xl border border-[#DCE4EC] bg-white px-5 py-4 shadow-[0_12px_30px_-24px_rgba(7,27,52,0.18)] overflow-hidden">
-          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-            <div className="shrink-0">
-              <span className="block text-[10px] uppercase tracking-[0.24em] font-black text-[#F25C19]">
-                {t('about.clientExposure', 'Project Exposure')}
-              </span>
-              
-            </div>
-
-            <div className="relative w-full overflow-hidden">
-              <div
-                className="flex w-max items-center gap-8 whitespace-nowrap"
-                style={{
-                  animation: 'ticker 24s linear infinite',
-                }}
-              >
-                {repeated.map((name, index) => (
-                  <span
-                    key={`${name}-${index}`}
-                    className="text-sm sm:text-base font-black tracking-tight text-[#071B34]"
-                  >
-                    {name}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <style>{`
-          @keyframes ticker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-        `}</style>
-      </div>
-    </section>
   );
 }
 

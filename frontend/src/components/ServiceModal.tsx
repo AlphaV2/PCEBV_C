@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Service } from '../../types';
 import { X, Download, CheckCircle, MessageCircle, ArrowRight, Cpu, Activity } from 'lucide-react';
-import { WHATSAPP_NUMBER } from '../../constants';
+import { buildWhatsAppUrl } from '../config';
 
 interface ServiceModalProps {
   service: Service | null;
@@ -14,7 +14,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
   if (!service) return null;
 
   // Generate WhatsApp link based on the specific service title
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER.replace('+','')}?text=${encodeURIComponent(t('serviceModal.whatsappInterest', "Hi, I'm interested in learning more about {{service}}", { service: service.title }))}`;
+  const whatsappUrl = buildWhatsAppUrl(t('serviceModal.whatsappInterest', "Hi, I'm interested in learning more about {{service}}", { service: service.title }));
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement;

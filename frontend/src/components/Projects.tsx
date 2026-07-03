@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArrowUpRight, ZoomIn, Loader2, Database, Briefcase, Settings } from 'lucide-react';
+import { ArrowUpRight, Loader2, Database, Briefcase, Settings, ArrowLeft, ChevronDown } from 'lucide-react';
 import { Project } from '../../types';
 import { PROJECTS as STATIC_PROJECTS } from '../../constants';
-import ProjectModal from './ProjectModal';
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
@@ -73,12 +72,41 @@ const Projects: React.FC = () => {
   }, [API_BASE_URL]);
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, idx?: number) => {
-    // If the project image 404s, fallback to one of the known background images.
     const choice = typeof idx === 'number' ? (idx % 3) + 1 : 1;
     e.currentTarget.src = `/background/bg${choice}.webp`;
   };
 
-  // Project cards fallback to known existing files in public/background/bg1..3.webp.
+  const hasSensitiveText = (value?: string) => !!value && /(client|cost|contract|revenue|billing|invoice|internal|identifier|ref\.?|\$|€|£)/i.test(value);
+
+  const getSafeTitle = (project: Project) => {
+    return hasSensitiveText(project.title) ? t('projects.selectedProject', 'Selected Engineering Project') : project.title;
+  };
+
+  const getSafeDescription = (project: Project) => {
+    return hasSensitiveText(project.description)
+      ? t('projects.overviewDefault', 'Representative engineering delivery with a focus on scope, discipline coordination, and deliverable quality.')
+      : project.description;
+  };
+
+  const getSafeBullets = (items?: string[], fallback?: string[]) => {
+    const cleaned = (items || []).filter((item) => !hasSensitiveText(item));
+    return cleaned.length > 0 ? cleaned : (fallback || []);
+  };
+
+  const disciplineItems = [
+    t('projects.disciplineProcess', 'Process'),
+    t('projects.disciplinePiping', 'Piping'),
+    t('projects.disciplineMechanical', 'Mechanical'),
+    t('projects.disciplineElectrical', 'Electrical'),
+    t('projects.disciplineInstrumentation', 'Instrumentation'),
+  ];
+
+  const capabilityItems = [
+    t('projects.capabilityCoordination', 'Interface coordination'),
+    t('projects.capabilityDocumentControl', 'Document control discipline'),
+    t('projects.capabilityQuality', 'Quality review and consistency checks'),
+    t('projects.capabilityExecution', 'Execution support across work packages'),
+  ];
 
   if (loading) {
     return (
@@ -110,17 +138,98 @@ const Projects: React.FC = () => {
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="lg:hidden space-y-4">
           {projects.map((project, idx) => {
-            // Replaced "Drone" logic with EPC relevant logic
+            const isSelected = selectedProject?.id === project.id;
+
+            if (selectedProject && !isSelected) return null;
+
+            return (
+              <article
+                key={project.id}
+                className={`overflow-hidden rounded-2xl border bg-white shadow-sm ${isSelected ? 'border-blue-400 ring-2 ring-blue-100' : 'border-slate-200'}`}
+              >
+                <button
+                  type="button"
+                  onClick={() => setSelectedProject(isSelected ? null : project)}
+                  className="block w-full text-left"
+                  aria-expanded={isSelected}
+                >
+                  <div className="relative h-44 overflow-hidden bg-slate-100">
+                    {project.image ? (
+                      <img
+                        src={resolveImageSrc(project.image, idx)}
+                        alt={project.title}
+                        loading="lazy"
+                        className="h-full w-full object-cover"
+                        onError={(e) => handleImageError(e, idx)}
+                      />
+                    ) : (
+                      <div aria-hidden style={{ backgroundImage: `url(/background/bg${(idx % 3) + 1}.webp)` }} className="h-full w-full bg-cover bg-center" />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent" />
+                    <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[9px] font-black uppercase tracking-[0.24em] text-slate-700">
+                      {t('projects.tapToExpand', 'Tap to expand')}
+                    </div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-lg font-black text-white leading-tight">{getSafeTitle(project)}</h3>
+                      <p className="mt-1 text-xs leading-relaxed text-white/85 line-clamp-2">{getSafeDescription(project)}</p>
+                    </div>
+                  </div>
+                </button>
+
+                {isSelected && (
+                  <div className="space-y-5 p-5">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedProject(null)}
+                      className="inline-flex h-11 items-center gap-2 rounded-full border border-slate-200 bg-white px-4 text-[10px] font-black uppercase tracking-[0.22em] text-slate-900 shadow-sm"
+                    >
+                      <ArrowLeft size={14} />
+                      {t('projects.back', 'Back')}
+                    </button>
+
+                    <DetailBlock
+                      title={t('projects.overview', 'Overview')}
+                      items={[getSafeDescription(project)]}
+                    />
+
+                    <DetailBlock
+                      title={t('projects.scope', 'Engineering Scope')}
+                      items={getSafeBullets(project.fullDetails?.solution, [t('projects.scopeDefault', 'Representative multidisciplinary engineering delivery.')])}
+                    />
+
+                    <DetailBlock
+                      title={t('projects.disciplines', 'Disciplines Involved')}
+                      items={disciplineItems}
+                    />
+
+                    <DetailBlock
+                      title={t('projects.deliverables', 'Deliverables')}
+                      items={getSafeBullets(project.fullDetails?.impact, [t('projects.deliverablesDefault', 'Technical deliverables aligned with project governance.')])}
+                    />
+
+                    <DetailBlock
+                      title={t('projects.capabilities', 'Key Engineering Capabilities')}
+                      items={capabilityItems}
+                    />
+                  </div>
+                )}
+              </article>
+            );
+          })}
+        </div>
+
+        <div className="hidden lg:grid gap-6 lg:grid-cols-[0.92fr_1.08fr] items-start">
+          <div className={`grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-6 ${selectedProject ? 'lg:opacity-95' : ''}`}>
+          {projects.map((project, idx) => {
             const isEngineering = project.category?.toLowerCase().includes('engineering');
 
             return (
               <div
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
-                className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                className={`group flex flex-col bg-white rounded-2xl overflow-hidden border shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${selectedProject?.id === project.id ? 'border-blue-400 ring-2 ring-blue-100' : 'border-slate-200'}`}
                 tabIndex={0}
                 role="button"
                 aria-label={`View details for ${project.title}`}
@@ -156,53 +265,106 @@ const Projects: React.FC = () => {
                     {project.category || 'Project'}
                   </div>
 
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center shadow-xl transform scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 delay-75">
-                      <ZoomIn className="text-white" size={18} />
-                    </div>
-                  </div>
+                  <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors duration-300" />
                 </div>
 
                 {/* Content Section */}
                 <div className="p-5 flex-1 flex flex-col">
                   <h3 className="text-base font-black text-slate-900 mb-2 flex items-start justify-between group-hover:text-blue-600 transition-colors leading-tight">
-                    <span className="line-clamp-2 pr-2">{project.title}</span>
+                    <span className="line-clamp-2 pr-2">{getSafeTitle(project)}</span>
                     <ArrowUpRight size={18} className="text-slate-300 group-hover:text-blue-600 transition-colors shrink-0 mt-0.5" />
                   </h3>
                   
                   <p className="text-slate-600 text-xs leading-relaxed mb-5 line-clamp-3 font-medium">
-                    {project.description}
+                    {getSafeDescription(project)}
                   </p>
-
-                  {/* Metrics Array */}
-                  {project.metrics && project.metrics.length > 0 && (
-                    <div className="mt-auto pt-4 border-t border-slate-100 grid grid-cols-2 gap-2">
-                      {project.metrics.slice(0, 2).map((metric: string, idx: number) => (
-                        <div key={idx} className="bg-slate-50 px-2 py-2 rounded-lg border border-slate-100">
-                          <div className="text-[8px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">
-                            {t('projects.metric', 'Highlight')}
-                          </div>
-                          <div className="text-[10px] font-bold text-slate-800 line-clamp-2 leading-tight" title={metric}>
-                            {metric}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
                 </div>
               </div>
             );
           })}
+          </div>
+
+          <div className="lg:sticky lg:top-28">
+            {selectedProject ? (
+              <article className="rounded-3xl border border-slate-200 bg-white shadow-xl overflow-hidden">
+                <div className="relative h-56 sm:h-72 bg-slate-100">
+                  <img
+                    src={resolveImageSrc(selectedProject.image, 0)}
+                    alt={selectedProject.title}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                    onError={(e) => handleImageError(e)}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" />
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-slate-900 shadow-lg"
+                  >
+                    <ArrowLeft size={14} />
+                    {t('projects.back', 'Back')}
+                  </button>
+                  <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                    <p className="text-[10px] font-black uppercase tracking-[0.28em] text-[#F25C19]">
+                      {t('projects.detailsBadge', 'Selected Project')}
+                    </p>
+                    <h3 className="mt-2 text-2xl font-black leading-tight">{getSafeTitle(selectedProject)}</h3>
+                  </div>
+                </div>
+
+                <div className="p-5 sm:p-6 space-y-5">
+                  <div>
+                    <h4 className="text-xs font-black uppercase tracking-[0.22em] text-slate-400 mb-2">{t('projects.overview', 'Overview')}</h4>
+                    <p className="text-sm leading-relaxed text-slate-600">{getSafeDescription(selectedProject)}</p>
+                  </div>
+
+                  <DetailBlock
+                    title={t('projects.scope', 'Engineering Scope')}
+                    items={getSafeBullets(selectedProject.fullDetails?.solution, [t('projects.scopeDefault', 'Representative multidisciplinary engineering delivery.')])}
+                  />
+
+                  <DetailBlock
+                    title={t('projects.disciplines', 'Disciplines Involved')}
+                    items={disciplineItems}
+                  />
+
+                  <DetailBlock
+                    title={t('projects.deliverables', 'Deliverables')}
+                    items={getSafeBullets(selectedProject.fullDetails?.impact, [t('projects.deliverablesDefault', 'Technical deliverables aligned with project governance.')])}
+                  />
+
+                  <DetailBlock
+                    title={t('projects.capabilities', 'Key Engineering Capabilities')}
+                    items={capabilityItems}
+                  />
+                </div>
+              </article>
+            ) : (
+              <div className="rounded-3xl border border-dashed border-slate-300 bg-white p-8 text-sm text-slate-500 shadow-sm">
+                {t('projects.selectPrompt', 'Select a project to view its engineering scope and deliverables.')}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Project Details Modal */}
-      {selectedProject && (
-        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
-      )}
     </section>
   );
 };
 
 export default Projects;
+
+function DetailBlock({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div>
+      <h4 className="text-xs font-black uppercase tracking-[0.22em] text-slate-400 mb-2">{title}</h4>
+      <ul className="space-y-2">
+        {items.map((item) => (
+          <li key={item} className="flex items-start gap-2 text-sm text-slate-600 leading-relaxed">
+            <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#F25C19] shrink-0" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}

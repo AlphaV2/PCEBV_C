@@ -4,13 +4,20 @@ import { useTranslation } from 'react-i18next';
 
 import Navbar from './src/components/Navbar';
 import Footer from './src/components/Footer';
+import CookieConsentBanner from './src/components/CookieConsentBanner';
 import FloatingContactForm from './src/components/FloatingContactForm';
 import HomePage from './src/pages/HomePage';
 import ServicesPage from './src/pages/ServicesPage';
 import ProjectsPage from './src/pages/ProjectsPage';
 import AboutPage from './src/pages/AboutPage';
 import ContactPage from './src/pages/ContactPage';
+import PrivacyPolicyPage from './src/pages/PrivacyPolicyPage';
+import TermsPage from './src/pages/TermsPage';
+import CookiePolicyPage from './src/pages/CookiePolicyPage';
 import HOMEPAGE_CONFIG from './src/config/homepage.config';
+import { COMPANY } from './src/config';
+import { loadCookieConsent } from './src/config/cookies';
+import { applyPageMetadata } from './src/metadata';
 
 import { WHATSAPP_NUMBER } from './constants';
 import { Service, Product } from './types';
@@ -24,6 +31,7 @@ const App: React.FC = () => {
   const BRAND = HOMEPAGE_CONFIG.colors;
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [cookieConsent, setCookieConsent] = useState(loadCookieConsent());
   const { i18n, t } = useTranslation();
   const currentPath = typeof window !== 'undefined' ? normalizePath(window.location.pathname) : '/';
 
@@ -32,6 +40,8 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const trackVisitor = async () => {
+      if (!cookieConsent?.analytics) return;
+
       try {
         const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
         fetch(`${API_BASE_URL}/track_visitor.php`, {
@@ -44,7 +54,7 @@ const App: React.FC = () => {
       }
     };
     trackVisitor();
-  }, []);
+  }, [currentPath, cookieConsent?.analytics]);
 
   const handleOpenService = (service: Service) => setSelectedService(service);
   const handleOpenProduct = (product: Product) => setSelectedProduct(product);
@@ -55,8 +65,12 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const language = i18n.resolvedLanguage || i18n.language || 'en';
-    document.documentElement.lang = language;
-    document.title = t('app.title', 'PCE BV | Engineering and Project Controls');
+    applyPageMetadata({
+      title: t('app.title', `${COMPANY.name} | Engineering and Project Controls`),
+      description: t('app.description', 'Netherlands-led EPC engineering and project controls for complex industrial projects across Europe.'),
+      path: currentPath,
+      locale: language,
+    });
   }, [i18n.language, i18n.resolvedLanguage, t]);
   
   const handleCloseAll = () => {
@@ -74,6 +88,12 @@ const App: React.FC = () => {
         return <AboutPage />;
       case '/contact':
         return <ContactPage />;
+      case '/privacy-policy':
+        return <PrivacyPolicyPage />;
+      case '/terms':
+        return <TermsPage />;
+      case '/cookie-policy':
+        return <CookiePolicyPage />;
       default:
         return <HomePage />;
     }
@@ -99,6 +119,8 @@ const App: React.FC = () => {
       </main>
 
       <Footer />
+
+      <CookieConsentBanner onConsentChange={setCookieConsent} />
 
       <Suspense fallback={<div className="fixed inset-0 z-[101] flex items-center justify-center bg-black/20"><Loader2 className="animate-spin text-white"/></div>}>
         

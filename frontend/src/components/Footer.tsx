@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { SOCIAL_LINKS } from '../../constants';
 import HOMEPAGE_CONFIG from '../config/homepage.config';
+import { FOOTER, ROUTES } from '../config';
 import { useTranslatedNavLinks, useTranslatedServices } from '../hooks/useTranslatedData';
 
 const Footer: React.FC = () => {
@@ -43,7 +44,7 @@ const Footer: React.FC = () => {
             </div>
 
             <p className="text-sm text-zinc-400 leading-relaxed mb-6 max-w-xs">
-              {t('footer.description', footer.company_line)}
+              {t('footer.description', FOOTER.companyLine || footer.company_line)}
             </p>
 
             {/* LinkedIn Icon */}
@@ -116,22 +117,22 @@ const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-4">
               <li>
-                <a href={`mailto:${footer.contact_info.email}`} className="flex items-start gap-3 group">
+                <a href={`mailto:${FOOTER.contactInfo.email || footer.contact_info.email}`} className="flex items-start gap-3 group">
                   <div className="mt-0.5 p-1.5 rounded bg-zinc-800/50 border border-zinc-700/50 text-zinc-400 group-hover:text-[var(--accent,#F25C19)] group-hover:border-[var(--accent,#F25C19)] transition-colors">
                     <Mail size={14} />
                   </div>
                   <span className="text-sm font-medium text-zinc-400 group-hover:text-white transition-colors">
-                    {footer.contact_info.email}
+                    {FOOTER.contactInfo.email || footer.contact_info.email}
                   </span>
                 </a>
               </li>
               <li>
-                <a href={`tel:${footer.contact_info.phone}`} className="flex items-start gap-3 group">
+                <a href={`tel:${FOOTER.contactInfo.phone || footer.contact_info.phone}`} className="flex items-start gap-3 group">
                   <div className="mt-0.5 p-1.5 rounded bg-zinc-800/50 border border-zinc-700/50 text-zinc-400 group-hover:text-[var(--accent,#F25C19)] group-hover:border-[var(--accent,#F25C19)] transition-colors">
                     <Phone size={14} />
                   </div>
                   <span className="text-sm font-medium text-zinc-400 group-hover:text-white transition-colors">
-                    {footer.contact_info.phone}
+                    {FOOTER.contactInfo.phone || footer.contact_info.phone}
                   </span>
                 </a>
               </li>
@@ -140,7 +141,7 @@ const Footer: React.FC = () => {
                   <MapPin size={14} />
                 </div>
                 <span className="text-sm font-medium text-zinc-400">
-                  {footer.contact_info.address}
+                  {FOOTER.contactInfo.address || footer.contact_info.address}
                 </span>
               </li>
             </ul>
@@ -158,8 +159,8 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-center">
-            <a href="#" className="hover:text-white transition-colors">{t('footer.privacy', 'Privacy Policy')}</a>
-            <a href="#" className="hover:text-white transition-colors">{t('footer.terms', 'Terms of Service')}</a>
+            <a href={ROUTES.privacy} className="hover:text-white transition-colors">{t('footer.privacy', 'Privacy Policy')}</a>
+            <a href={ROUTES.terms} className="hover:text-white transition-colors">{t('footer.terms', 'Terms of Service')}</a>
           </div>
 
           <div className="flex items-center gap-1.5 mt-2 lg:mt-0">
