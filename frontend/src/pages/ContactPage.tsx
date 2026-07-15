@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useTranslatedContactEmails, useTranslatedContactOffices } from '../hooks/useTranslatedData';
+import { useTranslatedContactOffices } from '../hooks/useTranslatedData';
 import HOMEPAGE_CONFIG from '../config/homepage.config';
 
 export const ContactPage: React.FC = () => {
   const { t } = useTranslation();
   const { footer } = HOMEPAGE_CONFIG;
-  const contactEmails = useTranslatedContactEmails() || [];
   const contactOffices = useTranslatedContactOffices() || [];
 
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -27,7 +26,6 @@ export const ContactPage: React.FC = () => {
     };
 
     try {
-      // FIXED: Now accurately targeting VITE_API_BASE_URL from your .env file
       await fetch(import.meta.env.VITE_API_BASE_URL, {
         method: 'POST',
         mode: 'no-cors',
@@ -97,26 +95,20 @@ export const ContactPage: React.FC = () => {
                   <a href={`tel:${footer.contact_info.phone}`} className="text-sm font-black text-[#071B34] hover:text-[#2563EB] transition-colors mt-1 block">{footer.contact_info.phone}</a>
                   <span className="text-[10px] text-[#64748B] block mt-1 font-semibold">08:30 – 17:30 CET</span>
                 </div>
-                <div className="border border-[#E5E7EB] p-4 rounded-md bg-[#F8FAFC]">
-                  <span className="text-[10px] font-black text-[#64748B] uppercase tracking-wider block">Central Mail</span>
-                  <a href={`mailto:${footer.contact_info.email}`} className="text-sm font-black text-[#071B34] hover:text-[#2563EB] transition-colors mt-1 block break-all">{footer.contact_info.email}</a>
-                  <span className="text-[10px] text-[#2563EB] block mt-1 font-black">Response &lt; 24 Hrs</span>
-                </div>
+                
               </div>
 
-              {/* Clean Structured Role Matrices */}
+              {/* Clean Single Desk Row Matrix */}
               <div className="space-y-2">
-                <span className="text-[10px] font-black tracking-wider text-[#64748B] uppercase block px-1">Specialized Desks</span>
-                <div className="border border-[#E5E7EB] divide-y divide-[#E5E7EB] rounded-md overflow-hidden">
-                  {contactEmails.map((email) => (
-                    <div key={email.role} className="p-3.5 bg-white flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 hover:bg-[#F8FAFC] transition-colors">
-                      <div>
-                        <h4 className="text-xs font-black text-[#071B34] uppercase tracking-wide">{email.role}</h4>
-                        {email.desc && <p className="text-[11px] text-[#64748B] font-medium">{email.desc}</p>}
-                      </div>
-                      <a href={`mailto:${email.email}`} className="text-xs font-bold text-[#2563EB] hover:underline shrink-0 font-mono tracking-tight">{email.email}</a>
-                    </div>
-                  ))}
+                <span className="text-[10px] font-black tracking-wider text-[#64748B] uppercase block px-1">Primary Communications Desk</span>
+                <div className="border border-[#E5E7EB] rounded-md overflow-hidden p-4 bg-white hover:bg-[#F8FAFC] transition-colors">
+                  <h4 className="text-xs font-black text-[#071B34] uppercase tracking-wide">Corporate Head Office</h4>
+                  <p className="text-[11px] text-[#64748B] font-medium mt-1 mb-2">
+                    For all global operations, business management services, and technical briefs triage queries.
+                  </p>
+                  <a href={`mailto:${footer.contact_info.email}`} className="text-xs font-bold text-[#2563EB] hover:underline font-mono tracking-tight block break-all">
+                    {footer.contact_info.email}
+                  </a>
                 </div>
               </div>
             </div>
