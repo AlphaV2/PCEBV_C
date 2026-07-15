@@ -21,6 +21,8 @@ export const COMPANY = {
   },
   socialLinks: {
     linkedin: 'https://www.linkedin.com/in/nishikantchoudharypmp/',
+    linkedin_nishikant: 'https://www.linkedin.com/in/nishikantchoudharypmp/',
+    linkedin_kiran: 'https://www.linkedin.com/in/kiran-kulkarni-807b95a/',
     twitter: 'https://twitter.com/',
     instagram: 'https://www.instagram.com/',
     facebook: 'https://www.facebook.com/',

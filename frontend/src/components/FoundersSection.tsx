@@ -28,7 +28,7 @@ const defaultLeft: Founder = {
   image: '/founderprofile/founder_image.webp',
   bio: 'EU operations lead with governance, client interface and project controls expertise.',
   tags: ['Governance', 'Client Interface', 'Project Controls'],
-  linkedin: SOCIAL_LINKS?.linkedin ?? '#',
+  linkedin: SOCIAL_LINKS?.linkedin_nishikant ?? '#',
 };
 
 const defaultRight: Founder = {
@@ -38,7 +38,7 @@ const defaultRight: Founder = {
   image: '/founderprofile/founder_image2.webp',
   bio: 'India execution lead with discipline expertise in long‑cycle engineering delivery and execution planning.',
   tags: ['India Operations', 'Engineering Delivery', 'Execution Planning'],
-  linkedin: SOCIAL_LINKS?.linkedin ?? '#',
+  linkedin: SOCIAL_LINKS?.linkedin_kiran ?? '#',
 };
 
 const FoundersSection: React.FC = () => {
@@ -48,6 +48,10 @@ const FoundersSection: React.FC = () => {
   // Use translated TEAM entries if available, otherwise fall back to defaults.
   const leftFounder = translatedTeam.find((member) => member.id === 'founder-nishikant') ?? translatedTeam[0] ?? defaultLeft;
   const rightFounder = translatedTeam.find((member) => member.id === 'founder-kiran') ?? translatedTeam[1] ?? defaultRight;
+
+  // FIXED: Explicitly map the new separate links, checking hook fallbacks to guarantee consistency
+  const leftLinkedin = leftFounder.linkedin && leftFounder.linkedin !== '#' ? leftFounder.linkedin : (SOCIAL_LINKS?.linkedin_nishikant ?? '#');
+  const rightLinkedin = rightFounder.linkedin && rightFounder.linkedin !== '#' ? rightFounder.linkedin : (SOCIAL_LINKS?.linkedin_kiran ?? '#');
 
   // image fallback map
   const [fallback, setFallback] = useState<Record<string, string>>({});
@@ -126,7 +130,7 @@ const FoundersSection: React.FC = () => {
 
                 <div className="mt-4">
                   <a
-                    href={leftFounder.linkedin ?? '#'}
+                    href={leftLinkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full bg-[#0056A3] px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/20"
@@ -140,89 +144,72 @@ const FoundersSection: React.FC = () => {
           </div>
 
           {/* Center execution model card */}
-<div className="hidden md:flex relative overflow-hidden flex-col justify-between rounded-[2rem] border border-[#DCE4EC] bg-[linear-gradient(180deg,#F2F5F8_0%,#E9EEF3_100%)] px-8 py-8 shadow-[0_24px_60px_-36px_rgba(15,23,42,0.28)] min-h-[420px]">
+          <div className="hidden md:flex relative overflow-hidden flex-col justify-between rounded-[2rem] border border-[#DCE4EC] bg-[linear-gradient(180deg,#F2F5F8_0%,#E9EEF3_100%)] px-8 py-8 shadow-[0_24px_60px_-36px_rgba(15,23,42,0.28)] min-h-[420px]">
+            {/* subtle texture */}
+            <div
+              className="absolute inset-0 opacity-[0.03] pointer-events-none"
+              style={{
+                backgroundImage:
+                  'repeating-linear-gradient(0deg, rgba(7,27,52,0.08) 0 1px, transparent 1px 28px), repeating-linear-gradient(90deg, rgba(7,27,52,0.08) 0 1px, transparent 1px 28px)',
+              }}
+            />
 
-  {/* subtle texture */}
-  <div
-    className="absolute inset-0 opacity-[0.03] pointer-events-none"
-    style={{
-      backgroundImage:
-        'repeating-linear-gradient(0deg, rgba(7,27,52,0.08) 0 1px, transparent 1px 28px), repeating-linear-gradient(90deg, rgba(7,27,52,0.08) 0 1px, transparent 1px 28px)',
-    }}
-  />
+            <div className="relative z-10">
+              {/* label */}
+              <span className="text-[10px] uppercase tracking-[0.24em] font-black text-[#F25C19]">
+                {t('founders.executionModel', 'Execution Model')}
+              </span>
 
-  <div className="relative z-10">
+              {/* flow */}
+              <div className="mt-10 space-y-7">
+                {/* item */}
+                <div className="flex gap-4 items-start">
+                  <div className="mt-1 w-[2px] h-11 rounded-full bg-[#F25C19]" />
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.18em] font-black text-[#5B6472]">
+                      {t('founders.netherlands', 'Netherlands')}
+                    </p>
+                    <p className="mt-1 text-sm font-bold leading-relaxed text-[#071B34]">
+                      {t('founders.netherlandsBody', 'Governance & Project Oversight')}
+                    </p>
+                  </div>
+                </div>
 
-    {/* label */}
-    <span className="text-[10px] uppercase tracking-[0.24em] font-black text-[#F25C19]">
-      {t('founders.executionModel', 'Execution Model')}
-    </span>
+                {/* item */}
+                <div className="flex gap-4 items-start">
+                  <div className="mt-1 w-[2px] h-11 rounded-full bg-[#2563EB]" />
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.18em] font-black text-[#5B6472]">
+                      {t('founders.mumbai', 'Mumbai')}
+                    </p>
+                    <p className="mt-1 text-sm font-bold leading-relaxed text-[#071B34]">
+                      {t('founders.mumbaiBody', 'Engineering Execution Support')}
+                    </p>
+                  </div>
+                </div>
 
-  
+                {/* item */}
+                <div className="flex gap-4 items-start">
+                  <div className="mt-1 w-[2px] h-11 rounded-full bg-[#94A3B8]" />
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.18em] font-black text-[#5B6472]">
+                      {t('founders.delivery', 'Delivery')}
+                    </p>
+                    <p className="mt-1 text-sm font-bold leading-relaxed text-[#071B34]">
+                      {t('founders.deliveryBody', 'Industrial EPC Project Coordination')}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    {/* flow */}
-    <div className="mt-10 space-y-7">
-
-      {/* item */}
-      <div className="flex gap-4 items-start">
-
-        <div className="mt-1 w-[2px] h-11 rounded-full bg-[#F25C19]" />
-
-        <div>
-          <p className="text-[10px] uppercase tracking-[0.18em] font-black text-[#5B6472]">
-            {t('founders.netherlands', 'Netherlands')}
-          </p>
-
-          <p className="mt-1 text-sm font-bold leading-relaxed text-[#071B34]">
-            {t('founders.netherlandsBody', 'Governance & Project Oversight')}
-          </p>
-        </div>
-      </div>
-
-      {/* item */}
-      <div className="flex gap-4 items-start">
-
-        <div className="mt-1 w-[2px] h-11 rounded-full bg-[#2563EB]" />
-
-        <div>
-          <p className="text-[10px] uppercase tracking-[0.18em] font-black text-[#5B6472]">
-            {t('founders.mumbai', 'Mumbai')}
-          </p>
-
-          <p className="mt-1 text-sm font-bold leading-relaxed text-[#071B34]">
-            {t('founders.mumbaiBody', 'Engineering Execution Support')}
-          </p>
-        </div>
-      </div>
-
-      {/* item */}
-      <div className="flex gap-4 items-start">
-
-        <div className="mt-1 w-[2px] h-11 rounded-full bg-[#94A3B8]" />
-
-        <div>
-          <p className="text-[10px] uppercase tracking-[0.18em] font-black text-[#5B6472]">
-            {t('founders.delivery', 'Delivery')}
-          </p>
-
-          <p className="mt-1 text-sm font-bold leading-relaxed text-[#071B34]">
-            {t('founders.deliveryBody', 'Industrial EPC Project Coordination')}
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  {/* footer */}
-  <div className="relative z-10 pt-8 mt-8 border-t border-[#D7E0E8]">
-
-    <p className="text-xs leading-relaxed font-medium text-[#5B6472] max-w-[24ch]">
-      {t('founders.footer', 'Built for clarity, execution control, and accountable industrial delivery.')}
-    </p>
-
-  </div>
-</div>
+            {/* footer */}
+            <div className="relative z-10 pt-8 mt-8 border-t border-[#D7E0E8]">
+              <p className="text-xs leading-relaxed font-medium text-[#5B6472] max-w-[24ch]">
+                {t('founders.footer', 'Built for clarity, execution control, and accountable industrial delivery.')}
+              </p>
+            </div>
+          </div>
 
           {/* Right founder card */}
           <div
@@ -260,7 +247,7 @@ const FoundersSection: React.FC = () => {
 
                 <div className="mt-4">
                   <a
-                    href={rightFounder.linkedin ?? '#'}
+                    href={rightLinkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full bg-[#C65300] px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-orange-500/20"
@@ -278,7 +265,7 @@ const FoundersSection: React.FC = () => {
         <div className="md:hidden mt-6 grid grid-cols-3 gap-3">
           <div className="p-2 rounded-xl bg-white/90 border border-slate-200 text-center shadow-sm">
             <p className="text-xs font-semibold text-blue-600 uppercase mb-1">{t('founders.mobile.founded', 'Founded')}</p>
-            <p className="text-sm text-slate-900">{t('founders.mobile.foundedValue', '30 Apr 2025')}</p>
+            <p className="text-sm text-slate-900">{t('founders.mobile.foundedValue', '2025')}</p>
           </div>
           <div className="p-2 rounded-xl bg-white/90 border border-slate-200 text-center shadow-sm">
             <p className="text-xs font-semibold text-blue-600 uppercase mb-1">{t('founders.mobile.partner', 'Partner')}</p>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
 import FoundersSection from '../components/FoundersSection';
@@ -8,7 +8,7 @@ import { useTranslatedAbout } from '../hooks/useTranslatedData';
  * AboutPage.tsx
  * Compact, authoritative About page
  * - Hero preserved
- * - Overview + triangular interface visual
+ * - Overview + triangular interface visual optimized for all screen sizes
  * - Founders section kept
  * - Smaller CTA height
  * - Mobile-friendly and low-redundancy
@@ -26,7 +26,7 @@ export default function AboutPage(): React.ReactNode {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                    HERO                                    */
+/* HERO                                    */
 /* -------------------------------------------------------------------------- */
 
 function Hero() {
@@ -61,7 +61,7 @@ function Hero() {
             {t('about.heroHeading', 'Engineering excellence for complex industrial projects.')}
           </h1>
 
-          <p className="mt-7 max-w-2xl text-base sm:text-lg text-slate-300 leading-relaxed font-medium">
+          <p className="mt-7 max-w-2xl text-base sm:text-lg text-slate-300 pointer-events-none leading-relaxed font-medium">
             {t('about.heroDescription', 'Netherlands-led governance with India-based engineering execution support for industrial EPC projects.')}
           </p>
 
@@ -88,7 +88,7 @@ function Hero() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                              OVERVIEW + TRIANGLE                          */
+/* OVERVIEW + TRIANGLE                          */
 /* -------------------------------------------------------------------------- */
 
 function OverviewSection() {
@@ -100,7 +100,7 @@ function OverviewSection() {
       className="relative py-14 lg:py-16 bg-white border-y border-[#E7EDF3] scroll-mt-24"
     >
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
-        <div className="grid lg:grid-cols-[1fr_0.95fr] gap-14 items-start">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-14 items-start">
           {/* LEFT */}
           <div>
             <span className="text-[10px] uppercase tracking-[0.24em] font-black text-[#F25C19]">
@@ -155,13 +155,12 @@ function OverviewSection() {
           </div>
 
           {/* RIGHT */}
-          <div className="pt-2">
-            <div className="mb-5">
+          <div className="pt-2 w-full">
+            <div className="mb-6 text-center lg:text-left">
               <span className="text-[10px] uppercase tracking-[0.24em] font-black text-[#F25C19]">
                 Interface Model
               </span>
             </div>
-
             <InterfaceTriangle />
           </div>
         </div>
@@ -173,30 +172,31 @@ function OverviewSection() {
 function InterfaceTriangle() {
   const { t } = useTranslation();
   return (
-    <div className="mx-auto w-full max-w-[560px]">
-      <div className="flex flex-col items-center gap-4">
+    <div className="mx-auto w-full max-w-[580px] px-2 sm:px-4">
+      {/* Optimized flex container structure for larger, beautifully padded layers */}
+      <div className="flex flex-col items-center gap-5 sm:gap-6">
         <TriangleLevel
-          width="58%"
-          height="7.25rem"
+          width="w-[70%] sm:w-[62%]"
+          height="h-[8.5rem] sm:h-[9.5rem]"
           color="#23A5E6"
           title="PCE BV"
           subtitle="PO and Interface Coordination"
         />
         <TriangleLevel
-          width="76%"
-          height="7.75rem"
+          width="w-[96%] sm:w-[92%]"
+          height="h-[9rem] sm:h-[10rem]"
           color="#0C67B5"
-          title="PCE PL Middle Level Engineering"
+          title={"PCE PL\nMiddle Level Engineering"}
         />
         <TriangleLevel
-          width="94%"
-          height="8.5rem"
+          width="w-full"
+          height="h-[9.5rem] sm:h-[10.5rem]"
           color="#0A4E99"
-          title="PCE PL FEED and Detail Engineering"
+          title={"PCE PL\nFEED and Detail Engineering"}
         />
       </div>
 
-      <p className="mt-4 text-center text-xs leading-relaxed text-[#5B6472]">
+      <p className="mt-6 text-center text-xs leading-relaxed text-[#5B6472] font-medium px-4">
         {t('about.interfaceStatement', 'An interface between governance, coordination, and execution.')}
       </p>
     </div>
@@ -217,35 +217,36 @@ function TriangleLevel({
   subtitle?: string;
 }) {
   return (
-    <div className="relative flex justify-center" style={{ width }}>
+    <div className={`relative flex justify-center items-end ${width} ${height} group transition-transform duration-300 hover:scale-[1.01]`}>
+      {/* Background clipped polygon layout scaling with container sizes */}
       <div
-        className="absolute inset-0 shadow-[0_18px_40px_-24px_rgba(7,27,52,0.3)]"
+        className="absolute inset-0 shadow-[0_20px_45px_-20px_rgba(7,27,52,0.35)] raw-triangle"
         style={{
           background: color,
           clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)',
-          height,
         }}
         aria-hidden="true"
       />
-      <div
-        className="relative z-10 flex h-[inherit] w-full flex-col items-center justify-center text-center px-4 text-white"
-        style={{ height }}
-      >
-        <div className="text-[11px] sm:text-xs font-black uppercase tracking-[0.2em] leading-tight max-w-[22ch]">
+      
+      {/* Foreground Content Container - uses pt values to force content into safe base zones */}
+      <div className="relative z-10 flex flex-col items-center justify-end text-center w-full px-6 pb-6 pt-12 text-white h-full">
+        {/* Title layer with tracking optimizations and support for dynamic newline splits */}
+        <div className="text-[11px] sm:text-xs font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] leading-snug max-w-[26ch] whitespace-pre-line">
           {title}
         </div>
-        {subtitle ? (
-          <div className="mt-1 text-[11px] sm:text-xs font-semibold tracking-wide opacity-95 max-w-[20ch]">
+        
+        {subtitle && (
+          <div className="mt-1.5 text-[10px] sm:text-[11px] font-semibold tracking-wide opacity-90 max-w-[24ch] leading-tight">
             {subtitle}
           </div>
-        ) : null}
+        )}
       </div>
     </div>
   );
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                 FINAL CTA                                  */
+/* FINAL CTA                                 */
 /* -------------------------------------------------------------------------- */
 
 function FinalCTA() {
@@ -273,7 +274,7 @@ function FinalCTA() {
               </h2>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <a
                 href="/contact"
                 className="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-[#F25C19] px-7 py-3 text-xs uppercase tracking-[0.16em] font-black text-white shadow-lg transition-all hover:brightness-110"
