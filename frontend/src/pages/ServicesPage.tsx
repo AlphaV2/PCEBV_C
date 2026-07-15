@@ -3,7 +3,7 @@ import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTranslatedServices } from '../hooks/useTranslatedData';
 import { ROUTES, SERVICES_PAGE, buildWhatsAppUrl } from '../config';
-
+import { AdvantageStrip } from '../components/AdvantageStrip';
 // ============================================
 // COMPACT ENTERPRISE TEXT BUTTON ENGINE
 // ============================================
@@ -90,6 +90,7 @@ const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
           <span>Global Delivery</span>
           <span className="text-white/20">|</span>
           <span>Quality Assured</span>
+          
         </div>
 
         {/* Closely Aligned Action Button Set */}
@@ -168,6 +169,7 @@ export const ServicesPage: React.FC = () => {
       
       {/* 1. GEOMETRIC DEEP ANGLED HERO COMPONENT */}
       <Hero onExploreClick={scrollToAnchorZone} />
+      <AdvantageStrip />
 
       {/* 2. CORE STRATEGIC STATEMENT MODULE */}
       <section ref={mainExecutionZoneRef} className="bg-white pt-24 pb-16 border-b border-[#CBD5E1] px-6">

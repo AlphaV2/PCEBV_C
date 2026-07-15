@@ -60,7 +60,7 @@ const ContactSection: React.FC = () => {
 
                   <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                     {contact.form_fields.map((field) => {
-                      const inputClasses = "w-full rounded-xl border border-white/10 bg-white px-4 py-3 text-xs font-semibold text-slate-900 transition-all focus:border-[#F25C19] focus:bg-white focus:ring-4 focus:ring-[#F25C19]/15 outline-none appearance-none placeholder:text-slate-400";
+                      const inputClasses = "w-full rounded-xl border border-white/10 bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition-all focus:border-[#F25C19] focus:bg-white focus:ring-4 focus:ring-[#F25C19]/15 outline-none appearance-none placeholder:text-slate-400";
                       
                       if (field.type === 'textarea') {
                         return (
@@ -100,7 +100,7 @@ const ContactSection: React.FC = () => {
 
                   <button
                     type="submit"
-                    className="group mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#C65300] px-6 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-orange-900/20 transition-all hover:bg-[#A94D00] hover:shadow-xl active:scale-[0.98] will-change-transform"
+                    className="group mt-6 inline-flex h-10 w-full items-center justify-center gap-2 rounded-full bg-[#C65300] px-6 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-orange-900/20 transition-all hover:bg-[#A94D00] hover:shadow-xl active:scale-[0.98] will-change-transform"
                   >
                     <MessageCircle size={18} className="transition-transform group-hover:scale-110" />
                     {t('contactSection.submit', contact.submit_button)}

@@ -227,7 +227,7 @@ export const CONTACT_OFFICES = [
 export const CONTACT_EMAILS = [
   {
     role: "General Enquiries",
-    email: "nishikantvc@gmail.com",
+    email: "nishikant.choudhary@pcenc.com",
     desc: "Commercial and Service Requests",
     icon: "mail",
     color: "text-blue-500",
@@ -235,7 +235,7 @@ export const CONTACT_EMAILS = [
   },
   {
     role: "Project Coordination",
-    email: "nishikantvc@gmail.com",
+    email: "nishikant.choudhary@pcenc.com",
     desc: "Project Planning and Controls",
     icon: "briefcase",
     color: "text-purple-500",
@@ -243,12 +243,17 @@ export const CONTACT_EMAILS = [
   },
   {
     role: "Managing Director",
-    email: "nishikantvc@gmail.com",
+    email: "nishikant.choudhary@pcenc.com",
     desc: "Strategic Partnerships",
     icon: "shield",
     color: "text-yellow-600",
     bg: "bg-yellow-50"
   }
+];
+
+export const ADVANTAGE_STRIP = [
+  { text: 'Pay-per-Deliverable' },
+  { text: 'Optimized Cost & Resource Efficiency' }
 ];
 
 export const SERVICES: Service[] = [
@@ -261,7 +266,7 @@ export const SERVICES: Service[] = [
     shortTitle: 'Project Controls',
     category: 'Project Management',
     description: 'Integrated cost, planning, risk, and change management for complex industrial projects.',
-    icon: Briefcase,
+    // icon: Briefcase,
     features: ['Cost & Schedule Control', 'Risk Management', 'EAC Forecasting', 'Change Governance'],
     details: {
       intro: 'PCE BV delivers end-to-end project controls leadership across cost, planning, and risk disciplines to improve certainty, reporting quality, and financial outcomes.',
@@ -272,7 +277,7 @@ export const SERVICES: Service[] = [
         "Governance: Contract and Financial",
         "Methods: Scenario and Sensitivity Analysis"
       ],
-      flowDiagram: "/products/krishi_11l.jpeg",
+      
       sections: [
         {
           heading: 'Execution Approach',
@@ -759,6 +764,37 @@ export const SERVICES: Service[] = [
       ]
     }
   },
+  // Add this inside your SERVICES array
+  {
+    id: 'dai',
+    title: 'Digital Asset Intelligence',
+    shortTitle: 'DAI',
+    category: 'Digital Asset Intelligence', // This creates the 3rd tab automatically
+    description: 'Modernizing engineering information through structured digital asset management and Digital Twin enablement.',
+    icon: Database, // Use the icon you prefer
+    features: ['Legacy Digitization', 'Engineering Data Validation', 'Vendor Data Integration', 'Digital Twin Enablement'],
+    details: {
+      intro: 'We transform legacy engineering data into structured, intelligent assets ready for modern lifecycle management.',
+      technicalSpecs: [
+        "Data: Legacy Digitization & Validation",
+        "Integration: Vendor Data Consolidation",
+        "Digital Twin: Lifecycle Readiness",
+        
+      ],
+      sections: [
+        {
+          heading: 'Core Capabilities',
+          type: 'list',
+          body: [
+            'Legacy engineering data digitization',
+            'Vendor information integration',
+            'Digital Twin platform preparation',
+            'Engineering asset metadata structuring'
+          ]
+        }
+      ]
+    }
+  },
 ];
 
 export const PRODUCTS: Product[] = [
@@ -822,7 +858,7 @@ export const PRODUCTS: Product[] = [
   ],
   description: 'A structured documentation service to keep project data accurate, current, and decision-ready throughout the full project lifecycle.'
 },
-  
+    
 ];
 
 export const PROJECTS: Project[] = [

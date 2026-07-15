@@ -1,0 +1,1010 @@
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\i18n\index.ts ===
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+
+import en from './locales/en.json';
+import nl from './locales/nl.json';
+
+i18n
+  .use(LanguageDetector)        // auto-detects browser language
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: { translation: en },
+      nl: { translation: nl },
+    },
+    fallbackLng: 'en',          // ← English as primary/fallback
+    supportedLngs: ['en', 'nl'],
+    detection: {
+      order: ['localStorage', 'navigator'], // checks saved pref first, then browser
+      caches: ['localStorage'],             // remembers user's choice
+    },
+    interpolation: {
+      escapeValue: false,       // React already escapes
+    },
+  });
+
+export default i18n;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\i18n\locales\en.json ===
+{
+  "whatsapp": {
+    "message": "Hi, I'm interested in PCE BV engineering and project controls services.",
+    "quickEnquiry": "Hello, I'm interested in your engineering services. I'd like to discuss a project.",
+    "quickEnquiryShort": "Quick Enquiry"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "products": "Solutions",
+    "gallery": "Gallery",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "departments": "Departments",
+    "globalOffices": "Global Offices"
+  },
+  "about": {
+    "badge": "Who We Are",
+    "heroHeading": "Engineering precision for industrial execution.",
+    "heroDescription": "Netherlands-led governance with India-based engineering execution support for industrial EPC projects.",
+    "heroCtaPrimary": "Meet Leadership",
+    "heroCtaSecondary": "Explore Company",
+    "headingLine1": "Engineering",
+    "headingLine2": "Excellence",
+    "headingLine3": "With Simplicity.",
+    "overviewBadge": "Company Overview",
+    "overviewHeading": "Structured around execution and accountability.",
+    "values": {
+      "precision": "Precision",
+      "compliance": "Compliance",
+      "globalScale": "Global Scale",
+      "simpleSolutions": "Simple Solutions",
+      "internationalStandards": "International Standards"
+    },
+    "interfaceStatement": "An interface between governance, coordination, and execution.",
+    "timelineBadge": "Timeline",
+    "timelineHeading": "Built through experience.",
+    "timelineDescription": "From engineering legacy to structured global EPC delivery.",
+    "timeline": {
+      "foundation": "Industry Foundation",
+      "established": "PCE BV Established",
+      "global": "Global EPC Delivery"
+    },
+    "clientExposure": "Project Exposure",
+    "finalCtaBadge": "Let’s Build Together",
+    "finalCtaHeading": "Structured engineering execution.",
+    "finalCtaPrimary": "Contact Us",
+    "finalCtaSecondary": "View Services",
+    "leadershipVision": "Leadership Profile",
+    "visionLabel": "Vision",
+    "expertiseLabel": "Expertise Highlights",
+    "expertise": "Project Controls Leadership, Program Management, Contract and Financial Governance, Risk Analysis, and Multicultural Team Development.",
+    "connectCta": "Connect on LinkedIn",
+    "p1": "PCE BV is a trusted provider of engineering, procurement, and execution support services, specialized in detail engineering, project controls, and documentation.",
+    "p2": "Founded and registered with KVK on 30 April 2025, PCE BV is co-founded by Kiran V. Kulkarni and Nishikant V. Choudhary.",
+    "p3": "Our mission is to deliver engineering excellence in the simplest and most effective way while ensuring compliance with international standards.",
+    "p4": "With over three decades of EPC and project controls expertise, we support chemicals, petrochemicals, energy, and infrastructure clients with disciplined delivery."
+  },
+  "contact": {
+    "heading": "Start the Conversation.",
+    "subheading": "Choose the right channel for engineering and project controls enquiries.",
+    "copied": "Copied",
+    "copyEmail": "Copy Email Address",
+    "office1": {
+      "title": "Registered Office (Netherlands)"
+    },
+    "office2": {
+      "title": "Partner Engineering Office (India)"
+    },
+    "emails": {
+      "mail": {
+        "role": "General Enquiries",
+        "desc": "Commercial and Service Requests"
+      },
+      "briefcase": {
+        "role": "Project Coordination",
+        "desc": "Planning and Controls"
+      },
+      "shield": {
+        "role": "Managing Director",
+        "desc": "Strategic Partnerships"
+      }
+    },
+    "form": {
+      "title": "Quick Enquiry",
+      "fillAll": "Please fill in all required fields.",
+      "successTitle": "Opened in WhatsApp!",
+      "sendAnother": "Send another",
+      "submitButton": "Chat via WhatsApp",
+      "whatsappTitle": "New Website Inquiry",
+      "nameLabel": "Name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Email",
+      "emailPlaceholder": "john@company.com",
+      "interestedIn": "I'm interested in...",
+      "topicLabel": "Topic",
+      "selectTopic": "Select a topic",
+      "messageLabel": "Message",
+      "messagePlaceholder": "How can we help?",
+      "topics": {
+        "general": "General Inquiry",
+        "support": "Project Support",
+        "sales": "Services and Quotes",
+        "partnership": "Partnership Opportunities",
+        "careers": "Careers"
+      }
+    }
+  },
+  "services": {
+    "project-controls": {
+      "title": "Project Controls Leadership",
+      "shortTitle": "Project Controls",
+      "desc": "Integrated cost, planning, risk, and change management for complex industrial projects."
+    },
+    "planning-scheduling": {
+      "title": "Planning & Scheduling",
+      "shortTitle": "Planning",
+      "desc": "Level 3/Level 4 detail schedules with resource planning and critical path management."
+    },
+    "cost-controls": {
+      "title": "Cost & Budget Controls",
+      "shortTitle": "Cost Controls",
+      "desc": "Total installed cost estimation, budget management, and variance analysis."
+    },
+    "risk-management": {
+      "title": "Risk & Opportunity Management",
+      "shortTitle": "Risk Management",
+      "desc": "Identification, assessment, and mitigation of project risks with opportunity capture."
+    },
+    "change-management": {
+      "title": "Change & Configuration Management",
+      "shortTitle": "Change Management",
+      "desc": "Disciplined change control processes and configuration baseline management."
+    },
+    "project-governance": {
+      "title": "Project Governance & Reporting",
+      "shortTitle": "Governance",
+      "desc": "Stakeholder reporting, steering committee support, and governance frameworks."
+    },
+    "detail-engineering": {
+      "title": "Detail Engineering Services",
+      "shortTitle": "Detail Engineering",
+      "desc": "Multi-discipline engineering from FEED through IFC with high-quality deliverables."
+    },
+    "process-engineering": {
+      "title": "Process Engineering",
+      "shortTitle": "Process Design",
+      "desc": "Process design, flowsheets, and PID development for chemical and energy projects."
+    },
+    "piping-engineering": {
+      "title": "Piping Engineering & Stress Analysis",
+      "shortTitle": "Piping Design",
+      "desc": "3D piping models, isometrics, and stress analysis for integrity and safety."
+    },
+    "mechanical-engineering": {
+      "title": "Mechanical Engineering",
+      "shortTitle": "Mechanical Design",
+      "desc": "Mechanical equipment design, sizing, and specification for rotating and static equipment."
+    },
+    "electrical-engineering": {
+      "title": "Electrical & Control Engineering",
+      "shortTitle": "Electrical Design",
+      "desc": "Electrical system design, load calculations, and instrumentation & control specifications."
+    },
+    "civil-structural": {
+      "title": "Civil & Structural Engineering",
+      "shortTitle": "Civil Design",
+      "desc": "Structural design, foundation analysis, and site civil works for industrial facilities."
+    },
+    "3d-plant-modeling": {
+      "title": "3D Plant Modeling & Visualization",
+      "shortTitle": "3D Modeling",
+      "desc": "Comprehensive 3D plant models for coordination, clash detection, and constructability review."
+    },
+    "procurement-construction": {
+      "title": "Procurement & Construction Support",
+      "shortTitle": "P&C Support",
+      "desc": "Vendor coordination, field engineering, and construction-stage support."
+    },
+    "documentation-governance": {
+      "title": "Documentation & Governance",
+      "shortTitle": "Documentation",
+      "desc": "Document control, technical reporting, and project governance documentation."
+    },
+    "commissioning-support": {
+      "title": "Commissioning & Start-Up Support",
+      "shortTitle": "Commissioning",
+      "desc": "Commissioning planning, readiness support, and start-up assistance."
+    }
+  },
+  "products": {
+    "badge": "Service Packages",
+    "heading": "Engineering and Controls Solutions",
+    "subheading": "Integrated offerings for detail engineering, project controls, and EPC support.",
+    "viewFullSpecs": "View Full Specs"
+  },
+  "gallery": {
+    "title": "Projects and Delivery Gallery",
+    "sectionFeaturedSpotlight": "Featured Spotlight",
+    "sectionOperationalGrid": "Operational Grid",
+    "lightboxDefaultDescription": "Operational view from project and engineering execution.",
+    "inquireOnWhatsapp": "Inquire on WhatsApp",
+    "imageCounter": "Image",
+    "imageCounterOf": "of",
+    "offerBadge": "HIGHLIGHT",
+    "fallback": {
+      "fullSpecifications": "Full Specifications",
+      "brochure": "Brochure"
+    }
+  },
+
+  "servicesSection": {
+    "badge": "Core Expertise",
+    "heading": "Solutions Designed for Project Delivery",
+    "subheading": "Integrated engineering, controls, and documentation services for process industries.",
+    "details": "Details",
+    "pillarsHeadingPrefix": "Pillars of",
+    "pillarsHeadingSuffix": "PCE BV",
+    "pillarsDescription": "Integrated capabilities and disciplined execution delivering control, clarity, and results across every phase.",
+    "explore": "Explore",
+    "projectManagementCta": "Project Management",
+    "engineeringDesignCta": "Engineering Design",
+    "heroPrefix": "Complete Engineering",
+    "searchPlaceholder": "Find a service...",
+    "projectManagement": "Project Management",
+    "engineeringDesign": "Engineering Design",
+    "modules": "Modules",
+    "noServicesFound": "No services found",
+    "noServicesMessage": "We could not find anything matching \"{{query}}\". Try adjusting your search criteria.",
+    "clearSearch": "Clear Search",
+    "categoryAll": "All",
+    "technicalSpecifications": "Technical Specifications",
+    "closeOverview": "Close Overview",
+    "contactViaWhatsApp": "Contact via WhatsApp",
+    "whatsappInterest": "Hi, I'm interested in the {{service}} services.",
+    "requestConsultation": "Request Consultation",
+    "pillars": {
+      "projectControls": {
+        "title": "Project Controls",
+        "subtitle": "Planning, Scheduling & Cost Control",
+        "description": "Planning, scheduling, cost control, risk management, and progress tracking for disciplined delivery.",
+        "h1": "Planning",
+        "h2": "Scheduling",
+        "h3": "Cost Control",
+        "h4": "Risk Management"
+      },
+      "engineeringDeliverables": {
+        "title": "Engineering Deliverables",
+        "subtitle": "Process to 3D Modelling",
+        "description": "Process, piping, mechanical, electrical, instrumentation, and 3D modelling deliverables across the project lifecycle.",
+        "h1": "Process",
+        "h2": "Piping",
+        "h3": "Mechanical",
+        "h4": "3D Modelling"
+      },
+      "dai": {
+  "title": "Digital Asset Intelligence",
+  "subtitle": "Engineering Data Modernization",
+  "description": "Transforming legacy engineering information into structured, intelligent digital assets through document digitization, vendor data integration, digital twin enablement, and lifecycle engineering support.",
+  "h1": "Legacy Digitization",
+  "h2": "Digital Twins",
+  "h3": "Vendor Data Integration",
+  "h4": "Asset Intelligence"
+},
+"differentiators": {
+  "heading": "Key Differentiators",
+  "driver": "Driver",
+  "value": "Value",
+  "items": [
+    { "d": "Digital Transformation", "v": "Laser scanning, digital twins, legacy document conversion" },
+    { "d": "Client-Centric Flexibility", "v": "Scalable resources, tailored collaboration models" },
+    { "d": "Multidisciplinary Capability", "v": "All Engineering discipline including 3D Model and vendor data integration" }
+  ]
+}
+    }
+  },
+  "founders": {
+    "badge": "Our Founders",
+    "heading": "Strategic leadership across EU and India operations",
+    "executionModel": "Execution Model",
+    "netherlands": "Netherlands",
+    "netherlandsBody": "Governance & Project Oversight",
+    "mumbai": "Mumbai",
+    "mumbaiBody": "Engineering Execution Support",
+    "delivery": "Delivery",
+    "deliveryBody": "Industrial EPC Project Coordination",
+    "footer": "Built for clarity, execution control, and accountable industrial delivery.",
+    "connect": "Connect",
+    "connectAria": "Connect with {{name}} on LinkedIn",
+    "mobile": {
+      "founded": "Founded",
+      "foundedValue": "30 Apr 2025",
+      "partner": "Partner",
+      "partnerValue": "PCE PL, Mumbai",
+      "lineage": "Lineage",
+      "lineageValue": "Since 1991"
+    }
+  },
+  "errorBoundary": {
+    "title": "System Malfunction",
+    "message": "Our sensors detected an unexpected error in the interface. The application has been paused to protect data integrity.",
+    "cta": "Reboot System"
+  },
+  "app": {
+    "title": "PCE BV | Engineering and Project Controls"
+  },
+  "executionModel": {
+    "badge": "How We Deliver",
+    "heading": "Execution Model",
+    "description": "Clear organizational separation ensures responsive governance and scalable execution excellence.",
+    "keyFunctions": "Key Functions:",
+    "keyFunction1": "Single Point of Contact",
+    "keyFunction2": "Governance & Compliance",
+    "keyFunction3": "Stakeholder Reporting",
+    "card1Title": "EU Governance",
+    "card1Body": "Client interface and compliance.",
+    "card2Title": "Integrated Delivery",
+    "card2Body": "Seamless coordination.",
+    "card3Title": "India Execution",
+    "card3Body": "Engineering & site support."
+  },
+  "hero": {
+    "badge": "Engineering and Project Controls",
+    "titleLine1": "Engineering & Project Controls",
+    "titleHighlight": "For Industrial EPC Projects",
+    "subtitle": "Petroleum Consulting Engineers BV supports EPC teams with detail engineering, controls, and documentation excellence.",
+    "cta_primary": "Contact Us",
+    "cta_secondary": "Request Consultation",
+    "strip": {
+      "controls": "Project Controls",
+      "deliverables": "Engineering Deliverables",
+      "execution": "Digital Asset Intelligence"
+    },
+    "statExperience": "34+ Years of Industry Experience",
+    "statEngineers": "300+ Engineering Professionals",
+    "statDelivery": "Global EPC Delivery"
+  },
+  "navbar": {
+    "exploreSolutions": "Explore Solutions",
+    "featuredInventory": "Featured Solutions",
+    "fullInventory": "Full Solutions",
+    "productDemos": "Case Snapshots",
+    "watchVideos": "Project Highlights",
+    "exhibitions": "Events",
+    "eventPhotos": "Event Photos",
+    "missionVision": "Mission and Vision",
+    "readOurStory": "Read Our Story",
+    "contactUs": "Contact Us",
+    "quickChat": "Quick Chat",
+    "bookConsultation": "Book Consultation",
+    "whatsapp": "WhatsApp",
+    "contact": "Contact"
+  },
+  "projects": {
+    "loadingDeployments": "Loading Projects...",
+    "badge": "Track Record",
+    "heading": "Our Project Experience",
+    "subheading": "Selected references from engineering, estimation, and project controls engagements.",
+    "statusOngoing": "Ongoing",
+    "statusEpc": "EPC Experience",
+    "overview": "Overview",
+    "scope": "Engineering Scope",
+    "deliverables": "Key Deliverables",
+    "back": "Back to Projects",
+    "tapToExpand": "Tap to expand details",
+    "detailsBadge": "Project Profiles",
+    "selectPrompt": "Select an engineering profile to evaluate full execution scope and key deliverables.",
+    "featured": "Featured",
+    "contactCta": "Request Consultation",
+    "viewProjects": "View Projects",
+    "servicesCta": "Services",
+    "stats": {
+      "activeReferences": "Active References",
+      "globalDelivery": "Global Delivery",
+      "coreFocus": "Core Focus"
+    },
+    "items": {
+      "project1": {
+        "name": "Petrochemical Plant Design",
+        "status": "Ongoing",
+        "description": "Comprehensive detail engineering and multi-discipline coordination support for large-scale industrial fluid processing complexes.",
+        "scope": "Execution of comprehensive multi-disciplinary detail design frameworks, process workflow optimization, and high-density line configuration analysis.",
+        "deliverables": "Full-lifecycle intelligent 3D Plant Models, As-Built site updates, P&ID optimization layers, and cross-functional clash detection reviews."
+      },
+      "project2": {
+        "name": "Multi-Discipline 3D Engineering",
+        "status": "Ongoing",
+        "description": "Continuous provisions of advanced structural and process execution design models optimizing infrastructure modifications across active industrial environments.",
+        "scope": "Stress calculation, dynamic loading updates, piping material takeoff configurations, and integration interfaces for vendor equipment modules.",
+        "deliverables": "Coordinated 3D structural models, complete isometric documentation matrices, detailed equipment layout schemes, and precise estimation manifests."
+      },
+      "project3": {
+        "name": "MEG Facility EPC Support",
+        "status": "EPC Experience",
+        "description": "Integrated project execution coordination, delivery governance validation, and multi-discipline design engineering assistance for major processing facilities.",
+        "scope": "On-site engineering interface checkouts, technical verification of incoming licensor designs, detailed drawings review, and constructability tracking.",
+        "deliverables": "Construction coordination records, certified detailed execution drawings, field installation checklists, and completed operational commissioning support logs."
+      },
+      "project4": {
+        "name": "Power Plant Detail Engineering",
+        "status": "Completed Reference",
+        "description": "Comprehensive detail design engineering services and complete multi-disciplinary structural modeling for an international thermal power plant.",
+        "scope": "Full-scale structural detailing, multidisciplinary schematic generation, system layout designs, and coordination of vendor interface models.",
+        "deliverables": "Intelligent multi-discipline 3D plant models up to As-Built status, optimized piping layout drawings, and technical specification sheets."
+      },
+      "project5": {
+        "name": "Industrial BOG Motor Systems Engineering",
+        "status": "Completed Reference",
+        "description": "Specialized engineering and multi-discipline execution support for the integration and deployment of Boil-Off Gas (BOG) motor assemblies.",
+        "scope": "Technical evaluation, interface compatibility mapping, system load balancing configurations, and functional specification matching.",
+        "deliverables": "Certified integration layout blueprints, precise supply documentation indices, and operational safety verification metrics."
+      },
+      "project6": {
+        "name": "Petrochemical Complex Linear Alkyl Benzene Prebid Estimation",
+        "status": "Completed Reference",
+        "description": "High-accuracy prebid estimation and engineering support framework optimizing early-phase tender submissions for heavy industrial plants.",
+        "scope": "Material takeoff analysis, structural layout feasibility assessments, design parameter evaluations, and engineering resource estimation.",
+        "deliverables": "Comprehensive technical bid submission packages, optimized engineering cost baselines, and early-stage layout frameworks."
+      },
+      "project7": {
+        "name": "Industrial Processing Facility Enquiry Engineering",
+        "status": "Completed Reference",
+        "description": "Strategic engineering validation, specification alignment, and enquiry analysis support for core equipment and material processing systems.",
+        "scope": "Technical requisition evaluations, vendor design reviews, specification compliance monitoring, and procurement package optimization.",
+        "deliverables": "Validated technical enquiry reports, cross-discipline compliance matrices, and optimized procurement requisition packages."
+      },
+      "project8": {
+        "name": "Continuous 3D Plant Engineering Provisions",
+        "status": "Ongoing Capability",
+        "description": "Multi-year programmatic provision of advanced 3D engineering, structural modifications, and detail piping system configurations for global engineering teams.",
+        "scope": "Continuous stress analysis variations, ongoing clash detection reviews, mechanical layout adaptations, and operational design interface tracking.",
+        "deliverables": "Live 3D asset model data baselines, updated structural isometric configurations, and coordinated multidisciplinary engineering work packages."
+      },
+      "project9": {
+        "name": "FEED Phase Piping MTO Estimation",
+        "status": "Completed Reference",
+        "description": "Dedicated Front-End Engineering Design (FEED) phase estimation, handling extensive piping Material Take-Off (MTO) generation and resource optimization.",
+        "scope": "On-site billing verification frameworks, bulk quantity calculations from preliminary flowsheets, and multi-discipline baseline alignments.",
+        "deliverables": "Certified high-accuracy piping material takeoff matrices, preliminary weight estimation structures, and resource-to-hours billing logs."
+      },
+      "project10": {
+        "name": "Heavy Industrial Processing Equipment Engineering & Fabrication Support",
+        "status": "Completed Reference",
+        "description": "Long-term engineering execution, mechanical modeling, and fabrication coordination frameworks optimizing major asset deployments for process industries.",
+        "scope": "Mechanical asset integrity verifications, detail drafting for raw fabrication packages, vendor alignment, and constructability constraint tracking.",
+        "deliverables": "Certified manufacturing-ready fabrication datasets, verified mechanical equipment specifications, and quality review checklists."
+      }
+    }
+  },
+  "footer": {
+    "description": "PCE BV provides engineering, project controls, and documentation services for chemicals, petrochemicals, energy, and infrastructure projects.",
+    "solutions": "Solutions",
+    "company": "Company",
+    "support": "Support",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Settings",
+    "developedBy": "Developed & Maintained by"
+  },
+  "contactSection": {
+    "badge": "Get Started",
+    "heading": "Projects begin with clarity.",
+    "subheading": "Use the contact form for a direct technical enquiry or reach us through the contact details below.",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "businessHours": "Business Hours",
+    "businessHoursValue": "Mon-Fri, 08:30-17:30 CET",
+    "responseTime": "Response Time",
+    "responseTimeValue": "< 24 hrs",
+    "primaryContact": "Primary Contact",
+    "primaryContactValue": "Managing Director",
+    "requestSent": "Request Sent",
+    "openingWhatsApp": "Opening WhatsApp Secure Line...",
+    "quickEnquiry": "Quick Enquiry",
+    "sendMessage": "Send a message.",
+    "formNote": "All fields are handled securely and only used for response purposes."
+  },
+  "serviceModal": {
+    "whatsappInterest": "Hi, I'm interested in learning more about {{service}}",
+    "solutionOverview": "Solution Overview",
+    "technicalSpecs": "Technical Specs",
+    "feature": "Feature",
+    "processFlow": "Process Flow",
+    "requestQuote": "Request Quote",
+    "whatsapp": "WhatsApp"
+  },
+  "productModal": {
+    "whatsappInterest": "Hi, I'm interested in {{product}}",
+    "solutionPackage": "Solution Package",
+    "overview": "Overview",
+    "technicalSpecifications": "Technical Specifications",
+    "requestPricingDemo": "Request Pricing and Discussion"
+  },
+  "stats": {
+    "responseTime": {
+      "label": "Industry Experience"
+    },
+    "threats": {
+      "label": "Project Controls Leadership"
+    },
+    "uptime": {
+      "label": "Operational Footprint"
+    }
+  },
+  "team": {
+    "founder": {
+      "role": "Managing Director - EU Operations",
+      "bio": "Accomplished project controls and program management leader with 32+ years of expertise in planning, risk, cost, and change management across major industrial projects."
+    },
+    "founder-nishikant": {
+      "role": "Managing Director - EU Operations",
+      "bio": "Experienced leader in project controls and program management with 32+ years of expertise in planning, risk, cost, and change management for major energy, chemicals, and infrastructure projects across Europe, the Middle East, and Asia."
+    },
+    "founder-kiran": {
+      "role": "Technical Director - Engineering Execution",
+      "bio": "Strategic engineering leader with deep expertise in multi-discipline execution, process engineering, and project delivery. Leads PCE PL Mumbai operations and coordinates execution excellence across EPC programs."
+    }
+  }
+}
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\i18n\locales\nl.json ===
+{
+  "whatsapp": {
+    "message": "Hallo, ik ben geinteresseerd in de engineering- en projectcontrolsdiensten van PCE BV.",
+    "quickEnquiry": "Hallo, ik ben geïnteresseerd in jullie engineeringdiensten. Ik wil graag een project bespreken.",
+    "quickEnquiryShort": "Snelle aanvraag"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Diensten",
+    "products": "Oplossingen",
+    "gallery": "Galerij",
+    "projects": "Projecten",
+    "about": "Over ons",
+    "contact": "Contact",
+    "departments": "Afdelingen",
+    "globalOffices": "Wereldwijde vestigingen"
+  },
+  "about": {
+    "badge": "Wie wij zijn",
+    "heroHeading": "Engineering precisie voor industriële uitvoering.",
+    "heroDescription": "Met Nederlandse governance en Indiaas engineering-uitvoeringssupport voor industriële EPC-projecten.",
+    "heroCtaPrimary": "Leer het leiderschap kennen",
+    "heroCtaSecondary": "Verken het bedrijf",
+    "headingLine1": "Engineering",
+    "headingLine2": "Excellentie",
+    "headingLine3": "Met Eenvoud.",
+    "overviewBadge": "Bedrijfsoverzicht",
+    "overviewHeading": "Gestructureerd rond uitvoering en verantwoordelijkheid.",
+    "values": {
+      "precision": "Precisie",
+      "compliance": "Compliance",
+      "globalScale": "Wereldwijde schaal",
+      "simpleSolutions": "Eenvoudige oplossingen",
+      "internationalStandards": "Internationale standaarden"
+    },
+    "interfaceStatement": "Een interface tussen governance, coördinatie en uitvoering.",
+    "timelineBadge": "Tijdlijn",
+    "timelineHeading": "Gebouwd op ervaring.",
+    "timelineDescription": "Van engineering-erfgoed naar gestructureerde wereldwijde EPC-uitvoering.",
+    "timeline": {
+      "foundation": "Industrieel fundament",
+      "established": "PCE BV opgericht",
+      "global": "Wereldwijde EPC-uitvoering"
+    },
+    "clientExposure": "Projectblootstelling",
+    "finalCtaBadge": "Samen bouwen",
+    "finalCtaHeading": "Gestructureerde engineering-uitvoering.",
+    "finalCtaPrimary": "Neem contact op",
+    "finalCtaSecondary": "Bekijk diensten",
+    "leadershipVision": "Leiderschapsprofiel",
+    "visionLabel": "Visie",
+    "expertiseLabel": "Expertise",
+    "expertise": "Projectcontrols, programmamanagement, contract- en financieel bestuur, risicoanalyse en multiculturele teamontwikkeling.",
+    "connectCta": "Verbind via LinkedIn",
+    "p1": "PCE BV is een betrouwbare leverancier van engineering-, inkoop- en uitvoeringsondersteunende diensten, gespecialiseerd in detail engineering, projectcontrols en documentatie.",
+    "p2": "PCE BV is op 30 april 2025 opgericht en geregistreerd bij de KVK door Kiran V. Kulkarni en Nishikant V. Choudhary.",
+    "p3": "Onze missie is engineering excellence op de meest eenvoudige en effectieve manier te leveren met naleving van internationale standaarden.",
+    "p4": "Met meer dan drie decennia EPC- en projectcontrolservaring ondersteunen wij klanten in chemie, petrochemie, energie en infrastructuur."
+  },
+  "contact": {
+    "heading": "Start het gesprek.",
+    "subheading": "Kies het juiste kanaal voor engineering- en projectcontrolsvragen.",
+    "copied": "Gekopieerd",
+    "copyEmail": "E-mailadres kopieren",
+    "office1": {
+      "title": "Geregistreerd kantoor (Nederland)"
+    },
+    "office2": {
+      "title": "Partner Engineering Office (India)"
+    },
+    "emails": {
+      "mail": {
+        "role": "Algemene vragen",
+        "desc": "Commerciele en serviceaanvragen"
+      },
+      "briefcase": {
+        "role": "Projectcoordinatie",
+        "desc": "Planning en controls"
+      },
+      "shield": {
+        "role": "Managing Director",
+        "desc": "Strategische partnerschappen"
+      }
+    },
+    "form": {
+      "title": "Snelle aanvraag",
+      "fillAll": "Vul alle verplichte velden in.",
+      "successTitle": "Geopend in WhatsApp!",
+      "sendAnother": "Nog een bericht sturen",
+      "cta_primary": "Neem contact op",
+      "cta_secondary": "Vraag consultatie aan",
+      "strip": {
+        "controls": "Project Controls",
+        "deliverables": "Engineering Deliverables",
+        "execution": "DAI & Uitvoeringsondersteuning"
+      },
+      "submitButton": "Chat via WhatsApp",
+      "whatsappTitle": "Nieuwe website-aanvraag",
+      "nameLabel": "Naam",
+      "namePlaceholder": "Jan Jansen",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "jan@bedrijf.com",
+      "interestedIn": "Ik ben geinteresseerd in...",
+      "topicLabel": "Onderwerp",
+      "selectTopic": "Selecteer een onderwerp",
+      "messageLabel": "Bericht",
+      "messagePlaceholder": "Hoe kunnen we helpen?",
+      "topics": {
+        "general": "Algemene vraag",
+        "support": "Projectondersteuning",
+        "sales": "Diensten en offertes",
+        "partnership": "Partnermogelijkheden",
+        "careers": "Carriere"
+      }
+    }
+  },
+  "services": {
+    "project-controls": {
+      "title": "Project Controls Leadership",
+      "shortTitle": "Project Controls",
+      "desc": "Geintegreerd kosten-, planning-, risico- en changemanagement voor complexe projecten."
+    },
+    "detail-engineering": {
+      "title": "Detail Engineering Services",
+      "shortTitle": "Detail Engineering",
+      "desc": "Multi-disciplinaire engineeringondersteuning van FEED tot IFC-deliverables."
+    },
+    "procurement-construction": {
+      "title": "Procurement and Construction Support",
+      "shortTitle": "Procurement and Construction",
+      "desc": "Leverancierscoordinatie, veldondersteuning en controls tijdens de bouwfase."
+    },
+    "documentation-governance": {
+      "title": "Project Documentation and Governance",
+      "shortTitle": "Documentation",
+      "desc": "Documentcontrole, rapportage en governance packs voor leveringszekerheid."
+    }
+  },
+  "products": {
+    "badge": "Servicepakketten",
+    "heading": "Engineering en Controls Oplossingen",
+    "subheading": "Geintegreerde aanbiedingen voor detail engineering, projectcontrols en EPC-ondersteuning.",
+    "viewFullSpecs": "Bekijk volledige specificaties"
+  },
+  "gallery": {
+    "title": "Projecten en Delivery Galerij",
+    "sectionFeaturedSpotlight": "Uitgelicht",
+    "sectionOperationalGrid": "Operationeel overzicht",
+    "lightboxDefaultDescription": "Operationeel beeld uit project- en engineeringuitvoering.",
+    "inquireOnWhatsapp": "Informeer via WhatsApp",
+    "imageCounter": "Afbeelding",
+    "imageCounterOf": "van",
+    "offerBadge": "HIGHLIGHT",
+    "fallback": {
+      "fullSpecifications": "Volledige specificaties",
+      "brochure": "Brochure"
+    }
+  },
+  "hero": {
+  "badge": "Engineering en Project Controls",
+  "titleLine1": "Engineering & Project Controls",
+  "titleHighlight": "Voor Industriële EPC-projecten",
+  "subtitle": "Petroleum Consulting Engineers BV ondersteunt EPC-teams met detailengineering, project controls en documentatie-excellentie.",
+  "cta_primary": "Neem contact op",
+  "cta_secondary": "Consultatie aanvragen",
+
+  "strip": {
+    "controls": "Project Controls",
+    "deliverables": "Engineering Deliverables",
+    "execution": "Digital Asset Intelligence"
+  },
+
+  "statExperience": "34+ Jaar Industrie-ervaring",
+  "statEngineers": "300+ Engineering Professionals",
+  "statDelivery": "Wereldwijde EPC-levering"
+},
+  "servicesSection": {
+    "badge": "Kernexpertise",
+    "heading": "Oplossingen voor projectlevering",
+    "subheading": "Geintegreerde engineering-, controls- en documentatiediensten voor procesindustrie.",
+    "details": "Details",
+    "pillarsHeadingPrefix": "Pijlers van",
+    "pillarsHeadingSuffix": "PCE BV",
+    "pillarsDescription": "Geïntegreerde capaciteiten en gedisciplineerde uitvoering die controle, duidelijkheid en resultaten leveren in elke fase.",
+    "explore": "Verkennen",
+    "projectManagementCta": "Projectmanagement",
+    "engineeringDesignCta": "Engineering ontwerp",
+    "heroPrefix": "Complete engineering",
+    "searchPlaceholder": "Zoek een dienst...",
+    "projectManagement": "Projectmanagement",
+    "engineeringDesign": "Engineering ontwerp",
+    "modules": "Modules",
+    "noServicesFound": "Geen diensten gevonden",
+    "noServicesMessage": "We konden niets vinden dat overeenkomt met \"{{query}}\". Pas je zoekcriteria aan.",
+    "clearSearch": "Zoekopdracht wissen",
+    "categoryAll": "Alles",
+    "technicalSpecifications": "Technische specificaties",
+    "closeOverview": "Overzicht sluiten",
+    "contactViaWhatsApp": "Contact via WhatsApp",
+    "whatsappInterest": "Hallo, ik ben geïnteresseerd in de dienst {{service}}.",
+    "requestConsultation": "Vraag consultatie aan",
+    "pillars": {
+      "projectControls": {
+        "title": "Project Controls",
+        "subtitle": "Planning, Scheduling en Cost Control",
+        "description": "Planning, scheduling, cost control, risk management en voortgangsbewaking voor gedisciplineerde levering.",
+        "h1": "Planning",
+        "h2": "Scheduling",
+        "h3": "Cost Control",
+        "h4": "Risk Management"
+      },
+      "engineeringDeliverables": {
+        "title": "Engineering Deliverables",
+        "subtitle": "Proces tot 3D Modellering",
+        "description": "Proces-, piping-, mechanische-, elektrische-, instrumentatie- en 3D-modelleringsdeliverables gedurende de projectcyclus.",
+        "h1": "Proces",
+        "h2": "Piping",
+        "h3": "Mechanisch",
+        "h4": "3D Modellering"
+      },
+      "dai": {
+        "title": "Digital Asset Intelligence",
+        "subtitle": "Modernisering van Engineeringgegevens",
+        "description": "Wij helpen industriële opdrachtgevers bestaande engineeringinformatie om te zetten in gestructureerde digitale assets voor revisies, onderhoud, digitale tweelingen en toekomstige engineeringprojecten.",
+        "h1": "Digitalisering van Legacy-data",
+        "h2": "Engineeringgegevens",
+        "h3": "Digitale Tweelingen",
+        "h4": "Asset Intelligence"
+      }
+    }
+  },
+  "founders": {
+    "badge": "Onze oprichters",
+    "heading": "Strategisch leiderschap voor EU- en India-activiteiten",
+    "executionModel": "Uitvoeringsmodel",
+    "netherlands": "Nederland",
+    "netherlandsBody": "Governance & projecttoezicht",
+    "mumbai": "Mumbai",
+    "mumbaiBody": "Ondersteuning bij engineering-uitvoering",
+    "delivery": "Levering",
+    "deliveryBody": "Industriële EPC-projectcoördinatie",
+    "footer": "Gebouwd voor helderheid, uitvoeringscontrole en verantwoordelijke industriële levering.",
+    "connect": "Verbinden",
+    "connectAria": "Verbinden met {{name}} op LinkedIn",
+    "mobile": {
+      "founded": "Opgericht",
+      "foundedValue": "30 apr 2025",
+      "partner": "Partner",
+      "partnerValue": "PCE PL, Mumbai",
+      "lineage": "Herkomst",
+      "lineageValue": "Sinds 1991"
+    }
+  },
+  "errorBoundary": {
+    "title": "Systeemstoring",
+    "message": "Onze sensoren detecteerden een onverwachte fout in de interface. De applicatie is gepauzeerd om de gegevensintegriteit te beschermen.",
+    "cta": "Systeem opnieuw starten"
+  },
+  "app": {
+    "title": "PCE BV | Engineering en projectcontrols"
+  },
+  "executionModel": {
+    "badge": "Hoe wij leveren",
+    "heading": "Uitvoeringsmodel",
+    "description": "Heldere organisatorische scheiding zorgt voor responsieve governance en schaalbare uitvoeringsuitmuntendheid.",
+    "keyFunctions": "Kernfuncties:",
+    "keyFunction1": "Eén contactpunt",
+    "keyFunction2": "Governance & compliance",
+    "keyFunction3": "Stakeholderrapportage",
+    "card1Title": "EU Governance",
+    "card1Body": "Clientinterface en compliance.",
+    "card2Title": "Geïntegreerde levering",
+    "card2Body": "Naadloze coördinatie.",
+    "card3Title": "India-uitvoering",
+    "card3Body": "Engineering en locatie-ondersteuning."
+  },
+  "navbar": {
+    "exploreSolutions": "Bekijk oplossingen",
+    "featuredInventory": "Uitgelichte oplossingen",
+    "fullInventory": "Alle oplossingen",
+    "productDemos": "Case snapshots",
+    "watchVideos": "Project highlights",
+    "exhibitions": "Events",
+    "eventPhotos": "Eventfoto's",
+    "missionVision": "Missie en visie",
+    "readOurStory": "Lees ons verhaal",
+    "contactUs": "Contact opnemen",
+    "quickChat": "Snelle chat",
+    "bookConsultation": "Consultatie boeken",
+    "whatsapp": "WhatsApp",
+    "contact": "Contact"
+  },
+  "projects": {
+    "loadingDeployments": "Projecten laden...",
+    "badge": "Track record",
+    "heading": "Eerdere en lopende projectervaring",
+    "subheading": "Geselecteerde referenties uit engineering-, estimation- en projectcontrolsopdrachten.",
+    "statusOngoing": "Lopend",
+    "statusEpc": "EPC Ervaring",
+    "overview": "Overzicht",
+    "scope": "Technical Scope",
+    "deliverables": "Belangrijkste Deliverables",
+    "back": "Terug naar Projecten",
+    "tapToExpand": "Tik om uit te klappen",
+    "detailsBadge": "Projectprofielen",
+    "selectPrompt": "Selecteer een engineeringprofiel om de volledige uitvoeringsscope en deliverables te bekijken.",
+    "featured": "Uitgelicht",
+    "contactCta": "Vraag Consultatie Aan",
+    "viewProjects": "Bekijk Projecten",
+    "servicesCta": "Diensten",
+    "stats": {
+      "activeReferences": "Actieve Referenties",
+      "globalDelivery": "Wereldwijde Levering",
+      "coreFocus": "Kernfocus"
+    },
+    "items": {
+      "project1": {
+        "name": "Petrochemical Plant Design",
+        "status": "Lopend",
+        "description": "Uitgebreide detail engineering en multidisciplinaire coördinatieondersteuning voor grootschalige industriële vloeistofverwerkingscomplexen.",
+        "scope": "Uitvoering van uitgebreide multidisciplinaire detailontwerpkaders, procesworkflowoptimalisatie en analyse van hogedrukleidingsconfiguraties.",
+        "deliverables": "Intelligente 3D-plantmodellen voor de volledige levenscyclus, As-Built locatie-updates, P&ID-optimalisatielagen en cross-functional clash-detectiebeoordelingen."
+      },
+      "project2": {
+        "name": "Multi-Discipline 3D Engineering",
+        "status": "Lopend",
+        "description": "Continue levering van geavanceerde structurele en procesuitvoeringsontwerpmodellen die infrastructuurwijzigingen in actieve industriële omgevingen optimaliseren.",
+        "scope": "Spanningsberekening, dynamische belastingsupdates, configuraties voor materiaalafname van leidingen en integratie-interfaces voor modules van leveranciersapparatuur.",
+        "deliverables": "Gecoördineerde 3D structurele modellen, volledige isometrische documentatiematrices, gedetailleerde lay-outschema's van apparatuur en nauwkeurige schattingsmanifesten."
+      },
+      "project3": {
+        "name": "MEG Facility EPC Support",
+        "status": "EPC Ervaring",
+        "description": "Geïntegreerde coördinatie van projectuitvoering, validatie van opleveringsbeheer en multidisciplinaire ondersteuning bij ontwerpengineering voor grote verwerkingsfaciliteiten.",
+        "scope": "On-site engineering interface checkouts, technische verifikatie van inkomende licentiegeverontwerpen, beoordeling van gedetailleerde tekeningen en constructiebewaking.",
+        "deliverables": "Coördinatierapporten van de bouw, gecertificeerde gedetailleerde uitvoeringstekeningen, controlelijsten voor veldinstallatie en ingevulde ondersteuningslogboeken voor operationele inbedrijfstelling."
+      },
+      "project4": {
+        "name": "Power Plant Detail Engineering",
+        "status": "Afgeronde Referentie",
+        "description": "Uitgebreide detailontwerpcengineering en volledige multidisciplinaire structurele modellering voor een internationale thermische elektriciteitscentrale.",
+        "scope": "Volledige structurele detaillering, multidisciplinaire schematische generatie, systeemlay-outontwerpen en coördinatie van leveranciersinterfacemodellen.",
+        "deliverables": "Intelligente multidisciplinaire 3D-plantmodellen tot As-Built status, geoptimaliseerde lay-outtekeningen voor leidingen en technische specificatiebladen."
+      },
+      "project5": {
+        "name": "Industrial BOG Motor Systems Engineering",
+        "status": "Afgeronde Referentie",
+        "description": "Gespecialiseerde engineering- en multidisciplinaire uitvoeringsondersteuning voor de integratie en implementatie van Boil-Off Gas (BOG) motorassemblages.",
+        "scope": "Technische evaluatie, interface-compatibiliteitsmapping, configuraties voor systeembelastingsbalancering en matching van functionele specificaties.",
+        "deliverables": "Gecertificeerde integratielay-outblauwdrukken, nauwkeurige indexen voor documentatie van levering en operationele veiligheidsverificatiemetrieken."
+      },
+      "project6": {
+        "name": "Petrochemical Complex Linear Alkyl Benzene Prebid Estimation",
+        "status": "Afgeronde Referentie",
+        "description": "Zeer nauwkeurige prebid-schatting en ondersteuningskader voor engineering, optimalisatie van inschrijvingen in een vroege fase voor zware industriële installaties.",
+        "scope": "Materiaalaaname-analyse, haalbaarheidsbeoordelingen van de structurele lay-out, evaluaties van ontwerpparameters en schatting van engineeringbronnen.",
+        "deliverables": "Uitgebreide technische biedingspakketten, geoptimaliseerde engineering-kostenbaselines en lay-outkaders in een vroeg stadium."
+      },
+      "project7": {
+        "name": "Industrial Processing Facility Enquiry Engineering",
+        "status": "Afgeronde Referentie",
+        "description": "Strategische engineeringvalidatie, specificatie-afstemming en analyseondersteuning voor kernapparatuur en materiaalverwerkingssystemen.",
+        "scope": "Evaluaties van technische aanvragen, leveranciersontwerpbeoordelingen, monitoring van specificatie-naleving en optimalisatie van inkooppakketten.",
+        "deliverables": "Gevalideerde technische aanvraagrapporten, multidisciplinaire nalevingsmatrices en geoptimaliseerde inkoopaanvraagpakketten."
+      },
+      "project8": {
+        "name": "Continuous 3D Plant Engineering Provisions",
+        "status": "Lopende Capaciteit",
+        "description": "Meerjarige programmamatige levering van geavanceerde 3D-engineering, structurele wijzigingen en detailconfiguraties van leidingsystemen voor wereldwijde engineeringteams.",
+        "scope": "Continue variaties in spanningsanalyse, lopende clash-detectiebeoordelingen, mechanische lay-outaanpassingen en tracking van operationele ontwerpreinterfaces.",
+        "deliverables": "Live 3D asset model data baselines, bijgewerkte structurele isometrische configuraties en gecoördineerde multidisciplinaire engineering-werkpakketten."
+      },
+      "project9": {
+        "name": "FEED Phase Piping MTO Estimation",
+        "status": "Afgeronde Referentie",
+        "description": "Toegewijde schatting van de Front-End Engineering Design (FEED)-fase, met uitgebreide generatie van materiaalafname van leidingen (MTO) en bronnenoptimalisatie.",
+        "scope": "On-site facturatieverificatiekaders, bulkhoeveelheidsberekeningen op basis van voorlopige stroomschema's en multidisciplinaire baseline-afstemmingen.",
+        "deliverables": "Gecertificeerde zeer nauwkeurige materiaalafnamematrices voor leidingen, voorlopige gewichtschattingsstructuren en facturatielogboeken van uren per bron."
+      },
+      "project10": {
+        "name": "Heavy Industrial Processing Equipment Engineering & Fabrication Support",
+        "status": "Afgeronde Referentie",
+        "description": "Langdurige engineering-uitvoering, mechanische modellering en fabricagecoördinatiekaders die de implementatie van belangrijke activa voor procesindustrieën optimaliseren.",
+        "scope": "Mechanische integriteitsverificaties van activa, detailtekeningen voor ruwe fabricagepakketten, leveranciersafstemming en tracking van constructiebeperkingen.",
+        "deliverables": "Gecertificeerde fabricage-ready productiedatasets, geverifieerde mechanische apparatuurspecificaties en kwaliteitscontrolelijsten."
+      }
+    }
+  },
+  "footer": {
+    "description": "PCE BV levert engineering-, projectcontrols- en documentatiediensten voor chemie-, petrochemie-, energie- en infrastructuurprojecten.",
+    "solutions": "Oplossingen",
+    "company": "Bedrijf",
+    "support": "Ondersteuning",
+    "rights": "Alle rechten voorbehouden.",
+    "privacy": "Privacybeleid",
+    "terms": "Servicevoorwaarden",
+    "cookies": "Cookie-instellingen",
+    "developedBy": "Ontwikkeld en onderhouden door"
+  },
+  "contactSection": {
+    "badge": "Aan de slag",
+    "heading": "Projecten beginnen met duidelijkheid.",
+    "subheading": "Gebruik het contactformulier voor een directe technische aanvraag of neem contact op via de gegevens hieronder.",
+    "emailLabel": "E-mail",
+    "phoneLabel": "Telefoon",
+    "businessHours": "Openingstijden",
+    "businessHoursValue": "Ma-Vr, 08:30-17:30 CET",
+    "responseTime": "Reactietijd",
+    "responseTimeValue": "< 24 uur",
+    "primaryContact": "Primair contact",
+    "primaryContactValue": "Managing Director",
+    "requestSent": "Aanvraag verzonden",
+    "openingWhatsApp": "WhatsApp-beveiligde lijn openen...",
+    "quickEnquiry": "Snelle aanvraag",
+    "sendMessage": "Stuur een bericht.",
+    "formNote": "Alle velden worden veilig verwerkt en alleen gebruikt voor reactie doeleinden."
+  },
+  "serviceModal": {
+    "whatsappInterest": "Hallo, ik wil graag meer weten over {{service}}",
+    "solutionOverview": "Oplossingsoverzicht",
+    "technicalSpecs": "Technische specificaties",
+    "feature": "Kenmerk",
+    "processFlow": "Procesverloop",
+    "requestQuote": "Vraag offerte aan",
+    "whatsapp": "WhatsApp"
+  },
+  "productModal": {
+    "whatsappInterest": "Hallo, ik ben geinteresseerd in {{product}}",
+    "solutionPackage": "Oplossingspakket",
+    "overview": "Overzicht",
+    "technicalSpecifications": "Technische specificaties",
+    "requestPricingDemo": "Vraag prijs en overleg aan"
+  },
+  "stats": {
+    "responseTime": {
+      "label": "Industrie-ervaring"
+    },
+    "threats": {
+      "label": "Projectcontrols Leadership"
+    },
+    "uptime": {
+      "label": "Operationele footprint"
+    }
+  },
+  "team": {
+    "founder": {
+      "role": "Managing Director - EU Operations",
+      "bio": "Ervaren leider in projectcontrols en programmamanagement met 32+ jaar expertise in planning, risico, kosten en verandering voor grote industriële projecten."
+    },
+    "founder-nishikant": {
+      "role": "Managing Director - EU Operations",
+      "bio": "Ervaren leider in projectcontrols en programmamanagement met 32+ jaar expertise in planning, risico, kosten en wijzigingsbeheer voor grote energie-, chemie- en infrastructuurprojecten in Europa, het Midden-Oosten en Azië."
+    },
+    "founder-kiran": {
+      "role": "Technisch Directeur - Engineering Uitvoering",
+      "bio": "Strategische engineeringleider met diepgaande ervaring in multidisciplinaire uitvoering, procesengineering en projectlevering. Leidt de operatie van PCE PL Mumbai en coördineert uitmuntende EPC-uitvoering."
+    }
+  }
+}

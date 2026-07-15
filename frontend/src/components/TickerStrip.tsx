@@ -5,7 +5,7 @@ const TickerStrip: React.FC = () => {
   const { ticker } = HOMEPAGE_CONFIG;
 
   return (
-    <section className="bg-[#C65300] py-3 overflow-hidden">
+    <section className="bg-[#C65300] py-2 overflow-hidden">
       <div className="ticker-wrapper">
         <div className="ticker-track">
           {[...ticker.items, ...ticker.items].map((item, idx) => (
@@ -37,7 +37,7 @@ const TickerStrip: React.FC = () => {
         .ticker-item {
           white-space: nowrap;
           padding-right: 2rem;
-          font-size: 0.875rem;
+          font-size: 0.8rem;
           font-weight: 600;
           color: #0f172a;
           flex-shrink: 0;

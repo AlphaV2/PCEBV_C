@@ -31,11 +31,11 @@ const SERVICE_PILLARS = [
     icon: PenTool
   },
   {
-    id: 'procurement-construction',
-    href: '/services#procurement-construction',
-    title: 'Execution Support',
-    description: 'Vendor, site, and construction-stage support.',
-    icon: HardHat
+    id: 'dai', 
+    href: '/services#dai',
+    title: 'Digital Asset Intelligence',
+    description: 'Transforming legacy engineering information into structured, intelligent digital assets.',
+    icon: Globe
   },
 ];
 
@@ -44,6 +44,7 @@ interface NavbarProps {
   onChangeLanguage?: (language: 'en' | 'nl') => void;
   currentLanguage?: string;
 }
+
 
 const Navbar: React.FC<NavbarProps> = ({
   onToggleLanguage,
@@ -64,14 +65,15 @@ const Navbar: React.FC<NavbarProps> = ({
     name: labelByKey.get(link.name.toLowerCase()) ?? link.name,
   }));
   const servicePillars = translatedServices
-    .filter((service) => ['project-controls', 'detail-engineering', 'procurement-construction'].includes(service.id))
-    .map((service) => ({
-      id: service.id,
-      href: `/services#${service.id}`,
-      title: service.shortTitle || service.title,
-      description: service.description,
-      icon: service.id === 'project-controls' ? Settings : service.id === 'detail-engineering' ? PenTool : HardHat,
-    }));
+  .filter((service) => ['project-controls', 'detail-engineering', 'dai'].includes(service.id))
+  .map((service) => ({
+    id: service.id,
+    href: `/services#${service.id}`,
+    // FIX: Force the title to use your translation key instead of the data source
+    title: service.id === 'dai' ? 'Design Asset Intelligence' : (service.shortTitle || service.title),
+    description: service.description,
+    icon: service.id === 'project-controls' ? Settings : service.id === 'detail-engineering' ? PenTool : Globe,
+  }));
 
   const currentPath = typeof window !== 'undefined'
     ? window.location.pathname.replace(/\/+$/, '') || '/'
@@ -187,7 +189,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
             {/* LOGO & TEXT SECTION */}
             <a href="/" onClick={handleLogoClick} className="flex items-center gap-2 sm:gap-3 cursor-pointer group min-w-0" aria-label="Go to homepage">
-              <img src="/logo/company_logo.png" alt="Company Logo" className="h-7 sm:h-8 md:h-10 object-contain bg-white/10 p-1 rounded shrink-0 transition-transform group-hover:scale-105" />
+              <img src="/logo/company_logo.webp" alt="Company Logo" className="h-7 sm:h-8 md:h-10 object-contain bg-white/10 p-1 rounded shrink-0 transition-transform group-hover:scale-105" />
               <div className="flex flex-col justify-center min-w-0">
                 <span className="text-[6.5px] min-[375px]:text-[7.5px] sm:text-[8px] md:text-[9px] font-bold uppercase tracking-[0.18em] text-zinc-400 leading-none mb-0.5 truncate">
                   Engineering & Project Controls
@@ -301,13 +303,10 @@ const Navbar: React.FC<NavbarProps> = ({
           {/* Drawer Header */}
           <div className="flex items-center justify-between p-6 pb-4">
             <div>
-              <div className="text-[10px] font-black uppercase tracking-widest text-[#2563EB] mb-1">Navigation</div>
+              <div className="text-[10px] font-black uppercase tracking-widest text-[#2563EB] mb-1">{t('navbar.navigation', 'Navigation')}</div>
               <div className="text-2xl font-extrabold text-gray-900 tracking-tight">PCE BV.</div>
             </div>
-            <button 
-              onClick={closeMobileMenu} 
-              className="p-2 bg-white text-gray-400 shadow-sm border border-gray-100 hover:bg-gray-50 hover:text-gray-900 rounded-full transition-colors"
-            >
+            <button onClick={closeMobileMenu} className="p-2 bg-white text-gray-400 shadow-sm border border-gray-100 hover:bg-gray-50 rounded-full transition-colors">
               <X size={20} />
             </button>
           </div>
@@ -316,49 +315,26 @@ const Navbar: React.FC<NavbarProps> = ({
           <nav id="mobile-navigation" className="flex-1 overflow-y-auto px-4 py-2 flex flex-col gap-2">
             {mainNavItems.map((link) => {
               const active = isActiveRoute(link.href);
-
               return (
                 <div key={link.name} className="flex flex-col">
-                  <div 
-                    className={`flex items-center justify-between p-4 rounded-xl transition-colors ${
-                      active && !link.hasDropdown ? 'bg-blue-50 text-[#2563EB]' : 'text-gray-800 hover:bg-gray-50'
-                    }`}
-                  >
-                      <a 
-                      href={link.href} 
-                      onClick={(e) => {
-                        if (link.hasDropdown) {
-                          e.preventDefault();
-                          setMobileServicesOpen(!mobileServicesOpen);
-                        } else {
-                          handleNavigate(e, link.href);
-                        }
-                      }} 
-                      className="text-2xl font-extrabold tracking-tight flex-1 flex items-center min-h-12"
-                    >
+                  <div className={`flex items-center justify-between p-4 rounded-xl ${active && !link.hasDropdown ? 'bg-blue-50 text-[#2563EB]' : 'text-gray-800 hover:bg-gray-50'}`}>
+                    <a href={link.href} onClick={(e) => link.hasDropdown ? (e.preventDefault(), setMobileServicesOpen(!mobileServicesOpen)) : handleNavigate(e, link.href)} 
+                       className="text-xl font-bold tracking-tight flex-1 flex items-center min-h-10">
                       {link.name}
                     </a>
-                    
-                      {link.hasDropdown ? (
+                    {link.hasDropdown && (
                       <button onClick={() => setMobileServicesOpen(!mobileServicesOpen)} className="p-1 text-gray-400">
                         <ChevronDown size={24} className={`transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180 text-gray-900' : ''}`} />
                       </button>
-                    ) : (
-                      <ArrowUpRight size={20} className={active ? 'text-[#2563EB]' : 'text-gray-300'} />
                     )}
                   </div>
                   
-                  {/* Mobile Accordion */}
                   {link.hasDropdown && (
                     <div className={`overflow-hidden transition-all duration-300 ease-in-out ${mobileServicesOpen ? 'max-h-[400px] opacity-100 mt-2 mb-4' : 'max-h-0 opacity-0'}`}>
-                      <div className="pl-6 border-l-2 border-gray-100 ml-6 flex flex-col gap-5 py-2">
+                      <div className="pl-6 border-l-2 border-gray-100 ml-6 flex flex-col gap-4 py-2">
                         {servicePillars.map(service => (
-                          <a 
-                            key={service.id} 
-                            href={service.href} 
-                            onClick={(e) => handleNavigate(e, service.href)}
-                            className="text-sm font-bold text-gray-500 uppercase tracking-widest hover:text-gray-900"
-                          >
+                          <a key={service.id} href={service.href} onClick={(e) => handleNavigate(e, service.href)}
+                             className="text-[11px] font-bold text-gray-500 uppercase tracking-widest hover:text-gray-900">
                             {service.title}
                           </a>
                         ))}
@@ -370,29 +346,21 @@ const Navbar: React.FC<NavbarProps> = ({
             })}
           </nav>
 
-          {/* Drawer Footer (Removed redundant language switcher) */}
-          <div className="p-6 bg-white border-t border-gray-100 flex flex-col justify-end">
+          {/* Drawer Footer */}
+          <div className="p-6 bg-white border-t border-gray-100">
             <div className="mb-5 grid grid-cols-2 gap-2 text-xs font-black uppercase tracking-[0.2em] text-gray-500">
               <button onClick={() => handleLanguageChange('en')} className={`rounded-lg border px-3 py-3 ${activeLanguage === 'en' ? 'border-[#2563EB] bg-blue-50 text-[#2563EB]' : 'border-gray-200 bg-white text-gray-600'}`}>EN</button>
               <button onClick={() => handleLanguageChange('nl')} className={`rounded-lg border px-3 py-3 ${activeLanguage === 'nl' ? 'border-[#2563EB] bg-blue-50 text-[#2563EB]' : 'border-gray-200 bg-white text-gray-600'}`}>NL</button>
             </div>
-            <div className="mb-5 border-t border-gray-100 pt-4">
-              <div className="mb-2 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Policies</div>
-              <div className="flex flex-wrap gap-3 text-sm font-semibold text-gray-700">
-                <a href={ROUTES.privacy} className="hover:text-[#2563EB]">Privacy</a>
-                <a href={ROUTES.cookiePolicy} className="hover:text-[#2563EB]">Cookies</a>
-                <a href={ROUTES.terms} className="hover:text-[#2563EB]">Terms</a>
+            <div className="border-t border-gray-100 pt-4">
+              <div className="mb-2 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">{t('navbar.policies', 'Policies')}</div>
+              <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold text-gray-600">
+                <a href={ROUTES.privacy} className="hover:text-[#2563EB]">{t('footer.privacy', 'Privacy')}</a>
+                <a href="/cookies" className="hover:text-[#2563EB]">{t('footer.cookies', 'Cookies')}</a>
+                <a href={ROUTES.terms} className="hover:text-[#2563EB]">{t('footer.terms', 'Terms')}</a>
               </div>
             </div>
-            <a 
-              href="/contact"
-              onClick={(e) => handleNavigate(e, '/contact')} 
-              className="w-full py-4 flex items-center justify-center gap-2 bg-[var(--accent,#F25C19)] text-white font-extrabold uppercase tracking-widest rounded-xl shadow-[0_8px_20px_-8px_rgba(242,92,25,0.6)] hover:brightness-105 active:scale-[0.98] transition-all"
-            >
-              {t('navbar.contactUs', 'Consult Us')} <ArrowUpRight size={18} />
-            </a>
           </div>
-
         </div>
       </div>
     </>

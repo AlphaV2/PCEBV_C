@@ -16,7 +16,7 @@ export const SEO = {
   defaultLocale: 'en',
   supportedLocales: SUPPORTED_LOCALES,
   canonicalPath: ROUTES.home,
-  ogImage: '/logo/company_logo.png',
+  ogImage: '/logo/company_logo.webp',
 } as const;
 
 export const buildCanonicalUrl = (origin: string, path: string = ROUTES.home) => {

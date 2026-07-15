@@ -1,66 +1,51 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Globe, Building2, Zap } from 'lucide-react';
 import HOMEPAGE_CONFIG from '../config/homepage.config';
 
 const BRAND_BLUE = HOMEPAGE_CONFIG.colors.primary_blue;
 
-type Stage = {
-  label: string;
-  title: string;
-  description: string;
-  icon: React.ComponentType<any>;
-  color?: 'blue' | 'orange' | 'neutral';
-  highlight?: boolean;
-};
-
-const stages: Stage[] = [
-  {
-    label: 'CLIENT',
-    title: 'Your Objectives',
-    description: 'Project goals, scope, timeline, and delivery requirements',
-    icon: Globe,
-    color: 'neutral',
-    highlight: false,
-  },
-  {
-    label: 'PCE BV (The Hague)',
-    title: 'EU Operations',
-    description: 'Commercial interface, governance, approvals, and client relationship management',
-    icon: Building2,
-    color: 'blue',
-    highlight: true,
-  },
-  {
-    label: 'PCE PL (Mumbai)',
-    title: 'Engineering Execution',
-    description: 'Multi-discipline delivery, 3D modeling, vendor coordination, and site support',
-    icon: Zap,
-    color: 'orange',
-    highlight: false,
-  },
-];
-
 const ExecutionModelSection: React.FC = () => {
   const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [inView, setInView] = useState(false);
 
+  const stages = useMemo(() => [
+    { 
+      label: t('executionModel.stages.client.label', 'CLIENT'), 
+      title: t('executionModel.stages.client.title', 'Your Objectives'), 
+      description: t('executionModel.stages.client.desc', 'Project goals, scope, timeline, and delivery requirements'), 
+      icon: Globe, 
+      highlight: false 
+    },
+    { 
+      label: t('executionModel.stages.eu.label', 'PCE BV (The Hague)'), 
+      title: t('executionModel.stages.eu.title', 'EU Operations'), 
+      description: t('executionModel.stages.eu.desc', 'Commercial interface, governance, approvals, and client relationship management'), 
+      icon: Building2, 
+      highlight: true 
+    },
+    { 
+      label: t('executionModel.stages.india.label', 'PCE PL (Mumbai)'), 
+      title: t('executionModel.stages.india.title', 'Engineering Execution'), 
+      description: t('executionModel.stages.india.desc', 'Multi-discipline delivery, 3D modeling, vendor coordination, and site support'), 
+      icon: Zap, 
+      highlight: false 
+    },
+  ], [t]);
+
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const ratio = entry.intersectionRatio;
-          if (ratio >= 0.2) setInView(true);
+          if (entry.intersectionRatio >= 0.2) setInView(true);
           else setInView(false);
         });
       },
       { threshold: [0, 0.2, 0.4, 0.6, 1] }
     );
-
     observer.observe(el);
     return () => observer.disconnect();
   }, []);

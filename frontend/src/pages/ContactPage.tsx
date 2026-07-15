@@ -1,4 +1,3 @@
-// src/pages/ContactPage.tsx
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTranslatedContactEmails, useTranslatedContactOffices } from '../hooks/useTranslatedData';
@@ -10,13 +9,37 @@ export const ContactPage: React.FC = () => {
   const contactEmails = useTranslatedContactEmails() || [];
   const contactOffices = useTranslatedContactOffices() || [];
 
-  const [submitted, setSubmitted] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+    setFormStatus('submitting');
+    
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      fullName: formData.get('fullName'),
+      email: formData.get('email'),
+      company: formData.get('company'),
+      phone: formData.get('phone'),
+      service: formData.get('serviceRequired'),
+      requirements: formData.get('requirements'),
+    };
+
+    try {
+      // FIXED: Now accurately targeting VITE_API_BASE_URL from your .env file
+      await fetch(import.meta.env.VITE_API_BASE_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      setFormStatus('success');
+    } catch (error) {
+      console.error("Submission failed", error);
+      setFormStatus('idle');
+      alert("Submission failed. Please check your connection.");
+    }
   };
 
   const faqs = [
@@ -105,38 +128,38 @@ export const ContactPage: React.FC = () => {
                 <p className="text-xs text-[#9CA3AF] font-medium mt-0.5">Supply technical scope parameters to prompt engineering routing.</p>
               </div>
 
-              {submitted ? (
+              {formStatus === 'success' ? (
                 <div className="bg-[#1F2937] border border-[#374151] p-6 text-center rounded-md animate-[fadeIn_0.25s_ease-out]">
                   <span className="text-[#F25C19] font-black text-sm block mb-1">Enquiry Successfully Transmitted</span>
-                  <p className="text-xs text-[#9CA3AF] font-medium">Your parameters have been logged into our discipline triage arrays.</p>
+                  <p className="text-xs text-[#9CA3AF] font-medium">We received your request and our team will get back to you shortly.</p>
                 </div>
               ) : (
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
                       <label htmlFor="fullName" className="text-[11px] font-bold text-[#9CA3AF]">Full Name</label>
-                      <input id="fullName" required type="text" className="w-full h-[40px] bg-[#1F2937] border border-[#374151] text-white px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] text-xs font-semibold" />
+                      <input id="fullName" name="fullName" required type="text" className="w-full h-[40px] bg-[#1F2937] border border-[#374151] text-white px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] text-xs font-semibold" />
                     </div>
                     <div className="space-y-1">
                       <label htmlFor="email" className="text-[11px] font-bold text-[#9CA3AF]">Email Address</label>
-                      <input id="email" required type="email" className="w-full h-[40px] bg-[#1F2937] border border-[#374151] text-white px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] text-xs font-semibold" />
+                      <input id="email" name="email" required type="email" className="w-full h-[40px] bg-[#1F2937] border border-[#374151] text-white px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] text-xs font-semibold" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
                       <label htmlFor="company" className="text-[11px] font-bold text-[#9CA3AF]">Company</label>
-                      <input id="company" required type="text" className="w-full h-[40px] bg-[#1F2937] border border-[#374151] text-white px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] text-xs font-semibold" />
+                      <input id="company" name="company" required type="text" className="w-full h-[40px] bg-[#1F2937] border border-[#374151] text-white px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] text-xs font-semibold" />
                     </div>
                     <div className="space-y-1">
                       <label htmlFor="phone" className="text-[11px] font-bold text-[#9CA3AF]">Phone</label>
-                      <input id="phone" required type="tel" className="w-full h-[40px] bg-[#1F2937] border border-[#374151] text-white px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] text-xs font-semibold" />
+                      <input id="phone" name="phone" required type="tel" className="w-full h-[40px] bg-[#1F2937] border border-[#374151] text-white px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] text-xs font-semibold" />
                     </div>
                   </div>
 
                   <div className="space-y-1">
                     <label htmlFor="serviceRequired" className="text-[11px] font-bold text-[#9CA3AF]">Service Required</label>
-                    <select id="serviceRequired" className="w-full h-[40px] bg-[#1F2937] border border-[#374151] text-white px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] text-xs font-bold text-white">
+                    <select id="serviceRequired" name="serviceRequired" className="w-full h-[40px] bg-[#1F2937] border border-[#374151] text-white px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] text-xs font-bold text-white">
                       <option>Project Controls & Scheduling Baseline</option>
                       <option>Multi-Discipline FEED & Detail Design</option>
                       <option>Asset Document Control & Technical Dossiers</option>
@@ -147,12 +170,12 @@ export const ContactPage: React.FC = () => {
 
                   <div className="space-y-1">
                     <label htmlFor="requirements" className="text-[11px] font-bold text-[#9CA3AF]">Project Requirements</label>
-                    <textarea id="requirements" required className="w-full h-[100px] bg-[#1F2937] border border-[#374151] text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] text-xs font-medium resize-none" placeholder="Briefly outline timelines, engineering standards, or asset targets..." />
+                    <textarea id="requirements" name="requirements" required className="w-full h-[100px] bg-[#1F2937] border border-[#374151] text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563EB] text-xs font-medium resize-none" placeholder="Briefly outline timelines, engineering standards, or asset targets..." />
                   </div>
 
                   <div className="pt-1">
-                    <button type="submit" className="group w-full h-[44px] bg-[#F25C19] text-white font-black uppercase tracking-wider text-xs rounded-md transition-all duration-300 hover:brightness-110 flex items-center justify-center gap-2 focus:ring-2 focus:ring-[#2563EB] focus:ring-offset-2 focus:ring-offset-[#111827]">
-                      Submit Project Enquiry
+                    <button type="submit" disabled={formStatus === 'submitting'} className="group w-full h-[44px] bg-[#F25C19] text-white font-black uppercase tracking-wider text-xs rounded-md transition-all duration-300 hover:brightness-110 flex items-center justify-center gap-2 focus:ring-2 focus:ring-[#2563EB] focus:ring-offset-2 focus:ring-offset-[#111827]">
+                      {formStatus === 'submitting' ? 'Submitting...' : 'Submit Project Enquiry'}
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
