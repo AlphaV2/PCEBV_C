@@ -1,19 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Replace the placeholder origin below with the final production domain before launch. -->
-  <url>
-    <loc>https://example.com/</loc>
-  </url>
-  <url>
-    <loc>https://example.com/services</loc>
-  </url>
-  <url>
-    <loc>https://example.com/projects</loc>
-  </url>
-  <url>
-    <loc>https://example.com/about</loc>
-  </url>
-  <url>
-    <loc>https://example.com/contact</loc>
-  </url>
+
+<urlset
+xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+<url>
+
+<loc>https://pcebv.com/</loc>
+
+<lastmod>2026-07-14</lastmod>
+
+<changefreq>weekly</changefreq>
+
+<priority>1.0</priority>
+
+<xhtml:link
+rel="alternate"
+hreflang="en"
+href="https://pcebv.com/" />
+
+<xhtml:link
+rel="alternate"
+hreflang="nl"
+href="https://pcebv.com/?lang=nl" />
+
+</url>
+
+<url>
+
+<loc>https://pcebv.com/services</loc>
+
+<lastmod>2026-07-14</lastmod>
+
+<changefreq>monthly</changefreq>
+
+<priority>0.90</priority>
+
+<xhtml:link
+rel="alternate"
+hreflang="en"
+href="https://pcebv.com/services"/>
+
+<xhtml:link
+rel="alternate"
+hreflang="nl"
+href="https://pcebv.com/services?lang=nl"/>
+
+</url>
+
+<url>
+
+<loc>https://pcebv.com/projects</loc>
+
+<lastmod>2026-07-14</lastmod>
+
+<changefreq>monthly</changefreq>
+
+<priority>0.85</priority>
+
+</url>
+
+<url>
+
+<loc>https://pcebv.com/about</loc>
+
+<lastmod>2026-07-14</lastmod>
+
+<changefreq>monthly</changefreq>
+
+<priority>0.75</priority>
+
+</url>
+
+<url>
+
+<loc>https://pcebv.com/contact</loc>
+
+<lastmod>2026-07-14</lastmod>
+
+<changefreq>monthly</changefreq>
+
+<priority>0.80</priority>
+
+</url>
+
+<url>
+
+<loc>https://pcebv.com/privacy-policy</loc>
+
+<lastmod>2026-07-14</lastmod>
+
+<changefreq>yearly</changefreq>
+
+<priority>0.30</priority>
+
+</url>
+
+<url>
+
+<loc>https://pcebv.com/cookie-policy</loc>
+
+<lastmod>2026-07-14</lastmod>
+
+<changefreq>yearly</changefreq>
+
+<priority>0.20</priority>
+
+</url>
+
+<url>
+
+<loc>https://pcebv.com/terms</loc>
+
+<lastmod>2026-07-14</lastmod>
+
+<changefreq>yearly</changefreq>
+
+<priority>0.20</priority>
+
+</url>
+
 </urlset>

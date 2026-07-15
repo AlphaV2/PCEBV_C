@@ -1,0 +1,684 @@
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\about.config.ts ===
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\about.ts ===
+export const ABOUT = {
+  title: 'Trusted Partner in Engineering Excellence',
+  description:
+    'With decades of experience delivering complex EPC projects globally, PCE BV combines Netherlands-led client management with India-based engineering excellence to create reliable, scalable solutions for the oil, gas, and chemical industries.',
+  metrics: [
+    { number: '35+', label: 'Years Experience' },
+    { number: '100+', label: 'Projects Delivered' },
+    { number: '300+', label: 'Engineers' },
+    { number: 'Global', label: 'Presence' },
+  ],
+} as const;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\animations.ts ===
+export const ANIMATIONS = {
+  pageFadeIn: 'fadeIn 0.25s ease-out',
+  modalScaleUp: 'scale-up 0.25s ease-out',
+  reducedMotionQuery: '(prefers-reduced-motion: reduce)',
+  heroCycleMs: 6000,
+  headerTransitionMs: 300,
+} as const;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\colors.ts ===
+export const COLORS = {
+  white: '#FFFFFF',
+  brandBlue: '#0071E3',
+  brandBlueDark: '#0056A3',
+  brandOrange: '#C65300',
+  ink: '#071B34',
+  slate900: '#0F172A',
+  slate800: '#1F2937',
+  slate600: '#475569',
+  slate500: '#64748B',
+  border: '#E5E7EB',
+  surface: '#F8FAFC',
+  surfaceAlt: '#F1F5F9',
+} as const;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\company.ts ===
+import { ROUTES } from './routes';
+
+export const COMPANY = {
+  name: 'PCE BV',
+  legalName: 'Petroleum Consulting Engineers BV',
+  tagline: 'Engineering and Project Controls',
+  email: 'nishikant.choudhary@pcenc.com',
+  phone: '+31611596812',
+  whatsappMessage: "Hi, I'm interested in PCE BV engineering and project controls services.",
+  registration: 'KVK No. 97146412',
+  office: {
+    street: 'Ereprijsweg 14',
+    postalCode: '2565 AV',
+    city: 'The Hague',
+    country: 'Netherlands',
+  },
+  partnerOffice: {
+    name: 'PCE PL - Petroleum Consulting Engineers Private Limited',
+    city: 'Mumbai, India',
+    role: 'Execution and Engineering Delivery Center',
+  },
+  socialLinks: {
+    linkedin: 'https://www.linkedin.com/in/nishikantchoudharypmp/',
+    twitter: 'https://twitter.com/',
+    instagram: 'https://www.instagram.com/',
+    facebook: 'https://www.facebook.com/',
+  },
+  routes: ROUTES,
+} as const;
+
+export const buildWhatsAppUrl = (message: string = COMPANY.whatsappMessage) =>
+  `https://wa.me/${COMPANY.phone.replace('+', '')}?text=${encodeURIComponent(message)}`;
+
+export const buildMailtoUrl = (email: string = COMPANY.email) => `mailto:${email}`;
+export const buildTelUrl = (phone: string = COMPANY.phone) => `tel:${phone}`;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\contact.config.ts ===
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\contact.ts ===
+import { COMPANY, buildMailtoUrl, buildTelUrl, buildWhatsAppUrl } from './company';
+
+export const CONTACT = {
+  title: 'Have a Project in Mind?',
+  description: "Let's explore how PCEBV can support your next EPC initiative.",
+  trustPoints: ['24-hour response commitment', 'Confidential project discussions', 'Expert technical support'],
+  offices: [
+    {
+      title: 'Registered Office (Netherlands)',
+      lines: [
+        COMPANY.legalName,
+        COMPANY.office.street,
+        `${COMPANY.office.postalCode} ${COMPANY.office.city}`,
+        COMPANY.registration,
+        `Mobile No.: ${COMPANY.phone}`,
+        `Email: ${COMPANY.email}`,
+      ],
+    },
+    {
+      title: 'Partner Engineering Office (India)',
+      lines: [
+        COMPANY.partnerOffice.name,
+        COMPANY.partnerOffice.city,
+        COMPANY.partnerOffice.role,
+        'Disciplines: Process, Piping, Mechanical, Electrical, Instrumentation, Civil',
+      ],
+    },
+  ],
+  links: {
+    mailto: buildMailtoUrl(),
+    tel: buildTelUrl(),
+    whatsapp: buildWhatsAppUrl(),
+  },
+} as const;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\cookies.ts ===
+export type CookieCategory = 'necessary' | 'functional' | 'analytics' | 'marketing';
+
+export interface CookieConsentState {
+  necessary: true;
+  functional: boolean;
+  analytics: boolean;
+  marketing: boolean;
+}
+
+export const COOKIE_CONSENT_STORAGE_KEY = 'pcebv.cookieConsent';
+
+export const DEFAULT_COOKIE_CONSENT: CookieConsentState = {
+  necessary: true,
+  functional: false,
+  analytics: false,
+  marketing: false,
+};
+
+export const loadCookieConsent = (): CookieConsentState | null => {
+  if (typeof window === 'undefined') return null;
+
+  try {
+    const raw = window.localStorage.getItem(COOKIE_CONSENT_STORAGE_KEY);
+    if (!raw) return null;
+
+    const parsed = JSON.parse(raw) as Partial<CookieConsentState>;
+    return {
+      necessary: true,
+      functional: Boolean(parsed.functional),
+      analytics: Boolean(parsed.analytics),
+      marketing: Boolean(parsed.marketing),
+    };
+  } catch {
+    return null;
+  }
+};
+
+export const saveCookieConsent = (consent: CookieConsentState) => {
+  if (typeof window === 'undefined') return;
+  window.localStorage.setItem(COOKIE_CONSENT_STORAGE_KEY, JSON.stringify(consent));
+};
+
+export const acceptAllConsent = (): CookieConsentState => ({
+  necessary: true,
+  functional: true,
+  analytics: true,
+  marketing: true,
+});
+
+export const rejectAllConsent = (): CookieConsentState => ({
+  necessary: true,
+  functional: false,
+  analytics: false,
+  marketing: false,
+});
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\executionModel.ts ===
+export const EXECUTION_MODEL = {
+  title: 'How We Deliver',
+  description: 'A clear organizational split ensures fast, reliable project execution',
+  flow: [
+    { label: 'CLIENT', title: 'Your Objectives', icon: 'Target' },
+    { label: 'PCEBV (EU Ops)', title: 'Commercial & Governance', icon: 'Globe' },
+    { label: 'PCEPL (Mumbai)', title: 'Engineering & Execution', icon: 'Building2' },
+  ],
+} as const;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\footer.ts ===
+import { COMPANY } from './company';
+import { ROUTES } from './routes';
+
+export const FOOTER = {
+  companyLine: `${COMPANY.legalName} is a Netherlands-based engineering and project controls company delivering EPC support across Europe and beyond.`,
+  contactInfo: {
+    email: COMPANY.email,
+    phone: COMPANY.phone,
+    address: `${COMPANY.office.street}, ${COMPANY.office.postalCode} ${COMPANY.office.city}, ${COMPANY.office.country}`,
+  },
+  legalLinks: [
+    { label: 'Privacy Policy', href: ROUTES.privacy },
+    { label: 'Terms of Service', href: ROUTES.terms },
+    { label: 'Cookie Policy', href: ROUTES.cookiePolicy },
+  ],
+} as const;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\forms.ts ===
+export const CONTACT_FORM = {
+  maxNameLength: 120,
+  maxEmailLength: 200,
+  maxPhoneLength: 32,
+  maxCompanyLength: 160,
+  maxMessageLength: 2000,
+  honeypotFieldName: 'website',
+  consentFieldName: 'consent',
+  inquiryTopics: [
+    'General Inquiry',
+    'Product Support',
+    'Sales & Quotes',
+    'Partnership Opportunities',
+    'Careers',
+  ],
+  phonePattern: /^[+]?([0-9\s()-]){7,20}$/,
+  companyPattern: /^[\p{L}\p{N}\s.,&'()\-\/]{2,160}$/u,
+  namePattern: /^[\p{L}\s.'\-]{2,120}$/u,
+} as const;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\hero.ts ===
+import { ROUTES } from './routes';
+
+export const HERO = {
+  label: 'Corporate EPC Delivery',
+  title: 'Engineering & Project Controls for Industrial EPC Projects',
+  subtitle: 'Netherlands-led governance. India-based engineering. Built for clarity, speed, and reliability.',
+  ctas: {
+    primary: 'Consult Us',
+    secondary: 'Explore Services',
+  },
+  images: [
+    { src: '/background/bg3.webp', alt: 'Industrial refinery plant EPC project', focalPoint: 'center 40%' },
+    { src: '/background/bg2.webp', alt: 'Engineering team collaboration at worksite', focalPoint: 'center 50%' },
+    { src: '/background/bg1.webp', alt: 'Industrial plant detail and process equipment', focalPoint: 'center 30%' },
+  ],
+  routes: {
+    services: ROUTES.services,
+    contact: ROUTES.contact,
+  },
+} as const;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\homepage.config.ts ===
+/**
+ * HOMEPAGE CONFIGURATION
+ * Centralized content, colors, typography, and settings
+ * Easy to edit without touching component code
+ */
+
+export const HOMEPAGE_CONFIG = {
+  // ==================== COLOR SYSTEM (60:30:10 Rule) ====================
+  colors: {
+    primary_white: '#FFFFFF',
+    background_light: '#F8FAFC',
+    background_lighter: '#F1F5F9',
+    primary_blue: '#0071e3',
+    primary_blue_dark: '#0056A3',
+    accent_orange: '#C65300',
+    text_dark: '#1F2937',
+    text_gray: '#6B7280',
+    text_light: '#9CA3AF',
+    border_light: '#E5E7EB',
+  },
+
+  // ==================== TYPOGRAPHY SETTINGS ====================
+  typography: {
+    h1_size: 'clamp(1.8rem, 4vw, 3rem)',
+    h1_weight: 900,
+    h1_leading: 1.05,
+
+    h2_size: 'clamp(1.3rem, 2.5vw, 2rem)',
+    h2_weight: 700,
+    h2_leading: 1.2,
+
+    h3_size: 'clamp(1rem, 1.8vw, 1.3rem)',
+    h3_weight: 600,
+    h3_leading: 1.3,
+
+    body_size: 'clamp(0.9rem, 1.4vw, 1.05rem)',
+    body_weight: 400,
+    body_leading: 1.6,
+
+    label_size: '0.75rem',
+    label_weight: 600,
+    label_tracking: '0.18em',
+
+    small_size: '0.875rem',
+    small_weight: 500,
+  },
+
+  // ==================== SPACING GRID ====================
+  spacing: {
+    xs: '0.25rem',
+    sm: '0.5rem',
+    md: '1rem',
+    lg: '1.5rem',
+    xl: '2rem',
+    '2xl': '3rem',
+    '3xl': '4rem',
+    '4xl': '6rem',
+  },
+
+  // ==================== SECTION PADDING ====================
+  sections: {
+    py_mobile: '2rem',
+    py_tablet: '3rem',
+    py_desktop: '4rem',
+    px_mobile: '1rem',
+    px_tablet: '1.5rem',
+    px_desktop: '2rem',
+  },
+
+  // ==================== 1. HERO SECTION ====================
+  hero: {
+    label: 'Corporate EPC Delivery',
+    h1: 'Engineering & Project Controls for\n Industrial EPC Projects',
+    h2: 'Netherlands-led governance. India-based engineering. Built for clarity and precision.',
+    cta_primary: 'Consult Us',
+    cta_secondary: 'Explore Services',
+    background_images: [
+      {
+        src: '/background/bg3.webp',
+        alt: 'Industrial refinery plant EPC project',
+        mobilePosition: '66% center',
+        tabletPosition: '60% center',
+        desktopPosition: 'center 45%'
+      },
+      {
+        src: '/background/bg2.webp',
+        alt: 'Engineering team collaboration at worksite',
+        mobilePosition: '68% center',
+        tabletPosition: '64% center',
+        desktopPosition: 'center 50%'
+      },
+      {
+        src: '/background/bg1.webp',
+        alt: 'Industrial plant detail and process equipment',
+        mobilePosition: '63% center',
+        tabletPosition: '58% center',
+        desktopPosition: 'center 30%'
+      },
+    ],
+    min_height_mobile: '78dvh',
+    min_height_desktop: '85vh',
+  },
+
+  // ==================== 2. TICKER STRIP ====================
+  ticker: {
+    background_color: '#C65300',
+    text_color: '#1F2937',
+    items: [
+      'Project Controls',
+      'Engineering Deliverables',
+      'DAI & Execution Support',
+      'Global EPC Expertise',
+      'Process & Piping',
+      'Field Coordination',
+    ],
+    animation_duration: '32s',
+  },
+
+  // ==================== 3. ABOUT + METRICS ====================
+  about: {
+    title: 'Trusted Partner in Engineering Excellence',
+    description:
+      'With decades of experience delivering complex EPC projects globally, PCEBV combines Netherlands-led client management with India-based engineering excellence to create reliable, scalable solutions for industrial programs.',
+    metrics: [
+      { number: '35+', label: 'Years Experience' },
+      { number: '100+', label: 'Projects Delivered' },
+      { number: '300+', label: 'Engineers' },
+      { number: 'Global', label: 'Presence' },
+    ],
+  },
+
+  // ==================== 4. SERVICES (3 PILLARS) ====================
+  services: {
+    title: 'Core Service Offerings',
+    subtitle: 'Comprehensive EPC and engineering support across the full project lifecycle',
+    items: [
+      {
+        title: 'Project Controls',
+        bullets: [
+          'Schedule and cost planning',
+          'Risk management and mitigation',
+          'Progress tracking and reporting',
+          'Change management and controls',
+        ],
+        link: '/services#project-controls',
+      },
+      {
+        title: 'Engineering Deliverables',
+        bullets: [
+          'Process and piping design',
+          'Mechanical and electrical engineering',
+          '3D plant modeling and visualization',
+          'Execution documentation packages',
+        ],
+        link: '/services#detail-engineering',
+      },
+      {
+        title: 'DAI & Execution Support',
+        bullets: [
+          'Design-Aid-Interface coordination',
+          'Vendor management and liaison',
+          'Field support and readiness coordination',
+          'Field-linked execution assistance',
+        ],
+        link: '/services#procurement-construction',
+      },
+    ],
+  },
+
+  // ==================== 5. EXECUTION MODEL ====================
+  model: {
+    title: 'How We Deliver',
+    description: 'A clear organizational split ensures fast, reliable project execution',
+    flow: [
+      {
+        label: 'CLIENT',
+        title: 'Your Objectives',
+        icon: 'Target',
+      },
+      {
+        label: 'PCEBV (EU Ops)',
+        title: 'Commercial & Governance',
+        icon: 'Globe',
+      },
+      {
+        label: 'PCEPL (Mumbai)',
+        title: 'Engineering & Execution',
+        icon: 'Building2',
+      },
+    ],
+  },
+
+  // ==================== 6. PROJECTS CAROUSEL ====================
+  // ==================== 6. PROJECTS CAROUSEL ====================
+projects: {
+  title: 'Featured Engineering Projects',
+  subtitle:
+    'Representative engineering engagements showcasing our expertise in detail engineering, 3D modelling, and EPC execution support.',
+
+  items: [
+    {
+      image: '/background/bg1.webp',
+      name: 'Petrochemical Plant Design',
+      location: 'Ongoing Project',
+      description:
+        'Comprehensive detail engineering for a large-scale petrochemical facility, including multidisciplinary engineering deliverables, intelligent 3D modelling, construction documentation, and engineering support throughout the project lifecycle.',
+    },
+    {
+      image: '/background/bg2.webp',
+      name: 'Multi-Discipline 3D Engineering',
+      location: 'Ongoing Project',
+      description:
+        'Continuous engineering support through advanced 3D plant modelling, engineering coordination, digital design development, and multidisciplinary collaboration for industrial infrastructure projects.',
+    },
+    {
+      image: '/background/bg3.webp',
+      name: 'MEG Facility EPC Support',
+      location: 'EPC Experience',
+      description:
+        'Integrated engineering support covering design development, engineering documentation, construction coordination, and execution assistance through successful project commissioning.',
+    },
+  ],
+},
+
+  // ==================== 7. CONTACT SECTION ====================
+  contact: {
+    title: 'Have a Project in Mind?',
+    description: "Let's explore how PCEBV can support your next EPC initiative.",
+    trust_points: [
+      '24-hour response commitment',
+      'Confidential project discussions',
+      'Expert technical support',
+    ],
+    form_fields: [
+      { label: 'Full Name', name: 'name', type: 'text', required: true },
+      { label: 'Company', name: 'company', type: 'text', required: true },
+      { label: 'Business Email', name: 'email', type: 'email', required: true },
+      { label: 'Phone', name: 'phone', type: 'tel', required: true },
+      { label: 'Country', name: 'country', type: 'select', options: ['Netherlands', 'Belgium', 'Germany', 'France', 'United Kingdom', 'Other'], required: true },
+      {
+        label: 'Service Interest',
+        name: 'service',
+        type: 'select',
+        options: ['Project Controls', 'Engineering', 'DAI & Execution', 'Full EPC Support'],
+        required: true,
+      },
+      { label: 'Message', name: 'message', type: 'textarea', required: false },
+    ],
+    submit_button: 'Schedule Consultation',
+  },
+
+  // ==================== 8. FOOTER ====================
+  footer: {
+    company_line: 'Engineering excellence. Global delivery. Trusted partnership.',
+    quick_links: [
+      { label: 'Home', href: '#' },
+      { label: 'Services', href: '#services' },
+      { label: 'Projects', href: '#projects' },
+      { label: 'About', href: '#about' },
+    ],
+    legal_links: [
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms & Conditions', href: '/terms' },
+    ],
+    contact_info: {
+      email: 'nishikant.choudhary@pcenc.com',
+      phone: '+31 (0) 6 11 59 68 12',
+      address: 'Netherlands',
+    },
+  },
+};
+
+export default HOMEPAGE_CONFIG;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\index.ts ===
+export * from './about';
+export * from './animations';
+export * from './colors';
+export * from './company';
+export * from './contact';
+export * from './executionModel';
+export * from './footer';
+export * from './forms';
+export * from './hero';
+export * from './navigation';
+export * from './projects';
+export * from './routes';
+export * from './seo';
+export * from './services';
+export * from './spacing';
+export * from './theme';
+export * from './typography';
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\navigation.ts ===
+import { COMPANY } from './company';
+
+export const PRIMARY_NAVIGATION = [
+  { navKey: 'home', label: 'Home', href: COMPANY.routes.home, hasDropdown: false },
+  { navKey: 'services', label: 'Services', href: COMPANY.routes.services, hasDropdown: true, dropdownKey: 'services' },
+  { navKey: 'projects', label: 'Projects', href: COMPANY.routes.projects, hasDropdown: true, dropdownKey: 'projects' },
+  { navKey: 'about', label: 'About', href: COMPANY.routes.about, hasDropdown: true, dropdownKey: 'about' },
+  { navKey: 'contact', label: 'Contact', href: COMPANY.routes.contact, hasDropdown: true, dropdownKey: 'contact' },
+] as const;
+
+export const SERVICE_PILLAR_LINKS = [
+  {
+    id: 'project-controls',
+    href: `${COMPANY.routes.services}#project-controls`,
+    title: 'Project Controls',
+    description: 'Cost, planning, risk, and change governance.',
+  },
+  {
+    id: 'detail-engineering',
+    href: `${COMPANY.routes.services}#detail-engineering`,
+    title: 'Detail Engineering',
+    description: 'Multi-discipline design and deliverables.',
+  },
+  {
+    id: 'procurement-construction',
+    href: `${COMPANY.routes.services}#procurement-construction`,
+    title: 'Execution Support',
+    description: 'Vendor, site, and construction-stage support.',
+  },
+] as const;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\projects.config.ts ===
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\projects.ts ===
+import { ROUTES } from './routes';
+
+export const PROJECTS_SECTION = {
+  title: 'Featured Engineering Projects',
+  subtitle:
+    'Representative engineering engagements showcasing our expertise in detail engineering, 3D modelling, and EPC execution support.',
+  ctaLabel: 'View All Projects',
+  route: ROUTES.projects,
+} as const;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\routes.ts ===
+export const ROUTES = {
+  home: '/',
+  services: '/services',
+  projects: '/projects',
+  about: '/about',
+  contact: '/contact',
+  privacy: '/privacy-policy',
+  terms: '/terms',
+  cookiePolicy: '/cookie-policy',
+  cookiePreferences: '/cookie-preferences',
+  sitemap: '/sitemap.xml',
+  robots: '/robots.txt',
+  manifest: '/manifest.webmanifest',
+} as const;
+
+export const SUPPORTED_LOCALES = ['en', 'nl'] as const;
+export type SupportedLocale = (typeof SUPPORTED_LOCALES)[number];
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\seo.ts ===
+import { COMPANY } from './company';
+import { ROUTES, SUPPORTED_LOCALES } from './routes';
+
+export const SEO = {
+  title: `${COMPANY.name} | Engineering and Project Controls`,
+  description: 'Netherlands-led EPC engineering and project controls for complex industrial projects across Europe.',
+  keywords: [
+    'EPC engineering',
+    'project controls',
+    'detail engineering',
+    'Netherlands engineering',
+    'industrial project planning',
+    'execution support',
+  ],
+  siteName: COMPANY.name,
+  defaultLocale: 'en',
+  supportedLocales: SUPPORTED_LOCALES,
+  canonicalPath: ROUTES.home,
+  ogImage: '/logo/company_logo.png',
+} as const;
+
+export const buildCanonicalUrl = (origin: string, path: string = ROUTES.home) => {
+  const trimmedOrigin = origin.replace(/\/$/, '');
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+  return `${trimmedOrigin}${normalizedPath}`;
+};
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\services.config.ts ===
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\services.ts ===
+import { ROUTES } from './routes';
+
+export const SERVICES_PAGE = {
+  title: 'Core Service Offerings',
+  subtitle: 'Comprehensive EPC and engineering support across the full project lifecycle',
+  fallbackCategories: ['Project Controls', 'Engineering Services', 'Documentation', 'Execution Support', 'Talent Solutions'],
+  hero: {
+    title: 'Our Services',
+    subheading:
+      'Integrated engineering, controls, and documentation services for process industries across the complete EPC project lifecycle.',
+    whatsappPrompt: 'Hi, I\'m interested in PCE BV engineering and project controls services.',
+    routes: {
+      home: ROUTES.home,
+      services: ROUTES.services,
+    },
+  },
+} as const;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\spacing.ts ===
+export const SPACING = {
+  xs: '0.25rem',
+  sm: '0.5rem',
+  md: '1rem',
+  lg: '1.5rem',
+  xl: '2rem',
+  '2xl': '3rem',
+  '3xl': '4rem',
+  '4xl': '6rem',
+} as const;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\theme.ts ===
+import { COLORS } from './colors';
+import { SPACING } from './spacing';
+import { TYPOGRAPHY } from './typography';
+
+export const THEME = {
+  colors: COLORS,
+  spacing: SPACING,
+  typography: TYPOGRAPHY,
+  radius: {
+    sm: '0.375rem',
+    md: '0.5rem',
+    lg: '0.75rem',
+    xl: '1rem',
+  },
+} as const;
+=== E:\INTERXECT_SOLUTIONS\PCEBV\frontend\src\config\typography.ts ===
+export const TYPOGRAPHY = {
+  fontFamily: {
+    sans: 'Inter, system-ui, sans-serif',
+    display: 'Oswald, Inter, system-ui, sans-serif',
+  },
+  scale: {
+    hero: 'clamp(1.8rem, 4vw, 3rem)',
+    h2: 'clamp(1.3rem, 2.5vw, 2rem)',
+    h3: 'clamp(1rem, 1.8vw, 1.3rem)',
+    body: 'clamp(0.9rem, 1.4vw, 1.05rem)',
+    label: '0.75rem',
+    small: '0.875rem',
+  },
+  weight: {
+    hero: 900,
+    heading: 700,
+    body: 400,
+    label: 600,
+    small: 500,
+  },
+  lineHeight: {
+    hero: 1.05,
+    heading: 1.2,
+    body: 1.6,
+  },
+} as const;

@@ -4,17 +4,6 @@
     "quickEnquiry": "Hello, I'm interested in your engineering services. I'd like to discuss a project.",
     "quickEnquiryShort": "Quick Enquiry"
   },
-  "nav": {
-    "home": "Home",
-    "services": "Services",
-    "products": "Solutions",
-    "gallery": "Gallery",
-    "projects": "Projects",
-    "about": "About",
-    "contact": "Contact",
-    "departments": "Departments",
-    "globalOffices": "Global Offices"
-  },
   "about": {
     "badge": "Who We Are",
     "heroHeading": "Engineering precision for industrial execution.",
@@ -255,14 +244,24 @@
         "h4": "3D Modelling"
       },
       "dai": {
-        "title": "DAI & Execution Support",
-        "subtitle": "Design Interface & Field Support",
-        "description": "Design interface management, vendor coordination, engineering documentation, and field support to keep delivery moving.",
-        "h1": "Interface Mgmt.",
-        "h2": "Vendor Coordination",
-        "h3": "Documentation",
-        "h4": "Field Support"
-      }
+  "title": "Digital Asset Intelligence",
+  "subtitle": "Engineering Data Modernization",
+  "description": "Transforming legacy engineering information into structured, intelligent digital assets through document digitization, vendor data integration, digital twin enablement, and lifecycle engineering support.",
+  "h1": "Legacy Digitization",
+  "h2": "Digital Twins",
+  "h3": "Vendor Data Integration",
+  "h4": "Asset Intelligence"
+},
+"differentiators": {
+  "heading": "Key Differentiators",
+  "driver": "Driver",
+  "value": "Value",
+  "items": [
+    { "d": "Digital Transformation", "v": "Laser scanning, digital twins, legacy document conversion" },
+    { "d": "Client-Centric Flexibility", "v": "Scalable resources, tailored collaboration models" },
+    { "d": "Multidisciplinary Capability", "v": "All Engineering discipline including 3D Model and vendor data integration" }
+  ]
+}
     }
   },
   "founders": {
@@ -295,20 +294,25 @@
   "app": {
     "title": "PCE BV | Engineering and Project Controls"
   },
-  "executionModel": {
+"executionModel": {
     "badge": "How We Deliver",
     "heading": "Execution Model",
     "description": "Clear organizational separation ensures responsive governance and scalable execution excellence.",
     "keyFunctions": "Key Functions:",
-    "keyFunction1": "Single Point of Contact",
-    "keyFunction2": "Governance & Compliance",
-    "keyFunction3": "Stakeholder Reporting",
+    "keyFunction1": "✓ Single Point of Contact",
+    "keyFunction2": "✓ Governance & Compliance",
+    "keyFunction3": "✓ Stakeholder Reporting",
     "card1Title": "EU Governance",
     "card1Body": "Client interface and compliance.",
     "card2Title": "Integrated Delivery",
     "card2Body": "Seamless coordination.",
     "card3Title": "India Execution",
-    "card3Body": "Engineering & site support."
+    "card3Body": "Engineering & site support.",
+    "stages": {
+      "client": { "label": "CLIENT", "title": "Your Objectives", "desc": "Project goals, scope, timeline, and delivery requirements" },
+      "eu": { "label": "PCE BV (The Hague)", "title": "EU Operations", "desc": "Commercial interface, governance, approvals, and client relationship management" },
+      "india": { "label": "PCE PL (Mumbai)", "title": "Engineering Execution", "desc": "Multi-discipline delivery, 3D modeling, vendor coordination, and site support" }
+    }
   },
   "hero": {
     "badge": "Engineering and Project Controls",
@@ -320,28 +324,24 @@
     "strip": {
       "controls": "Project Controls",
       "deliverables": "Engineering Deliverables",
-      "execution": "DAI & Execution Support"
+      "execution": "Digital Asset Intelligence"
     },
     "statExperience": "34+ Years of Industry Experience",
     "statEngineers": "300+ Engineering Professionals",
     "statDelivery": "Global EPC Delivery"
   },
   "navbar": {
-    "exploreSolutions": "Explore Solutions",
-    "featuredInventory": "Featured Solutions",
-    "fullInventory": "Full Solutions",
-    "productDemos": "Case Snapshots",
-    "watchVideos": "Project Highlights",
-    "exhibitions": "Events",
-    "eventPhotos": "Event Photos",
-    "missionVision": "Mission and Vision",
-    "readOurStory": "Read Our Story",
-    "contactUs": "Contact Us",
-    "quickChat": "Quick Chat",
-    "bookConsultation": "Book Consultation",
-    "whatsapp": "WhatsApp",
-    "contact": "Contact"
-  },
+  "home": "Home",
+  "services": "Services",
+  "projects": "Projects",
+  "about": "About Us",
+  "contact": "Contact",
+  "navigation": "Navigation",
+  "policies": "Policies",
+  "contactUs": "Consult Us",
+  "tagline": "Engineering & Project Controls",
+  "companyName": "PCE BV."
+},
   "projects": {
     "loadingDeployments": "Loading Projects...",
     "badge": "Track Record",
@@ -507,5 +507,8 @@
       "role": "Technical Director - Engineering Execution",
       "bio": "Strategic engineering leader with deep expertise in multi-discipline execution, process engineering, and project delivery. Leads PCE PL Mumbai operations and coordinates execution excellence across EPC programs."
     }
+
   }
+  
+
 }

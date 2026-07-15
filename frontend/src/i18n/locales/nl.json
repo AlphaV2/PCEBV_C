@@ -4,17 +4,6 @@
     "quickEnquiry": "Hallo, ik ben geïnteresseerd in jullie engineeringdiensten. Ik wil graag een project bespreken.",
     "quickEnquiryShort": "Snelle aanvraag"
   },
-  "nav": {
-    "home": "Home",
-    "services": "Diensten",
-    "products": "Oplossingen",
-    "gallery": "Galerij",
-    "projects": "Projecten",
-    "about": "Over ons",
-    "contact": "Contact",
-    "departments": "Afdelingen",
-    "globalOffices": "Wereldwijde vestigingen"
-  },
   "about": {
     "badge": "Wie wij zijn",
     "heroHeading": "Engineering precisie voor industriële uitvoering.",
@@ -102,7 +91,7 @@
       "emailPlaceholder": "jan@bedrijf.com",
       "interestedIn": "Ik ben geinteresseerd in...",
       "topicLabel": "Onderwerp",
-      "selectTopic": "Selecteer een onderwerp",
+      "selectTopic": "Selecteer eefn onderwerp",
       "messageLabel": "Bericht",
       "messagePlaceholder": "Hoe kunnen we helpen?",
       "topics": {
@@ -115,27 +104,87 @@
     }
   },
   "services": {
-    "project-controls": {
-      "title": "Project Controls Leadership",
-      "shortTitle": "Project Controls",
-      "desc": "Geintegreerd kosten-, planning-, risico- en changemanagement voor complexe projecten."
-    },
-    "detail-engineering": {
-      "title": "Detail Engineering Services",
-      "shortTitle": "Detail Engineering",
-      "desc": "Multi-disciplinaire engineeringondersteuning van FEED tot IFC-deliverables."
-    },
-    "procurement-construction": {
-      "title": "Procurement and Construction Support",
-      "shortTitle": "Procurement and Construction",
-      "desc": "Leverancierscoordinatie, veldondersteuning en controls tijdens de bouwfase."
-    },
-    "documentation-governance": {
-      "title": "Project Documentation and Governance",
-      "shortTitle": "Documentation",
-      "desc": "Documentcontrole, rapportage en governance packs voor leveringszekerheid."
-    }
+  "project-controls": {
+    "title": "Projectbeheersing",
+    "shortTitle": "Project Controls",
+    "desc": "Geïntegreerde kostenbeheersing, planning, risicobeheer en wijzigingsbeheer voor complexe industriële projecten."
   },
+  "planning-scheduling": {
+    "title": "Planning & Scheduling",
+    "shortTitle": "Planning",
+    "desc": "Level 3- en Level 4-planningen met resourceplanning en beheer van het kritieke pad."
+  },
+  "cost-controls": {
+    "title": "Kosten- & Budgetbeheersing",
+    "shortTitle": "Kostenbeheer",
+    "desc": "Raming van totale investeringskosten, budgetbeheer en variantieanalyse."
+  },
+  "risk-management": {
+    "title": "Risico- & Kansenbeheer",
+    "shortTitle": "Risicobeheer",
+    "desc": "Identificatie, beoordeling en beheersing van projectrisico's met benutting van kansen."
+  },
+  "change-management": {
+    "title": "Wijzigings- & Configuratiebeheer",
+    "shortTitle": "Wijzigingsbeheer",
+    "desc": "Gestructureerde wijzigingscontrole en beheer van configuratiebaselines."
+  },
+  "project-governance": {
+    "title": "Projectgovernance & Rapportage",
+    "shortTitle": "Governance",
+    "desc": "Rapportages voor stakeholders, ondersteuning van stuurgroepen en governanceframeworks."
+  },
+  "detail-engineering": {
+    "title": "Detail engineering",
+    "shortTitle": "Detail engineering",
+    "desc": "Multidisciplinaire engineering vanaf FEED tot IFC met hoogwaardige deliverables."
+  },
+  "process-engineering": {
+    "title": "Procesengineering",
+    "shortTitle": "Procesontwerp",
+    "desc": "Procesontwerp, processchema's en P&ID-ontwikkeling voor chemische en energieprojecten."
+  },
+  "piping-engineering": {
+    "title": "Piping Engineering & Spanningsanalyse",
+    "shortTitle": "Pipingontwerp",
+    "desc": "3D-pipingmodellen, isometrieën en spanningsanalyses voor integriteit en veiligheid."
+  },
+  "mechanical-engineering": {
+    "title": "Werktuigbouwkundige Engineering",
+    "shortTitle": "Mechanisch Ontwerp",
+    "desc": "Ontwerp, dimensionering en specificatie van statische en roterende apparatuur."
+  },
+  "electrical-engineering": {
+    "title": "Elektrotechnische & Besturingstechniek",
+    "shortTitle": "Elektrotechnisch Ontwerp",
+    "desc": "Ontwerp van elektrische systemen, belastingsberekeningen en instrumentatie- en besturingsspecificaties."
+  },
+  "civil-structural": {
+    "title": "Civiele & Constructieve Engineering",
+    "shortTitle": "Constructief Ontwerp",
+    "desc": "Constructief ontwerp, funderingsanalyses en civiele werkzaamheden voor industriële installaties."
+  },
+  "3d-plant-modeling": {
+    "title": "3D Plantmodellering & Visualisatie",
+    "shortTitle": "3D Modellering",
+    "desc": "Volledige 3D-plantmodellen voor coördinatie, clashdetectie en constructability reviews."
+  },
+  "procurement-construction": {
+    "title": "Inkoop- & Uitvoeringsondersteuning",
+    "shortTitle": "P&C Ondersteuning",
+    "desc": "Leverancierscoördinatie, field engineering en ondersteuning tijdens de uitvoeringsfase."
+  },
+  "documentation-governance": {
+    "title": "Documentatie & Governance",
+    "shortTitle": "Documentatie",
+    "desc": "Documentbeheer, technische rapportages en governance-documentatie voor projecten."
+  },
+  "commissioning-support": {
+    "title": "Commissioning & Opstartondersteuning",
+    "shortTitle": "Commissioning",
+    "desc": "Planning van commissioning, ondersteuning van de gereedheid en begeleiding tijdens de opstartfase."
+  }
+},
   "products": {
     "badge": "Servicepakketten",
     "heading": "Engineering en Controls Oplossingen",
@@ -156,31 +205,44 @@
       "brochure": "Brochure"
     }
   },
-  "hero": {
-    "badge": "Engineering en Project Controls",
-    "titleLine1": "Complexe projecten leveren",
-    "titleHighlight": "Met precisie en vertrouwen.",
-    "subtitle": "Petroleum Consulting Engineers BV ondersteunt EPC-teams met detail engineering, controls en documentatie-excellentie.",
-    "subtitleStrong": "Eenvoudig. Effectief. Conform standaarden.",
-    "feature1": "Engineering",
-    "feature1Line2": "Excellentie",
-    "feature2": "Gedisciplineerde",
-    "feature2Line2": "Uitvoering",
-    "feature3": "Wereldwijd",
-    "feature3Line2": "Perspectief",
-    "ctaProducts": "Bekijk oplossingen",
-    "ctaWhatsapp": "WhatsApp-chat",
-    "recognizedBy": "Geregistreerd en actief in",
-    "msmeStatus": "Nederland",
-    "startupIndiaStatus": "Partnerschap India",
-    "incubationPrefix": "Opgericht en",
-    "incubationEmphasis": "geregistreerd",
-    "incubationSuffix": "bij KVK op 30 april 2025",
-    "incubationInstitute": "PCE BV met partneruitvoering via PCE PL Mumbai",
-    "statExperience": "34+ Jaar branche-ervaring",
-    "statEngineers": "300+ Engineering professionals",
-    "statDelivery": "Wereldwijde EPC-levering"
+  "executionModel": {
+    "badge": "Hoe wij leveren",
+    "heading": "Uitvoeringsmodel",
+    "description": "Heldere organisatorische scheiding zorgt voor responsieve governance en schaalbare uitvoeringsuitmuntendheid.",
+    "keyFunctions": "Kernfuncties:",
+    "keyFunction1": "✓ Eén contactpunt",
+    "keyFunction2": "✓ Governance & compliance",
+    "keyFunction3": "✓ Stakeholderrapportage",
+    "card1Title": "EU Governance",
+    "card1Body": "Klantinterface en compliance.",
+    "card2Title": "Geïntegreerde levering",
+    "card2Body": "Naadloze coördinatie.",
+    "card3Title": "India-uitvoering",
+    "card3Body": "Engineering & site support.",
+    "stages": {
+      "client": { "label": "KLANT", "title": "Uw doelstellingen", "desc": "Projectdoelen, scope, tijdlijn en leveringseisen" },
+      "eu": { "label": "PCE BV (Den Haag)", "title": "EU-activiteiten", "desc": "Commerciële interface, governance, goedkeuringen en relatiebeheer" },
+      "india": { "label": "PCE PL (Mumbai)", "title": "Engineering-uitvoering", "desc": "Multidisciplinaire levering, 3D-modellering, coördinatie met leveranciers en ondersteuning op locatie" }
+    }
   },
+  "hero": {
+  "badge": "Engineering en Project Controls",
+  "titleLine1": "Engineering en Projectbeheersing",
+  "titleHighlight": "Voor Industriële EPC-projecten",
+  "subtitle": "Petroleum Consulting Engineers BV ondersteunt EPC-teams met detailengineering, project controls en documentatie-excellentie.",
+  "cta_primary": "Neem contact op",
+  "cta_secondary": "Consultatie aanvragen",
+
+  "strip": {
+    "controls": "Project Controls",
+    "deliverables": "Engineering Deliverables",
+    "execution": "Digitale Asset Intelligence"
+  },
+
+  "statExperience": "34+ Jaar Industrie-ervaring",
+  "statEngineers": "300+ Engineering Professionals",
+  "statDelivery": "Wereldwijde EPC-levering"
+},
   "servicesSection": {
     "badge": "Kernexpertise",
     "heading": "Oplossingen voor projectlevering",
@@ -226,13 +288,13 @@
         "h4": "3D Modellering"
       },
       "dai": {
-        "title": "DAI & Uitvoeringsondersteuning",
-        "subtitle": "Design Interface & Veldondersteuning",
-        "description": "Design interface management, vendorcoördinatie, engineeringdocumentatie en veldondersteuning om levering in beweging te houden.",
-        "h1": "Interface Mgmt.",
-        "h2": "Vendorcoördinatie",
-        "h3": "Documentatie",
-        "h4": "Veldondersteuning"
+        "title": "Digital Asset Intelligence",
+        "subtitle": "Modernisering van Engineeringgegevens",
+        "description": "Wij helpen industriële opdrachtgevers bestaande engineeringinformatie om te zetten in gestructureerde digitale assets voor revisies, onderhoud, digitale tweelingen en toekomstige engineeringprojecten.",
+        "h1": "Digitalisering van Legacy-data",
+        "h2": "Engineeringgegevens",
+        "h3": "Digitale Tweelingen",
+        "h4": "Asset Intelligence"
       }
     }
   },
@@ -282,21 +344,17 @@
     "card3Body": "Engineering en locatie-ondersteuning."
   },
   "navbar": {
-    "exploreSolutions": "Bekijk oplossingen",
-    "featuredInventory": "Uitgelichte oplossingen",
-    "fullInventory": "Alle oplossingen",
-    "productDemos": "Case snapshots",
-    "watchVideos": "Project highlights",
-    "exhibitions": "Events",
-    "eventPhotos": "Eventfoto's",
-    "missionVision": "Missie en visie",
-    "readOurStory": "Lees ons verhaal",
-    "contactUs": "Contact opnemen",
-    "quickChat": "Snelle chat",
-    "bookConsultation": "Consultatie boeken",
-    "whatsapp": "WhatsApp",
-    "contact": "Contact"
-  },
+  "home": "Home",
+  "services": "Diensten",
+  "projects": "Projecten",
+  "about": "Over ons",
+  "contact": "Contact",
+  "navigation": "Navigatie",
+  "policies": "Beleid",
+  "contactUs": "Raadpleeg ons",
+  "tagline": "Engineering en Projectbeheersing",
+  "companyName": "PCE BV."
+},
   "projects": {
     "loadingDeployments": "Projecten laden...",
     "badge": "Track record",

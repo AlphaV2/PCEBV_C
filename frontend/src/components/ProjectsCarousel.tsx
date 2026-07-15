@@ -117,7 +117,7 @@ const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ isHomepage = true }
             onClick={() => setActiveId(null)}
           >
             <div 
-              className="bg-white w-full max-w-md h-full shadow-2xl flex flex-col relative border-l border-slate-200"
+              className="bg-white w-full max-w-lg h-full shadow-2xl flex flex-col relative border-l border-slate-200"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50 shrink-0">

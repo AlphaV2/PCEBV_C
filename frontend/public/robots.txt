@@ -1,4 +1,14 @@
 User-agent: *
+
 Allow: /
 
-Sitemap: /sitemap.xml
+Disallow: /backend/
+Disallow: /api/
+Disallow: /.env
+Disallow: /.git
+
+Sitemap: https://pcebv.com/sitemap.xml
+
+Host: https://pcebv.com
+
+Crawl-delay: 2

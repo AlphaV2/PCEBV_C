@@ -38,23 +38,23 @@ const App: React.FC = () => {
   const whatsappMessage = t('whatsapp.message', "Hi, I'm interested in PCE BV engineering and project controls services.");
   const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
 
-  useEffect(() => {
-    const trackVisitor = async () => {
-      if (!cookieConsent?.analytics) return;
+  // useEffect(() => {
+  //   const trackVisitor = async () => {
+  //     if (!cookieConsent?.analytics) return;
 
-      try {
-        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-        fetch(`${API_BASE_URL}/track_visitor.php`, {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({ page: currentPath, referrer: document.referrer })
-        }).catch(() => {});
-      } catch (e) {
-        // Silent fail
-      }
-    };
-    trackVisitor();
-  }, [currentPath, cookieConsent?.analytics]);
+  //     try {
+  //       const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  //       fetch(`${API_BASE_URL}/track_visitor.php`, {
+  //         method: 'POST',
+  //         headers: {'Content-Type': 'application/json'},
+  //         body: JSON.stringify({ page: currentPath, referrer: document.referrer })
+  //       }).catch(() => {});
+  //     } catch (e) {
+  //       // Silent fail
+  //     }
+  //   };
+  //   trackVisitor();
+  // }, [currentPath, cookieConsent?.analytics]);
 
   const handleOpenService = (service: Service) => setSelectedService(service);
   const handleOpenProduct = (product: Product) => setSelectedProduct(product);
