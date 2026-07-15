@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Loader2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Analytics } from '@vercel/analytics/react';
 
 import Navbar from './src/components/Navbar';
 import Footer from './src/components/Footer';
@@ -136,6 +137,9 @@ const App: React.FC = () => {
 
       {/* Floating Contact Form */}
       <FloatingContactForm />
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
 
       <style>{`
         .brand-surface ::selection {
